@@ -66,10 +66,10 @@
   --accent: #f8f9fa;
   --accent-foreground: #1a1a1a;
   --destructive: hsl(0, 84%, 60%);
-  
+
   /* Brand colors exatos do original */
-  --brand-neon: #82f472;  /* Verde neon exato */
-  --brand-purple: #a855f7;  /* Roxo exato */
+  --brand-neon: #fbbf24;  /* Amber 400 – otimismo/conquista */
+  --brand-purple: #2563eb;  /* Blue 600 – pertencimento/confiança */
   --brand-success: hsl(148, 76%, 42%);
   --brand-error: #ff6b6b;
   --brand-warning: hsl(42, 93%, 56%);
@@ -204,26 +204,27 @@
 
 /* Custom utility classes */
 .text-gradient {
-  background: linear-gradient(135deg, #82f472, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  color: #2563eb;
 }
 
 .bg-brand-neon {
-  background-color: #82f472;
+  background-color: #fbbf24;
 }
 
 .bg-brand-purple {
-  background-color: #a855f7;
+  background-color: #2563eb;
 }
 
 .text-brand-neon {
-  color: #82f472;
+  color: #fbbf24;
 }
 
 .text-brand-purple {
-  color: #a855f7;
+  color: #2563eb;
 }
 
 .text-brand-success {
@@ -288,8 +289,9 @@
 
 /* Button styles */
 .btn-primary {
-  background: linear-gradient(135deg, #82f472, #a855f7);
+  background: #f59e0b; /* amber-500 */
   border: none;
+  color:#0b0b0b;
   transition: all 0.3s ease;
 }
 
@@ -299,7 +301,8 @@
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #a855f7, #82f472);
+  background:  #2563eb;
+  color: #ffffff;
   border: none;
   transition: all 0.3s ease;
 }
@@ -311,7 +314,7 @@
 
 /* Cyber grid background - mais sutil para fundo branco */
 .cyber-grid {
-  background-image: 
+  background-image:
     linear-gradient(rgba(130, 244, 114, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(130, 244, 114, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -324,6 +327,96 @@
 
 .glow-text {
   text-shadow: 0 0 10px currentColor;
+}
+
+/* Modern hero / spotlight styles */
+.hero-bg {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(1200px 600px at 10% 20%, rgba(168,85,247,0.10), transparent 15%),
+              radial-gradient(1000px 500px at 90% 80%, rgba(130,244,114,0.08), transparent 15%),
+              linear-gradient(180deg, rgba(250,250,252,1) 0%, rgba(245,247,250,1) 100%);
+}
+
+.hero-container {
+  position: relative;
+  z-index: 10;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  transform-origin: center;
+}
+
+.blob--purple {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle at 30% 30%, rgba(168,85,247,0.9), rgba(168,85,247,0.35) 40%, transparent 60%);
+  right: -10%;
+  top: -10%;
+  animation: morphing 10s ease-in-out infinite;
+}
+
+.blob--green {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at 70% 70%, rgba(130,244,114,0.85), rgba(130,244,114,0.30) 45%, transparent 65%);
+  left: -8%;
+  bottom: -8%;
+  animation: morphing 12s ease-in-out infinite reverse;
+}
+
+.accent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(168,85,247,0.08);
+  font-weight: 700;
+}
+
+/* Glowing CTA button */
+.btn-glow {
+  background: #f59e0b; /* amber-500 */
+  color: #0b0b0b;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 24px rgba(37,99,235,0.14), 0 2px 8px rgba(251,146,60,0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-glow:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 48px rgba(37,99,235,0.22), 0 6px 18px rgba(251,146,60,0.16);
+}
+
+.btn-outline-ghost {
+  background: transparent;
+  border: 1px solid rgba(26,26,26,0.06);
+  color: var(--brand-dark);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+/* Stronger glass card for email capture */
+.email-card {
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+  box-shadow: 0 12px 30px rgba(12,18,29,0.06);
+  border: 1px solid rgba(168,85,247,0.06);
+}
+
+.cta-subtext {
+  font-size: 0.95rem;
+  color: #475569;
 }
 
 /* Job card styles from original */
@@ -369,7 +462,7 @@
 .company-logo {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #a855f7, #82f472);
+  background: #82f472;
   color: #fff;
   display: flex;
   align-items: center;
@@ -463,8 +556,33 @@
 }
 
 .skill-tag:hover {
-  background: linear-gradient(135deg, #a855f7, #82f472);
-  color: white;
-  transform: translateY(-1px);
+  cursor: pointer;
 }
 
+
+
+/* Site background dots pattern and subtle float animations */
+.bg-dots {
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@keyframes slow-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes slow-float-delayed {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.animate-slow-float { animation: slow-float 12s ease-in-out infinite; }
+.animate-slow-float-delayed { animation: slow-float-delayed 14s ease-in-out infinite; }
+
+
+/* Disable any stray sidebar UI globally (remove extra sidebar/rail) */
+[data-slot="sidebar-container"],
+[data-slot="sidebar-gap"],
+[data-slot="sidebar-rail"] {
+  display: none !important;
+}

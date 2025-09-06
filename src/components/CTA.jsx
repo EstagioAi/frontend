@@ -20,7 +20,6 @@ const CTA = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl p-8 shadow-lg border">
             <div className="text-center mb-6">
-              <div className="text-4xl mb-4">🎓</div>
               <h3 className="text-2xl font-bold text-gradient mb-2">Sou Estudante</h3>
             </div>
             
@@ -40,7 +39,7 @@ const CTA = () => {
                 placeholder="Sua universidade" 
                 className="w-full px-4 py-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
               />
-              <Button className="w-full bg-gradient-brand hover:opacity-90 py-3">
+              <Button className="w-full" variant="solid-cta" size="lg">
                 Quero ser notificado
               </Button>
             </div>
@@ -48,7 +47,6 @@ const CTA = () => {
 
           <div className="bg-white rounded-2xl p-8 shadow-lg border">
             <div className="text-center mb-6">
-              <div className="text-4xl mb-4">🏢</div>
               <h3 className="text-2xl font-bold text-gradient mb-2">Sou Empresa</h3>
             </div>
             
@@ -68,7 +66,7 @@ const CTA = () => {
                 placeholder="Seu cargo" 
                 className="w-full px-4 py-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
               />
-              <Button className="w-full bg-gradient-brand hover:opacity-90 py-3">
+              <Button className="w-full" variant="outline" size="lg">
                 Quero contratar talentos
               </Button>
             </div>

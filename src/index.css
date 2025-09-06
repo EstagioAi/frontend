@@ -1,0 +1,33 @@
+
+/* Reset e correção de overflow lateral */
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Imagens responsivas por padrão */
+img { max-width: 100%; height: auto; display: block; }
+
+
+/* Testimonials marquee animation */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Apply on the scrolling track */
+.animate-marquee-left {
+  animation: marquee-left 28s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover of the container */
+.marquee-container:hover .animate-marquee-left {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left { animation: none; transform: none; }
+}

@@ -32,25 +32,26 @@ const ProblemsSection = () => {
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-semibold ring-1 ring-emerald-200 mb-6">
             A realidade dos universitários
           </div>
-          <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">
+          <h2 className="text-3xl md:text-5xl font-black mb-4 text-gray-900 tracking-tight">
             Sabemos que buscar estágios é{' '}
-            <span className="text-red-500">torturante</span>
+            <span className="text-[#FACC15]">desafiador</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Nossa pesquisa com <span className="text-green-500 font-bold">26 universitários</span> revelou os principais problemas que{' '}
-            <span className="text-red-500 font-bold">todo estudante enfrenta</span> ao procurar estágios no Brasil.
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+            Nossa pesquisa com <span className="text-[#01E297] font-bold">26 universitários</span> revelou os principais problemas que{' '}
+            <span className="text-[#092116] font-bold">todo estudante enfrenta</span> ao procurar estágios no Brasil.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {problems.map((problem, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200"
+              className="group relative rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-400"
             >
+              <div className="absolute inset-x-6 -top-3 h-3 rounded-t-2xl bg-gradient-to-r from-transparent via-emerald-100/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></div>
               <h3 className="text-xl font-bold mb-4 text-black">
                 {problem.title}
               </h3>
@@ -61,21 +62,13 @@ const ProblemsSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-white rounded-2xl p-8 border-l-4 border-blue-500 shadow-sm">
-          <blockquote className="text-lg md:text-xl italic text-center text-gray-600">
-            "O LinkedIn domina como principal plataforma,<br />
-            mas apenas <span className="font-bold text-blue-500">24 de 26 estudantes</span> o usam por falta de alternativas melhores."
-          </blockquote>
-          <p className="text-center text-sm text-gray-500 mt-4 font-medium">
-            Pesquisa EstagioAI com 26 universitários
-          </p>
-        </div>
+
 
         <div className="text-center mt-16">
           <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black">
             Está cansado dessa realidade?
           </h3>
-          <p className="text-lg text-gradient font-semibold">
+          <p className="text-lg text-[#01E297] font-semibold">
             Vamos mudar isso juntos
           </p>
         </div>

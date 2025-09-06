@@ -13,63 +13,35 @@ const EmailCaptureSection = () => {
   }
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-brand-neon/10 to-brand-purple/10">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="mb-8">
-          <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">
-            Comece agora{' '}
-            <span className="text-gradient">de graça</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Seja um dos primeiros a testar a plataforma que vai revolucionar 
-            sua busca por estágios. Cadastre seu email e receba acesso antecipado.
-          </p>
-        </div>
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-4xl mx-auto">
+        <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 shadow-lg">
+          <div className="absolute -inset-1 bg-[radial-gradient(40%_40%_at_50%_0%,#01E2971a,transparent)]" aria-hidden="true" />
+          <div className="relative p-8 sm:p-10 text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold ring-1 ring-emerald-200 mb-4">Acesso antecipado</div>
+            <h2 className="text-3xl md:text-4xl font-black mb-3 text-gray-900 tracking-tight">Comece agora <span className="text-[#01E297]">de graça</span></h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">Seja um dos primeiros a testar a plataforma que vai transformar sua busca por estágios.</p>
 
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Digite seu melhor email"
-              required
-              className="flex-1 px-6 py-4 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-transparent bg-white shadow-sm"
-            />
-            <Button 
-              type="submit"
-              size="lg"
-              className="bg-brand-neon text-black hover:bg-brand-neon/90 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              Quero Acesso!
-            </Button>
-          </div>
-        </form>
+            <form onSubmit={handleSubmit} className="mt-6 max-w-2xl mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Digite seu melhor email"
+                  required
+                  className="flex-1 px-5 py-3.5 md:px-6 md:py-4 text-base md:text-lg border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#01E297] focus:border-transparent bg-white shadow-sm"
+                />
+                <Button type="submit" size="lg" className="h-12 px-6 rounded-xl bg-[#01E297] text-black font-semibold hover:brightness-95 sm:w-auto w-full">Quero Acesso!</Button>
+              </div>
+            </form>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-600">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>100% gratuito</span>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-gray-600">
+              <div className="flex items-center gap-2 justify-center"><span className="w-2.5 h-2.5 bg-[#01E297] rounded-full" /><span>100% gratuito</span></div>
+              <div className="flex items-center gap-2 justify-center"><span className="w-2.5 h-2.5 bg-[#01E297] rounded-full" /><span>Acesso antecipado</span></div>
+              <div className="flex items-center gap-2 justify-center"><span className="w-2.5 h-2.5 bg-[#01E297] rounded-full" /><span>Sem spam</span></div>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>Acesso antecipado</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>Sem spam</span>
-          </div>
-        </div>
-
-        <div className="mt-12 bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200">
-          <blockquote className="text-lg italic text-center text-gray-700 mb-4">
-            <span className="text-brand-neon font-bold">O LinkedIn domina como principal plataforma,</span><br />
-            mas apenas <span className="text-red-500 font-bold">24 de 26 estudantes</span> o usam por{' '}
-            <span className="text-yellow-600 font-bold">falta de alternativas melhores.</span>
-          </blockquote>
-          <p className="text-center text-sm text-gray-500 font-medium">
-            Pesquisa EstagioAI com 26 universitários
-          </p>
         </div>
       </div>
     </section>
