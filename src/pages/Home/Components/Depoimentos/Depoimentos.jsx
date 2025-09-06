@@ -1,36 +1,39 @@
-import React from 'react'
+import React from "react";
 
-const TestimonialsSection = () => {
+const Depoimentos = () => {
   const testimonials = [
     {
       name: "Ana",
       course: "Engenharia",
       university: "UNIFEI",
       avatar: "A",
-      quote: "A falta de feedback é o que mais me frustra. Você envia currículo e fica no vazio, sem saber se foi ao menos visualizado."
+      quote:
+        "A falta de feedback é o que mais me frustra. Você envia currículo e fica no vazio, sem saber se foi ao menos visualizado.",
     },
     {
       name: "Carlos",
       course: "Computação",
       university: "USP",
       avatar: "C",
-      quote: "Seria incrível ter transparência no processo. Saber quantos candidatos tem, em que etapa estou, qual minha posição."
+      quote:
+        "Seria incrível ter transparência no processo. Saber quantos candidatos tem, em que etapa estou, qual minha posição.",
     },
     {
       name: "Maria",
       course: "Administração",
       university: "UFMG",
       avatar: "M",
-      quote: "As plataformas atuais são muito confusas. Preciso usar 5 sites diferentes e ainda assim não encontro vagas boas."
-    }
-  ]
+      quote:
+        "As plataformas atuais são muito confusas. Preciso usar 5 sites diferentes e ainda assim não encontro vagas boas.",
+    },
+  ];
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">
-            O que os universitários{' '}
+            O que os universitários{" "}
             <span className="text-gradient">estão dizendo</span>
           </h2>
           <p className="text-lg text-gray-600">
@@ -40,7 +43,7 @@ const TestimonialsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div 
+            <div
               key={index}
               className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200"
             >
@@ -49,11 +52,15 @@ const TestimonialsSection = () => {
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <div className="font-bold text-black">{testimonial.name}, {testimonial.course}</div>
-                  <div className="text-sm text-gray-600">{testimonial.university}</div>
+                  <div className="font-bold text-black">
+                    {testimonial.name}, {testimonial.course}
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    {testimonial.university}
+                  </div>
                 </div>
               </div>
-              
+
               <blockquote className="text-gray-600 italic leading-relaxed">
                 "{testimonial.quote}"
               </blockquote>
@@ -62,8 +69,7 @@ const TestimonialsSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TestimonialsSection
-
+export default Depoimentos;
