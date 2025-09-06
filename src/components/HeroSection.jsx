@@ -62,6 +62,49 @@ const HeroSection = () => {
                 <img src="./diverse-students-celebrating-internship-success.jpg" alt="Estudante sorridente" className="w-[88%] h-[88%] object-cover rounded-full" />
               </div>
 
+              {/* Mini logos flutuando fora da imagem, em anel com distância uniforme */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <div className="relative w-[132%] h-[132%]">
+                  {/* top */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2">
+                    <div className="float-y float-y-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
+                      <img src="https://logo.clearbit.com/google.com" alt="Google" className="w-6 h-6 object-contain" />
+                    </div>
+                  </div>
+                  {/* right */}
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2">
+                    <div className="float-y float-y-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
+                      <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" className="w-6 h-6 object-contain" />
+                    </div>
+                  </div>
+                  {/* bottom */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+                    <div className="float-y float-y-3 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
+                      <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" className="w-6 h-6 object-contain" />
+                    </div>
+                  </div>
+                  {/* left */}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2">
+                    <div className="float-y float-y-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
+                      <img src="https://logo.clearbit.com/ibm.com" alt="IBM" className="w-6 h-6 object-contain" />
+                    </div>
+                  </div>
+                  {/* top-left */}
+                  <div className="absolute top-[11%] left-[11%]">
+                    <div className="float-y float-y-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
+                      <img src="https://logo.clearbit.com/meta.com" alt="Meta" className="w-6 h-6 object-contain" />
+                    </div>
+                  </div>
+                  {/* bottom-right */}
+                  <div className="absolute bottom-[11%] right-[11%]">
+                    <div className="float-y float-y-6 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
+                      <img src="https://logo.clearbit.com/netflix.com" alt="Netflix" className="w-6 h-6 object-contain" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
               {/* Mini card de prova social */}
               <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 bg-white rounded-2xl shadow-xl border border-gray-200 px-4 py-3 w-[240px] sm:w-[280px] animate-scale-in" style={{maxWidth:'calc(100% - 12px)'}}>
                 <p className="text-[12px] sm:text-[13px] font-semibold text-gray-900 mb-2">

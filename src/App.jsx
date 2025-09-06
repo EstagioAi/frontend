@@ -3,8 +3,6 @@ import Navigation from './components/Navigation'
 import HeroSection from './components/HeroSection'
 import CategoriesSection from './components/CategoriesSection'
 import HowItWorksSection from './components/HowItWorksSection'
-import CompaniesSection from './components/CompaniesSection'
-import NewestJobsSection from './components/NewestJobsSection'
 import ProblemsSection from './components/ProblemsSection'
 import SolutionSection from './components/SolutionSection'
 import FeedbackSection from './components/FeedbackSection'
@@ -30,8 +28,6 @@ function App() {
       <HeroSection />
       <CategoriesSection />
       <HowItWorksSection />
-      <CompaniesSection />
-      <NewestJobsSection />
       <ProblemsSection />
       <SolutionSection />
       <FeedbackSection />

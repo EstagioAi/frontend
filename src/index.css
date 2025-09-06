@@ -31,3 +31,34 @@ img { max-width: 100%; height: auto; display: block; }
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee-left { animation: none; transform: none; }
 }
+
+
+/* Floating logos: vertical random-like motion */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.float-y { animation: float-y var(--float-duration, 6s) ease-in-out infinite; will-change: transform; }
+.float-y-1 { --float-duration: 5.2s; animation-delay: .1s; }
+.float-y-2 { --float-duration: 6.4s; animation-delay: .6s; }
+.float-y-3 { --float-duration: 7.4s; animation-delay: .3s; }
+.float-y-4 { --float-duration: 5.8s; animation-delay: .9s; }
+.float-y-5 { --float-duration: 6.8s; animation-delay: 0s; }
+.float-y-6 { --float-duration: 7.8s; animation-delay: .45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .float-y { animation: none; }
+}
+
+
+/* Anchors for centered radial positioning of logos */
+.logo-anchor{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); }
+.logo-offset{ transform: translate(var(--dx, 0), var(--dy, 0)); }
+
+
+/* Force sizing for site logo in navbar and footer */
+.site-logo { height: 40px !important; max-height: 40px !important; width: auto !important; display: block; }
+@media (min-width: 640px) { .site-logo { height: 48px !important; max-height: 48px !important; } }
+.footer-logo { height: 28px !important; max-height: 28px !important; width: auto !important; display: block; }
+@media (min-width: 640px) { .footer-logo { height: 32px !important; max-height: 32px !important; } }

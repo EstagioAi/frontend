@@ -53,16 +53,18 @@ const FeaturesSection = () => {
                 {f.icon}
               </div>
 
-              <div className="relative min-h-[96px]">
-                {/* Problema (fade out) */}
-                <div className="space-y-2 transition-opacity duration-700 ease-out group-hover:opacity-0">
-                  <div className="text-[11px] font-medium text-gray-500 tracking-wide uppercase">Problema</div>
-                  <p className="text-gray-800">{f.problem}</p>
-                </div>
-                {/* Solução (fade in) */}
-                <div className="space-y-2 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 absolute inset-0">
-                  <div className="text-[11px] font-medium text-emerald-700 tracking-wide uppercase">Solução</div>
-                  <p className="text-gray-900 font-medium">{f.solution}</p>
+              <div className="relative min-h-[120px] [perspective:1000px]">
+                <div className="relative h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  {/* Frente: Problema */}
+                  <div className="absolute inset-0 space-y-2 [backface-visibility:hidden]">
+                    <div className="text-[11px] font-semibold text-red-600 tracking-wide uppercase">Problema</div>
+                    <p className="text-gray-900 font-semibold">{f.problem}</p>
+                  </div>
+                  {/* Verso: Solução */}
+                  <div className="absolute inset-0 space-y-2 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <div className="text-[11px] font-semibold text-emerald-700 tracking-wide uppercase">Solução</div>
+                    <p className="text-gray-900 font-semibold">{f.solution}</p>
+                  </div>
                 </div>
               </div>
             </div>
