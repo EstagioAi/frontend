@@ -8,24 +8,57 @@ const FeedbackSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Dashboard de Candidaturas */}
           <div className="bg-white rounded-2xl p-6 md:p-8 shadow-[0_6px_30px_rgba(0,0,0,0.06)] border border-gray-200/70">
-            <h3 className="text-lg md:text-xl font-bold text-[#01E297] tracking-tight mb-6">Dashboard de Candidaturas</h3>
+            <h3 className="text-lg md:text-xl font-bold text-black tracking-tight mb-6">Progresso de sua candidatura</h3>
 
             <div className="space-y-4 mb-6">
-              <div className="flex flex-wrap gap-2.5">
-                <span className="inline-flex items-center rounded-full bg-yellow-50 text-yellow-700 ring-1 ring-yellow-200 px-2.5 py-1 text-xs font-medium">Enviada</span>
-                <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 px-2.5 py-1 text-xs font-medium">Visualizada</span>
-                <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 ring-1 ring-blue-200 px-2.5 py-1 text-xs font-medium">Entrevista</span>
-                <span className="inline-flex items-center rounded-full bg-teal-50 text-teal-700 ring-1 ring-teal-200 px-2.5 py-1 text-xs font-medium">Finalizada</span>
-              </div>
+              {/* Linha de etapas com rotulos alinhados aos pontos */}
+              <div className="grid grid-cols-7 gap-2">
+                {/* Labels (linha 1) */}
+                <div className="col-start-1 flex justify-center">
+                  <span className="inline-flex items-center rounded-full bg-yellow-50 text-yellow-700 ring-1 ring-yellow-200 px-2.5 py-1 text-xs font-medium">Enviada</span>
+                </div>
+                <div className="col-start-3 flex justify-center">
+                  <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 px-2.5 py-1 text-xs font-medium">Visualizada</span>
+                </div>
+                <div className="col-start-5 flex justify-center">
+                  <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 ring-1 ring-blue-200 px-2.5 py-1 text-xs font-medium">Entrevista</span>
+                </div>
+                <div className="col-start-7 flex justify-center">
+                  <span className="inline-flex items-center rounded-full bg-teal-50 text-teal-700 ring-1 ring-teal-200 px-2.5 py-1 text-xs font-medium">Finalizada</span>
+                </div>
 
-              <div className="flex items-center gap-3">
-                <span className="w-3.5 h-3.5 rounded-full bg-[#01E297]"></span>
-                <span className="flex-1 h-2 rounded-full bg-gradient-to-r from-[#01E297] to-emerald-400"></span>
-                <span className="w-3.5 h-3.5 rounded-full bg-[#01E297]"></span>
-                <span className="flex-1 h-2 rounded-full bg-gray-200"></span>
-                <span className="w-3.5 h-3.5 rounded-full bg-gray-200"></span>
-                <span className="flex-1 h-2 rounded-full bg-gray-200"></span>
-                <span className="w-3.5 h-3.5 rounded-full bg-gray-200"></span>
+                {/* Timeline (linha 2) */}
+                {/* Dot 1 */}
+                <div className="col-start-1 flex items-center justify-center">
+                  <span className="relative block w-3.5 h-3.5 rounded-full bg-[#01E297]"></span>
+                </div>
+                {/* Bar 1-2 preenchida */}
+                <div className="col-start-2 flex items-center">
+                  <span className="w-full h-2 rounded-full -mx-1 bg-gradient-to-r from-[#01E297] to-emerald-400"></span>
+                </div>
+                {/* Dot 2 (atual - com ping) */}
+                <div className="col-start-3 flex items-center justify-center">
+                  <span className="relative inline-flex">
+                    <span className="absolute inline-flex h-3.5 w-3.5 rounded-full bg-[#01E297] opacity-40 animate-ping"></span>
+                    <span className="relative inline-flex w-3.5 h-3.5 rounded-full bg-[#01E297] ring-4 ring-[#01E297]/20 transition-all"></span>
+                  </span>
+                </div>
+                {/* Bar 2-3 pendente */}
+                <div className="col-start-4 flex items-center">
+                  <span className="w-full h-2 rounded-full -mx-1 bg-gray-200"></span>
+                </div>
+                {/* Dot 3 pendente */}
+                <div className="col-start-5 flex items-center justify-center">
+                  <span className="w-3.5 h-3.5 rounded-full bg-gray-200"></span>
+                </div>
+                {/* Bar 3-4 pendente */}
+                <div className="col-start-6 flex items-center">
+                  <span className="w-full h-2 rounded-full -mx-1 bg-gray-200"></span>
+                </div>
+                {/* Dot 4 pendente */}
+                <div className="col-start-7 flex items-center justify-center">
+                  <span className="w-3.5 h-3.5 rounded-full bg-gray-200"></span>
+                </div>
               </div>
             </div>
 
@@ -38,14 +71,7 @@ const FeedbackSection = () => {
           {/* Feedback Obrigatório */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center border border-white/10">
-                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M2 11V5" stroke="#01E297" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M6 11V3" stroke="#01E297" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M10 11V7" stroke="#01E297" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M14 11V9" stroke="#01E297" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
+
               <h2 className="text-2xl md:text-3xl font-bold">
                 <span className="text-[#01E297]">Feedback</span>{' '}
                 <span className="text-white">Obrigatório</span>

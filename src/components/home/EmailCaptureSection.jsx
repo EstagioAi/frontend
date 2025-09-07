@@ -13,7 +13,11 @@ const EmailCaptureSection = () => {
   }
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="orb orb--emerald orb-animate w-[320px] h-[320px] -top-10 left-[-40px]"></div>
+        <div className="orb orb--teal orb-animate w-[260px] h-[260px] -bottom-12 right-[-30px]"></div>
+      </div>
       <div className="max-w-4xl mx-auto">
         <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 shadow-lg">
           <div className="absolute -inset-1 bg-[radial-gradient(40%_40%_at_50%_0%,#01E2971a,transparent)]" aria-hidden="true" />

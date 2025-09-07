@@ -3,7 +3,11 @@ import { Button } from '@/components/ui/button.jsx'
 
 const CTASection = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="orb orb--emerald orb-animate w-[340px] h-[340px] -top-16 -left-10"></div>
+        <div className="orb orb--teal orb-animate w-[280px] h-[280px] -bottom-12 -right-12"></div>
+      </div>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">

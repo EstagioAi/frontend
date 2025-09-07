@@ -20,7 +20,11 @@ const Login = () => {
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
         {/* Coluna esquerda: texto forte */}
-        <div className="flex items-center px-6 md:px-10 py-10">
+        <div className="relative flex items-center px-6 md:px-10 py-10 overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 -z-10">
+            <div className="orb orb--emerald orb-animate w-[300px] h-[300px] -top-8 -left-24"></div>
+            <div className="orb orb--purple orb-animate w-[220px] h-[220px] bottom-0 -right-10"></div>
+          </div>
           <div className="w-full max-w-xl animate-fade-in-up">
             <p className="text-sm tracking-wider text-gray-500 font-medium mb-6">OPORTUNIDADES DE ESTÁGIO</p>
             <h1 className="text-[40px] md:text-[56px] leading-[1.05] font-extrabold text-black mb-6">

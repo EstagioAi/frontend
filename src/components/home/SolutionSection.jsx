@@ -1,4 +1,4 @@
-import { Star, Accessibility, HeartPulse } from 'lucide-react'
+import { Star, Accessibility, HeartPulse, CheckCircle2 } from 'lucide-react'
 import React from 'react'
 
 const SolutionSection = () => {
@@ -32,19 +32,19 @@ const SolutionSection = () => {
             
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 bg-[#01E297] rounded-full"></div>
+                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
                 <span className="text-gray-700">Filtros inteligentes por disponibilidade e modalidade</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 bg-[#01E297] rounded-full"></div>
+                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
                 <span className="text-gray-700">Score de afinidade visual com cores intuitivas</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 bg-[#01E297] rounded-full"></div>
+                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
                 <span className="text-gray-700">Histórico de contratações da sua universidade</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 bg-[#01E297] rounded-full"></div>
+                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
                 <span className="text-gray-700">Análise de competitividade em tempo real</span>
               </div>
             </div>
