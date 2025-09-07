@@ -68,7 +68,7 @@
   --destructive: hsl(0, 84%, 60%);
 
   /* Brand colors exatos do original */
-  --brand-neon: #fbbf24;  /* Amber 400 – otimismo/conquista */
+  --brand-neon: #01E297;  /* Verde da marca – padronizado */
   --brand-purple: #2563eb;  /* Blue 600 – pertencimento/confiança */
   --brand-success: hsl(148, 76%, 42%);
   --brand-error: #ff6b6b;
@@ -289,7 +289,7 @@
 
 /* Button styles */
 .btn-primary {
-  background: #f59e0b; /* amber-500 */
+  background: #01E297; /* brand green */
   border: none;
   color:#0b0b0b;
   transition: all 0.3s ease;
@@ -385,7 +385,7 @@
 
 /* Glowing CTA button */
 .btn-glow {
-  background: #f59e0b; /* amber-500 */
+  background: #01E297; /* brand green */
   color: #0b0b0b;
   padding: 1rem 2rem;
   border-radius: 1rem;
@@ -448,7 +448,7 @@
 .progress-bar {
   height: 100%;
   border-radius: 3px;
-  background: linear-gradient(90deg, #ff6b6b, #ffa726, #66bb6a, #42a5f5);
+  background: linear-gradient(90deg, #34d399, #01E297);
   transition: all 0.3s ease;
 }
 
