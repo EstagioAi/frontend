@@ -95,7 +95,7 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50%  { transform: translateY(-20px); }
 }
 
 @keyframes float-delayed {
@@ -578,11 +578,3 @@
 
 .animate-slow-float { animation: slow-float 12s ease-in-out infinite; }
 .animate-slow-float-delayed { animation: slow-float-delayed 14s ease-in-out infinite; }
-
-
-/* Disable any stray sidebar UI globally (remove extra sidebar/rail) */
-[data-slot="sidebar-container"],
-[data-slot="sidebar-gap"],
-[data-slot="sidebar-rail"] {
-  display: none !important;
-}

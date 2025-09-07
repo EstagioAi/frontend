@@ -1,3 +1,4 @@
+import { Star } from 'lucide-react'
 import React from 'react'
 
 const SolutionSection = () => {
@@ -53,7 +54,7 @@ const SolutionSection = () => {
           <div className="job-card bg-white rounded-2xl p-6 shadow-lg border border-gray-200 relative animate-scale-in">
             {/* Barra de progresso no canto superior direito */}
             <div className="progress-bar-container">
-              <div className="progress-bar" style={{width: '85%', background: 'linear-gradient(90deg,#01E297,#FACC15)'}}></div>
+              <div className="progress-bar" style={{width: '85%', background: 'linear-gradient(90deg,#e2cc01,#01e232)'}}></div>
             </div>
             
             <div className="job-card-header">
@@ -85,8 +86,9 @@ const SolutionSection = () => {
               </div>
             </div>
             
-            <div className="text-xs text-gray-500 mt-4">
-              3 estudantes da UNIFEI foram aprovados aqui nos últimos 6 meses
+            <div className="mb-4 inline-flex items-center gap-2 px-3 py-1.5 ">
+             <Star  className="w-4 h-4 text-[#01E297]"/>
+              <span className="text-xs font-medium text-gray-400 tracking-wide">3 estudantes da UNIFEI foram aprovados aqui nos últimos 6 meses</span> 
             </div>
           </div>
         </div>

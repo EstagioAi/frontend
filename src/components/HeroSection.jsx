@@ -5,7 +5,7 @@ import { Sparkles, Search, MapPin, Briefcase, Star } from 'lucide-react'
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-28 pb-16 bg-white overflow-hidden">
+    <section className="relative pt-20 pb-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Esquerda: título & busca */}
@@ -59,46 +59,46 @@ const HeroSection = () => {
             <div className="relative w-full max-w-md sm:max-w-lg">
               <div className="absolute inset-0 sm:-inset-2 rounded-full bg-[#01E297]/20 blur-2xl" />
               <div className="aspect-square rounded-full bg-[#01E297] flex items-center justify-center overflow-hidden">
-                <img src="./diverse-students-celebrating-internship-success.jpg" alt="Estudante sorridente" className="w-[88%] h-[88%] object-cover rounded-full" />
+                <img src="./diverse-students-celebrating-internship-success.png" alt="Estudante sorridente" className="w-[88%] h-[88%] object-cover rounded-full" />
               </div>
 
               {/* Mini logos flutuando fora da imagem, em anel com distância uniforme */}
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                 <div className="relative w-[132%] h-[132%]">
                   {/* top */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2">
+                  <div className="absolute top-10 left-1/2 -translate-x-1/2">
                     <div className="float-y float-y-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="https://logo.clearbit.com/google.com" alt="Google" className="w-6 h-6 object-contain" />
+                      <img src="./companies/google.png" alt="Google" className="w-6 h-6 object-contain" />
                     </div>
                   </div>
                   {/* right */}
                   <div className="absolute right-0 top-1/2 -translate-y-1/2">
                     <div className="float-y float-y-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" className="w-6 h-6 object-contain" />
+                      <img src="./companies/microsft.png" alt="Microsoft" className="w-6 h-6 object-contain" />
                     </div>
                   </div>
                   {/* bottom */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+                  <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
                     <div className="float-y float-y-3 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" className="w-6 h-6 object-contain" />
+                      <img src="./companies/amazon.png" alt="Amazon" className="w-6 h-6 object-contain" />
                     </div>
                   </div>
                   {/* left */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2">
                     <div className="float-y float-y-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="https://logo.clearbit.com/ibm.com" alt="IBM" className="w-6 h-6 object-contain" />
+                      <img src="/companies/ibm.png" alt="IBM" className="w-6 h-6 object-contain" />
                     </div>
                   </div>
                   {/* top-left */}
                   <div className="absolute top-[11%] left-[11%]">
                     <div className="float-y float-y-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="https://logo.clearbit.com/meta.com" alt="Meta" className="w-6 h-6 object-contain" />
+                      <img src="/companies/meta.png" alt="Meta" className="w-6 h-6 object-contain" />
                     </div>
                   </div>
                   {/* bottom-right */}
                   <div className="absolute bottom-[11%] right-[11%]">
                     <div className="float-y float-y-6 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="https://logo.clearbit.com/netflix.com" alt="Netflix" className="w-6 h-6 object-contain" />
+                      <img src="/companies/netflix.png" alt="Netflix" className="w-6 h-6 object-contain" />
                     </div>
                   </div>
                 </div>
@@ -106,15 +106,15 @@ const HeroSection = () => {
 
 
               {/* Mini card de prova social */}
-              <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 bg-white rounded-2xl shadow-xl border border-gray-200 px-4 py-3 w-[240px] sm:w-[280px] animate-scale-in" style={{maxWidth:'calc(100% - 12px)'}}>
+              <div className="absolute bottom-0 left-0 sm:bottom-0 sm:left-0 bg-white rounded-2xl shadow-xl border border-gray-200 px-4 py-3 w-[240px] sm:w-[280px] animate-scale-in" style={{maxWidth:'calc(100% - 12px)'}}>
                 <p className="text-[12px] sm:text-[13px] font-semibold text-gray-900 mb-2">
                   10k+ candidatos conseguiram vaga
                 </p>
                 <div className="flex items-center -space-x-3">
-                  {[1,2,3,4,5,6].map((i) => (
+                  {[1,23,32,41,10,30].map((i) => (
                     <img key={i} src={`https://i.pravatar.cc/48?img=${i}`} alt="avatar" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full ring-2 ring-white" />
                   ))}
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#212121] text-white grid place-items-center ring-2 ring-white text-sm font-semibold">+</div>
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#212121] text-white grid place-items-center ring-2 ring-white text-sm font-semibold">...</div>
                 </div>
               </div>
             </div>
