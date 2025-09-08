@@ -1,5 +1,5 @@
-import { Star, Accessibility, HeartPulse, CheckCircle2 } from 'lucide-react'
-import React from 'react'
+import { Star, Accessibility, HeartPulse, CheckCircle2 } from "lucide-react";
+import React from "react";
 
 const SolutionSection = () => {
   return (
@@ -10,13 +10,13 @@ const SolutionSection = () => {
             Nossa solução inteligente
           </div>
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">
-            Criamos a resposta para cada{' '}
+            Criamos a resposta para cada{" "}
             <span className="text-[#01E297]">problema identificado</span>
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Desenvolvemos funcionalidades revolucionárias baseadas nos feedbacks
-            diretos dos universitários para eliminar cada frustração do processo de
-            busca por estágios.
+            diretos dos universitários para eliminar cada frustração do processo
+            de busca por estágios.
           </p>
         </div>
 
@@ -26,49 +26,75 @@ const SolutionSection = () => {
               Recomendações Personalizadas
             </h3>
             <p className="text-lg text-gray-600 mb-8">
-              Algoritmo de IA que analisa seu perfil universitário, histórico de aprovações 
-              da sua instituição e calcula suas chances reais em cada vaga.
+              Algoritmo de IA que analisa seu perfil universitário, histórico de
+              aprovações da sua instituição e calcula suas chances reais em cada
+              vaga.
             </p>
-            
+
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-gray-700">Filtros inteligentes por disponibilidade e modalidade</span>
+                <span className="text-gray-700">
+                  Filtros inteligentes por disponibilidade e modalidade
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-gray-700">Score de afinidade visual com cores intuitivas</span>
+                <span className="text-gray-700">
+                  Score de afinidade visual com cores intuitivas
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-gray-700">Histórico de contratações da sua universidade</span>
+                <span className="text-gray-700">
+                  Histórico de contratações da sua universidade
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-gray-700">Análise de competitividade em tempo real</span>
+                <span className="text-gray-700">
+                  Análise de competitividade em tempo real
+                </span>
               </div>
             </div>
           </div>
-          
+
           {/* Cartão real de vaga (estilo do mock) */}
           <div className="job-card bg-white rounded-2xl p-6 shadow-lg border border-gray-200 relative animate-scale-in">
             {/* Barra de afinidade no canto superior direito */}
             <div className="progress-bar-container">
-              <div className="progress-bar" style={{ width: '85%', background: 'linear-gradient(90deg,#34d399,#01E297)' }}></div>
+              <div
+                className="progress-bar"
+                style={{
+                  width: "85%",
+                  background: "linear-gradient(90deg,#34d399,#01E297)",
+                }}
+              ></div>
             </div>
 
             {/* Cabeçalho: logo + título + metadados */}
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className="company-logo" style={{ background: '#01E297', color: '#0b0b0b' }}>A</div>
+                <div
+                  className="company-logo"
+                  style={{ background: "#01E297", color: "#0b0b0b" }}
+                >
+                  A
+                </div>
                 <div>
-                  <h4 className="text-[16px] md:text-lg font-semibold text-gray-900">Senior UI/UX Designer</h4>
-                  <div className="text-xs text-gray-500">Adobe • Postado há 2 horas</div>
+                  <h4 className="text-[16px] md:text-lg font-semibold text-gray-900">
+                    Trainee UI/UX Designer
+                  </h4>
+                  <div className="text-xs text-gray-500">
+                    Adobe • Postado há 2 horas
+                  </div>
                 </div>
               </div>
               <div className="text-right">
                 <div className="text-[12px] text-gray-500">Afinidade</div>
-                <div className="text-sm font-semibold text-emerald-600">85%</div>
+                <div className="text-sm font-semibold text-emerald-600">
+                  85%
+                </div>
               </div>
             </div>
 
@@ -76,35 +102,47 @@ const SolutionSection = () => {
 
             {/* Descrição curta */}
             <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
-              Na Adobe, criatividade encontra inovação! Procuramos UI/UX Designers experientes e apaixonados por sistemas de design e por melhorar jornadas de usuário.
+              Na Adobe, criatividade encontra inovação! Procuramos UI/UX
+              Designers experientes e apaixonados por sistemas de design e por
+              melhorar jornadas de usuário.
             </p>
 
             {/* Rodapé: chips + salário */}
             <div className="mt-4 flex items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-2.5 py-1 rounded-full text-xs bg-gray-100 text-gray-700">3y+</span>
-                <span className="px-2.5 py-1 rounded-full text-xs bg-gray-100 text-gray-700">Full time</span>
-                <span className="px-2.5 py-1 rounded-full text-xs bg-gray-100 text-gray-700">Onsite / LA</span>
-                <span className="px-2.5 py-1 rounded-full text-xs bg-emerald-50 text-emerald-700 inline-flex items-center gap-1"><Accessibility className="w-3.5 h-3.5"/> Inclusiva (PCD)</span>
-                <span className="px-2.5 py-1 rounded-full text-xs bg-rose-50 text-rose-700 inline-flex items-center gap-1"><HeartPulse className="w-3.5 h-3.5"/> Saúde</span>
+                <span className="px-2.5 py-1 rounded-full text-xs bg-gray-100 text-gray-700">
+                  Integral
+                </span>
+                <span className="px-2.5 py-1 rounded-full text-xs bg-gray-100 text-gray-700">
+                  Presencial / SP
+                </span>
+                <span className="px-2.5 py-1 rounded-full text-xs bg-emerald-50 text-emerald-700 inline-flex items-center gap-1">
+                  <Accessibility className="w-3.5 h-3.5" /> Inclusiva (PCD)
+                </span>
+                <span className="px-2.5 py-1 rounded-full text-xs bg-rose-50 text-rose-700 inline-flex items-center gap-1">
+                  <HeartPulse className="w-3.5 h-3.5" /> Wellhub
+                </span>
               </div>
               <div className="text-right whitespace-nowrap">
-                <div className="text-sm font-semibold text-gray-900">$10k–13k</div>
-                <div className="text-xs text-gray-500">/month</div>
+                <div className="text-sm font-semibold text-gray-900">
+                  R$2k–3k
+                </div>
+                <div className="text-xs text-gray-500">/mês</div>
               </div>
             </div>
 
             {/* Nota de aprovação por universitários (mantida) */}
             <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5">
               <Star className="w-4 h-4 text-[#01E297]" />
-              <span className="text-xs font-medium text-gray-400 tracking-wide">3 estudantes da UNIFEI foram aprovados aqui nos últimos 6 meses</span>
+              <span className="text-xs font-medium text-gray-400 tracking-wide">
+                3 estudantes da UNIFEI foram aprovados aqui nos últimos 6 meses
+              </span>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SolutionSection
-
+export default SolutionSection;
