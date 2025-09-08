@@ -8,7 +8,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <a href="/" className="inline-flex items-center gap-3">
-              <img src="/logo.svg" alt="EstagioAI" className="h-7 w-auto" />
+              <img
+                src="/logo-v-branca.svg"
+                alt="EstagioAI"
+                className="h-7 w-auto"
+              />
             </a>
             <p className="mt-4 text-white/70 text-sm max-w-xs">
               De universitários, para universitários. Transparência, feedback e
