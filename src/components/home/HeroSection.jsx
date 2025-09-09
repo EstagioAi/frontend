@@ -66,9 +66,9 @@ const HeroSection = () => {
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                 <div className="relative w-[132%] h-[132%]">
                   {/* top */}
-                  <div className="absolute top-10 left-1/2 -translate-x-1/2">
-                    <div className="float-y float-y-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="./companies/google.png" alt="Google" className="w-6 h-6 object-contain" />
+                  <div className="absolute top-10 left-1/2 -translate-x-1/2  ">
+                    <div className="float-y float-y-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center ">
+                      <img src="./companies/google.png" alt="Google" className="w-6 h-6 object-contain " />
                     </div>
                   </div>
                   {/* right */}
