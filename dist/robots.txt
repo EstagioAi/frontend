@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloqueie páginas temporárias, se necessário
+Disallow: /em-construcao
+
+Sitemap: https://estagioai.com/sitemap.xml
+

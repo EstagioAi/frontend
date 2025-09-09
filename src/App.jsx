@@ -16,10 +16,13 @@ import CommercialContact from "./pages/CommercialContact.jsx";
 import CompanyJobs from "./pages/companies/CompanyJobs.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EmConstrucao from "./pages/EmConstrucao";
+import RouteSEO from "./components/RouteSEO.jsx";
 
 function App() {
   return (
     <BrowserRouter>
+      {/* SEO dinâmico por rota */}
+      <RouteSEO />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
