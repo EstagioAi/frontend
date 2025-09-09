@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Input } from '@/components/ui/input.jsx'
 import { Sparkles, Search, MapPin, Briefcase, Star } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const HeroSection = () => {
   return (
@@ -63,43 +64,55 @@ const HeroSection = () => {
               </div>
 
               {/* Mini logos flutuando fora da imagem, em anel com distância uniforme */}
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-[132%] h-[132%]">
                   {/* top */}
-                  <div className="absolute top-10 left-1/2 -translate-x-1/2  ">
-                    <div className="float-y float-y-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center ">
-                      <img src="./companies/google.png" alt="Google" className="w-6 h-6 object-contain " />
-                    </div>
+                  <div className="absolute top-10 left-1/2 -translate-x-1/2">
+                    <Link to="/empresas/google" aria-label="Google" className="block">
+                      <div className="float-y float-y-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
+                        <img src="./companies/google.png" alt="Google" className="w-6 h-6 object-contain" />
+                      </div>
+                    </Link>
                   </div>
                   {/* right */}
                   <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                    <div className="float-y float-y-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="./companies/microsft.png" alt="Microsoft" className="w-6 h-6 object-contain" />
-                    </div>
+                    <Link to="/empresas/microsoft" aria-label="Microsoft" className="block">
+                      <div className="float-y float-y-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
+                        <img src="./companies/microsft.png" alt="Microsoft" className="w-6 h-6 object-contain" />
+                      </div>
+                    </Link>
                   </div>
                   {/* bottom */}
                   <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
-                    <div className="float-y float-y-3 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="./companies/amazon.png" alt="Amazon" className="w-6 h-6 object-contain" />
-                    </div>
+                    <Link to="/empresas/amazon" aria-label="Amazon" className="block">
+                      <div className="float-y float-y-3 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
+                        <img src="./companies/amazon.png" alt="Amazon" className="w-6 h-6 object-contain" />
+                      </div>
+                    </Link>
                   </div>
                   {/* left */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                    <div className="float-y float-y-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="/companies/ibm.png" alt="IBM" className="w-6 h-6 object-contain" />
-                    </div>
+                    <Link to="/empresas/ibm" aria-label="IBM" className="block">
+                      <div className="float-y float-y-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
+                        <img src="/companies/ibm.png" alt="IBM" className="w-6 h-6 object-contain" />
+                      </div>
+                    </Link>
                   </div>
                   {/* top-left */}
                   <div className="absolute top-[11%] left-[11%]">
-                    <div className="float-y float-y-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="/companies/meta.png" alt="Meta" className="w-6 h-6 object-contain" />
-                    </div>
+                    <Link to="/empresas/meta" aria-label="Meta" className="block">
+                      <div className="float-y float-y-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
+                        <img src="/companies/meta.png" alt="Meta" className="w-6 h-6 object-contain" />
+                      </div>
+                    </Link>
                   </div>
                   {/* bottom-right */}
                   <div className="absolute bottom-[11%] right-[11%]">
-                    <div className="float-y float-y-6 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center">
-                      <img src="/companies/netflix.png" alt="Netflix" className="w-6 h-6 object-contain" />
-                    </div>
+                    <Link to="/empresas/netflix" aria-label="Netflix" className="block">
+                      <div className="float-y float-y-6 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
+                        <img src="/companies/netflix.png" alt="Netflix" className="w-6 h-6 object-contain" />
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
