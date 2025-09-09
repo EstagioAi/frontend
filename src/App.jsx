@@ -17,6 +17,11 @@ import CompanyJobs from "./pages/companies/CompanyJobs.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EmConstrucao from "./pages/EmConstrucao";
 import RouteSEO from "./components/RouteSEO.jsx";
+import Sobre from "./pages/Sobre.jsx";
+import Blog from "./pages/Blog.jsx";
+import MuralDeVagas from "./pages/MuralDeVagas.jsx";
+import Contato from "./pages/Contato.jsx";
+
 
 function App() {
   return (
@@ -37,6 +42,11 @@ function App() {
         <Route path="/como-publicar-vagas" element={<PostJobsGuide />} />
         <Route path="/planos-e-precos" element={<PricingPlans />} />
         <Route path="/contato-comercial" element={<CommercialContact />} />
+        <Route path="/sobre" element={<Sobre />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/mural-de-vagas" element={<MuralDeVagas />} />
+        <Route path="/contato" element={<Contato />} />
+
         <Route path="/empresas/:slug" element={<CompanyJobs />} />
         <Route path="/em-construcao" element={<EmConstrucao />} />
       </Routes>

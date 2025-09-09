@@ -69,6 +69,24 @@ export default function getSEO(pathname) {
       title: "Contato Comercial — Estágio AI",
       description: "Fale com nosso time para parcerias, demonstrações e condições para sua empresa.",
     },
+
+	    "/sobre": {
+	      title: "Sobre — Estágio AI",
+	      description: "Conheça nossa missão, valores e como ajudamos universitários e empresas.",
+	    },
+	    "/blog": {
+	      title: "Blog — Estágio AI",
+	      description: "Conteúdos, novidades e dicas para impulsionar sua carreira de estágio.",
+	    },
+	    "/mural-de-vagas": {
+	      title: "Mural de Vagas — Estágio AI",
+	      description: "Veja oportunidades recentes e acompanhe sua compatibilidade.",
+	    },
+	    "/contato": {
+	      title: "Contato — Estágio AI",
+	      description: "Fale com nossa equipe: dúvidas, sugestões ou parcerias.",
+	    },
+
     "/em-construcao": {
       title: "Página em construção — Estágio AI",
       description: "Estamos preparando novidades para você. Volte em breve!",

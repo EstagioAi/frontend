@@ -62,3 +62,7 @@ img { max-width: 100%; height: auto; display: block; }
 @media (min-width: 640px) { .site-logo { height: 48px !important; max-height: 48px !important; } }
 .footer-logo { height: 28px !important; max-height: 28px !important; width: auto !important; display: block; }
 @media (min-width: 640px) { .footer-logo { height: 32px !important; max-height: 32px !important; } }
+
+
+/* Blog: esconder temporariamente divs duplicados de link gerados por encoding */
+.post-card-body > div { display: none; }

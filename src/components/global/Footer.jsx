@@ -110,6 +110,31 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
+
+            {/* Newsletter compacta */}
+            <div className="mt-6">
+              <p className="text-xs text-white/60 mb-2">Inscreva-se na nossa newsletter</p>
+              <form className="flex items-center gap-2" onSubmit={(e) => e.preventDefault()} aria-label="Inscrever newsletter">
+                <label htmlFor="footer-email" className="sr-only">Seu e-mail</label>
+                <div className="relative w-full sm:w-52">
+                  <svg className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/60" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+                    <path d="M1 2.5C1 1.67 1.67 1 2.5 1H15.5C16.33 1 17 1.67 17 2.5V11.5C17 12.33 16.33 13 15.5 13H2.5C1.67 13 1 12.33 1 11.5V2.5Z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M2 3.5L9 8.5L16 3.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <input
+                    id="footer-email"
+                    type="email"
+                    placeholder="seu@email.com"
+                    aria-label="Seu e-mail"
+                    className="h-8 w-full pl-8 pr-2 rounded-md border border-white/15 bg-white/5 text-white text-[13px] placeholder:text-white/60 outline-none focus-visible:ring-[3px] focus-visible:ring-emerald-500/25 focus-visible:border-emerald-400"
+                  />
+                </div>
+                <button className="h-8 px-2 rounded-md border border-white/15 bg-white/5 text-white/90 text-[13px] hover:bg-white/10 transition-colors" type="submit">
+                  Inscrever
+                </button>
+              </form>
+            </div>
+
           </div>
 
           {/* Navegação */}
