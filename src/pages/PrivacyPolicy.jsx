@@ -1,8 +1,11 @@
 import React from 'react'
+import Navigation from '@/components/global/Navigation'
+import Footer from '@/components/global/Footer'
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-white">
+      <Navigation />
       <div className="max-w-3xl mx-auto px-6 py-10">
         <a href="#" onClick={(e) => { e.preventDefault(); window.history.back(); }} className="text-sm text-gray-600 hover:text-gray-800">&larr; Voltar</a>
         <h1 className="text-3xl md:text-4xl font-extrabold text-black mt-4">Política de Privacidade</h1>
@@ -26,6 +29,7 @@ const PrivacyPolicy = () => {
           <p>Adotamos medidas técnicas e organizacionais para proteger suas informações.</p>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
