@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import Navigation from '@/components/global/Navigation'
 import Footer from '@/components/global/Footer'
 import HeroSection from '@/components/home/HeroSection'
-import CategoriesSection from '@/components/home/CategoriesSection'
-import ProblemsSection from '@/components/home/ProblemsSection'
-import SolutionSection from '@/components/home/SolutionSection'
-import FeedbackSection from '@/components/home/FeedbackSection'
-import FormatoUnificadoSection from '@/components/home/FormatoUnificadoSection'
-import FeaturesSection from '@/components/home/FeaturesSection'
-import TestimonialsSection from '@/components/home/TestimonialsSection'
-import EmailCaptureSection from '@/components/home/EmailCaptureSection'
-import CTASection from '@/components/home/CTASection'
+// Carregamento diferido de seções abaixo da dobra para reduzir trabalho inicial
+const CategoriesSection = lazy(() => import('@/components/home/CategoriesSection'))
+const ProblemsSection = lazy(() => import('@/components/home/ProblemsSection'))
+const SolutionSection = lazy(() => import('@/components/home/SolutionSection'))
+const FeedbackSection = lazy(() => import('@/components/home/FeedbackSection'))
+const FormatoUnificadoSection = lazy(() => import('@/components/home/FormatoUnificadoSection'))
+const FeaturesSection = lazy(() => import('@/components/home/FeaturesSection'))
+const TestimonialsSection = lazy(() => import('@/components/home/TestimonialsSection'))
+const EmailCaptureSection = lazy(() => import('@/components/home/EmailCaptureSection'))
+const CTASection = lazy(() => import('@/components/home/CTASection'))
 
 export default function Home() {
   return (
@@ -24,15 +25,33 @@ export default function Home() {
 
       <Navigation />
       <HeroSection />
-      <CategoriesSection />
-      <ProblemsSection />
-      <SolutionSection />
-      <FeedbackSection />
-      <FormatoUnificadoSection />
-      <FeaturesSection />
-      <TestimonialsSection />
-      <EmailCaptureSection />
-      <CTASection />
+  <Suspense fallback={null}>
+        <CategoriesSection />
+  </Suspense>
+  <Suspense fallback={null}>
+        <ProblemsSection />
+  </Suspense>
+  <Suspense fallback={null}>
+        <SolutionSection />
+  </Suspense>
+  <Suspense fallback={null}>
+        <FeedbackSection />
+  </Suspense>
+  <Suspense fallback={null}>
+        <FormatoUnificadoSection />
+  </Suspense>
+  <Suspense fallback={null}>
+        <FeaturesSection />
+  </Suspense>
+  <Suspense fallback={null}>
+        <TestimonialsSection />
+  </Suspense>
+  <Suspense fallback={null}>
+        <EmailCaptureSection />
+  </Suspense>
+  <Suspense fallback={null}>
+        <CTASection />
+  </Suspense>
       <Footer />
     </div>
   )

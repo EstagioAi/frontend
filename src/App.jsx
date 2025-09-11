@@ -1,26 +1,29 @@
 import React from "react";
-import Home from "./pages/Home";
 import "./App.css";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import TermsOfUse from "./pages/TermsOfUse.jsx";
-import TermsOfService from "./pages/TermsOfService.jsx";
-import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
-import SupportStudents from "./pages/SupportStudents.jsx";
-import HelpCenter from "./pages/HelpCenter.jsx";
-import ImproveProfile from "./pages/ImproveProfile.jsx";
-import SupportCompanies from "./pages/SupportCompanies.jsx";
-import PostJobsGuide from "./pages/PostJobsGuide.jsx";
-import PricingPlans from "./pages/PricingPlans.jsx";
-import CommercialContact from "./pages/CommercialContact.jsx";
-import CompanyJobs from "./pages/companies/CompanyJobs.jsx";
+import { Suspense, lazy } from 'react'
+
+// Home deve renderizar imediatamente para reduzir Render Delay do LCP
+import Home from './pages/Home'
+const Login = lazy(() => import('./pages/Login.jsx'))
+const Register = lazy(() => import('./pages/Register.jsx'))
+const TermsOfUse = lazy(() => import('./pages/TermsOfUse.jsx'))
+const TermsOfService = lazy(() => import('./pages/TermsOfService.jsx'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy.jsx'))
+const SupportStudents = lazy(() => import('./pages/SupportStudents.jsx'))
+const HelpCenter = lazy(() => import('./pages/HelpCenter.jsx'))
+const ImproveProfile = lazy(() => import('./pages/ImproveProfile.jsx'))
+const SupportCompanies = lazy(() => import('./pages/SupportCompanies.jsx'))
+const PostJobsGuide = lazy(() => import('./pages/PostJobsGuide.jsx'))
+const PricingPlans = lazy(() => import('./pages/PricingPlans.jsx'))
+const CommercialContact = lazy(() => import('./pages/CommercialContact.jsx'))
+const CompanyJobs = lazy(() => import('./pages/companies/CompanyJobs.jsx'))
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EmConstrucao from "./pages/EmConstrucao";
 import RouteSEO from "./components/RouteSEO.jsx";
-import Sobre from "./pages/Sobre.jsx";
-import Blog from "./pages/Blog.jsx";
-import MuralDeVagas from "./pages/MuralDeVagas.jsx";
-import Contato from "./pages/Contato.jsx";
+const Sobre = lazy(() => import('./pages/Sobre.jsx'))
+const Blog = lazy(() => import('./pages/Blog.jsx'))
+const MuralDeVagas = lazy(() => import('./pages/MuralDeVagas.jsx'))
+const Contato = lazy(() => import('./pages/Contato.jsx'))
 
 
 function App() {
@@ -28,7 +31,8 @@ function App() {
     <BrowserRouter>
       {/* SEO dinâmico por rota */}
       <RouteSEO />
-      <Routes>
+  <Suspense fallback={<div style={{padding:'4rem',textAlign:'center'}}>Carregando…</div>}>
+  <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -50,6 +54,7 @@ function App() {
         <Route path="/empresas/:slug" element={<CompanyJobs />} />
         <Route path="/em-construcao" element={<EmConstrucao />} />
       </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

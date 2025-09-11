@@ -11,7 +11,7 @@ const SolutionSection = () => {
           </div>
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">
             Criamos a resposta para cada{" "}
-            <span className="text-[#01E297]">problema identificado</span>
+            <span className="text-emerald-700">problema identificado</span>
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Desenvolvemos funcionalidades revolucionárias baseadas nos feedbacks
@@ -79,20 +79,20 @@ const SolutionSection = () => {
                   className="company-logo"
                   style={{ background: "#01E297", color: "#0b0b0b" }}
                 >
-                  A
+                  E
                 </div>
                 <div>
                   <h4 className="text-[16px] md:text-lg font-semibold text-gray-900">
-                    Trainee UI/UX Designer
+                    Estágio UI/UX Designer
                   </h4>
                   <div className="text-xs text-gray-500">
-                    Adobe • Postado há 2 horas
+                    Estagioai • Postado há 2 horas
                   </div>
                 </div>
               </div>
               <div className="text-right">
                 <div className="text-[12px] text-gray-500">Afinidade</div>
-                <div className="text-sm font-semibold text-emerald-600">
+                <div className="text-sm font-semibold text-emerald-700">
                   85%
                 </div>
               </div>
@@ -102,7 +102,7 @@ const SolutionSection = () => {
 
             {/* Descrição curta */}
             <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
-              Na Adobe, criatividade encontra inovação! Procuramos UI/UX
+              Na Estagioai, criatividade encontra inovação! Procuramos UI/UX
               Designers experientes e apaixonados por sistemas de design e por
               melhorar jornadas de usuário.
             </p>
@@ -134,7 +134,7 @@ const SolutionSection = () => {
             {/* Nota de aprovação por universitários (mantida) */}
             <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5">
               <Star className="w-4 h-4 text-[#01E297]" />
-              <span className="text-xs font-medium text-gray-400 tracking-wide">
+              <span className="text-xs font-medium text-gray-600 tracking-wide">
                 3 estudantes da UNIFEI foram aprovados aqui nos últimos 6 meses
               </span>
             </div>

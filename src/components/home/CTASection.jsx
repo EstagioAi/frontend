@@ -12,7 +12,7 @@ const CTASection = () => {
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">
             Pronto para mudar sua{" "}
-            <span className="text-[#01E297]">experiência</span> de busca?
+            <span className="text-emerald-700">experiência</span> de busca?
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
             Junte-se aos 65% dos universitários que já demonstraram interesse na

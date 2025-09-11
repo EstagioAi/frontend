@@ -75,23 +75,35 @@ export default function MuralDeVagas() {
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl md:text-2xl font-extrabold">Processos em destaque</h2>
             <div className="hidden md:flex items-center gap-2">
-              <button onClick={() => scrollByCard("left")} className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50"><ChevronLeft className="w-5 h-5" /></button>
-              <button onClick={() => scrollByCard("right")} className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50"><ChevronRight className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("left")} aria-label="Anterior" className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50"><ChevronLeft className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("right")} aria-label="Próximo" className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50"><ChevronRight className="w-5 h-5" /></button>
             </div>
           </div>
 
           <div className="relative">
             {/* Buttons mobile overlay */}
             <div className="md:hidden absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none">
-              <button onClick={() => scrollByCard("left")} className="pointer-events-auto ml-1 p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm"><ChevronLeft className="w-5 h-5" /></button>
-              <button onClick={() => scrollByCard("right")} className="pointer-events-auto mr-1 p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm"><ChevronRight className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("left")} aria-label="Anterior" className="pointer-events-auto ml-1 p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm"><ChevronLeft className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("right")} aria-label="Próximo" className="pointer-events-auto mr-1 p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm"><ChevronRight className="w-5 h-5" /></button>
             </div>
 
             <div ref={trackRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none]" style={{ scrollbarWidth: 'none' }}>
               {processos.map((p) => (
                 <article key={p.titulo} className="group min-w-[78%] sm:min-w-[340px] lg:min-w-[360px] max-w-[380px] snap-center overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
                   <div className="h-1 w-full bg-gradient-to-r from-[#01E297] via-emerald-400/70 to-transparent" />
-                  <img src={p.img} alt="capa" className="w-full h-32 object-cover" />
+                  <picture>
+                    <source srcSet={p.img.replace(/\.png|\.svg|\.jpg/, '.avif')} type="image/avif" />
+                    <source srcSet={p.img.replace(/\.png|\.svg|\.jpg/, '.webp')} type="image/webp" />
+                    <img 
+                      src={p.img} 
+                      alt={`Imagem ilustrativa do processo: ${p.titulo}`} 
+                      className="w-full h-32 object-cover" 
+                      width="640" 
+                      height="160" 
+                      loading="lazy" 
+                      decoding="async"
+                    />
+                  </picture>
                   <div className="p-4">
                     <div className="flex items-center gap-2 text-[11px] text-gray-500">
                       <span className="inline-flex items-center font-semibold text-emerald-700 bg-emerald-100 px-2 py-[3px] rounded-full">{p.tag}</span>

@@ -59,8 +59,17 @@ const HeroSection = () => {
           <div className="relative flex justify-center">
             <div className="relative w-full max-w-md sm:max-w-lg">
               <div className="absolute inset-0 sm:-inset-2 rounded-full bg-[#01E297]/20 blur-2xl" />
-              <div className="aspect-square rounded-full bg-[#01E297] flex items-center justify-center overflow-hidden">
-                <img src="./diverse-students-celebrating-internship-success.png" alt="Estudante sorridente" className="w-[88%] h-[88%] object-cover rounded-full" />
+              <div className="aspect-square rounded-full bg-[#01E297] p-4 sm:p-6 flex items-center justify-center overflow-hidden">
+                <img
+                  src="/diverse-students-celebrating-internship-success.png"
+                  alt="Estudantes celebrando sucesso em estágio"
+                  className="w-full h-full object-cover object-center rounded-full"
+                  width="880"
+                  height="880"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
               </div>
 
               {/* Mini logos flutuando fora da imagem, em anel com distância uniforme */}
@@ -70,7 +79,7 @@ const HeroSection = () => {
                   <div className="absolute top-10 left-1/2 -translate-x-1/2">
                     <Link to="/empresas/google" aria-label="Google" className="block">
                       <div className="float-y float-y-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="./companies/google.png" alt="Google" className="w-6 h-6 object-contain" />
+                        <img src="/companies/google.png" alt="Google" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
                       </div>
                     </Link>
                   </div>
@@ -78,7 +87,7 @@ const HeroSection = () => {
                   <div className="absolute right-0 top-1/2 -translate-y-1/2">
                     <Link to="/empresas/microsoft" aria-label="Microsoft" className="block">
                       <div className="float-y float-y-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="./companies/microsft.png" alt="Microsoft" className="w-6 h-6 object-contain" />
+                        <img src="/companies/microsft.png" alt="Microsoft" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
                       </div>
                     </Link>
                   </div>
@@ -86,7 +95,7 @@ const HeroSection = () => {
                   <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
                     <Link to="/empresas/amazon" aria-label="Amazon" className="block">
                       <div className="float-y float-y-3 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="./companies/amazon.png" alt="Amazon" className="w-6 h-6 object-contain" />
+                        <img src="/companies/amazon.png" alt="Amazon" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
                       </div>
                     </Link>
                   </div>
@@ -94,7 +103,7 @@ const HeroSection = () => {
                   <div className="absolute left-0 top-1/2 -translate-y-1/2">
                     <Link to="/empresas/ibm" aria-label="IBM" className="block">
                       <div className="float-y float-y-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="/companies/ibm.png" alt="IBM" className="w-6 h-6 object-contain" />
+                        <img src="/companies/ibm.png" alt="IBM" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
                       </div>
                     </Link>
                   </div>
@@ -102,7 +111,7 @@ const HeroSection = () => {
                   <div className="absolute top-[11%] left-[11%]">
                     <Link to="/empresas/meta" aria-label="Meta" className="block">
                       <div className="float-y float-y-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="/companies/meta.png" alt="Meta" className="w-6 h-6 object-contain" />
+                        <img src="/companies/meta.png" alt="Meta" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
                       </div>
                     </Link>
                   </div>
@@ -110,7 +119,7 @@ const HeroSection = () => {
                   <div className="absolute bottom-[11%] right-[11%]">
                     <Link to="/empresas/netflix" aria-label="Netflix" className="block">
                       <div className="float-y float-y-6 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="/companies/netflix.png" alt="Netflix" className="w-6 h-6 object-contain" />
+                        <img src="/companies/netflix.png" alt="Netflix" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
                       </div>
                     </Link>
                   </div>
@@ -125,7 +134,16 @@ const HeroSection = () => {
                 </p>
                 <div className="flex items-center -space-x-3">
                   {[1,23,32,41,10,30].map((i) => (
-                    <img key={i} src={`https://i.pravatar.cc/48?img=${i}`} alt="avatar" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full ring-2 ring-white" />
+                    <img 
+                      key={i} 
+                      src={`https://i.pravatar.cc/48?img=${i}`} 
+                      alt="Avatar de candidato" 
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full ring-2 ring-white" 
+                      width="48" 
+                      height="48" 
+                      loading="lazy" 
+                      decoding="async"
+                    />
                   ))}
                   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#212121] text-white grid place-items-center ring-2 ring-white text-sm font-semibold">...</div>
                 </div>

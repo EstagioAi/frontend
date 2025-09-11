@@ -17,7 +17,7 @@ const FormatoUnificadoSection = () => {
 
             <p className="text-lg text-gray-600 mb-8">
               Todas as vagas seguem o mesmo formato estruturado e padronizado, com seções obrigatórias que{' '}
-              <span className="text-[#01E297] font-semibold">eliminam confusão</span> e expectativas irreais.
+              <span className="text-emerald-700 font-semibold">eliminam confusão</span> e expectativas irreais.
             </p>
 
             <div className="space-y-4">
@@ -46,12 +46,12 @@ const FormatoUnificadoSection = () => {
 
             <div className="space-y-4">
               <div className="border-l-4 border-[#01E297] pl-4">
-                <h4 className="font-semibold text-[#01E297] mb-1">Sobre a Empresa</h4>
+                <h4 className="font-semibold text-emerald-700 mb-1">Sobre a Empresa</h4>
                 <p className="text-sm text-gray-600">Startup EdTech de 50 pessoas, ambiente descontraído, foco em inovação...</p>
               </div>
 
               <div className="border-l-4 border-[#01E297] pl-4">
-                <h4 className="font-semibold text-[#01E297] mb-1">O Que Você Vai Aprender</h4>
+                <h4 className="font-semibold text-emerald-700 mb-1">O Que Você Vai Aprender</h4>
                 <p className="text-sm text-gray-600">React, TypeScript, APIs REST, metodologias ágeis...</p>
               </div>
 

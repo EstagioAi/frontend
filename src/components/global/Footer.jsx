@@ -12,6 +12,10 @@ const Footer = () => {
                 src="/logo-v-branca.svg"
                 alt="EstagioAI"
                 className="h-7 w-auto"
+                width="120"
+                height="28"
+                loading="lazy"
+                decoding="async"
               />
             </a>
             <p className="mt-4 text-white/70 text-sm max-w-xs">
