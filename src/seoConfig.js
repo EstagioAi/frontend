@@ -74,10 +74,12 @@ export default function getSEO(pathname) {
 	      title: "Sobre — Estágio AI",
 	      description: "Conheça nossa missão, valores e como ajudamos universitários e empresas.",
 	    },
-	    "/blog": {
-	      title: "Blog — Estágio AI",
-	      description: "Conteúdos, novidades e dicas para impulsionar sua carreira de estágio.",
-	    },
+      "/blog": {
+        title: "Blog — Dicas de Estágio, Carreira e IA | Estágio AI",
+        description: "Aprenda sobre estágios, entrevistas, currículos e tendências de carreira com conteúdos atualizados.",
+        ogImage: "https://estagioai.com/estagioai-background.png",
+        robots: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      },
 	    "/mural-de-vagas": {
 	      title: "Mural de Vagas — Estágio AI",
 	      description: "Veja oportunidades recentes e acompanhe sua compatibilidade.",

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import getSEO from "../seoConfig";
-import { setBasicTags } from "../lib/seo";
+import { setBasicTags, setMetaProperty, setMetaName } from "../lib/seo";
 
 const SITE_NAME = "Estágio AI";
 const BASE_URL = "https://estagioai.com";
@@ -47,7 +47,7 @@ export default function RouteSEO() {
 
     const mergedJsonLd = breadcrumbJsonLd ? [webSiteJsonLd, breadcrumbJsonLd, meta.jsonLd].filter(Boolean) : [webSiteJsonLd, meta.jsonLd].filter(Boolean)
 
-    setBasicTags({
+  setBasicTags({
       title,
       description,
       canonical: canonicalUrl,
@@ -68,6 +68,13 @@ export default function RouteSEO() {
       },
       jsonLd: mergedJsonLd.length === 1 ? mergedJsonLd[0] : mergedJsonLd,
     });
+
+  // Locale fixo (pode tornar dinâmico se houver i18n)
+  setMetaProperty('og:locale', 'pt_BR');
+
+  // Robots refinado (se quiser personalizar por rota, adicione "robots" em seoConfig e leia aqui)
+  const robotsValue = meta.robots || 'index,follow,max-image-preview:large';
+  setMetaName('robots', robotsValue);
   }, [location]);
 
   return null;
