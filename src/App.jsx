@@ -22,6 +22,7 @@ import EmConstrucao from "./pages/EmConstrucao";
 import RouteSEO from "./components/RouteSEO.jsx";
 const Sobre = lazy(() => import('./pages/Sobre.jsx'))
 const Blog = lazy(() => import('./pages/Blog.jsx'))
+const BlogPost = lazy(() => import('./pages/BlogPost.jsx'))
 const MuralDeVagas = lazy(() => import('./pages/MuralDeVagas.jsx'))
 const Contato = lazy(() => import('./pages/Contato.jsx'))
 
@@ -48,6 +49,7 @@ function App() {
         <Route path="/contato-comercial" element={<CommercialContact />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/blog" element={<Blog />} />
+  <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/mural-de-vagas" element={<MuralDeVagas />} />
         <Route path="/contato" element={<Contato />} />
 
