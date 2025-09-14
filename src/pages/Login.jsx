@@ -39,7 +39,7 @@ const Login = () => {
             <div className="h-2 w-44 rounded-full bg-[#01E297] mb-8" />
 
             <div className="mt-10 text-gray-700">
-              <span className="mr-2">Não tem conta?</span>
+              <span className="mr-2">Não tem conta ?</span>
               <a
                 href="/register"
                 className="font-semibold text-[#092116] underline underline-offset-4"
