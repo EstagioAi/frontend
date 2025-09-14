@@ -10,7 +10,7 @@ const processos = [
     titulo: "Programa de Estágio 2025",
     data: "Atualizado 03 Set 2025",
     excerpt: "Inscrições abertas para áreas de Eng. de Software, Dados e Produto.",
-    img: "/diverse-students-celebrating-internship-success.png",
+  img: "/images/misc/diverse-students-celebrating-internship-success.webp",
     tag: "Processo aberto",
   },
   {
@@ -18,7 +18,7 @@ const processos = [
     titulo: "Summer Internship - Dados",
     data: "Atualizado 28 Ago 2025",
     excerpt: "Desenvolvimento de pipelines e dashboards. Bolsa e benefícios.",
-    img: "/hero-section-image.svg",
+  img: "/hero-section-image.svg",
     tag: "Novidade",
   },
   {
@@ -26,7 +26,7 @@ const processos = [
     titulo: "Estágio em Produto",
     data: "Atualizado 22 Ago 2025",
     excerpt: "Trabalho próximo a founders, pesquisa com usuários e métricas.",
-    img: "/estagioai-background.png",
+  img: "/images/backgrounds/estagioai-background.webp",
     tag: "Processo aberto",
   },
   {
@@ -34,7 +34,7 @@ const processos = [
     titulo: "Estágio UX/UI",
     data: "Atualizado 20 Ago 2025",
     excerpt: "Design system, prototipação e handoff com devs.",
-    img: "/logo-web.png",
+  img: "/images/logos/logo-web.webp",
     tag: "Inscrições",
   },
 ]

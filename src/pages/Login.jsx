@@ -55,7 +55,7 @@ const Login = () => {
           {/* Imagem de fundo */}
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('./company-login.png')" }}
+            style={{ backgroundImage: "url('/images/blog/company-login.webp')" }}
           />
           <div className="absolute inset-0 bg-black/35" />
 

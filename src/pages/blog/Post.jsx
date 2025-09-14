@@ -69,7 +69,7 @@ export default function Post() {
     const url = `${BASE_URL}/blog/${post.slug}`;
     const title = `${post.title} — Estágio AI`;
     const description = post.excerpt;
-    const image = post.cover || `${BASE_URL}/estagioai-background.png`;
+  const image = post.cover || `${BASE_URL}/images/backgrounds/estagioai-background.webp`;
 
     const jsonLd = {
       "@context": "https://schema.org",

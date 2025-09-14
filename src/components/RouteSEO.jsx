@@ -6,7 +6,7 @@ import { submitIndexNow } from "../lib/indexnow";
 
 const SITE_NAME = "Estágio AI";
 const BASE_URL = "https://estagioai.com";
-const DEFAULT_IMAGE = `${BASE_URL}/estagioai-background.png`; // PNG recomendado para social crawlers
+const DEFAULT_IMAGE = `${BASE_URL}/images/backgrounds/estagioai-background.webp`; // WEBP otimizado; considere fallback PNG para Open Graph se necessário
 
 export default function RouteSEO() {
   const location = useLocation();

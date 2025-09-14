@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <a href="/" className="inline-flex items-center gap-3">
               <img
-                src="/logo-v-branca.svg"
+                src="/images/logos/logo-v-branca.svg"
                 alt="EstagioAI"
                 className="h-7 w-auto"
               />
@@ -25,7 +25,7 @@ const Footer = () => {
                 className="w-10 h-10 rounded-lg flex items-center justify-center border border-white/15 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
               >
                 <img
-                  src="/envelope-solid-full.svg"
+                  src="/images/icons/envelope-solid-full.svg"
                   alt="E-mail"
                   className="w-4 h-4"
                 />
@@ -36,7 +36,7 @@ const Footer = () => {
                 className="w-10 h-10 rounded-lg flex items-center justify-center border border-white/15 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
               >
                 <img
-                  src="/Linkedin-logo.svg"
+                  src="/images/logos/Linkedin-logo.svg"
                   alt="Linkedin"
                   className="w-4 h-4"
                 />
@@ -46,7 +46,7 @@ const Footer = () => {
                 aria-label="GitHub"
                 className="w-10 h-10 rounded-lg flex items-center justify-center border border-white/15 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
               >
-                <img src="/Github.svg" alt="GitHub" className="w-4 h-4" />
+                <img src="/images/icons/Github.svg" alt="GitHub" className="w-4 h-4" />
               </a>
             </div>
 
