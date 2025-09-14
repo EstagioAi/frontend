@@ -1,11 +1,13 @@
 {
   "version": 2,
   "cleanUrls": true,
+
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/",
-      "missing": [ { "type": "file" } ]
+      "destination": "/index.html"
     }
   ]
+
 }
