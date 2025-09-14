@@ -38,6 +38,7 @@ export default function RouteSEO() {
         image: meta.twitterImage || meta.ogImage || DEFAULT_IMAGE,
       },
       jsonLd: meta.jsonLd,
+      keywords: meta.keywords,
     });
   }, [location]);
 

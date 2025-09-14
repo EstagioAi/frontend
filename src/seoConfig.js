@@ -12,6 +12,16 @@ export default function getSEO(pathname) {
     };
   }
 
+  // Dinâmico: páginas de blog (detalhe do post)
+  if (/^\/blog\//.test(path)) {
+    // O componente do Post definirá tags completas; aqui fornecemos um fallback seguro
+    return {
+      title: "Artigo do Blog — Estágio AI",
+      description: "Conteúdos, novidades e dicas para impulsionar sua carreira de estágio.",
+      ogType: "article",
+    };
+  }
+
   const map = {
     "": {
       title: "Estágio AI — Encontre vagas de estágio com rapidez e transparência",
@@ -76,7 +86,20 @@ export default function getSEO(pathname) {
 	    },
 	    "/blog": {
 	      title: "Blog — Estágio AI",
-	      description: "Conteúdos, novidades e dicas para impulsionar sua carreira de estágio.",
+        description: "Conteúdos, novidades e dicas para impulsionar sua carreira de estágio.",
+        keywords: [
+          "blog estágio",
+          "como conseguir estágio",
+          "currículo para estágio",
+          "entrevista de estágio",
+        ],
+        jsonLd: {
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: "Blog — Estágio AI",
+          description: "Conteúdos e guias práticos para universitários e empresas.",
+          url: "https://estagioai.com/blog",
+        },
 	    },
 	    "/mural-de-vagas": {
 	      title: "Mural de Vagas — Estágio AI",

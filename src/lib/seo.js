@@ -63,9 +63,11 @@ export function setBasicTags({
   og = {},
   twitter = {},
   jsonLd,
+  keywords,
 }) {
   if (title) setTitle(title);
   if (description) setMetaName("description", description);
+  if (keywords) setMetaName("keywords", Array.isArray(keywords) ? keywords.join(", ") : String(keywords));
   if (canonical) setCanonical(canonical);
 
   const ogTitle = og.title || title;

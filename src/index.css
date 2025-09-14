@@ -66,3 +66,52 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Blog: esconder temporariamente divs duplicados de link gerados por encoding */
 .post-card-body > div { display: none; }
+
+/* Blog typography
+  - Two layers: generic .prose (legacy) and .prose-markdown (for markdown renderer)
+*/
+.prose { color: #111827; }
+.prose h2 { margin-top: 1.5rem; font-weight: 800; color: #0f172a; font-size: 1.625rem; }
+.prose h3 { margin-top: 1rem; font-weight: 700; color: #0f172a; font-size: 1.25rem; }
+.prose p { margin-top: .75rem; color: #334155; line-height: 1.8; }
+.prose img { margin-top: 1rem; }
+.prose blockquote { background: #f8fafc; padding: .75rem 1rem; border-left: 4px solid #6ee7b7; border-radius: .5rem; color: #334155; }
+.prose ul, .prose ol { margin-top: .75rem; padding-left: 1.25rem; }
+.prose li { margin-top: .4rem; }
+
+/* Beautiful, minimal markdown styles */
+.prose-markdown { color: #0f172a; }
+.prose-markdown h1 { margin-top: 2.25rem; font-size: 2.25rem; line-height: 1.2; font-weight: 800; letter-spacing: -0.01em; }
+.prose-markdown h2 { margin-top: 2rem; font-size: 1.875rem; line-height: 1.25; font-weight: 800; letter-spacing: -0.01em; }
+.prose-markdown h3 { margin-top: 1.5rem; font-size: 1.25rem; font-weight: 700; }
+.prose-markdown p  { margin-top: .9rem; color: #334155; line-height: 1.85; }
+.prose-markdown strong { color: #0f172a; font-weight: 700; }
+.prose-markdown a { color: #065f46; text-decoration: underline; text-underline-offset: 3px; }
+.prose-markdown a:hover { color: #047857; }
+.prose-markdown code { background: #f1f5f9; padding: .15rem .35rem; border-radius: .375rem; font-size: .9em; }
+.prose-markdown pre { background: #0f172a; color: #e2e8f0; padding: 1rem; border-radius: .75rem; overflow: auto; border: 1px solid #0b1220; }
+.prose-markdown blockquote { background: #f8fafc; padding: 1rem 1.25rem; border-left: 4px solid #6ee7b7; border-radius: .75rem; color: #334155; }
+.prose-markdown ul, .prose-markdown ol { margin-top: .9rem; padding-left: 1.25rem; }
+.prose-markdown li { margin-top: .5rem; }
+.prose-markdown hr { margin: 2rem 0; border: 0; height: 1px; background: #e5e7eb; }
+.prose-markdown table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+.prose-markdown th, .prose-markdown td { border: 1px solid #e5e7eb; padding: .5rem .75rem; text-align: left; }
+.prose-markdown thead th { background: #f8fafc; font-weight: 700; }
+.prose-markdown img { border-radius: .75rem; border: 1px solid #e5e7eb; background: #f8fafc; }
+.prose-markdown .anchor-link { text-decoration: none; color: inherit; }
+.prose-markdown h2 .anchor-link::after, .prose-markdown h3 .anchor-link::after { content: "#"; opacity: 0; margin-left: .35rem; color: #10b981; }
+.prose-markdown h2:hover .anchor-link::after, .prose-markdown h3:hover .anchor-link::after { opacity: 1; }
+
+/* Improve anchor scrolling behavior (smoother perception on browsers that support it) */
+html { scroll-behavior: smooth; }
+
+/* Force sticky for sidebars (cross-browser) */
+.sticky-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 96px; /* accounts for navbar + progress bar */
+}
+
+/* Card shadows */
+.shadow-card { box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04); }
+.shadow-card-lg { box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08); }
