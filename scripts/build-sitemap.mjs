@@ -1,4 +1,5 @@
-import { writeFile } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { posts } from "../src/pages/blog/posts.js";
@@ -50,27 +51,36 @@ function toUrlset(urls, { xmlnsExtras = "" } = {}) {
     .join("\n")}\n</urlset>\n`;
 }
 
-async function writePublic(fileName, content) {
-  const outPath = resolve(__dirname, "../public/" + fileName);
-  await writeFile(outPath, content, "utf8");
-  return outPath;
+async function writePublicAndDist(fileName, content) {
+  // Always write to public/
+  const publicPath = resolve(__dirname, "../public/" + fileName);
+  await writeFile(publicPath, content, "utf8");
+
+  // Also write to dist/ if it exists (after vite build)
+  const distDir = resolve(__dirname, "../dist");
+  let distPath;
+  if (existsSync(distDir)) {
+    distPath = resolve(distDir, fileName);
+    await writeFile(distPath, content, "utf8");
+  }
+  return { publicPath, distPath };
 }
 
 // 1) Main sitemap.xml (combined)
 const combined = [...staticUrls, ...blogUrls];
 const mainXml = toUrlset(combined);
-let out = await writePublic("sitemap.xml", mainXml);
-console.log(`sitemap.xml -> ${out} (${combined.length} URLs)`);
+let out = await writePublicAndDist("sitemap.xml", mainXml);
+console.log(`sitemap.xml -> ${out.publicPath}${out.distPath ? ` | ${out.distPath}` : ""} (${combined.length} URLs)`);
 
 // 2) sitemap-pages.xml (static pages only)
 const pagesXml = toUrlset(staticUrls);
-out = await writePublic("sitemap-pages.xml", pagesXml);
-console.log(`sitemap-pages.xml -> ${out} (${staticUrls.length} URLs)`);
+out = await writePublicAndDist("sitemap-pages.xml", pagesXml);
+console.log(`sitemap-pages.xml -> ${out.publicPath}${out.distPath ? ` | ${out.distPath}` : ""} (${staticUrls.length} URLs)`);
 
 // 3) sitemap-posts.xml (blog posts only)
 const postsXml = toUrlset(blogUrls);
-out = await writePublic("sitemap-posts.xml", postsXml);
-console.log(`sitemap-posts.xml -> ${out} (${blogUrls.length} URLs)`);
+out = await writePublicAndDist("sitemap-posts.xml", postsXml);
+console.log(`sitemap-posts.xml -> ${out.publicPath}${out.distPath ? ` | ${out.distPath}` : ""} (${blogUrls.length} URLs)`);
 
 // 4) sitemap-images.xml (pages with image:image for post covers)
 const imageNs = 'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"';
@@ -85,8 +95,8 @@ const blogWithImages = posts.map((p) => {
   };
 });
 const imagesXml = toUrlset(blogWithImages, { xmlnsExtras: imageNs });
-out = await writePublic("sitemap-images.xml", imagesXml);
-console.log(`sitemap-images.xml -> ${out} (${blogWithImages.length} URLs)`);
+out = await writePublicAndDist("sitemap-images.xml", imagesXml);
+console.log(`sitemap-images.xml -> ${out.publicPath}${out.distPath ? ` | ${out.distPath}` : ""} (${blogWithImages.length} URLs)`);
 
 // 5) sitemap-news.xml (recent posts in Google News format - last 48h)
 const now = new Date();
@@ -105,13 +115,13 @@ const newsXml = `<?xml version="1.0" encoding="UTF-8"?>\n` +
     })
     .join("\n") +
   "\n</urlset>\n";
-out = await writePublic("sitemap-news.xml", newsXml);
-console.log(`sitemap-news.xml -> ${out} (${newsPosts.length} URLs)`);
+out = await writePublicAndDist("sitemap-news.xml", newsXml);
+console.log(`sitemap-news.xml -> ${out.publicPath}${out.distPath ? ` | ${out.distPath}` : ""} (${newsPosts.length} URLs)`);
 
 // 6) ai-sitemap.xml (mirror of posts for AI crawlers)
 const aiXml = toUrlset(blogUrls);
-out = await writePublic("ai-sitemap.xml", aiXml);
-console.log(`ai-sitemap.xml -> ${out} (${blogUrls.length} URLs)`);
+out = await writePublicAndDist("ai-sitemap.xml", aiXml);
+console.log(`ai-sitemap.xml -> ${out.publicPath}${out.distPath ? ` | ${out.distPath}` : ""} (${blogUrls.length} URLs)`);
 
 // Small XML escape helper for titles
 function escapeXml(str = "") {
