@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import getSEO from "../seoConfig";
 import { setBasicTags } from "../lib/seo";
+import { submitIndexNow } from "../lib/indexnow";
 
 const SITE_NAME = "Estágio AI";
 const BASE_URL = "https://estagioai.com";
@@ -40,6 +41,9 @@ export default function RouteSEO() {
       jsonLd: meta.jsonLd,
       keywords: meta.keywords,
     });
+
+  // Dispara IndexNow em produção a cada mudança de rota
+  submitIndexNow(canonicalUrl)
   }, [location]);
 
   return null;
