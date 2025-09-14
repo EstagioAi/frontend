@@ -8,6 +8,13 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeRaw from "rehype-raw";
+import rehypeHighlight from "rehype-highlight";
+import rehypeExternalLinks from "rehype-external-links";
+// CSS específico dos posts (tipografia markdown e detalhes visuais)
+import "./post.css";
+// Tema de syntax highlighting (clean e discreto)
+import "highlight.js/styles/github-dark-dimmed.css";
 
 const BASE_URL = "https://estagioai.com";
 
@@ -47,7 +54,11 @@ export default function Post() {
   // Build markdown content from either post.markdown or legacy sections schema
   const markdown = useMemo(() => {
     if (!post) return "";
-    if (post.markdown && typeof post.markdown === "string") return post.markdown;
+    // Prefer the new schema: `body` contains full markdown
+    if (typeof post.body === "string" && post.body.trim()) return post.body;
+    // Backward-compat: some posts may still use `markdown`
+    if (typeof post.markdown === "string" && post.markdown.trim()) return post.markdown;
+    // Legacy schema: structured sections -> convert to markdown
     return sectionsToMarkdown(post.sections || []);
   }, [post]);
   // Dynamic TOC extracted from rendered markdown headings
@@ -222,7 +233,13 @@ export default function Post() {
           {/* Render Markdown content */}
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap', properties: { className: 'anchor-link' } }]]}
+            rehypePlugins={[
+              rehypeRaw,
+              rehypeSlug,
+              [rehypeAutolinkHeadings, { behavior: 'wrap', properties: { className: 'anchor-link' } }],
+              rehypeHighlight,
+              [rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] }],
+            ]}
           >
             {markdown}
           </ReactMarkdown>

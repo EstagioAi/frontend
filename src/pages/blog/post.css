@@ -1,0 +1,139 @@
+/* Estilos dedicados para posts do blog
+   Visual profissional, limpo, alinhado às cores da marca (verde #01E297 / tons esmeralda)
+   Aplica-se ao container .prose-markdown usado em Post.jsx
+*/
+
+:root {
+  --brand-emerald: #01E297;
+  --ink: #0f172a;          /* slate-900 */
+  --muted: #334155;        /* slate-600 */
+  --border: #e5e7eb;       /* gray-200 */
+  --bg-subtle: #f8fafc;    /* slate-50 */
+  --bg-code: #0f172a;      /* dark code bg */
+}
+
+/* Container base */
+.prose-markdown {
+  color: var(--ink);
+}
+
+/* Heading hierarchy */
+.prose-markdown h1 {
+  margin-top: 2.25rem;
+  margin-bottom: .75rem;
+  font-size: clamp(1.85rem, 1.2rem + 1.8vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.prose-markdown h2 {
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  font-size: clamp(1.5rem, 1.1rem + 1.2vw, 1.875rem);
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  scroll-margin-top: 96px; /* âncora confortável abaixo do navbar */
+}
+
+.prose-markdown h3 {
+  margin-top: 1.25rem;
+  margin-bottom: .35rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  scroll-margin-top: 96px;
+}
+
+/* Text blocks */
+.prose-markdown p {
+  margin-top: .9rem;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.prose-markdown strong { color: var(--ink); font-weight: 700; }
+
+/* Links com a cor da marca */
+.prose-markdown a {
+  color: #065f46; /* emerald-800 para contraste */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-markdown a:hover { color: #047857; }
+
+/* Lists */
+.prose-markdown ul,
+.prose-markdown ol {
+  margin-top: .9rem;
+  padding-left: 1.25rem;
+}
+.prose-markdown li { margin-top: .5rem; }
+
+/* Blockquote com faixa esmeralda discreta */
+.prose-markdown blockquote {
+  background: var(--bg-subtle);
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--brand-emerald);
+  border-radius: .75rem;
+  color: var(--muted);
+}
+
+/* Divider */
+.prose-markdown hr {
+  margin: 2rem 0;
+  border: 0;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Tables */
+.prose-markdown table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+.prose-markdown th,
+.prose-markdown td { border: 1px solid var(--border); padding: .5rem .75rem; text-align: left; }
+.prose-markdown thead th { background: var(--bg-subtle); font-weight: 700; }
+
+/* Images */
+.prose-markdown img {
+  border-radius: .75rem;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+/* Inline code */
+.prose-markdown code {
+  background: #f1f5f9; /* slate-100 */
+  padding: .15rem .35rem;
+  border-radius: .375rem;
+  font-size: .9em;
+}
+
+/* Code blocks */
+.prose-markdown pre {
+  background: var(--bg-code);
+  color: #e2e8f0; /* slate-200 */
+  padding: 1rem;
+  border-radius: .75rem;
+  overflow: auto;
+  border: 1px solid #0b1220;
+}
+
+/* Headings com link âncora minimalista */
+.prose-markdown .anchor-link { text-decoration: none; color: inherit; }
+.prose-markdown h2 .anchor-link::after,
+.prose-markdown h3 .anchor-link::after {
+  content: "#";
+  opacity: 0;
+  margin-left: .35rem;
+  color: #10b981; /* emerald-500 */
+  transition: opacity .2s ease;
+}
+.prose-markdown h2:hover .anchor-link::after,
+.prose-markdown h3:hover .anchor-link::after { opacity: 1; }
+
+/* Callouts (tip, info, warning) utilizando markdown custom (blockquote + strong prefix) */
+.prose-markdown .callout { border-left-width: 4px; border-left-color: var(--brand-emerald); background: #f0fdf4; border-radius: .75rem; padding: .875rem 1rem; }
+.prose-markdown .callout.warning { border-left-color: #f59e0b; background: #fffbeb; }
+.prose-markdown .callout.info { border-left-color: #3b82f6; background: #eff6ff; }
+
+/* Tabela de conteúdo no aside herda estilos globais; nada aqui por enquanto */
