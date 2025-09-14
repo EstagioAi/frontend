@@ -174,24 +174,29 @@ export default function Post() {
 
       {/* Hero */}
       <header className="border-b border-gray-100 bg-gradient-to-b from-white to-emerald-50/30">
-        <div className="max-w-6xl mx-auto px-6 pt-12 pb-9">
-          <div className="text-[11px] tracking-wider text-emerald-700 font-semibold">ARTIGO</div>
-          <h1 className="mt-2 text-4xl md:text-6xl font-extrabold leading-tight">{post.title}</h1>
-          {/* Breadcrumb */}
-          <nav aria-label="breadcrumb" className="mt-2 text-sm text-gray-600">
-            <ol className="flex items-center gap-2">
-              <li>
-                <Link to="/" className="hover:underline">Início</Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li>
-                <Link to="/blog" className="hover:underline">Blog</Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li className="text-gray-800" aria-current="page">{post.title}</li>
-            </ol>
-          </nav>
-          <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-gray-600">
+        <div className="max-w-6xl mx-auto px-6 pt-10 pb-8">
+          {/* Badge + Breadcrumb on top to avoid being hidden by large titles */}
+          <div className="flex flex-wrap items-center gap-3 text-gray-600">
+            <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-semibold uppercase tracking-wide">Artigo</span>
+            {/* Breadcrumb */}
+            <nav aria-label="breadcrumb" className="text-xs sm:text-sm">
+              <ol className="flex flex-wrap items-center gap-2">
+                <li>
+                  <Link to="/" className="hover:underline">Início</Link>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li>
+                  <Link to="/blog" className="hover:underline">Blog</Link>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li className="text-gray-800" aria-current="page">{post.title}</li>
+              </ol>
+            </nav>
+          </div>
+
+          {/* Smaller, still strong title */}
+          <h1 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">{post.title}</h1>
+          <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-gray-600">
             <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
             <span>•</span>
             <span>{post.readingTimeMinutes} min de leitura</span>
