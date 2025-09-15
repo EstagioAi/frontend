@@ -19,4 +19,6 @@
   <url><loc>https://estagioai.com/contato</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://estagioai.com/em-construcao</loc><changefreq>monthly</changefreq><priority>0.1</priority></url>
   <url><loc>https://estagioai.com/empresas/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://estagioai.com/modelos-de-curriculo</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://estagioai.com/verificador-de-curriculo-ats</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>

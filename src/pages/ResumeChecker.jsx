@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Navigation from '@/components/global/Navigation'
 import Footer from '@/components/global/Footer'
 import { Button } from '@/components/ui/button.jsx'
@@ -113,6 +113,7 @@ export default function ResumeChecker() {
   const [text, setText] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [fileUrl, setFileUrl] = useState('')
   const analysis = useMemo(() => analyzeResume(text), [text])
 
   const onDrop = async (files) => {
@@ -125,9 +126,31 @@ export default function ResumeChecker() {
     setText(extracted)
     setLoading(false)
     if (!extracted) setError('Não foi possível ler o arquivo. Envie PDF, DOCX ou TXT simples.')
+    // Preview URL for PDFs
+    try {
+      if (f && f.name.toLowerCase().endsWith('.pdf')) {
+        const url = URL.createObjectURL(f)
+        setFileUrl((prev) => {
+          if (prev) URL.revokeObjectURL(prev)
+          return url
+        })
+      } else {
+        setFileUrl((prev) => {
+          if (prev) URL.revokeObjectURL(prev)
+          return ''
+        })
+      }
+    } catch {}
   }
 
   const openPicker = () => document.getElementById('resume-file-input')?.click()
+
+  // Cleanup object URL when component unmounts
+  useEffect(() => {
+    return () => {
+      if (fileUrl) URL.revokeObjectURL(fileUrl)
+    }
+  }, [fileUrl])
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -165,9 +188,10 @@ export default function ResumeChecker() {
 
         {/* Body */}
         <section className="py-10">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid xl:grid-cols-[280px,1fr,320px] lg:grid-cols-[280px,1fr] gap-8">
-            {/* Left sticky sidebar: score & categories */}
-            <aside className="space-y-4 xl:sticky xl:self-start xl:top-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-[340px,1fr] gap-8">
+            {/* Left column (sticky): Score, Parse Rate, Metrics, Seções, Sugestões */}
+            <aside className="space-y-4 md:sticky md:self-start md:top-24">
+              {/* Score */}
               <div className="rounded-2xl border border-gray-200 p-5 bg-white">
                 <div className="flex items-center gap-4">
                   <Gauge value={analysis.score} />
@@ -175,6 +199,23 @@ export default function ResumeChecker() {
                     <div className="text-sm font-semibold text-gray-900">Resume Score</div>
                     <div className="text-xs text-gray-500">{analysis.issues.length} issues</div>
                   </div>
+                </div>
+              </div>
+
+              {/* Parse Rate */}
+              <div className="rounded-2xl border border-gray-200 bg-white p-5">
+                <div className="text-xs font-medium text-gray-700">ATS Parse Rate</div>
+                <div className="mt-3 h-2.5 rounded-full bg-gray-50 border border-gray-200">
+                  <div className="h-2.5 rounded-full bg-[#01E297]" style={{ width: `${Math.min(100, 40 + analysis.keywordMatches.length * 10)}%` }} />
+                </div>
+                <div className="mt-3 text-xs text-gray-600">Palavras‑chave detectadas: <span className="font-medium text-[#092116]">{analysis.keywordMatches.length}</span></div>
+              </div>
+
+              {/* Metrics overview */}
+              <div className="rounded-2xl border border-gray-200 p-5 bg-white">
+                <div className="flex items-center justify-between">
+                  <div className="text-sm font-semibold text-gray-900">Métricas principais</div>
+                  <div className="text-xs text-gray-500">{analysis.issues.length} issues</div>
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
                   {analysis.categories.map((c) => (
@@ -186,6 +227,7 @@ export default function ResumeChecker() {
                 </div>
               </div>
 
+              {/* Seções */}
               <div className="rounded-2xl border border-gray-200 p-5 bg-white">
                 <div className="text-xs font-semibold text-gray-500 uppercase">Seções</div>
                 <ul className="mt-2 space-y-2 text-sm">
@@ -197,6 +239,9 @@ export default function ResumeChecker() {
                   ))}
                 </ul>
               </div>
+
+              <SuggestionsPanel analysis={analysis} />
+
               <div className="rounded-2xl border border-gray-200 p-5 bg-white">
                 <div className="inline-flex items-center gap-2 text-xs font-semibold text-gray-500 uppercase"><Info className="w-3.5 h-3.5"/> Dicas rápidas</div>
                 <ul className="mt-2 text-[13px] text-gray-700 space-y-1.5 list-disc pl-4">
@@ -207,9 +252,9 @@ export default function ResumeChecker() {
               </div>
             </aside>
 
-            {/* Main column */}
+            {/* Right column: upload e pré‑visualização */}
             <div className="space-y-6">
-              {/* Dropzone */}
+              {/* Dropzone at top */}
               <div
                 className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-6 hover:border-[#01E297] transition-colors"
                 onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy' }}
@@ -242,48 +287,22 @@ export default function ResumeChecker() {
                 )}
               </div>
 
-              {/* Content panel similar to reference */}
-              <div className="rounded-2xl border border-gray-200 bg-white">
-                <div className="px-5 py-3 text-[11px] font-semibold tracking-wide text-gray-500 uppercase bg-gray-50 rounded-t-2xl">Conteúdo</div>
-                <div className="p-5 space-y-5">
-                  <div className="rounded-xl border border-gray-100 p-4 bg-gray-50">
-                    <div className="text-xs font-medium text-gray-700">ATS Parse Rate</div>
-                    <div className="mt-3 h-2.5 rounded-full bg-white border border-gray-200">
-                      <div className="h-2.5 rounded-full bg-[#01E297]" style={{ width: `${Math.min(100, 40 + analysis.keywordMatches.length * 10)}%` }} />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="rounded-xl border border-gray-100 p-4">
-                      <div className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900"><ShieldCheck className="w-4 h-4" /> Verificações</div>
-                      <ul className="mt-3 space-y-2 text-sm">
-                        {analysis.sectionHits.map((s) => (
-                          <li key={s.name} className="flex items-center gap-2">
-                            {s.ok ? <Check className="w-4 h-4 text-emerald-600"/> : <XCircle className="w-4 h-4 text-rose-500"/>}
-                            <span>{s.ok ? `${s.name} presente` : `${s.name} ausente`}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="rounded-xl border border-gray-100 p-4 xl:hidden">
-                      <SuggestionsPanel analysis={analysis} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Keywords */}
+              {/* Preview: PDF viewer quando possível, senão texto extraído */}
               <div className="rounded-2xl border border-gray-200 bg-white p-5">
-                <div className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900"><FileText className="w-4 h-4" /> Palavras‑chave detectadas</div>
-                <div className="mt-2 text-sm text-gray-700 min-h-[24px]">
-                  {analysis.keywordMatches.length ? (
-                    <div className="flex flex-wrap gap-2">
-                      {analysis.keywordMatches.map((k, i) => (<span key={i} className="px-2 py-1 bg-gray-100 rounded-lg text-gray-700">{k}</span>))}
+                <div className="text-sm font-semibold text-gray-900 mb-2">Pré‑visualização do currículo</div>
+                {fileUrl ? (
+                  <div className="rounded-xl overflow-hidden border border-gray-100">
+                    <iframe title="PDF Preview" src={fileUrl} className="w-full h-[720px] bg-gray-50" />
+                  </div>
+                ) : (
+                  <div>
+                    <div className="text-xs text-gray-500 mb-2">Visualização em texto que o ATS consegue ler</div>
+                    <div className="min-h-[200px] text-sm whitespace-pre-wrap leading-6 text-gray-800 bg-gray-50 rounded-xl border border-gray-100 p-4">
+                      {text ? text.slice(0, 1200) : 'Envie um arquivo para visualizar o conteúdo que o ATS consegue ler.'}
+                      {text && text.length > 1200 && '\n...'}
                     </div>
-                  ) : (
-                    <div className="text-gray-500">Nenhuma palavra‑chave relevante detectada ainda.</div>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
 
               {/* CTA */}
@@ -297,23 +316,7 @@ export default function ResumeChecker() {
               </div>
             </div>
 
-            {/* Right sticky suggestions column */}
-            <aside className="hidden xl:flex xl:flex-col xl:sticky xl:self-start xl:top-24 gap-4">
-              <SuggestionsPanel analysis={analysis} />
-              <div className="rounded-2xl border border-gray-200 p-5 bg-white">
-                <div className="text-sm font-semibold text-gray-900">Próximos passos</div>
-                <ol className="mt-2 list-decimal pl-5 text-sm text-gray-700 space-y-1.5">
-                  <li>Reveja as sugestões e ajuste seu documento.</li>
-                  <li>Exporte em PDF texto e reenvie para reanálise.</li>
-                  <li>Escolha um modelo compatível com ATS para otimizar.</li>
-                </ol>
-                <div className="mt-3">
-                  <Link to="/modelos-de-curriculo">
-                    <Button className="w-full h-10 rounded-[12px] border border-[#01E297] text-[#092116] bg-white hover:bg-[#01E297]/10">Explorar modelos</Button>
-                  </Link>
-                </div>
-              </div>
-            </aside>
+            {/* No right sidebar in 2-col layout */}
           </div>
         </section>
       </main>
