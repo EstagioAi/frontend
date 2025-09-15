@@ -27,6 +27,7 @@ const ResumeTemplates = React.lazy(() => import("./pages/ResumeTemplates.jsx"));
 const ResumeChecker = React.lazy(() => import("./pages/ResumeChecker.jsx"));
 const Vagas = React.lazy(() => import("./pages/Vagas.jsx"));
 const Empresas = React.lazy(() => import("./pages/Empresas.jsx"));
+const Universidades = React.lazy(() => import("./pages/Universidades.jsx"));
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
   <Route path="/verificador-de-curriculo-ats" element={<ResumeChecker />} />
   <Route path="/vagas" element={<Vagas />} />
   <Route path="/empresas" element={<Empresas />} />
+  <Route path="/universidades" element={<Universidades />} />
 
         <Route path="/empresas/:slug" element={<CompanyJobs />} />
         <Route path="/em-construcao" element={<EmConstrucao />} />

@@ -105,6 +105,14 @@ export default function getSEO(pathname) {
         title: "Radar de Vagas — Estágio AI",
         description: "Resumo curado de programas e processos seletivos de estágio em destaque.",
       },
+      "/vagas": {
+        title: "Vagas de Estágio — Estágio AI",
+        description: "Busque vagas de estágio com filtros e recomendações por IA. Em breve: candidaturas rápidas e personalizadas.",
+      },
+      "/universidades": {
+        title: "Universidades — Estágio AI",
+        description: "Parcerias, feiras e programas entre universidades e empresas. Descubra oportunidades e conexões.",
+      },
 	    "/contato": {
 	      title: "Contato — Estágio AI",
 	      description: "Fale com nossa equipe: dúvidas, sugestões ou parcerias.",
