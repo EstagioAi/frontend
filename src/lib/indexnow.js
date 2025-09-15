@@ -21,7 +21,12 @@ export async function submitIndexNow(url) {
 
     const endpoint = `/api/indexnow?url=${encodeURIComponent(targetUrl)}&key=${INDEXNOW_KEY}`
     await fetch(endpoint, { method: 'GET', cache: 'no-store' })
-  } catch {}
+  } catch (err) {
+    // Swallow network/indexing errors in production; log only in dev to avoid user-facing noise
+    if (import.meta.env && import.meta.env.DEV) {
+      console.debug('IndexNow submit failed', err)
+    }
+  }
 }
 
 export async function submitIndexNowBatch(urls) {
@@ -35,5 +40,9 @@ export async function submitIndexNowBatch(urls) {
       body: JSON.stringify(body),
       cache: 'no-store'
     })
-  } catch {}
+  } catch (err) {
+    if (import.meta.env && import.meta.env.DEV) {
+      console.debug('IndexNow batch submit failed', err)
+    }
+  }
 }

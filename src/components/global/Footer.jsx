@@ -12,6 +12,10 @@ const Footer = () => {
                 src="/images/logos/logo-v-branca.svg"
                 alt="EstagioAI"
                 className="h-7 w-auto"
+                width="120"
+                height="28"
+                loading="lazy"
+                decoding="async"
               />
             </a>
             <p className="mt-4 text-white/70 text-sm max-w-xs">
@@ -28,6 +32,10 @@ const Footer = () => {
                   src="/images/icons/envelope-solid-full.svg"
                   alt="E-mail"
                   className="w-4 h-4"
+                  width="16"
+                  height="16"
+                  loading="lazy"
+                  decoding="async"
                 />
               </a>
               <a
@@ -39,6 +47,10 @@ const Footer = () => {
                   src="/images/logos/Linkedin-logo.svg"
                   alt="Linkedin"
                   className="w-4 h-4"
+                  width="16"
+                  height="16"
+                  loading="lazy"
+                  decoding="async"
                 />
               </a>
               <a
@@ -46,7 +58,7 @@ const Footer = () => {
                 aria-label="GitHub"
                 className="w-10 h-10 rounded-lg flex items-center justify-center border border-white/15 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
               >
-                <img src="/images/icons/Github.svg" alt="GitHub" className="w-4 h-4" />
+                <img src="/images/icons/Github.svg" alt="GitHub" className="w-4 h-4" width="16" height="16" loading="lazy" decoding="async" />
               </a>
             </div>
 

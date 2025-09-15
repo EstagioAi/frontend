@@ -1,27 +1,27 @@
 import React from "react";
-import Home from "./pages/Home";
+const Home = React.lazy(() => import("./pages/Home"));
 import "./App.css";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import TermsOfUse from "./pages/TermsOfUse.jsx";
-import TermsOfService from "./pages/TermsOfService.jsx";
-import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
-import SupportStudents from "./pages/SupportStudents.jsx";
-import HelpCenter from "./pages/HelpCenter.jsx";
-import ImproveProfile from "./pages/ImproveProfile.jsx";
-import SupportCompanies from "./pages/SupportCompanies.jsx";
-import PostJobsGuide from "./pages/PostJobsGuide.jsx";
-import PricingPlans from "./pages/PricingPlans.jsx";
-import CommercialContact from "./pages/CommercialContact.jsx";
-import CompanyJobs from "./pages/companies/CompanyJobs.jsx";
+const Login = React.lazy(() => import("./pages/Login.jsx"));
+const Register = React.lazy(() => import("./pages/Register.jsx"));
+const TermsOfUse = React.lazy(() => import("./pages/TermsOfUse.jsx"));
+const TermsOfService = React.lazy(() => import("./pages/TermsOfService.jsx"));
+const PrivacyPolicy = React.lazy(() => import("./pages/PrivacyPolicy.jsx"));
+const SupportStudents = React.lazy(() => import("./pages/SupportStudents.jsx"));
+const HelpCenter = React.lazy(() => import("./pages/HelpCenter.jsx"));
+const ImproveProfile = React.lazy(() => import("./pages/ImproveProfile.jsx"));
+const SupportCompanies = React.lazy(() => import("./pages/SupportCompanies.jsx"));
+const PostJobsGuide = React.lazy(() => import("./pages/PostJobsGuide.jsx"));
+const PricingPlans = React.lazy(() => import("./pages/PricingPlans.jsx"));
+const CommercialContact = React.lazy(() => import("./pages/CommercialContact.jsx"));
+const CompanyJobs = React.lazy(() => import("./pages/companies/CompanyJobs.jsx"));
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import EmConstrucao from "./pages/EmConstrucao";
+const EmConstrucao = React.lazy(() => import("./pages/EmConstrucao"));
 import RouteSEO from "./components/RouteSEO.jsx";
-import Sobre from "./pages/Sobre.jsx";
-import Blog from "./pages/Blog.jsx";
-import BlogPost from "./pages/blog/Post.jsx";
-import MuralDeVagas from "./pages/MuralDeVagas.jsx";
-import Contato from "./pages/Contato.jsx";
+const Sobre = React.lazy(() => import("./pages/Sobre.jsx"));
+const Blog = React.lazy(() => import("./pages/Blog.jsx"));
+const BlogPost = React.lazy(() => import("./pages/blog/Post.jsx"));
+const MuralDeVagas = React.lazy(() => import("./pages/MuralDeVagas.jsx"));
+const Contato = React.lazy(() => import("./pages/Contato.jsx"));
 
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
     <BrowserRouter>
       {/* SEO dinâmico por rota */}
       <RouteSEO />
+      <React.Suspense fallback={<div />}> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -51,7 +52,8 @@ function App() {
 
         <Route path="/empresas/:slug" element={<CompanyJobs />} />
         <Route path="/em-construcao" element={<EmConstrucao />} />
-      </Routes>
+  </Routes>
+  </React.Suspense>
     </BrowserRouter>
   );
 }
