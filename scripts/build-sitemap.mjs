@@ -30,6 +30,7 @@ const staticUrls = [
   { loc: `${BASE}/em-construcao`, changefreq: "monthly", priority: "0.1" },
   { loc: `${BASE}/empresas/`, changefreq: "daily", priority: "0.8" },
   { loc: `${BASE}/modelos-de-curriculo`, changefreq: "monthly", priority: "0.7" },
+  { loc: `${BASE}/verificador-de-curriculo-ats`, changefreq: "weekly", priority: "0.8" },
 ];
 
 const blogUrls = posts.map((p) => ({

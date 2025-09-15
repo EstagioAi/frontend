@@ -129,6 +129,27 @@ export default function getSEO(pathname) {
         }
       },
 
+      "/verificador-de-curriculo-ats": {
+        title: "Verificador de Currículo ATS — Estágio AI",
+        description: "Cole seu currículo e receba um diagnóstico instantâneo de compatibilidade com ATS, com sugestões de melhoria.",
+        keywords: [
+          "verificador de currículo",
+          "ATS",
+          "analisar currículo",
+          "otimizar currículo",
+          "compatibilidade ATS"
+        ],
+        jsonLd: {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "Verificador de Currículo ATS — Estágio AI",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          description: "Ferramenta para avaliar e otimizar currículos para sistemas de triagem (ATS).",
+          url: "https://estagioai.com/verificador-de-curriculo-ats"
+        }
+      },
+
     "/em-construcao": {
       title: "Página em construção — Estágio AI",
       description: "Estamos preparando novidades para você. Volte em breve!",

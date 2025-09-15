@@ -23,6 +23,7 @@ const BlogPost = React.lazy(() => import("./pages/blog/Post.jsx"));
 const MuralDeVagas = React.lazy(() => import("./pages/MuralDeVagas.jsx"));
 const Contato = React.lazy(() => import("./pages/Contato.jsx"));
 const ResumeTemplates = React.lazy(() => import("./pages/ResumeTemplates.jsx"));
+const ResumeChecker = React.lazy(() => import("./pages/ResumeChecker.jsx"));
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
         <Route path="/mural-de-vagas" element={<MuralDeVagas />} />
         <Route path="/contato" element={<Contato />} />
   <Route path="/modelos-de-curriculo" element={<ResumeTemplates />} />
+  <Route path="/verificador-de-curriculo-ats" element={<ResumeChecker />} />
 
         <Route path="/empresas/:slug" element={<CompanyJobs />} />
         <Route path="/em-construcao" element={<EmConstrucao />} />
