@@ -93,7 +93,8 @@ Recrutadores estão priorizando soft skills, diversidade e sustentabilidade. Emp
 - ✓ Portfolio online ou GitHub (para áreas técnicas)
 - ✓ Revisão gramatical e ortográfica completa
 
-**[Baixar kit completo: modelo ATS + 300 palavras-chave por área](/em-construcao)**
+- **[Verificar de Currículos](/verificador-de-curriculo-ats)**
+- **[Modelos de Currículos](/modelos-de-curriculo)**
 `
   },
 
