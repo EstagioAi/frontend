@@ -110,6 +110,25 @@ export default function getSEO(pathname) {
 	      description: "Fale com nossa equipe: dúvidas, sugestões ou parcerias.",
 	    },
 
+      "/modelos-de-curriculo": {
+        title: "Modelos de Currículo — Estágio AI",
+        description: "Mais de 50 modelos modernos e compatíveis com ATS para universitários. Escolha, personalize e gere seu PDF em minutos.",
+        keywords: [
+          "modelos de currículo",
+          "currículo para estágio",
+          "currículo ATS",
+          "template de currículo",
+          "currículo grátis"
+        ],
+        jsonLd: {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Modelos de Currículo — Estágio AI",
+          description: "Coleção de modelos de currículo compatíveis com ATS e aprovados por recrutadores.",
+          url: "https://estagioai.com/modelos-de-curriculo"
+        }
+      },
+
     "/em-construcao": {
       title: "Página em construção — Estágio AI",
       description: "Estamos preparando novidades para você. Volte em breve!",
