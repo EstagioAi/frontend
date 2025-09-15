@@ -14,13 +14,14 @@ const PostJobsGuide = React.lazy(() => import("./pages/PostJobsGuide.jsx"));
 const PricingPlans = React.lazy(() => import("./pages/PricingPlans.jsx"));
 const CommercialContact = React.lazy(() => import("./pages/CommercialContact.jsx"));
 const CompanyJobs = React.lazy(() => import("./pages/companies/CompanyJobs.jsx"));
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 const EmConstrucao = React.lazy(() => import("./pages/EmConstrucao"));
 import RouteSEO from "./components/RouteSEO.jsx";
 const Sobre = React.lazy(() => import("./pages/Sobre.jsx"));
 const Blog = React.lazy(() => import("./pages/Blog.jsx"));
 const BlogPost = React.lazy(() => import("./pages/blog/Post.jsx"));
 const MuralDeVagas = React.lazy(() => import("./pages/MuralDeVagas.jsx"));
+const RadarDeVagas = React.lazy(() => import("./pages/RadarDeVagas.jsx"));
 const Contato = React.lazy(() => import("./pages/Contato.jsx"));
 const ResumeTemplates = React.lazy(() => import("./pages/ResumeTemplates.jsx"));
 const ResumeChecker = React.lazy(() => import("./pages/ResumeChecker.jsx"));
@@ -51,7 +52,8 @@ function App() {
         <Route path="/sobre" element={<Sobre />} />
   <Route path="/blog" element={<Blog />} />
   <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/mural-de-vagas" element={<MuralDeVagas />} />
+  <Route path="/radar-de-vagas" element={<RadarDeVagas />} />
+  <Route path="/mural-de-vagas" element={<Navigate to="/radar-de-vagas" replace />} />
         <Route path="/contato" element={<Contato />} />
   <Route path="/modelos-de-curriculo" element={<ResumeTemplates />} />
   <Route path="/verificador-de-curriculo-ats" element={<ResumeChecker />} />

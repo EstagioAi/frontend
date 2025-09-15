@@ -25,7 +25,7 @@ const staticUrls = [
   { loc: `${BASE}/contato-comercial`, changefreq: "monthly", priority: "0.5" },
   { loc: `${BASE}/sobre`, changefreq: "monthly", priority: "0.5" },
   { loc: `${BASE}/blog`, changefreq: "weekly", priority: "0.7" },
-  { loc: `${BASE}/mural-de-vagas`, changefreq: "weekly", priority: "0.8" },
+  { loc: `${BASE}/radar-de-vagas`, changefreq: "weekly", priority: "0.8" },
   { loc: `${BASE}/contato`, changefreq: "monthly", priority: "0.5" },
   { loc: `${BASE}/em-construcao`, changefreq: "monthly", priority: "0.1" },
   { loc: `${BASE}/empresas/`, changefreq: "daily", priority: "0.8" },

@@ -101,10 +101,10 @@ export default function getSEO(pathname) {
           url: "https://estagioai.com/blog",
         },
 	    },
-	    "/mural-de-vagas": {
-	      title: "Mural de Vagas — Estágio AI",
-	      description: "Veja oportunidades recentes e acompanhe sua compatibilidade.",
-	    },
+      "/radar-de-vagas": {
+        title: "Radar de Vagas — Estágio AI",
+        description: "Resumo curado de programas e processos seletivos de estágio em destaque.",
+      },
 	    "/contato": {
 	      title: "Contato — Estágio AI",
 	      description: "Fale com nossa equipe: dúvidas, sugestões ou parcerias.",
