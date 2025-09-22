@@ -26,15 +26,15 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="relative marquee-container overflow-hidden">
+        <div className="relative marquee-container overflow-hidden min-h-[240px] md:min-h-[260px]">
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10"></div>
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10"></div>
 
-          <div className="flex gap-6 animate-marquee-left">
+          <div className="flex gap-6 animate-marquee-left py-4">
             {[...testimonials, ...testimonials].map((t, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition border border-gray-200 w-[280px] sm:w-[340px] md:w-[360px] lg:w-[380px] flex-shrink-0"
+                className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition border border-gray-200 w-[280px] sm:w-[340px] md:w-[360px] lg:w-[380px] min-h-[200px] md:min-h-[220px] flex-shrink-0"
               >
                 <div className="flex items-center gap-4 mb-5">
                   <div className="w-11 h-11 md:w-12 md:h-12 bg-[#092116] rounded-full flex items-center justify-center text-white font-bold">

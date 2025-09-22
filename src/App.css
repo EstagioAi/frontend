@@ -600,5 +600,15 @@
   50% { transform: translateY(10px); }
 }
 
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
 .animate-slow-float { animation: slow-float 12s ease-in-out infinite; }
 .animate-slow-float-delayed { animation: slow-float-delayed 14s ease-in-out infinite; }

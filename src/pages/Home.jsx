@@ -1,16 +1,16 @@
 import React from 'react'
 import Navigation from '@/components/global/Navigation'
 import Footer from '@/components/global/Footer'
-import HeroSection from '@/components/home/HeroSection'
-import CategoriesSection from '@/components/home/CategoriesSection'
-import ProblemsSection from '@/components/home/ProblemsSection'
-import SolutionSection from '@/components/home/SolutionSection'
-import FeedbackSection from '@/components/home/FeedbackSection'
-import FormatoUnificadoSection from '@/components/home/FormatoUnificadoSection'
-import FeaturesSection from '@/components/home/FeaturesSection'
-import TestimonialsSection from '@/components/home/TestimonialsSection'
-import EmailCaptureSection from '@/components/home/EmailCaptureSection'
-import CTASection from '@/components/home/CTASection'
+import HeroSection from '@/components/home/sections/HeroSection'
+import ProblemsSection from '@/components/home/sections/ProblemsSection'
+import SolutionSection from '@/components/home/sections/SolutionSection'
+import FeedbackSection from '@/components/home/sections/FeedbackSection'
+import FormatoUnificadoSection from '@/components/home/features/FormatoUnificadoSection'
+import FeaturesSection from '@/components/home/features/FeaturesSection'
+import TalentBankSection from '@/components/home/sections/TalentBankSection'
+import TestimonialsSection from '@/components/home/sections/TestimonialsSection'
+import EmailCaptureSection from '@/components/home/forms/EmailCaptureSection'
+import CTASection from '@/components/home/sections/CTASection'
 
 export default function Home() {
   return (
@@ -24,14 +24,12 @@ export default function Home() {
 
       <Navigation />
       <HeroSection />
-      <CategoriesSection />
       <ProblemsSection />
       <SolutionSection />
       <FeedbackSection />
       <FormatoUnificadoSection />
-      <FeaturesSection />
+      <TalentBankSection />
       <TestimonialsSection />
-      <EmailCaptureSection />
       <CTASection />
       <Footer />
     </div>
