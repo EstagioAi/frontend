@@ -2,6 +2,7 @@ import React from 'react'
 import Navigation from '@/components/global/Navigation'
 import Footer from '@/components/global/Footer'
 import { CheckCircle2, Shield } from 'lucide-react'
+import { SmartLink } from '@/components/ui/smart-link.jsx'
 
 const plans = [
   {
@@ -54,7 +55,7 @@ const PricingPlans = () => {
                   <li key={idx} className="flex items-center gap-2 text-gray-700"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> {f}</li>
                 ))}
               </ul>
-              <a href="/contato-comercial" className={`mt-5 inline-flex items-center justify-center w-full h-11 rounded-xl font-semibold ${p.featured ? 'bg-[#01E297] text-black hover:brightness-95' : 'border border-gray-200 text-gray-800 hover:bg-gray-50'}`}>Falar com vendas</a>
+              <SmartLink to="/contato-comercial" className={`mt-5 inline-flex items-center justify-center w-full h-11 rounded-xl font-semibold ${p.featured ? 'bg-[#01E297] text-black hover:brightness-95' : 'border border-gray-200 text-gray-800 hover:bg-gray-50'}`}>Falar com vendas</SmartLink>
             </div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button.jsx";
+import { SmartLink } from "@/components/ui/smart-link.jsx";
 
 const CTASection = () => {
   return (
@@ -76,6 +77,14 @@ const CTASection = () => {
               <Button className="w-full py-3 rounded-[12px] bg-[#092116] text-white font-medium hover:brightness-110">
                 Quero contratar talentos
               </Button>
+              <div className="text-center pt-4 border-t border-gray-200">
+                <p className="text-sm text-gray-600 mb-3">Já tem uma conta empresarial?</p>
+                <SmartLink to="/" forceSubdomain="empresas">
+                  <Button variant="outline" className="w-full py-3 rounded-[12px] border-[#01E297] text-[#01E297] hover:bg-[#01E297] hover:text-white font-medium">
+                    Acessar Portal de Empresas
+                  </Button>
+                </SmartLink>
+              </div>
             </div>
           </div>
         </div>

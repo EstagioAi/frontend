@@ -2,6 +2,7 @@ import React from 'react'
 import Navigation from '@/components/global/Navigation'
 import Footer from '@/components/global/Footer'
 import { Building2, FileText, PhoneCall, Mail } from 'lucide-react'
+import { SmartLink } from '@/components/ui/smart-link.jsx'
 
 const SupportCompanies = () => {
   return (
@@ -27,11 +28,11 @@ const SupportCompanies = () => {
             <p className="text-gray-600 text-sm">Guia passo a passo para anunciar vagas.</p>
           </a>
 
-          <a href="/planos-e-precos" className="group border border-gray-200 rounded-2xl p-6 hover:shadow-lg bg-white">
+          <SmartLink to="/planos-e-precos" className="group border border-gray-200 rounded-2xl p-6 hover:shadow-lg bg-white">
             <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 grid place-items-center"><Building2 className="w-5 h-5" /></div>
             <h3 className="mt-4 text-lg font-semibold text-gray-900">Planos e preços</h3>
             <p className="text-gray-600 text-sm">Escolha a melhor opção para seu time.</p>
-          </a>
+          </SmartLink>
 
           <div className="border border-gray-200 rounded-2xl p-6 bg-white">
             <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 grid place-items-center"><PhoneCall className="w-5 h-5" /></div>
