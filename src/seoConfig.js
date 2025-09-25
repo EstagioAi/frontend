@@ -1,10 +1,15 @@
 // Mapear SEO por rota. Ajuste os textos conforme sua proposta de valor.
 
-export default function getSEO(pathname) {
+export default function getSEO(pathname, subdomain = null) {
   // Normalizar sem trailing slash
   const path = pathname.replace(/\/$/, "");
 
-  // Dinâmico para páginas de empresas
+  // SEO específico para subdomínio empresas.estagioai.com
+  if (subdomain === 'empresas') {
+    return getCompaniesSEO(path);
+  }
+
+  // Dinâmico para páginas de empresas no domínio principal
   if (path.startsWith("/empresas")) {
     return {
       title: "Vagas de Estágio por Empresa — Estágio AI",
@@ -165,5 +170,115 @@ export default function getSEO(pathname) {
   };
 
   return map[path] || {};
+}
+
+// SEO específico para o subdomínio empresas.estagioai.com
+function getCompaniesSEO(path) {
+  const companiesMap = {
+    "": {
+      title: "EstágioAI para Empresas — Plataforma de Recrutamento e Seleção de Talentos",
+      description: "Encontre os melhores estagiários com nossa plataforma de recrutamento inteligente. Banco de talentos automático, sistema de feedback e matching por IA para empresas.",
+      keywords: "recrutamento, seleção, estágio, talentos, RH, recursos humanos, contratação, universitários, plataforma empresas",
+      ogType: "website",
+      jsonLd: {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "EstágioAI para Empresas",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Plataforma completa de recrutamento e seleção de estagiários com IA, banco de talentos automático e sistema de feedback inteligente.",
+        "url": "https://empresas.estagioai.com",
+        "offers": {
+          "@type": "Offer",
+          "category": "Serviços de RH"
+        },
+        "featureList": [
+          "Banco de talentos automático",
+          "Sistema de feedback inteligente", 
+          "Matching por IA",
+          "Gestão de vagas",
+          "Seleção inteligente",
+          "Relatórios e métricas"
+        ]
+      }
+    },
+    "/": {
+      title: "EstágioAI para Empresas — Plataforma de Recrutamento e Seleção de Talentos",
+      description: "Encontre os melhores estagiários com nossa plataforma de recrutamento inteligente. Banco de talentos automático, sistema de feedback e matching por IA para empresas.",
+      keywords: "recrutamento, seleção, estágio, talentos, RH, recursos humanos, contratação, universitários, plataforma empresas",
+      ogType: "website",
+      jsonLd: {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "EstágioAI para Empresas",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Plataforma completa de recrutamento e seleção de estagiários com IA, banco de talentos automático e sistema de feedback inteligente.",
+        "url": "https://empresas.estagioai.com",
+        "offers": {
+          "@type": "Offer",
+          "category": "Serviços de RH"
+        },
+        "featureList": [
+          "Banco de talentos automático",
+          "Sistema de feedback inteligente", 
+          "Matching por IA",
+          "Gestão de vagas",
+          "Seleção inteligente",
+          "Relatórios e métricas"
+        ]
+      }
+    },
+    "/login": {
+      title: "Login Empresas — EstágioAI",
+      description: "Acesse sua conta empresarial para gerenciar vagas, visualizar candidatos e acompanhar seus processos seletivos.",
+      keywords: "login empresas, acesso empresarial, RH, recrutamento"
+    },
+    "/register": {
+      title: "Cadastro para Empresas — EstágioAI",
+      description: "Cadastre sua empresa gratuitamente e comece a encontrar os melhores talentos universitários para seus estágios.",
+      keywords: "cadastro empresas, registro empresarial, RH, recrutamento, estágio"
+    },
+    "/contato": {
+      title: "Contato Comercial — EstágioAI para Empresas",
+      description: "Entre em contato com nossa equipe comercial para conhecer melhor nossa plataforma de recrutamento e seleção.",
+      keywords: "contato comercial, vendas, demo, demonstração, empresas"
+    },
+    "/planos-e-precos": {
+      title: "Planos e Preços — EstágioAI para Empresas",
+      description: "Conheça nossos planos para empresas com diferentes volumes de contratação. Soluções escaláveis para RH moderno.",
+      keywords: "preços, planos empresas, assinatura, RH, recrutamento, custos"
+    },
+    "/suporte": {
+      title: "Suporte para Empresas — EstágioAI",
+      description: "Central de suporte dedicada para empresas. Tire dúvidas sobre recrutamento, gestão de vagas e nossa plataforma.",
+      keywords: "suporte empresas, ajuda RH, support, dúvidas"
+    },
+    "/como-publicar-vagas": {
+      title: "Como Publicar Vagas — Guia para Empresas | EstágioAI",
+      description: "Aprenda como publicar vagas de estágio de forma eficiente e atrair os melhores candidatos universitários.",
+      keywords: "publicar vagas, criar vagas, estágio, RH, recrutamento, guia"
+    },
+    "/termos-de-uso": {
+      title: "Termos de Uso — EstágioAI para Empresas",
+      description: "Termos de uso específicos para empresas que utilizam nossa plataforma de recrutamento e seleção.",
+      keywords: "termos uso empresas, legal, condições"
+    },
+    "/termos-de-servico": {
+      title: "Termos de Serviço — EstágioAI para Empresas",
+      description: "Termos de serviço para empresas clientes do EstágioAI. Conheça direitos e responsabilidades.",
+      keywords: "termos serviço, contrato, empresas, legal"
+    },
+    "/politica-de-privacidade": {
+      title: "Política de Privacidade — EstágioAI para Empresas",
+      description: "Como protegemos os dados da sua empresa e candidatos em nossa plataforma de recrutamento.",
+      keywords: "privacidade, LGPD, dados, proteção, empresas"
+    }
+  };
+
+  return companiesMap[path] || {
+    title: "EstágioAI para Empresas",
+    description: "Plataforma de recrutamento e seleção de estagiários para empresas."
+  };
 }
 

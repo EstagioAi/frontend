@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Main domain sitemaps -->
+  <sitemap>
+    <loc>https://estagioai.com/sitemap.xml</loc>
+    <lastmod>2025-09-24</lastmod>
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://estagioai.com/sitemap-pages.xml</loc>
+    <lastmod>2025-09-24</lastmod>
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://estagioai.com/sitemap-posts.xml</loc>
+    <lastmod>2025-09-24</lastmod>
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://estagioai.com/sitemap-images.xml</loc>
+    <lastmod>2025-09-24</lastmod>
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://estagioai.com/sitemap-news.xml</loc>
+    <lastmod>2025-09-24</lastmod>
+  </sitemap>
+  
+  <!-- Companies subdomain sitemaps -->
+  <sitemap>
+    <loc>https://empresas.estagioai.com/sitemap-companies.xml</loc>
+    <lastmod>2025-09-24</lastmod>
+  </sitemap>
+
+</sitemapindex>

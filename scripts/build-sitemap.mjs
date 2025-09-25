@@ -8,6 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const BASE = "https://estagioai.com";
+const COMPANIES_BASE = "https://empresas.estagioai.com";
 
 const staticUrls = [
   { loc: `${BASE}/`, changefreq: "weekly", priority: "1.0" },
@@ -31,6 +32,20 @@ const staticUrls = [
   { loc: `${BASE}/empresas/`, changefreq: "daily", priority: "0.8" },
   { loc: `${BASE}/modelos-de-curriculo`, changefreq: "monthly", priority: "0.7" },
   { loc: `${BASE}/verificador-de-curriculo-ats`, changefreq: "weekly", priority: "0.8" },
+];
+
+// URLs específicas do subdomínio de empresas
+const companiesUrls = [
+  { loc: `${COMPANIES_BASE}/`, changefreq: "weekly", priority: "1.0" },
+  { loc: `${COMPANIES_BASE}/login`, changefreq: "monthly", priority: "0.8" },
+  { loc: `${COMPANIES_BASE}/register`, changefreq: "monthly", priority: "0.9" },
+  { loc: `${COMPANIES_BASE}/contato`, changefreq: "monthly", priority: "0.9" },
+  { loc: `${COMPANIES_BASE}/planos-e-precos`, changefreq: "weekly", priority: "0.9" },
+  { loc: `${COMPANIES_BASE}/suporte`, changefreq: "monthly", priority: "0.7" },
+  { loc: `${COMPANIES_BASE}/como-publicar-vagas`, changefreq: "monthly", priority: "0.8" },
+  { loc: `${COMPANIES_BASE}/termos-de-uso`, changefreq: "yearly", priority: "0.3" },
+  { loc: `${COMPANIES_BASE}/termos-de-servico`, changefreq: "yearly", priority: "0.3" },
+  { loc: `${COMPANIES_BASE}/politica-de-privacidade`, changefreq: "yearly", priority: "0.3" },
 ];
 
 const blogUrls = posts.map((p) => ({
@@ -69,7 +84,7 @@ async function writePublicAndDist(fileName, content) {
 }
 
 // 1) Main sitemap.xml (combined)
-const combined = [...staticUrls, ...blogUrls];
+const combined = [...staticUrls, ...blogUrls, ...companiesUrls];
 const mainXml = toUrlset(combined);
 let out = await writePublicAndDist("sitemap.xml", mainXml);
 console.log(`sitemap.xml -> ${out.publicPath}${out.distPath ? ` | ${out.distPath}` : ""} (${combined.length} URLs)`);
@@ -124,6 +139,11 @@ console.log(`sitemap-news.xml -> ${out.publicPath}${out.distPath ? ` | ${out.dis
 const aiXml = toUrlset(blogUrls);
 out = await writePublicAndDist("ai-sitemap.xml", aiXml);
 console.log(`ai-sitemap.xml -> ${out.publicPath}${out.distPath ? ` | ${out.distPath}` : ""} (${blogUrls.length} URLs)`);
+
+// 7) sitemap-companies.xml (B2B subdomain pages)
+const companiesXml = toUrlset(companiesUrls);
+out = await writePublicAndDist("sitemap-companies.xml", companiesXml);
+console.log(`sitemap-companies.xml -> ${out.publicPath}${out.distPath ? ` | ${out.distPath}` : ""} (${companiesUrls.length} URLs)`);
 
 // Small XML escape helper for titles
 function escapeXml(str = "") {

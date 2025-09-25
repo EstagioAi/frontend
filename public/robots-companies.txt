@@ -1,0 +1,96 @@
+# Robots.txt for empresas.estagioai.com
+# Optimized for B2B and recruitment-focused crawling
+# Last updated: September 2025
+
+# ========================================
+# RULES FOR ALL CRAWLERS
+# ========================================
+User-agent: *
+# Allow full access to all company-related pages
+Allow: /
+
+# No restrictions for companies subdomain
+# All pages are public and SEO-friendly
+
+# ========================================
+# ENHANCED CRAWLING FOR BUSINESS BOTS
+# ========================================
+# Allow LinkedIn crawler for business networking
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+# Allow Google Jobs crawler
+User-agent: GoogleJobsBot
+Allow: /
+Crawl-delay: 0.5
+
+# Allow Indeed crawler
+User-agent: IndeedBot
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# AI CRAWLERS - OPTIMIZED FOR BUSINESS CONTENT
+# ========================================
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bard
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# SEARCH ENGINE CRAWLERS
+# ========================================
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# SOCIAL MEDIA CRAWLERS
+# ========================================
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# ========================================
+# BUSINESS & RECRUITMENT CRAWLERS
+# ========================================
+User-agent: ZoomInfo
+Allow: /
+Crawl-delay: 2
+
+User-agent: Apollo
+Allow: /
+Crawl-delay: 2
+
+# ========================================
+# SITEMAPS
+# ========================================
+Sitemap: https://empresas.estagioai.com/sitemap-companies.xml
+
+# Host directive for clarity
+Host: empresas.estagioai.com
