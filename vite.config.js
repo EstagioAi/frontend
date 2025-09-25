@@ -15,4 +15,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    host: true, // Permite acesso externo
+    port: 3000,
+    // Configuração para desenvolvimento com subdomínios locais
+    // Você pode usar empresas.localhost:3000 para testar
+    hmr: {
+      port: 3000,
+    },
+  },
+  preview: {
+    host: true,
+    port: 3000,
+  },
 })
