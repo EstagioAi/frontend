@@ -1,105 +1,143 @@
 import React from 'react'
-import { Search, Target, MessageSquare, BarChart3, Clock, Shield, Building2, ArrowRight, Zap } from 'lucide-react'
+import {
+  Search,
+  Target,
+  MessageSquare,
+  BarChart3,
+  Clock,
+  ShieldCheck,
+  Workflow,
+  Gauge
+} from 'lucide-react'
+
+const features = [
+  {
+    icon: Search,
+    title: 'Pipeline unificado',
+    description:
+      'Publique vagas em múltiplos canais e acompanhe todas as etapas em um quadro único, sem planilhas paralelas.'
+  },
+  {
+    icon: Target,
+    title: 'Recomendações precisas',
+    description:
+      'Nossa IA aprende com os feedbacks da sua equipe para priorizar os candidatos com maior aderência cultural e técnica.'
+  },
+  {
+    icon: MessageSquare,
+    title: 'Comunicação centralizada',
+    description:
+      'Histórico completo de interações, templates inteligentes e alerts para ninguém perder o timing das próximas ações.'
+  },
+  {
+    icon: BarChart3,
+    title: 'Insights em tempo real',
+    description:
+      'Dashboards prontos e métricas configuráveis para medir tempo de contratação, funil e desempenho das vagas.'
+  },
+  {
+    icon: Clock,
+    title: 'Automação que poupa horas',
+    description:
+      'Fluxos de aprovação, entrevistas e testes com etapas automatizadas e notificações inteligentes.'
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Compliance sem atrito',
+    description:
+      'LGPD, consentimento e armazenamento seguro tratados desde o cadastro até a assinatura da proposta.'
+  }
+]
+
+const howItWorks = [
+  {
+    step: '1. Briefing simplificado',
+    description: 'Padronize requisitos com templates prontos por senioridade e área.'
+  },
+  {
+    step: '2. IA pré-qualifica',
+    description: 'Classificação automática e perguntas eliminatórias customizadas.'
+  },
+  {
+    step: '3. Time em sincronia',
+    description: 'Painel compartilhado para feedbacks rápidos e decisões embasadas.'
+  }
+]
 
 const CompaniesFeaturesSection = () => {
-  const features = [
-    {
-      icon: Search,
-      title: "Gestão de Vagas",
-      description: "Publique e gerencie suas oportunidades em múltiplos canais com uma única ferramenta integrada e intuitiva."
-    },
-    {
-      icon: Target,
-      title: "Seleção Inteligente",
-      description: "Algoritmos avançados que pré-selecionam os candidatos mais adequados ao perfil da vaga automaticamente."
-    },
-    {
-      icon: MessageSquare,
-      title: "Comunicação Centralizada",
-      description: "Mantenha todo histórico de conversas e interações com candidatos organizados em um só lugar."
-    },
-    {
-      icon: BarChart3,
-      title: "Relatórios e Métricas",
-      description: "Acompanhe KPIs do processo seletivo com dashboards detalhados e relatórios personalizáveis."
-    },
-    {
-      icon: Clock,
-      title: "Fluxos Automatizados",
-      description: "Configure processos automáticos de triagem, entrevistas e aprovações para ganhar eficiência."
-    },
-    {
-      icon: Shield,
-      title: "Conformidade e Segurança",
-      description: "Atenda às regulamentações trabalhistas com ferramentas de compliance e proteção de dados."
-    }
-  ]
-
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Header - Corporate style */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#01E297]/10 border border-[#01E297]/20 mb-6">
-            <Zap className="w-4 h-4 text-[#01E297]" />
-            <span className="text-sm font-medium text-[#0b2a1d]">Funcionalidades</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-[#0b2a1d] mb-6 leading-tight">
-            Tudo que sua empresa precisa para
-            <span className="block text-[#01E297]">contratar os melhores talentos</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Uma plataforma completa e integrada para gerenciar todo o ciclo de recrutamento e seleção, 
-            desde a publicação da vaga até a contratação.
-          </p>
-        </div>
-
-        {/* Features Grid - Corporate style */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {features.map((feature, index) => {
-            const Icon = feature.icon
-            
-            return (
-              <div 
-                key={index}
-                className="group relative bg-white rounded-2xl p-8 border border-gray-100 hover:border-[#01E297]/30 hover:shadow-lg transition-all duration-300"
-              >
-                {/* Icon */}
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#01E297]/10 mb-6 group-hover:scale-105 transition-transform duration-300">
-                  <Icon className="w-7 h-7 text-[#01E297]" />
-                </div>
-
-                {/* Text */}
-                <h3 className="text-xl font-bold text-[#0b2a1d] mb-4 group-hover:text-[#01E297] transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed text-base">
-                  {feature.description}
-                </p>
-
-                {/* Subtle bottom accent */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#01E297] to-[#01E297]/80 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Bottom CTA - Corporate style */}
-        <div className="mt-20 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-[#0b2a1d] mb-4">
-              Pronto para transformar seu recrutamento?
-            </h3>
-            <p className="text-gray-600 mb-8">
-              Junte-se a centenas de empresas que já otimizaram seus processos seletivos
+    <section className="relative overflow-hidden bg-[#F5F7FA] py-24">
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent" />
+      <div className="absolute inset-y-12 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-slate-200 to-transparent lg:block" />
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 pb-16 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start lg:gap-16">
+          <div className="flex flex-col gap-6 lg:pr-8 lg:pt-12">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200/60 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-emerald-600">
+              <Workflow className="h-4 w-4" />
+              Operação de talentos
+            </div>
+            <h2 className="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">
+              Um hub para transformar o recrutamento em vantagem competitiva
+            </h2>
+            <p className="max-w-xl text-base text-slate-600 sm:text-lg">
+              Diga adeus a processos fragmentados. Conecte tecnologia, pessoas e dados em uma plataforma desenhada
+              para entregar previsibilidade, velocidade e experiências impecáveis para candidatos e gestores.
             </p>
-            <div className="inline-flex items-center gap-3 px-8 py-4 bg-[#0b2a1d] text-white rounded-xl shadow-lg hover:brightness-110 hover:shadow-xl transition-all duration-300 cursor-pointer">
-              <Building2 className="w-5 h-5 text-[#01E297]" />
-              <span className="font-semibold">Solicitar demonstração</span>
-              <ArrowRight className="w-4 h-4" />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex items-center gap-3 rounded-2xl border border-white/70 bg-white p-4 shadow-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                  <Gauge className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-700">Três vezes mais agilidade</p>
+                  <p className="text-xs text-slate-500">Vagas preenchidas em semanas, não meses.</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 rounded-2xl border border-white/70 bg-white p-4 shadow-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-700">Conformidade by design</p>
+                  <p className="text-xs text-slate-500">Fluxos aprovados pelas equipes jurídicas e de compliance.</p>
+                </div>
+              </div>
             </div>
           </div>
+
+          <div className="flex h-full flex-col gap-5 rounded-3xl border border-slate-200/80 bg-white/80 p-8 shadow-[0px_18px_36px_rgba(15,23,42,0.08)] backdrop-blur">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-400">Como funciona</p>
+            <div className="space-y-5">
+              {howItWorks.map(item => (
+                <div key={item.step} className="rounded-2xl border border-slate-100 bg-slate-50/60 p-5">
+                  <p className="text-sm font-semibold text-slate-700">{item.step}</p>
+                  <p className="mt-2 text-sm text-slate-500">{item.description}</p>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-2xl bg-slate-900 px-6 py-5 text-white">
+              <p className="text-sm font-medium text-white/70">Integrações prontas</p>
+              <p className="mt-1 text-lg font-semibold">ATS, HRIS e Slack conectados sem código</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {features.map(feature => {
+            const Icon = feature.icon
+            return (
+              <article
+                key={feature.title}
+                className="group relative overflow-hidden rounded-3xl border border-slate-200/70 bg-white p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-[0px_25px_40px_rgba(15,23,42,0.12)]"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50 text-emerald-600 transition-transform duration-200 group-hover:scale-105">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-6 text-lg font-semibold text-slate-900">{feature.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-500">{feature.description}</p>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>

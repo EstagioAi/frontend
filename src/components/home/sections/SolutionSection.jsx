@@ -1,142 +1,129 @@
-import { Star, Accessibility, HeartPulse, CheckCircle2 } from "lucide-react";
 import React from "react";
+import { CheckCircle2, ArrowDownRight } from "lucide-react";
+
+const steps = [
+  {
+    title: "Monte seu perfil acadêmico",
+    description: "Importe seu currículo, informe disponibilidade e deixe nossa IA entender sua jornada.",
+    items: [
+      "Integração com LinkedIn e modelos prontos",
+      "Preferências por área, modalidade e idioma",
+      "Alertas personalizados via e-mail e WhatsApp"
+    ]
+  },
+  {
+    title: "Receba vagas com match instantâneo",
+    description: "Veja afinidade, etapas, tempo de resposta médio e quem já passou naquele processo.",
+    items: [
+      "Ranking de compatibilidade alimentado pela comunidade",
+      "Sugestões do que melhorar para subir na lista",
+      "Histórico de aprovações da sua universidade"
+    ]
+  },
+  {
+    title: "Acompanhe tudo em tempo real",
+    description: "Kanban pessoal com feedback obrigatório das empresas e recomendações de preparação.",
+    items: [
+      "Linha do tempo visual com status atualizado",
+      "Guides e mentorias sugeridos conforme etapa",
+      "Relatórios para você compartilhar com a coordenação"
+    ]
+  }
+];
 
 const SolutionSection = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#092116] text-white text-sm font-medium mb-6">
-            Nossa solução inteligente
-          </div>
-          <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">
-            Criamos a resposta para cada{" "}
-            <span className="text-[#01E297]">problema identificado</span>
-          </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Desenvolvemos funcionalidades revolucionárias baseadas nos feedbacks
-            diretos dos universitários para eliminar cada frustração do processo
-            de busca por estágios.
-          </p>
-        </div>
+    <section className="relative overflow-hidden bg-white py-24">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -left-24 top-[-160px] h-[420px] w-[420px] rounded-full bg-[#e0fdf3] blur-3xl" />
+        <div className="absolute bottom-[-180px] right-[-120px] h-[360px] w-[360px] rounded-full bg-[#e0ecff] blur-3xl" />
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-fade-in-up">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-[#092116]">
-              Recomendações Personalizadas
-            </h3>
-            <p className="text-lg text-gray-600 mb-8">
-              Algoritmo de IA que analisa seu perfil universitário, histórico de
-              aprovações da sua instituição e calcula suas chances reais em cada
-              vaga.
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-sm font-semibold text-emerald-700">
+              Sua jornada em 3 etapas
+            </div>
+            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-[#02161F] sm:text-5xl">
+              Do cadastro à contratação com{' '}
+              <span className="text-[#0E8F66]">cliques guiados</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg text-slate-600">
+              Cada insight da plataforma de empresas vira benefício direto para os estudantes. A experiência é limpa, objetiva e com recomendações em tempo real.
             </p>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-gray-700">
-                  Filtros inteligentes por disponibilidade e modalidade
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-gray-700">
-                  Score de afinidade visual com cores intuitivas
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-gray-700">
-                  Histórico de contratações da sua universidade
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-gray-700">
-                  Análise de competitividade em tempo real
-                </span>
-              </div>
+            <div className="mt-12 space-y-8">
+              {steps.map(({ title, description, items }, idx) => (
+                <div key={title} className="relative rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.45)]">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#f0fdf4] text-[#059669]">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="text-xl font-semibold text-[#02161F]">{title}</h3>
+                  </div>
+                  <p className="text-base text-slate-600">{description}</p>
+                  <ul className="mt-5 space-y-3">
+                    {items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-slate-600">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#0E8F66]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Cartão real de vaga (estilo do mock) */}
-          <div className="job-card bg-white rounded-2xl p-6 shadow-lg border border-gray-200 relative animate-scale-in">
-            {/* Barra de afinidade no canto superior direito */}
-            <div className="progress-bar-container">
-              <div
-                className="progress-bar"
-                style={{
-                  width: "85%",
-                  background: "linear-gradient(90deg,#34d399,#01E297)",
-                }}
-              ></div>
+          <div className="relative mx-auto w-full max-w-lg">
+            <div className="absolute -top-10 right-6 hidden rounded-3xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-600 shadow-lg backdrop-blur-sm md:flex md:items-center md:gap-3">
+              <ArrowDownRight className="h-4 w-4 text-[#0E8F66]" />
+              Vaga recomendada no topo da sua lista
             </div>
 
-            {/* Cabeçalho: logo + título + metadados */}
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-3">
-                <div
-                  className="company-logo"
-                  style={{ background: "#01E297", color: "#0b0b0b" }}
-                >
-                  A
-                </div>
-                <div>
-                  <h4 className="text-[16px] md:text-lg font-semibold text-gray-900">
-                    Trainee UI/UX Designer
-                  </h4>
-                  <div className="text-xs text-gray-500">
-                    Adobe • Postado há 2 horas
+            <div className="relative overflow-hidden rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_35px_80px_-50px_rgba(15,23,42,0.55)]">
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#02161F] text-white text-lg font-semibold">Ad</div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-[#02161F]">Adobe · Trainee UI/UX Designer</h3>
+                    <span className="text-xs uppercase tracking-[0.25em] text-slate-400">Postado há 2 horas</span>
                   </div>
                 </div>
-              </div>
-              <div className="text-right">
-                <div className="text-[12px] text-gray-500">Afinidade</div>
-                <div className="text-sm font-semibold text-emerald-600">
-                  85%
+                <div className="text-right">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Match</span>
+                  <div className="text-2xl font-semibold text-[#0E8F66]">85%</div>
                 </div>
               </div>
-            </div>
 
-            <div className="my-4 h-px bg-gray-200" />
+              <div className="mt-5 h-px w-full bg-slate-200" />
 
-            {/* Descrição curta */}
-            <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
-              Na Adobe, criatividade encontra inovação! Procuramos UI/UX
-              Designers experientes e apaixonados por sistemas de design e por
-              melhorar jornadas de usuário.
-            </p>
-
-            {/* Rodapé: chips + salário */}
-            <div className="mt-4 flex items-center justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="px-2.5 py-1 rounded-full text-xs bg-gray-100 text-gray-700">
-                  Integral
-                </span>
-                <span className="px-2.5 py-1 rounded-full text-xs bg-gray-100 text-gray-700">
-                  Presencial / SP
-                </span>
-                <span className="px-2.5 py-1 rounded-full text-xs bg-emerald-50 text-emerald-700 inline-flex items-center gap-1">
-                  <Accessibility className="w-3.5 h-3.5" /> Inclusiva (PCD)
-                </span>
-                <span className="px-2.5 py-1 rounded-full text-xs bg-rose-50 text-rose-700 inline-flex items-center gap-1">
-                  <HeartPulse className="w-3.5 h-3.5" /> Wellhub
-                </span>
-              </div>
-              <div className="text-right whitespace-nowrap">
-                <div className="text-sm font-semibold text-gray-900">
-                  R$2k–3k
+              <div className="mt-5 grid gap-4 text-sm text-slate-600 sm:grid-cols-2">
+                <div className="rounded-2xl bg-slate-50 p-3">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Modalidade</span>
+                  <p className="mt-1 font-medium text-[#02161F]">Híbrido · São Paulo</p>
                 </div>
-                <div className="text-xs text-gray-500">/mês</div>
+                <div className="rounded-2xl bg-slate-50 p-3">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Bolsa</span>
+                  <p className="mt-1 font-medium text-[#02161F]">R$ 2.400 + benefícios</p>
+                </div>
               </div>
-            </div>
 
-            {/* Nota de aprovação por universitários (mantida) */}
-            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5">
-              <Star className="w-4 h-4 text-[#01E297]" />
-              <span className="text-xs font-medium text-gray-400 tracking-wide">
-                3 estudantes da UNIFEI foram aprovados aqui nos últimos 6 meses
-              </span>
+              <p className="mt-5 text-sm text-slate-600">
+                "Buscamos talentos com olhar apurado para design system, pesquisa com usuários e colaboração com squads de produto."
+              </p>
+
+              <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-slate-700">
+                <p className="font-semibold text-[#0E8F66]">Insight da comunidade</p>
+                <p className="mt-2">3 estudantes da UNIFEI foram aprovados aqui nos últimos 6 meses. Prepare uma apresentação curta sobre seu projeto favorito.</p>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {['Design System', 'Figma', 'Motion UI', 'Pesquisa qualitativa'].map((tag) => (
+                  <span key={tag} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">{tag}</span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

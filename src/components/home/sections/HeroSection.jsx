@@ -1,145 +1,154 @@
 import React from 'react'
 import { Button } from '@/components/ui/button.jsx'
-import { Input } from '@/components/ui/input.jsx'
-import { Sparkles, Search, MapPin, Briefcase, Star } from 'lucide-react'
+import { Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+
+const highlightItems = [
+  'Indicamos vagas conforme seu perfil e curso',
+  'Linha do tempo com feedback obrigatório das empresas'
+]
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-20 pb-16 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Esquerda: título & busca */}
-          <div>
-            <div className="mb-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F3F4F6]">
-              <Sparkles className="w-4 h-4 text-[#01E297]" />
-              <span className="text-xs font-medium text-gray-700 tracking-wide">Fique por dentro das novas vagas</span>
-            </div>
+    <section className="relative overflow-hidden bg-[#020F1A] pt-28 pb-20 text-white sm:pb-24 lg:pb-28 lg:-mb-12">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_100%_0%,rgba(1,226,151,0.16),rgba(2,15,26,0.95))]" />
+        <div className="absolute -top-24 -left-32 h-72 w-72 rounded-full bg-[#01E297]/25 blur-3xl" />
+        <div className="absolute bottom-0 -right-28 h-80 w-80 rounded-full bg-[#0B3B2A]/80 blur-[160px]" />
+        <div className="absolute top-1/3 left-16 h-48 w-48 rounded-full border border-white/10 opacity-60 animate-rotate-slow" />
+      </div>
 
-            <h1 className="text-[44px] leading-[1.1] md:text-[56px] font-bold text-black mb-5 max-w-2xl">
-              Desbloqueie seu potencial com novas oportunidades
-            </h1>
-            <p className="text-[18px] text-gray-700 mb-8 max-w-xl">
-              Conectamos você a milhares de oportunidades de estágio, avaliações e às ferramentas que aceleram sua carreira.
-            </p>
-
-            {/* Badges */}
-            <div className="flex items-center gap-3 md:gap-4 mb-10">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0b2a1d] text-white text-sm shadow-sm ring-1 ring-white/10 hover:shadow-md transition">
-                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10">
-                  <Briefcase className="w-3.5 h-3.5 text-[#8DF7CC]" />
-                </span>
-                <span className="tracking-wide">10k+ vagas</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FACC15] text-black text-sm shadow-sm ring-1 ring-black/10 hover:shadow-md transition">
-                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-black/10">
-                  <Star className="w-3.5 h-3.5" />
-                </span>
-                <span className="font-medium">4,8/5 avaliações</span>
-              </div>
-            </div>
-
-            {/* Barra de busca */}
-            <div className="w-full rounded-2xl border border-gray-200 p-2 shadow-sm">
-              <div className="grid md:grid-cols-[1fr_1fr_auto] gap-2">
-                <div className="flex items-center gap-2 px-3">
-                  <Search className="w-4 h-4 text-gray-500" />
-                  <Input placeholder="Cargo ou função" className="h-12 border-0" />
-                </div>
-                <div className="flex items-center gap-2 px-3">
-                  <MapPin className="w-4 h-4 text-gray-500" />
-                  <Input placeholder="Localização" className="h-12 border-0" />
-                </div>
-                <Button className="h-12 px-6 rounded-[12px] bg-[#01E297] text-black font-semibold hover:brightness-95">Buscar Vagas</Button>
-              </div>
-            </div>
+  <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-14 px-4 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-20 lg:px-8">
+        <div className="max-w-2xl space-y-8">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/80">
+            <Sparkles className="h-4 w-4 text-[#6FFFC7]" />
+            Plataforma completa para universitários
           </div>
 
-          {/* Direita: imagem dentro do círculo verde */}
-          <div className="relative flex justify-center">
-            <div className="relative w-full max-w-md sm:max-w-lg">
-              <div className="absolute inset-0 sm:-inset-2 rounded-full bg-[#01E297]/20 blur-2xl" />
-              <div className="aspect-square rounded-full bg-[#01E297] flex items-center justify-center overflow-hidden">
-                <img src="/images/misc/diverse-students-celebrating-internship-success.webp" alt="Estudante sorridente" className="w-[88%] h-[88%] object-cover rounded-full" width="880" height="880" loading="eager" fetchpriority="high" decoding="async" />
-              </div>
+          <div className="space-y-6">
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-[58px] lg:leading-[1.05]">
+              Encontre seu estágio ideal com{' '}
+              <span className="text-[#6FFFC7]">transparência e velocidade</span>
+            </h1>
+            <p className="text-lg text-white/70 sm:text-xl">
+              O EstágioAI centraliza vagas reais, feedback obrigatório e recomendações inteligentes para você focar no que importa: conquistar sua próxima oportunidade.
+            </p>
+          </div>
 
-              {/* Mini logos flutuando fora da imagem, em anel com distância uniforme */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-[132%] h-[132%]">
-                  {/* top */}
-                  <div className="absolute top-10 left-1/2 -translate-x-1/2">
-                    <Link to="/empresas/google" aria-label="Google" className="block">
-                      <div className="float-y float-y-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="/images/companies/google.webp" alt="Google" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                      </div>
-                    </Link>
-                  </div>
-                  {/* right */}
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                    <Link to="/empresas/microsoft" aria-label="Microsoft" className="block">
-                      <div className="float-y float-y-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="/images/companies/microsft.webp" alt="Microsoft" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                      </div>
-                    </Link>
-                  </div>
-                  {/* bottom */}
-                  <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
-                    <Link to="/empresas/amazon" aria-label="Amazon" className="block">
-                      <div className="float-y float-y-3 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="/images/companies/amazon.webp" alt="Amazon" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                      </div>
-                    </Link>
-                  </div>
-                  {/* left */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                    <Link to="/empresas/ibm" aria-label="IBM" className="block">
-                      <div className="float-y float-y-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="/images/companies/ibm.webp" alt="IBM" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                      </div>
-                    </Link>
-                  </div>
-                  {/* top-left */}
-                  <div className="absolute top-[11%] left-[11%]">
-                    <Link to="/empresas/meta" aria-label="Meta" className="block">
-                      <div className="float-y float-y-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="/images/companies/meta.webp" alt="Meta" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                      </div>
-                    </Link>
-                  </div>
-                  {/* bottom-right */}
-                  <div className="absolute bottom-[11%] right-[11%]">
-                    <Link to="/empresas/netflix" aria-label="Netflix" className="block">
-                      <div className="float-y float-y-6 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white ring-2 ring-emerald-200 shadow-md overflow-hidden grid place-items-center hover:ring-emerald-300 transition">
-                        <img src="/images/companies/netflix.webp" alt="Netflix" className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                      </div>
-                    </Link>
-                  </div>
+          <div className="grid gap-4 text-sm text-white/75 sm:grid-cols-2">
+            {highlightItems.map(item => (
+              <div
+                key={item}
+                className="flex items-center gap-3 rounded-2xl border border-white/12 bg-white/5 px-4 py-4 backdrop-blur-sm"
+              >
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/20 bg-[#6FFFC7]/20 text-[#6FFFC7]">
+                  <CheckCircle2 className="h-4 w-4" />
+                </span>
+                <p className="text-sm text-white/75">{item}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link to="/register">
+              <Button size="lg" className="h-12 rounded-xl bg-[#6FFFC7] px-8 text-base font-semibold text-[#033124] shadow-[0_22px_45px_-24px_rgba(111,255,199,0.7)] transition-transform hover:-translate-y-0.5 hover:bg-[#58E5B4]">
+                Criar minha conta
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/vagas" className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white/80 transition hover:text-white">
+              Ver vagas abertas
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+        </div>
+
+  <div className="relative w-full max-w-md lg:mt-4 lg:self-start xl:mt-6">
+          <div className="absolute inset-x-0 top-16 h-64 rounded-full bg-[#6FFFC7]/15 blur-3xl" />
+          <div className="relative">
+            <div className="absolute inset-0 hidden rounded-full border border-white/20 sm:block" />
+            <div className="aspect-square overflow-hidden rounded-full border border-white/15 bg-[#0B2A1D] shadow-[0_40px_80px_-50px_rgba(111,255,199,0.7)]">
+              <img
+                src="/images/misc/diverse-students-celebrating-internship-success.webp"
+                alt="Universitários celebrando estágio"
+                className="h-full w-full object-cover"
+                width="880"
+                height="880"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </div>
+
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative h-[132%] w-[132%]">
+                <div className="absolute top-10 left-1/2 -translate-x-1/2">
+                  <Link to="/empresas/google" aria-label="Google" className="block">
+                    <div className="float-y float-y-1 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
+                      <img src="/images/companies/google.webp" alt="Google" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
+                    </div>
+                  </Link>
+                </div>
+                <div className="absolute right-0 top-1/2 -translate-y-1/2">
+                  <Link to="/empresas/microsoft" aria-label="Microsoft" className="block">
+                    <div className="float-y float-y-2 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
+                      <img src="/images/companies/microsft.webp" alt="Microsoft" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
+                    </div>
+                  </Link>
+                </div>
+                <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
+                  <Link to="/empresas/amazon" aria-label="Amazon" className="block">
+                    <div className="float-y float-y-3 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
+                      <img src="/images/companies/amazon.webp" alt="Amazon" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
+                    </div>
+                  </Link>
+                </div>
+                <div className="absolute left-0 top-1/2 -translate-y-1/2">
+                  <Link to="/empresas/ibm" aria-label="IBM" className="block">
+                    <div className="float-y float-y-4 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
+                      <img src="/images/companies/ibm.webp" alt="IBM" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
+                    </div>
+                  </Link>
+                </div>
+                <div className="absolute top-[11%] left-[11%]">
+                  <Link to="/empresas/meta" aria-label="Meta" className="block">
+                    <div className="float-y float-y-5 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
+                      <img src="/images/companies/meta.webp" alt="Meta" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
+                    </div>
+                  </Link>
+                </div>
+                <div className="absolute bottom-[11%] right-[11%]">
+                  <Link to="/empresas/netflix" aria-label="Netflix" className="block">
+                    <div className="float-y float-y-6 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
+                      <img src="/images/companies/netflix.webp" alt="Netflix" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
+                    </div>
+                  </Link>
                 </div>
               </div>
+            </div>
 
-
-              {/* Mini card de prova social */}
-              <div className="absolute bottom-0 left-0 sm:bottom-0 sm:left-0 bg-white rounded-2xl shadow-xl border border-gray-200 px-4 py-3 w-[240px] sm:w-[280px] animate-scale-in" style={{maxWidth:'calc(100% - 12px)'}}>
-                <p className="text-[12px] sm:text-[13px] font-semibold text-gray-900 mb-2">
-                  10k+ candidatos conseguiram vaga
-                </p>
-                <div className="flex items-center -space-x-3">
-                  {[1,23,32,41,10,30].map((i) => (
-                    <img
-                      key={i}
-                      src={`https://i.pravatar.cc/48?img=${i}`}
-                      alt="avatar"
-                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full ring-2 ring-white"
-                      width="36"
-                      height="36"
-                      loading="lazy"
-                      decoding="async"
-                      referrerPolicy="no-referrer"
-                    />
-                  ))}
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#212121] text-white grid place-items-center ring-2 ring-white text-sm font-semibold">...</div>
+            <div className="absolute -bottom-16 right-4 w-[86%] max-w-sm rounded-2xl border border-white/10 bg-white/10 p-4 text-white shadow-[0_32px_60px_-40px_rgba(24,255,176,0.55)] backdrop-blur-md sm:right-8 sm:w-[22rem]">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Histórias reais</p>
+              <div className="mt-3 flex items-center -space-x-3">
+                {[1, 23, 32, 41, 10, 30].map((i) => (
+                  <img
+                    key={i}
+                    src={`https://i.pravatar.cc/48?img=${i}`}
+                    alt="Universitário"
+                    className="h-9 w-9 rounded-full border border-white/70"
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                  />
+                ))}
+                <div className="grid h-9 w-9 place-items-center rounded-full border border-white/70 bg-white/10 text-sm font-semibold text-white/80">
+                  +
                 </div>
               </div>
+              <p className="mt-3 text-sm text-white/70">Mais de 10k estudantes conquistaram estágio com o EstágioAI em 2024.</p>
             </div>
           </div>
         </div>

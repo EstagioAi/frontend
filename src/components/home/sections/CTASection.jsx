@@ -4,87 +4,64 @@ import { SmartLink } from "@/components/ui/smart-link.jsx";
 
 const CTASection = () => {
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+    <section className="relative overflow-hidden bg-[#020F1A] py-28 text-white">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="orb orb--emerald orb-animate w-[340px] h-[340px] -top-16 -left-10"></div>
-        <div className="orb orb--teal orb-animate w-[280px] h-[280px] -bottom-12 -right-12"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_100%_0%,rgba(1,226,151,0.16),rgba(2,15,26,0.95))]" />
+        <div className="absolute -bottom-28 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#0B3B2A]/70 blur-[160px]" />
       </div>
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">
-            Pronto para mudar sua{" "}
-            <span className="text-[#01E297]">experiência</span> de busca?
-          </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
-            Junte-se aos 65% dos universitários que já demonstraram interesse na
-            nossa plataforma. Seja um dos primeiros a testar o EstagioAI.
-          </p>
+
+      <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-semibold text-white/80">
+          Liberamos convites a cada nova turma
         </div>
+        <h2 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          Prepare-se para a próxima leva de{' '}
+          <span className="text-[#6FFFC7]">oportunidades</span>
+        </h2>
+        <p className="mt-5 text-lg text-white/70">
+          Cadastre-se para receber prioridade na abertura de vagas e acesse materiais exclusivos para acelerar sua jornada.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 animate-scale-in">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-black mb-2">
-                Sou Estudante
-              </h3>
-            </div>
-
-            <div className="space-y-4">
-              <input
-                type="email"
-                placeholder="Seu melhor email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
-              />
-              <input
-                type="text"
-                placeholder="Seu curso"
-                className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
-              />
-              <input
-                type="text"
-                placeholder="Sua universidade"
-                className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
-              />
-              <Button className="w-full py-3 rounded-[12px] bg-[#01E297] text-black font-medium hover:brightness-95">
-                Quero ser notificado
+        <div className="mt-12 grid gap-6 text-left sm:grid-cols-2">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_35px_80px_-60px_rgba(24,255,176,0.5)] backdrop-blur-md">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/50">Para estudantes</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">Garanta seu acesso antecipado</h3>
+            <p className="mt-4 text-sm text-white/70">
+              Receba convites para mentorias, acesso ao radar semanal e vagas com alta afinidade assim que abrirem.
+            </p>
+            <SmartLink to="/register">
+              <Button
+                size="lg"
+                className="mt-6 h-12 w-full rounded-full bg-[#6FFFC7] text-[#022017] hover:bg-[#58E5B4] hover:text-[#022017]"
+              >
+                Criar minha conta
               </Button>
-            </div>
+            </SmartLink>
           </div>
-
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 animate-scale-in">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-black mb-2">
-                Sou Empresa
-              </h3>
-            </div>
-
-            <div className="space-y-4">
-              <input
-                type="email"
-                placeholder="Email corporativo"
-                className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
-              />
-              <input
-                type="text"
-                placeholder="Nome da empresa"
-                className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
-              />
-              <input
-                type="text"
-                placeholder="Seu cargo"
-                className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
-              />
-              <Button className="w-full py-3 rounded-[12px] bg-[#092116] text-white font-medium hover:brightness-110">
-                Quero contratar talentos
-              </Button>
-              <div className="text-center pt-4 border-t border-gray-200">
-                <p className="text-sm text-gray-600 mb-3">Já tem uma conta empresarial?</p>
-                <SmartLink to="/" forceSubdomain="empresas">
-                  <Button variant="outline" className="w-full py-3 rounded-[12px] border-[#01E297] text-[#01E297] hover:bg-[#01E297] hover:text-white font-medium">
-                    Acessar Portal de Empresas
-                  </Button>
-                </SmartLink>
-              </div>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_35px_80px_-60px_rgba(24,255,176,0.5)] backdrop-blur-md">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/50">Para empresas</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">Construa seu pipeline com IA</h3>
+            <p className="mt-4 text-sm text-white/70">
+              Acesse o portal de empresas, publique vagas padronizadas e tenha feedback obrigatório integrado.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <SmartLink to="/contato-comercial">
+                <Button
+                  size="lg"
+                  className="h-12 w-full rounded-full bg-white text-[#02161F] hover:bg-white/90 hover:text-[#02161F]"
+                >
+                  Falar com time
+                </Button>
+              </SmartLink>
+              <SmartLink to="/" forceSubdomain="empresas">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="h-12 w-full rounded-full border-white/30 bg-transparent text-white hover:border-white/60 hover:bg-white/10 hover:text-white/90"
+                >
+                  Acessar portal
+                </Button>
+              </SmartLink>
             </div>
           </div>
         </div>

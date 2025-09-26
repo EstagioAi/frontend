@@ -1,51 +1,54 @@
 import React from 'react'
 
-const TestimonialsSection = () => {
-  const testimonials = [
-    { name: "Ana", course: "Engenharia", university: "UNIFEI", avatar: "A", quote: "A falta de feedback é o que mais me frustra. Você envia currículo e fica no vazio, sem saber se foi ao menos visualizado." },
-    { name: "Carlos", course: "Computação", university: "USP", avatar: "C", quote: "Seria incrível ter transparência no processo. Saber quantos candidatos tem, em que etapa estou, qual minha posição." },
-    { name: "Maria", course: "Administração", university: "UFMG", avatar: "M", quote: "As plataformas atuais são muito confusas. Preciso usar 5 sites diferentes e ainda assim não encontro vagas boas." },
-    { name: "Lucas", course: "Sistemas de Informação", university: "UFSC", avatar: "L", quote: "Quero saber onde estou no processo e quando devo me preparar para entrevista." },
-    { name: "Beatriz", course: "Computação", university: "Unicamp", avatar: "B", quote: "Ter todas as vagas num só lugar e com filtros úteis economiza muito tempo." },
-    { name: "Júlia", course: "Direito", university: "UnB", avatar: "J", quote: "Saber se a vaga é confiável faz toda a diferença para eu me candidatar." },
-    { name: "Rafael", course: "Economia", university: "UFRGS", avatar: "R", quote: "Receber notificação quando o status muda evita ficar checando toda hora." },
-    { name: "Larissa", course: "Design", university: "PUC-Rio", avatar: "L", quote: "Processos foram mais claros com feedback obrigatório. Parei de ficar no escuro." },
-    { name: "Pedro", course: "Engenharia de Produção", university: "UFRJ", avatar: "P", quote: "O match por afinidade deixou as recomendações realmente relevantes." }
-  ]
+const testimonials = [
+  { name: 'Ana', course: 'Engenharia', university: 'UNIFEI', avatar: 'A', quote: 'O painel de feedback me mostra exatamente onde estou. Nunca mais fiquei esperando resposta no escuro.' },
+  { name: 'Carlos', course: 'Computação', university: 'USP', avatar: 'C', quote: 'Ver quantos candidatos restam e quais próximos passos me deixa tranquilo para me preparar bem.' },
+  { name: 'Maria', course: 'Administração', university: 'UFMG', avatar: 'M', quote: 'O formato padrão de vagas é perfeito. Consigo comparar propostas rapidamente e decidir onde focar.' },
+  { name: 'Lucas', course: 'Sistemas de Informação', university: 'UFSC', avatar: 'L', quote: 'Os alertas chegam no momento certo. Quando abre vaga com meu perfil, sou um dos primeiros a aplicar.' },
+  { name: 'Beatriz', course: 'Computação', university: 'Unicamp', avatar: 'B', quote: 'Match por afinidade com dicas práticas fez toda diferença. Ajustei meu currículo e fui chamado.' },
+  { name: 'Júlia', course: 'Direito', university: 'UnB', avatar: 'J', quote: 'Ter empresas verificadas e prazos claros me passou muita confiança. Hoje indico pra todo mundo.' },
+  { name: 'Rafael', course: 'Economia', university: 'UFRGS', avatar: 'R', quote: 'Os relatórios ajudam a conversar com a coordenação. Tenho dados reais do meu progresso.' },
+  { name: 'Larissa', course: 'Design', university: 'PUC-Rio', avatar: 'L', quote: 'Os mentors e trilhas sugeridas pelo EstágioAI me deram ritmo. Consegui duas entrevistas na mesma semana.' }
+]
 
+const TestimonialsSection = () => {
   return (
-    <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black mb-6 text-black">
-            O que os universitários{' '}
-            <span className="text-[#01E297]">estão dizendo</span>
+    <section className="relative overflow-hidden bg-white py-24">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-x-0 top-[-280px] mx-auto h-[520px] w-[520px] rounded-full bg-[#6FFFC7]/15 blur-3xl" />
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <h2 className="text-4xl font-semibold tracking-tight text-[#02161F] sm:text-5xl">
+            Histórias reais da{' '}
+            <span className="text-[#0E8F66]">nossa comunidade</span>
           </h2>
-          <p className="text-lg text-gray-600">
-            Depoimentos reais da nossa pesquisa de campo
+          <p className="mt-4 text-lg text-slate-600">
+            Mais de 10 mil estudantes já avançaram processos com o EstágioAI. Veja como a experiência mudou o jogo.
           </p>
         </div>
 
-        <div className="relative marquee-container overflow-hidden min-h-[240px] md:min-h-[260px]">
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10"></div>
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10"></div>
+        <div className="relative overflow-hidden">
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-white via-white/70 to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-white via-white/70 to-transparent" />
 
-          <div className="flex gap-6 animate-marquee-left py-4">
-            {[...testimonials, ...testimonials].map((t, idx) => (
+          <div className="flex gap-6 py-6 animate-marquee-left">
+            {[...testimonials, ...testimonials].map((testimonial, idx) => (
               <div
-                key={idx}
-                className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition border border-gray-200 w-[280px] sm:w-[340px] md:w-[360px] lg:w-[380px] min-h-[200px] md:min-h-[220px] flex-shrink-0"
+                key={`${testimonial.name}-${idx}`}
+                className="flex w-[280px] flex-shrink-0 flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_25px_60px_-50px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 sm:w-[320px] md:w-[360px]"
               >
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-11 h-11 md:w-12 md:h-12 bg-[#092116] rounded-full flex items-center justify-center text-white font-bold">
-                    {t.avatar}
+                <div className="mb-5 flex items-center gap-4">
+                  <div className="grid h-12 w-12 place-items-center rounded-full bg-[#02161F] text-lg font-semibold text-white">
+                    {testimonial.avatar}
                   </div>
                   <div>
-                    <div className="font-bold text-black">{t.name}, {t.course}</div>
-                    <div className="text-sm text-gray-600">{t.university}</div>
+                    <p className="text-base font-semibold text-[#02161F]">{testimonial.name}</p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{testimonial.course} · {testimonial.university}</p>
                   </div>
                 </div>
-                <blockquote className="text-gray-600 italic leading-relaxed">“{t.quote}”</blockquote>
+                <blockquote className="text-sm leading-relaxed text-slate-600">“{testimonial.quote}”</blockquote>
               </div>
             ))}
           </div>

@@ -33,7 +33,7 @@ import { useSubdomain } from "./hooks/use-subdomain.js";
 
 
 function App() {
-  const { isCompaniesSubdomain, isMainDomain } = useSubdomain();
+  const { isCompaniesSubdomain } = useSubdomain();
 
   return (
     <BrowserRouter>

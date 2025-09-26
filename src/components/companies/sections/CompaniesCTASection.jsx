@@ -1,64 +1,75 @@
 import React from 'react'
 import { Button } from '@/components/ui/button.jsx'
-import { ArrowRight, CheckCircle, Building2 } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Headset, Rocket } from 'lucide-react'
+
+const highlights = [
+  {
+    icon: ShieldCheck,
+    title: 'Segurança e compliance',
+    description: 'LGPD e políticas internas atendidas desde o primeiro dia.'
+  },
+  {
+    icon: Headset,
+    title: 'Onboarding acompanhado',
+    description: 'Time dedicado para configurar fluxos, integrações e indicadores.'
+  },
+  {
+    icon: Rocket,
+    title: 'Resultado em semanas',
+    description: 'Primeiras posições preenchidas já no primeiro mês de uso.'
+  }
+]
 
 const CompaniesCTASection = () => {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#01E297]/5 to-white overflow-hidden">
-      {/* Corporate background with EstágioAI colors */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-[#01E297]/10 to-transparent blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-gradient-to-tr from-[#01E297]/8 to-transparent blur-3xl"></div>
+    <section className="relative isolate overflow-hidden bg-[#0B1F2A] py-24">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(1,226,151,0.18),_transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(15,23,42,0.8),_transparent_65%)]" />
       </div>
 
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#01E297]/10 border border-[#01E297]/20 mb-6">
-            <CheckCircle className="w-4 h-4 text-[#01E297]" />
-            <span className="text-sm font-medium text-[#0b2a1d]">Comece hoje mesmo</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#0b2a1d] leading-tight">
-            Transforme seu processo de recrutamento
-            <span className="block text-[#01E297]">em uma vantagem competitiva</span>
+      <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+        <div className="space-y-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-white/80">
+            Vamos começar
+          </span>
+          <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
+            Transforme a operação de recrutamento com apoio dedicado do EstágioAI
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-10 leading-relaxed">
-            Junte-se a centenas de empresas líderes que já otimizaram seus processos seletivos 
-            e encontram os melhores talentos com mais eficiência.
+          <p className="mx-auto max-w-2xl text-base text-white/70 sm:text-lg">
+            Uma plataforma moderna, com equipe de especialistas ao lado do seu time para reduzir o tempo de contratação
+            e entregar experiências consistentes.
           </p>
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button 
-              size="lg"
-              className="bg-[#0b2a1d] hover:brightness-110 text-white px-10 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-lg"
-            >
-              Solicitar demonstração
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-2 border-[#01E297] hover:bg-[#01E297] text-[#01E297] hover:text-[#0b2a1d] px-10 py-4 rounded-xl transition-all duration-300 font-semibold text-lg"
-            >
-              <Building2 className="mr-2 w-5 h-5" />
-              Falar com especialista
-            </Button>
-          </div>
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button
+            size="lg"
+            className="h-12 rounded-full bg-emerald-300 px-8 text-base font-semibold text-[#0B1F2A] transition-transform duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_24px_50px_rgba(1,226,151,0.25)]"
+          >
+            Solicitar demonstração
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="h-12 rounded-full border-white/25 bg-white/5 px-8 text-base font-semibold text-white transition-colors duration-200 hover:bg-white/10"
+          >
+            Falar com especialista
+          </Button>
+        </div>
 
-          {/* Corporate benefits with EstágioAI colors */}
-          <div className="flex flex-wrap items-center justify-center gap-8 mt-10 text-base text-gray-600">
-            <div className="flex items-center gap-3">
-              <CheckCircle className="w-5 h-5 text-[#01E297]" />
-              <span className="font-medium">Implementação personalizada</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <CheckCircle className="w-5 h-5 text-[#01E297]" />
-              <span className="font-medium">Suporte dedicado</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <CheckCircle className="w-5 h-5 text-[#01E297]" />
-              <span className="font-medium">ROI garantido</span>
-            </div>
-          </div>
+        <div className="mt-14 grid gap-6 text-left text-white/80 sm:grid-cols-3">
+          {highlights.map(highlight => {
+            const Icon = highlight.icon
+            return (
+              <div key={highlight.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <Icon className="h-6 w-6 text-emerald-300" />
+                <p className="mt-4 text-sm font-semibold text-white">{highlight.title}</p>
+                <p className="mt-2 text-sm text-white/70">{highlight.description}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

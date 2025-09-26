@@ -1,89 +1,82 @@
 import React from 'react'
-import { Search, LayoutGrid, Users, MessageSquare, Eye, ShieldAlert } from 'lucide-react'
+import { Search, CheckCircle2, Timer, Sparkles } from 'lucide-react'
+
+const highlights = [
+  {
+    icon: Search,
+    title: 'Curadoria real de vagas',
+    description: 'Centralizamos cargos oficiais, programas de estágio e trainee em um feed inteligente que entende sua área e disponibilidade.'
+  },
+  {
+    icon: CheckCircle2,
+    title: 'Processos transparentes',
+    description: 'Timeline com etapas claras, feedback obrigatório e lembretes automáticos para você nunca mais ficar no escuro.'
+  },
+  {
+    icon: Timer,
+    title: 'Resposta em horas',
+    description: 'IA monitora visualizações e respostas das empresas para acelerar retornos e priorizar oportunidades mais quentes.'
+  },
+  {
+    icon: Sparkles,
+    title: 'Guides e comunidade',
+    description: 'Templates, mentorias coletivas e radar semanal com o que mais aprova na sua universidade.'
+  }
+]
 
 const ProblemsSection = () => {
-  const problems = [
-    {
-      title: "Não saber onde buscar",
-      description: "Plataformas espalhadas, vagas escondidas em sites de empresas, total falta de centralização das oportunidades.",
-      icon: Search,
-      color: 'emerald'
-    },
-    {
-      title: "Plataformas confusas",
-      description: "Interfaces desorganizadas, filtros inadequados, UX frustrante que desperdiça tempo valioso dos estudantes.",
-      icon: LayoutGrid,
-      color: 'amber'
-    },
-    {
-      title: "Concorrência extrema",
-      description: "Milhares de candidatos para poucas vagas, sem transparência sobre chances reais de aprovação.",
-      icon: Users,
-      color: 'rose'
-    },
-    {
-      title: "Falta de feedback",
-      description: "Candidaturas enviadas no vazio absoluto, sem retorno sobre status do processo seletivo.",
-      icon: MessageSquare,
-      color: 'sky'
-    },
-    {
-      title: "Falta de transparência",
-      description: "Processos seletivos completamente opacos, etapas desconhecidas, critérios de avaliação obscuros.",
-      icon: Eye,
-      color: 'violet'
-    },
-    {
-      title: "Falta de confiança",
-      description: "Dúvidas sobre legitimidade das vagas, experiências frustrantes anteriores criando desconfiança.",
-      icon: ShieldAlert,
-      color: 'indigo'
-    }
-  ]
-
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      {/* BG decorativo sutil */}
+    <section className="relative overflow-hidden bg-[#F6FAFF] pb-28 pt-28 sm:pt-32 lg:-mt-4 lg:pb-32 lg:pt-36">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-100/20 rounded-full blur-3xl"></div>
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/40 via-[#F6FAFF]/70 to-transparent" />
+        <div className="absolute -top-24 left-1/2 h-[540px] w-[540px] -translate-x-1/2 rounded-full bg-[#6FFFC7]/20 blur-3xl" />
+        <div className="absolute bottom-[-160px] right-[-120px] h-[420px] w-[420px] rounded-full bg-[#2563eb]/5 blur-3xl" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/60 to-transparent" />
       </div>
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-semibold ring-1 ring-emerald-200 mb-6">
-            A realidade dos universitários
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-1.5 text-sm font-semibold text-emerald-700 shadow-sm">
+            Por que estudantes escolhem o EstágioAI
           </div>
-          <h2 className="text-3xl md:text-5xl font-black mb-4 text-gray-900 tracking-tight">
-            Sabemos que buscar estágios é{' '}
-            <span className="text-[#01E297]">desafiador</span>
+          <h2 className="mt-6 text-4xl font-semibold tracking-tight text-[#02161F] sm:text-5xl">
+            Um hub projetado para{' '}
+            <span className="text-[#0E8F66]">eliminar as frustrações</span>
+            {' '}da busca por estágio
           </h2>
-          <div className="h-2 w-44 rounded-full bg-[#01E297] mx-auto mb-6" />
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            Nossa pesquisa com <span className="text-[#01E297] font-bold">+ de 100 universitários</span> revelou os principais problemas que{' '}
-            <span className="text-[#092116] font-bold">todo estudante enfrenta</span> ao procurar estágios no Brasil.
+          <p className="mt-5 text-lg text-slate-600">
+            Tudo o que ouvimos na pesquisa com mais de 100 universitários virou funcionalidade prática, com menos ruído e mais clareza para sua jornada.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {problems.map((problem, index) => {
-            const Icon = problem.icon
-            return (
-              <div key={index} className="group relative rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="absolute inset-x-6 -top-3 h-3 rounded-t-2xl bg-gradient-to-r from-transparent via-emerald-100/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-2.5 rounded-xl ring-1 bg-emerald-50 ring-emerald-200 text-emerald-700">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-xl font-bold text-black">{problem.title}</h3>
+        <div className="grid gap-6 md:grid-cols-2">
+          {highlights.map(({ icon: Icon, title, description }) => (
+            <div key={title} className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_25px_55px_-40px_rgba(15,23,42,0.45)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_35px_70px_-40px_rgba(15,23,42,0.45)]">
+              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#6FFFC7]/20 blur-2xl transition-opacity duration-300 group-hover:opacity-80" />
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f0fdf4] text-[#059669]">
+                  <Icon className="h-6 w-6" />
                 </div>
-                <p className="text-gray-600 leading-relaxed">{problem.description}</p>
+                <h3 className="text-xl font-semibold text-[#02161F]">{title}</h3>
               </div>
-            )
-          })}
+              <p className="mt-6 text-base leading-relaxed text-slate-600">{description}</p>
+            </div>
+          ))}
         </div>
 
-        <div className="text-center mt-16">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black">Está cansado dessa realidade?</h3>
-          <p className="text-lg text-[#01E297] font-semibold">Vamos mudar isso juntos</p>
+        <div className="mt-20 grid gap-6 rounded-3xl border border-slate-200 bg-white/90 p-8 sm:grid-cols-3">
+          <div className="text-center sm:border-r sm:border-slate-200 sm:pr-6">
+            <div className="text-3xl font-semibold text-[#02161F]">92%</div>
+            <p className="mt-2 text-sm text-slate-500">dos estudantes disseram que o EstágioAI é a plataforma mais clara de uso diário</p>
+          </div>
+          <div className="text-center sm:border-r sm:border-slate-200 sm:px-6">
+            <div className="text-3xl font-semibold text-[#02161F]">4,8/5</div>
+            <p className="mt-2 text-sm text-slate-500">nota média de experiência com feedback em processos seletivos</p>
+          </div>
+          <div className="text-center sm:pl-6">
+            <div className="text-3xl font-semibold text-[#02161F]">36h</div>
+            <p className="mt-2 text-sm text-slate-500">tempo médio para a primeira resposta após candidatura dentro da plataforma</p>
+          </div>
         </div>
       </div>
     </section>

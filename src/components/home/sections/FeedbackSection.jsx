@@ -1,107 +1,83 @@
 import React from 'react'
 import { CheckCircle2 } from 'lucide-react'
 
+const checklist = [
+  'Linha de progresso visual por candidatura',
+  'Notificações em tempo real via e-mail e WhatsApp',
+  'Feedback simplificado em um clique para empresas',
+  'Histórico completo para acompanhar aprendizados'
+]
+
 const FeedbackSection = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#092116]">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Dashboard de Candidaturas */}
-          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-[0_6px_30px_rgba(0,0,0,0.06)] border border-gray-200/70">
-            <h3 className="text-lg md:text-xl font-bold text-black tracking-tight mb-6">Progresso de sua candidatura</h3>
+    <section className="relative overflow-hidden bg-[#020F1A] py-24 text-white">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(140%_140%_at_15%_10%,rgba(1,226,151,0.12),rgba(2,15,26,0.95))]" />
+        <div className="absolute -bottom-32 right-[-120px] h-[420px] w-[420px] rounded-full bg-[#0B3B2A]/70 blur-[140px]" />
+        <div className="absolute -top-24 left-[-120px] h-[340px] w-[340px] rounded-full bg-[#1E3A8A]/40 blur-[160px]" />
+      </div>
 
-            <div className="space-y-4 mb-6">
-              {/* Linha de etapas com rotulos alinhados aos pontos */}
-              <div className="grid grid-cols-7 gap-2">
-                {/* Labels (linha 1) */}
-                <div className="col-start-1 flex justify-center">
-                  <span className="inline-flex items-center rounded-full bg-yellow-50 text-yellow-700 ring-1 ring-yellow-200 px-2.5 py-1 text-xs font-medium">Enviada</span>
-                </div>
-                <div className="col-start-3 flex justify-center">
-                  <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 px-2.5 py-1 text-xs font-medium">Visualizada</span>
-                </div>
-                <div className="col-start-5 flex justify-center">
-                  <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 ring-1 ring-blue-200 px-2.5 py-1 text-xs font-medium">Entrevista</span>
-                </div>
-                <div className="col-start-7 flex justify-center">
-                  <span className="inline-flex items-center rounded-full bg-teal-50 text-teal-700 ring-1 ring-teal-200 px-2.5 py-1 text-xs font-medium">Finalizada</span>
-                </div>
-
-                {/* Timeline (linha 2) */}
-                {/* Dot 1 */}
-                <div className="col-start-1 flex items-center justify-center">
-                  <span className="relative block w-3.5 h-3.5 rounded-full bg-[#01E297]"></span>
-                </div>
-                {/* Bar 1-2 preenchida */}
-                <div className="col-start-2 flex items-center">
-                  <span className="w-full h-2 rounded-full -mx-1 bg-gradient-to-r from-[#01E297] to-emerald-400"></span>
-                </div>
-                {/* Dot 2 (atual - com ping) */}
-                <div className="col-start-3 flex items-center justify-center">
-                  <span className="relative inline-flex">
-                    <span className="absolute inline-flex h-3.5 w-3.5 rounded-full bg-[#01E297] opacity-40 animate-ping"></span>
-                    <span className="relative inline-flex w-3.5 h-3.5 rounded-full bg-[#01E297] ring-4 ring-[#01E297]/20 transition-all"></span>
-                  </span>
-                </div>
-                {/* Bar 2-3 pendente */}
-                <div className="col-start-4 flex items-center">
-                  <span className="w-full h-2 rounded-full -mx-1 bg-gray-200"></span>
-                </div>
-                {/* Dot 3 pendente */}
-                <div className="col-start-5 flex items-center justify-center">
-                  <span className="w-3.5 h-3.5 rounded-full bg-gray-200"></span>
-                </div>
-                {/* Bar 3-4 pendente */}
-                <div className="col-start-6 flex items-center">
-                  <span className="w-full h-2 rounded-full -mx-1 bg-gray-200"></span>
-                </div>
-                {/* Dot 4 pendente */}
-                <div className="col-start-7 flex items-center justify-center">
-                  <span className="w-3.5 h-3.5 rounded-full bg-gray-200"></span>
-                </div>
-              </div>
+      <div className="mx-auto grid w-full max-w-6xl gap-16 px-4 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:px-8">
+        <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-8 text-white shadow-[0_45px_80px_-45px_rgba(23,255,183,0.35)] backdrop-blur-md">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-white/50">Candidatura</p>
+              <h3 className="mt-2 text-xl font-semibold text-white">Status em tempo real</h3>
             </div>
-
-            <div className="mt-6 flex items-center gap-3 rounded-2xl border border-emerald-300 bg-[#EEFFF6] p-4">
-              <div className="h-2.5 w-2.5 rounded-full bg-emerald-500"></div>
-              <p className="text-sm text-gray-700">Seu currículo foi visualizado. A entrevista está agendada para amanhã às 14h.</p>
-            </div>
+            <span className="rounded-full bg-[#6FFFC7]/20 px-3 py-1 text-xs font-medium text-[#6FFFC7]">Atualizado agora</span>
           </div>
 
-          {/* Feedback Obrigatório */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-
-              <h2 className="text-2xl md:text-3xl font-bold">
-                <span className="text-[#01E297]">Feedback</span>{' '}
-                <span className="text-white">Obrigatório</span>
-              </h2>
+          <div className="mt-8 space-y-6">
+            <div className="grid grid-cols-[auto,1fr] items-center gap-x-3 gap-y-4 text-sm text-white/70">
+              {[{ label: 'Candidatura enviada', state: 'done' }, { label: 'Currículo visualizado', state: 'active' }, { label: 'Entrevista técnica', state: 'next' }, { label: 'Oferta enviada', state: 'next' }].map(({ label, state }, index) => (
+                <React.Fragment key={label}>
+                  <div className="relative flex items-center justify-center">
+                    <span className={`grid h-3.5 w-3.5 place-items-center rounded-full ${state === 'done' ? 'bg-[#6FFFC7]' : state === 'active' ? 'bg-[#6FFFC7]' : 'bg-white/10'}`}>
+                      {state === 'active' && <span className="absolute inline-flex h-3.5 w-3.5 rounded-full bg-[#6FFFC7] opacity-30 animate-ping" />}
+                    </span>
+                    {index < 3 && (
+                      <span className={`absolute left-1/2 top-full h-8 w-px -translate-x-1/2 ${state === 'done' || state === 'active' ? 'bg-gradient-to-b from-[#6FFFC7] to-transparent' : 'bg-white/10'}`} aria-hidden="true" />
+                    )}
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                    <p className="text-sm font-medium text-white">{label}</p>
+                    <p className="text-xs text-white/60">{state === 'done' ? 'Concluído há 12h' : state === 'active' ? 'Feedback esperado às 14h' : 'Próxima etapa estimada em 2 dias'}</p>
+                  </div>
+                </React.Fragment>
+              ))}
             </div>
 
-            <p className="text-lg text-white/80 mb-8">
-              O Kanban pessoal mostra o progresso de cada candidatura em tempo real.{' '}
-              <span className="text-[#01E297] font-semibold">Empresas são obrigadas</span>{' '}
-              a dar feedback em cada etapa.
-            </p>
-
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-white/80">Linha de progresso visual por candidatura</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-white/80">Notificações por email em tempo real</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-white/80">Feedback simplificado de 1 clique para empresas</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#01E297]" />
-                <span className="text-white/80">Histórico completo de interações</span>
-              </div>
+            <div className="rounded-2xl border border-[#6FFFC7]/40 bg-[#6FFFC7]/10 p-4 text-sm text-white/80">
+              <p className="font-semibold text-[#6FFFC7]">Próximo passo confirmado</p>
+              <p className="mt-2">Entrevista técnica amanhã às 14h. Veja o roteiro de perguntas e os cases que mais aprovam nesse processo.</p>
             </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-semibold text-white/80">
+            Feedback obrigatório e humanizado
+          </div>
+          <h2 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            Transparência em cada etapa{' '}
+            <span className="text-[#6FFFC7]">sem ruído</span>
+          </h2>
+          <p className="mt-6 text-lg text-white/70">
+            A mesma infraestrutura que as empresas usam no EstágioAI garante que você saiba exatamente onde está. Nada de abrir dezenas de abas ou mandar e-mails pedindo retorno.
+          </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {checklist.map((item) => (
+              <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 text-[#6FFFC7]" />
+                <span className="text-sm text-white/75">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-white/70">
+            <p>"Desde que começamos a usar o EstágioAI, os estudantes recebem uma resposta em média 3 vezes mais rápido. O painel é o que nos faltava."</p>
+            <p className="mt-3 text-xs uppercase tracking-[0.3em] text-white/40">Coordenadora de estágios · Universidade Parceira</p>
           </div>
         </div>
       </div>

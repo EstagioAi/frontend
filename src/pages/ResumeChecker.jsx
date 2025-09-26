@@ -140,7 +140,10 @@ export default function ResumeChecker() {
           return ''
         })
       }
-    } catch {}
+    } catch (error) {
+      console.error('Erro ao preparar visualização do arquivo', error)
+      setFileUrl('')
+    }
   }
 
   const openPicker = () => document.getElementById('resume-file-input')?.click()

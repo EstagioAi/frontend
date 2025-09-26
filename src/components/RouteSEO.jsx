@@ -52,7 +52,7 @@ export default function RouteSEO() {
 
   // Dispara IndexNow em produção a cada mudança de rota
   submitIndexNow(canonicalUrl)
-  }, [location]);
+  }, [location, isCompaniesSubdomain, subdomain]);
 
   return null;
 }

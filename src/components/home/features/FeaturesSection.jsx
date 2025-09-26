@@ -1,76 +1,67 @@
 import React from 'react'
-import { Search, Filter, Bell, ShieldCheck, Activity, Users } from 'lucide-react'
+import { Sparkles, Compass, Bell, ShieldCheck, Users, Activity } from 'lucide-react'
+
+const features = [
+  {
+    icon: Sparkles,
+    title: 'Feed inteligente',
+    description: 'Curadoria diária com vagas de programas oficiais, startups e grandes empresas em um só lugar.'
+  },
+  {
+    icon: Compass,
+    title: 'Filtro por afinidade',
+    description: 'Entenda porque cada vaga foi recomendada para você e o que fazer para subir na lista.'
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Confiança garantida',
+    description: 'Todas as vagas passam por verificação e têm SLA de feedback para manter o processo vivo.'
+  },
+  {
+    icon: Bell,
+    title: 'Alertas em tempo real',
+    description: 'Receba notificações quando o status mudar e mantenha sua agenda alinhada.'
+  },
+  {
+    icon: Users,
+    title: 'Radar da comunidade',
+    description: 'Saiba o que os estudantes da sua universidade fizeram para serem aprovados em cada etapa.'
+  },
+  {
+    icon: Activity,
+    title: 'Insights acionáveis',
+    description: 'Acompanhe métricas pessoais e recomendações semanais para focar no que gera resultado.'
+  }
+]
 
 const FeaturesSection = () => {
-  const features = [
-    {
-      icon: (<Search className="w-5 h-5" />),
-      problem: 'Vagas espalhadas em dezenas de sites.',
-      solution: 'Agregamos fontes e empresas em um só lugar.'
-    },
-    {
-      icon: (<Filter className="w-5 h-5" />),
-      problem: 'Filtros confusos e pouco úteis, você perde tempo.',
-      solution: 'Busca simples com filtros por modalidade, área e disponibilidade.'
-    },
-    {
-      icon: (<Bell className="w-5 h-5" />),
-      problem: 'Você se candidata e não recebe retorno do processo.',
-      solution: 'Acompanhamento de status e notificações em tempo real.'
-    },
-    {
-      icon: (<ShieldCheck className="w-5 h-5" />),
-      problem: 'Dúvida se a vaga é confiável ou atualizada.',
-      solution: 'Empresas e vagas verificadas para mais segurança.'
-    },
-    {
-      icon: (<Users className="w-5 h-5" />),
-      problem: 'Concorrência alta sem critério claro.',
-      solution: 'Match por afinidade e requisitos da vaga.'
-    },
-    {
-      icon: (<Activity className="w-5 h-5" />),
-      problem: 'Pouca visibilidade sobre o que priorizar.',
-      solution: 'Insights do que está em alta para você focar.'
-    }
-  ]
-
   return (
-    <section className="relative py-20 bg-white overflow-hidden">
+    <section className="relative overflow-hidden bg-white py-24">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="orb orb--emerald orb-animate w-[360px] h-[360px] -top-12 -left-20"></div>
-        <div className="orb orb--purple orb-animate w-[300px] h-[300px] -bottom-10 -right-14"></div>
+        <div className="absolute right-[-140px] top-[-220px] h-[420px] w-[420px] rounded-full bg-[#e0fdf3] blur-3xl" />
+        <div className="absolute bottom-[-240px] left-[-120px] h-[360px] w-[360px] rounded-full bg-[#e0ecff] blur-3xl" />
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-black">Funcionalidades que resolvem problemas reais</h2>
-          <p className="mt-3 text-gray-600">Do problema à solução, de forma simples e objetiva.</p>
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-14 max-w-3xl text-center">
+          <h2 className="text-4xl font-semibold tracking-tight text-[#02161F] sm:text-5xl">
+            Funcionalidades que{' '}
+            <span className="text-[#0E8F66]">elevam sua busca</span>
+          </h2>
+          <p className="mt-4 text-lg text-slate-600">
+            Mais clareza, velocidade e direção. Tudo pensado para estudantes que querem aproveitar cada oportunidade.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <div
-              key={i}
-              className="group relative rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-700 ease-out"
-            >
-              <div className="mb-4 inline-flex w-10 h-10 items-center justify-center rounded-lg bg-gray-100 text-gray-900 ring-1 ring-gray-200">
-                {f.icon}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {features.map(({ icon: Icon, title, description }) => (
+            <div key={title} className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_25px_65px_-50px_rgba(15,23,42,0.45)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="absolute -right-6 -top-10 h-24 w-24 rounded-full bg-[#6FFFC7]/20 blur-xl transition-all duration-300 group-hover:opacity-80" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f0fdf4] text-[#059669]">
+                <Icon className="h-6 w-6" />
               </div>
-
-              <div className="relative min-h-[120px] [perspective:1000px]">
-                <div className="relative h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  {/* Frente: Problema */}
-                  <div className="absolute inset-0 space-y-2 [backface-visibility:hidden]">
-                    <div className="text-[11px] font-semibold text-red-600 tracking-wide uppercase">Problema</div>
-                    <p className="text-gray-900 font-semibold">{f.problem}</p>
-                  </div>
-                  {/* Verso: Solução */}
-                  <div className="absolute inset-0 space-y-2 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <div className="text-[11px] font-semibold text-emerald-700 tracking-wide uppercase">Solução</div>
-                    <p className="text-gray-900 font-semibold">{f.solution}</p>
-                  </div>
-                </div>
-              </div>
+              <h3 className="mt-6 text-xl font-semibold text-[#02161F]">{title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{description}</p>
             </div>
           ))}
         </div>

@@ -10,13 +10,8 @@ import CompaniesCTASection from '@/components/companies/sections/CompaniesCTASec
 
 export default function CompaniesPage() {
   return (
-    <div className="relative min-h-screen bg-white text-foreground overflow-x-hidden">
-      {/* Background sutil com formas leves (sem gradientes fortes) */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="bg-dots opacity-[0.2] w-full h-full"></div>
-        <div className="absolute top-0 left-0 w-72 h-72 rounded-3xl border border-gray-200 rotate-6 animate-slow-float"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 rounded-3xl border border-gray-200 -rotate-6 animate-slow-float-delayed"></div>
-      </div>
+    <div className="relative min-h-screen bg-[#F7F9FC] text-foreground">
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(15,23,42,0.06),_transparent_60%)]" />
 
       <Navigation />
       <CompaniesHeroSection />

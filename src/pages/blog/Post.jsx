@@ -159,12 +159,17 @@ export default function Post() {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-white text-[#092116]">
+      <div className="relative min-h-screen overflow-hidden bg-white text-[#02161F]">
         <Navigation />
-        <div className="max-w-3xl mx-auto px-6 py-16">
-          <h1 className="text-2xl font-extrabold">Artigo não encontrado</h1>
-          <p className="text-gray-600 mt-2">O conteúdo que você procura pode ter sido movido.</p>
-          <Link to="/blog" className="inline-block mt-6 px-4 py-2 rounded-lg bg-[#01E297] text-black font-semibold">Voltar ao Blog</Link>
+        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
+          <h1 className="text-3xl font-semibold text-[#02161F]">Artigo não encontrado</h1>
+          <p className="mt-3 text-sm text-slate-600">O conteúdo que você procura pode ter sido movido ou ainda não foi publicado.</p>
+          <Link
+            to="/blog"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#0E8F66] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0b7453]"
+          >
+            Voltar ao blog
+          </Link>
         </div>
         <Footer />
       </div>
@@ -172,115 +177,163 @@ export default function Post() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-[#092116]">
+    <div className="relative min-h-screen overflow-hidden bg-white text-[#02161F]">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F6FAFF] to-white" />
+        <div className="absolute -top-52 left-[-160px] h-[500px] w-[500px] rounded-full bg-[#6FFFC7]/20 blur-3xl" />
+        <div className="absolute bottom-[-320px] right-[-220px] h-[560px] w-[560px] rounded-full bg-[#2563EB]/12 blur-[220px]" />
+      </div>
+
       <Navigation />
 
-      {/* Reading progress bar */}
-      <div className="fixed left-0 right-0 top-0 h-[3px] bg-gray-200/60 z-[60]">
+      <div className="fixed left-0 right-0 top-0 z-[70] h-[3px] bg-white/30 backdrop-blur">
         <div
           style={{ width: `${progress}%` }}
-          className="h-full bg-gradient-to-r from-[#01E297] to-emerald-600"
+          className="h-full bg-gradient-to-r from-[#0E8F66] via-[#6FFFC7] to-[#0E8F66]"
         />
       </div>
 
-      {/* Hero */}
-      <header className="border-b border-gray-100 bg-gradient-to-b from-white to-emerald-50/30">
-        <div className="max-w-6xl mx-auto px-6 pt-10 pb-8">
-          {/* Badge + Breadcrumb on top to avoid being hidden by large titles */}
-          <div className="flex flex-wrap items-center gap-3 text-gray-600">
-            <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-semibold uppercase tracking-wide">Artigo</span>
-            {/* Breadcrumb */}
-            <nav aria-label="breadcrumb" className="text-xs sm:text-sm">
-              <ol className="flex flex-wrap items-center gap-2">
-                <li>
-                  <Link to="/" className="hover:underline">Início</Link>
-                </li>
-                <li aria-hidden="true">/</li>
-                <li>
-                  <Link to="/blog" className="hover:underline">Blog</Link>
-                </li>
-                <li aria-hidden="true">/</li>
-                <li className="text-gray-800" aria-current="page">{post.title}</li>
-              </ol>
-            </nav>
-          </div>
+      <header className="relative overflow-hidden bg-[#020F1A] text-white">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_95%_0%,rgba(1,226,151,0.22),rgba(2,15,26,0.95))]" />
+          <div className="absolute -bottom-40 right-[-140px] h-[360px] w-[360px] rounded-full bg-[#0B3B2A]/70 blur-[200px]" />
+        </div>
 
-          {/* Smaller, still strong title */}
-          <h1 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">{post.title}</h1>
-          <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-gray-600">
-            <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
-            <span>•</span>
-            <span>{post.readingTimeMinutes} min de leitura</span>
-            <div className="flex gap-2">
-              {post.tags?.map((t) => (
-                <span key={t} className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">{t}</span>
-              ))}
+        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-24 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
+            <div className="space-y-6">
+              <div className="flex flex-wrap items-center gap-3 text-xs text-white/70">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-semibold uppercase tracking-[0.3em]">Artigo</span>
+                <nav aria-label="breadcrumb" className="text-[11px] sm:text-xs">
+                  <ol className="flex flex-wrap items-center gap-2">
+                    <li>
+                      <Link to="/" className="transition hover:text-[#6FFFC7]">Início</Link>
+                    </li>
+                    <li aria-hidden="true">/</li>
+                    <li>
+                      <Link to="/blog" className="transition hover:text-[#6FFFC7]">Blog</Link>
+                    </li>
+                    <li aria-hidden="true">/</li>
+                    <li className="text-white/80" aria-current="page">{post.title}</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-[52px] lg:leading-[1.05]">
+                {post.title}
+              </h1>
+
+              <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-white/70 sm:text-sm">
+                <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
+                <span className="opacity-50">•</span>
+                <span>{post.readingTimeMinutes} min de leitura</span>
+                {post.author?.name && (
+                  <>
+                    <span className="opacity-50">•</span>
+                    <span>{post.author.name}</span>
+                  </>
+                )}
+              </div>
+
+              {post.tags?.length ? (
+                <div className="flex flex-wrap gap-2">
+                  {post.tags.map((t) => (
+                    <span key={t} className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
             </div>
+
+            {post.cover && (
+              <div className="relative hidden overflow-hidden rounded-[32px] border border-white/15 bg-white/5 shadow-[0_40px_95px_-60px_rgba(24,255,176,0.45)] backdrop-blur lg:block">
+                <img src={post.cover} alt="capa do artigo" loading="lazy" className="h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020F1A] via-transparent to-transparent" />
+              </div>
+            )}
           </div>
         </div>
       </header>
 
-      {/* Body */}
-      <main className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_280px] items-start gap-10 md:gap-12 py-10 md:py-14" style={{ overflow: 'visible' }}>
-        <article ref={articleRef} className="prose prose-markdown max-w-none text-[17px] md:text-[18px]">
-          {/* Cover with controlled height/aspect for a more elegant look */}
-          {post.cover && (
-            <figure className="w-full overflow-hidden rounded-xl border border-gray-200 bg-gray-50 aspect-[16/9]">
-              <img src={post.cover} alt="capa do artigo" loading="lazy" className="h-full w-full object-cover" />
-            </figure>
-          )}
+      <main className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-20 pt-16 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:pt-20">
+        <article className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white/95 p-8 shadow-[0_45px_95px_-60px_rgba(15,23,42,0.45)] sm:p-12">
+          <div className="pointer-events-none absolute right-[-80px] top-[-120px] hidden h-[320px] w-[320px] rounded-full bg-[#6FFFC7]/20 blur-3xl sm:block" />
+          <div className="relative space-y-8">
+            {post.cover && (
+              <figure className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 aspect-[16/9] lg:hidden">
+                <img src={post.cover} alt="capa do artigo" loading="lazy" className="h-full w-full object-cover" />
+              </figure>
+            )}
 
-          {/* Render Markdown content */}
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[
-              rehypeRaw,
-              rehypeSlug,
-              [rehypeAutolinkHeadings, { behavior: 'wrap', properties: { className: 'anchor-link' } }],
-              rehypeHighlight,
-              [rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] }],
-            ]}
-          >
-            {markdown}
-          </ReactMarkdown>
+            <div ref={articleRef} className="prose-markdown max-w-none text-[17px] md:text-[18px]">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[
+                  rehypeRaw,
+                  rehypeSlug,
+                  [rehypeAutolinkHeadings, { behavior: 'wrap', properties: { className: 'anchor-link' } }],
+                  rehypeHighlight,
+                  [rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] }],
+                ]}
+              >
+                {markdown}
+              </ReactMarkdown>
+            </div>
 
-          {/* Share */}
-          <div className="mt-10 flex items-center gap-3">
-            <span className="text-sm text-gray-600">Compartilhar:</span>
-            <a
-              className="px-3 py-1.5 rounded-lg border border-gray-200 text-sm hover:bg-gray-50"
-              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
-              target="_blank" rel="noreferrer"
-            >Twitter</a>
-            <a
-              className="px-3 py-1.5 rounded-lg border border-gray-200 text-sm hover:bg-gray-50"
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}`}
-              target="_blank" rel="noreferrer"
-            >LinkedIn</a>
-            <a
-              className="px-3 py-1.5 rounded-lg border border-gray-200 text-sm hover:bg-gray-50"
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}`}
-              target="_blank" rel="noreferrer"
-            >Facebook</a>
-          </div>
+            <div className="rounded-2xl border border-slate-200 bg-[#F6FAFF]/80 p-6">
+              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Compartilhar</span>
+              <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <a
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-2 font-semibold text-[#0E8F66] transition hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
+                  href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Twitter
+                </a>
+                <a
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-2 font-semibold text-[#0E8F66] transition hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-2 font-semibold text-[#0E8F66] transition hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Facebook
+                </a>
+              </div>
+            </div>
 
-          {/* Newsletter CTA */}
-          <div className="mt-10 rounded-2xl border border-gray-200 bg-gray-50 p-6">
-            <h4 className="text-xl font-bold">Inscreva-se na newsletter</h4>
-            <p className="text-gray-600 mt-1">Receba conteúdos práticos sobre carreiras e estágios direto no seu e‑mail.</p>
-            <form className="mt-4 flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
-              <input type="email" required placeholder="Seu e‑mail" className="flex-1 rounded-lg border border-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-200" />
-              <button className="px-4 py-2 rounded-lg bg-[#01E297] text-black font-semibold">Assinar</button>
-            </form>
+            <div className="rounded-[28px] border border-[#0E8F66]/25 bg-[#0E8F66]/5 p-6 sm:p-8">
+              <h4 className="text-xl font-semibold text-[#02161F]">Inscreva-se na newsletter</h4>
+              <p className="mt-2 text-sm text-slate-600">Receba conteúdos práticos sobre carreiras e estágios direto no seu e-mail.</p>
+              <form className="mt-5 flex flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
+                <input
+                  type="email"
+                  required
+                  placeholder="seu@email.com"
+                  className="flex-1 rounded-xl border border-[#0E8F66]/30 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#0E8F66] focus:ring-2 focus:ring-[#6FFFC7]/30"
+                />
+                <button className="rounded-xl bg-[#0E8F66] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0b7453]">
+                  Assinar
+                </button>
+              </form>
+            </div>
           </div>
         </article>
 
-        {/* Sidebar */}
-        <aside className="hidden lg:block self-start sticky-sidebar" style={{ position: 'sticky', top: '96px' }}>
-          <div ref={tocScrollRef} className="space-y-6 pr-1">
-            <div className="rounded-xl border border-gray-200 p-4">
-              <div className="text-xs font-semibold text-gray-600">Nesta página</div>
-              <nav className="mt-3 space-y-2">
+        <aside className="hidden self-start lg:block" style={{ position: "sticky", top: "108px" }}>
+          <div ref={tocScrollRef} className="space-y-6">
+            <div className="rounded-3xl border border-white/30 bg-white/85 p-6 shadow-[0_35px_80px_-55px_rgba(15,23,42,0.45)] backdrop-blur">
+              <div className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Nesta página</div>
+              <nav className="mt-4 space-y-2">
                 {toc.map((i) => {
                   const isActive = activeId === i.id;
                   return (
@@ -289,8 +342,8 @@ export default function Post() {
                       href={`#${i.id}`}
                       onClick={(e) => handleAnchorClick(e, i.id)}
                       aria-current={isActive ? "true" : undefined}
-                      className={`block text-sm transition-colors ${
-                        isActive ? "text-emerald-700 font-semibold" : "text-gray-700 hover:text-emerald-700"
+                      className={`block rounded-lg px-3 py-2 text-sm transition ${
+                        isActive ? "bg-[#0E8F66]/10 text-[#0E8F66]" : "text-slate-600 hover:text-[#0E8F66]"
                       }`}
                     >
                       {i.heading}
@@ -298,17 +351,29 @@ export default function Post() {
                   );
                 })}
               </nav>
-              <a href="#top" onClick={(e)=>{e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});}} className="mt-3 inline-flex items-center gap-1 text-xs text-gray-500 hover:text-gray-700">↑ Voltar ao topo</a>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-slate-500 transition hover:text-[#0E8F66]"
+              >
+                ↑ Topo
+              </button>
             </div>
 
-            <div className="rounded-xl border border-gray-200 p-4">
-              <div className="text-xs font-semibold text-gray-600">Tags</div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {post.tags?.map((t) => (
-                  <span key={t} className="px-2 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-semibold">{t}</span>
-                ))}
+            {post.tags?.length ? (
+              <div className="rounded-3xl border border-white/30 bg-white/85 p-6 shadow-[0_35px_80px_-55px_rgba(15,23,42,0.45)] backdrop-blur">
+                <div className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Tags</div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {post.tags.map((t) => (
+                    <span key={t} className="rounded-full border border-[#0E8F66]/20 bg-[#0E8F66]/10 px-3 py-1 text-xs font-semibold text-[#0E8F66]">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : null}
           </div>
         </aside>
       </main>

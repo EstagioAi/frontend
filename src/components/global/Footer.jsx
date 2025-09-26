@@ -2,189 +2,127 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="py-16 px-4 sm:px-6 lg:px-8 bg-[#092116] text-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand */}
+    <footer className="relative overflow-hidden bg-[#020F1A] py-20 text-white">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(140%_140%_at_0%_-20%,rgba(111,255,199,0.14),rgba(2,15,26,0.95))]" />
+        <div className="absolute bottom-[-240px] left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#0B3B2A]/70 blur-[180px]" />
+        <div className="absolute right-[-160px] top-[-160px] h-[320px] w-[320px] rounded-full border border-white/10 opacity-60" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+  <div className="mb-10 flex flex-wrap items-center justify-between gap-6">
           <div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
+              Ecossistema EstágioAI
+            </span>
+            <h3 className="mt-4 max-w-2xl text-2xl font-semibold text-white/90 sm:text-3xl">
+              Conectamos estudantes, empresas e universidades em uma experiência contínua.
+            </h3>
+          </div>
+          <div className="rounded-3xl border border-white/15 bg-white/5 px-5 py-4 text-sm text-white/70 shadow-[0_30px_80px_-50px_rgba(24,255,176,0.4)]">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/50">Impacto</p>
+            <p className="mt-2 text-2xl font-semibold text-[#6FFFC7]">+10k estudantes</p>
+            <p className="text-xs text-white/55">receberam feedback acelerado com o EstágioAI.</p>
+          </div>
+        </div>
+
+  <div className="grid gap-10 lg:grid-cols-[1.25fr_0.9fr_0.9fr_0.9fr]">
+          <div className="space-y-6">
             <a href="/" className="inline-flex items-center gap-3">
               <img
                 src="/images/logos/logo-v-branca.svg"
                 alt="EstagioAI"
-                className="h-7 w-auto"
-                width="120"
-                height="28"
+                className="h-8 w-auto"
+                width="128"
+                height="32"
                 loading="lazy"
                 decoding="async"
               />
             </a>
-            <p className="mt-4 text-white/70 text-sm max-w-xs">
-              De universitários, para universitários. Transparência, feedback e
-              IA.
+            <p className="max-w-sm text-sm text-white/70">
+              Transparência, curadoria real de vagas e uma comunidade ativa para apoiar cada candidatura.
             </p>
-            <div className="mt-6 flex items-center gap-3">
-              <a
-                href="#"
-                aria-label="e-mail"
-                className="w-10 h-10 rounded-lg flex items-center justify-center border border-white/15 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
-              >
-                <img
-                  src="/images/icons/envelope-solid-full.svg"
-                  alt="E-mail"
-                  className="w-4 h-4"
-                  width="16"
-                  height="16"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <a
-                href="#"
-                aria-label="Linkedin"
-                className="w-10 h-10 rounded-lg flex items-center justify-center border border-white/15 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
-              >
-                <img
-                  src="/images/logos/Linkedin-logo.svg"
-                  alt="Linkedin"
-                  className="w-4 h-4"
-                  width="16"
-                  height="16"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <a
-                href="#"
-                aria-label="GitHub"
-                className="w-10 h-10 rounded-lg flex items-center justify-center border border-white/15 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
-              >
-                <img src="/images/icons/Github.svg" alt="GitHub" className="w-4 h-4" width="16" height="16" loading="lazy" decoding="async" />
-              </a>
-            </div>
 
-            {/* Newsletter compacta */}
-            <div className="mt-6">
-              <p className="text-xs text-white/60 mb-2">
-                Inscreva-se na nossa newsletter
-              </p>
-              <form
-                className="flex items-center gap-2"
-                onSubmit={(e) => e.preventDefault()}
-                aria-label="Inscrever newsletter"
-              >
-                <label htmlFor="footer-email" className="sr-only">
-                  Seu e-mail
-                </label>
-                <div className="relative w-full sm:w-52">
-                  <svg
-                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/60"
-                    viewBox="0 0 18 14"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M1 2.5C1 1.67 1.67 1 2.5 1H15.5C16.33 1 17 1.67 17 2.5V11.5C17 12.33 16.33 13 15.5 13H2.5C1.67 13 1 12.33 1 11.5V2.5Z"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M2 3.5L9 8.5L16 3.5"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <input
-                    id="footer-email"
-                    type="email"
-                    placeholder="seu@email.com"
-                    aria-label="Seu e-mail"
-                    className="h-8 w-full pl-8 pr-2 rounded-md border border-white/15 bg-white/5 text-white text-[13px] placeholder:text-white/60 outline-none focus-visible:ring-[3px] focus-visible:ring-emerald-500/25 focus-visible:border-emerald-400"
-                  />
-                </div>
-                <button
-                  className="h-8 px-2 rounded-md border border-white/15 bg-white/5 text-white/90 text-[13px] hover:bg-white/10 transition-colors"
-                  type="submit"
+            <div className="flex items-center gap-3">
+              {[
+                { href: '#', icon: '/images/icons/envelope-solid-full.svg', label: 'E-mail' },
+                { href: '#', icon: '/images/logos/Linkedin-logo.svg', label: 'LinkedIn' },
+                { href: '#', icon: '/images/icons/Github.svg', label: 'GitHub' }
+              ].map(({ href, icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition hover:border-[#6FFFC7]/40 hover:bg-[#6FFFC7]/10 hover:text-white"
                 >
-                  Inscrever
-                </button>
-              </form>
+                  <img src={icon} alt={label} className="h-4 w-4" width="16" height="16" loading="lazy" decoding="async" />
+                </a>
+              ))}
             </div>
+
           </div>
 
-          {/* Navegação */}
           <div>
-            <h4 className="text-sm font-semibold text-white/80 tracking-wide mb-3">
-              Navegação
-            </h4>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/#sobre">Sobre</a>
-              </li>
-              <li>
-                <a href="/#vagas">Vagas</a>
-              </li>
-              <li>
-                <a href="/#blog">Blog</a>
-              </li>
-              <li>
-                <a href="/#contato">Contato</a>
-              </li>
+            <h4 className="text-xs uppercase tracking-[0.28em] text-white/50">Navegação</h4>
+            <ul className="mt-5 space-y-3 text-sm text-white/70">
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Sobre', href: '/#sobre' },
+                { label: 'Vagas', href: '/#vagas' },
+                { label: 'Blog', href: '/#blog' },
+                { label: 'Contato', href: '/#contato' }
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <a href={href} className="transition hover:text-[#6FFFC7]">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Para você */}
           <div>
-            <h4 className="text-sm font-semibold text-white/80 tracking-wide mb-3">
-              Para você
-            </h4>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>
-                <a href="/#universitarios">Para Universitários</a>
-              </li>
-              <li>
-                <a href="/#empresas">Para Empresas</a>
-              </li>
-              <li>
-                <a href="/login">Entrar</a>
-              </li>
-              <li>
-                <a href="/register">Criar conta</a>
-              </li>
+            <h4 className="text-xs uppercase tracking-[0.28em] text-white/50">Para você</h4>
+            <ul className="mt-5 space-y-3 text-sm text-white/70">
+              {[
+                { label: 'Para universitários', href: '/#universitarios' },
+                { label: 'Para empresas', href: '/#empresas' },
+                { label: 'Entrar', href: '/login' },
+                { label: 'Criar conta', href: '/register' }
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <a href={href} className="transition hover:text-[#6FFFC7]">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Legal */}
           <div>
-            <h4 className="text-sm font-semibold text-white/80 tracking-wide mb-3">
-              Legal
-            </h4>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>
-                <a href="/termos-de-uso">Termos de Uso</a>
-              </li>
-              <li>
-                <a href="/termos-de-servico">Termos de Serviço</a>
-              </li>
-              <li>
-                <a href="/politica-de-privacidade">Política de Privacidade</a>
-              </li>
+            <h4 className="text-xs uppercase tracking-[0.28em] text-white/50">Legal</h4>
+            <ul className="mt-5 space-y-3 text-sm text-white/70">
+              {[
+                { label: 'Termos de Uso', href: '/termos-de-uso' },
+                { label: 'Termos de Serviço', href: '/termos-de-servico' },
+                { label: 'Política de Privacidade', href: '/politica-de-privacidade' }
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <a href={href} className="transition hover:text-[#6FFFC7]">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/60 text-xs">
-            © {new Date().getFullYear()} EstagioAI. Todos os direitos
-            reservados.
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/55 sm:flex-row">
+          <p>© {new Date().getFullYear()} EstágioAI. Todos os direitos reservados.</p>
+          <p className="flex items-center gap-2 text-white/45">
+            <span className="inline-flex h-2 w-2 rounded-full bg-[#6FFFC7]" />
+            MVP em constante evolução.
           </p>
-          <p className="text-white/50 text-xs">MVP em desenvolvimento.</p>
         </div>
       </div>
     </footer>
