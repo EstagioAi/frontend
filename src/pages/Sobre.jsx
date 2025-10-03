@@ -1,8 +1,9 @@
 import React from "react";
 import Navigation from "@/components/global/Navigation";
 import Footer from "@/components/global/Footer";
-import { Sparkles, ArrowRight, Lightbulb, Shield, MapPin, CheckCircle } from "lucide-react";
+import { Sparkles, ArrowRight, Lightbulb, Shield, MapPin, CheckCircle, Heart, Users, Target, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const capabilities = [
   {
@@ -40,6 +41,105 @@ const heroHighlights = [
   },
 ];
 
+const timelineEvents = [
+  {
+    year: "2023",
+    title: "Fundação da EstágioAI",
+    description: "Nascemos com a missão de transformar a forma como estudantes encontram oportunidades de estágio, unindo tecnologia e empatia.",
+    badge: "Início"
+  },
+  {
+    year: "2023",
+    title: "Primeiras parcerias com universidades",
+    description: "Estabelecemos colaborações estratégicas com instituições de ensino para entender as necessidades reais dos estudantes.",
+  },
+  {
+    year: "2024",
+    title: "Lançamento da plataforma de IA",
+    description: "Implementamos algoritmos de matching inteligente que conectam estudantes às vagas mais adequadas ao seu perfil.",
+    badge: "Tecnologia"
+  },
+  {
+    year: "2024",
+    title: "Expansão nacional",
+    description: "Alcançamos presença em todo o Brasil, conectando talentos de diferentes regiões com empresas inovadoras.",
+  },
+  {
+    year: "2025",
+    title: "Comunidade de 10.000+ estudantes",
+    description: "Celebramos a marca de milhares de estudantes conectados e centenas de empresas parceiras investindo no futuro.",
+    badge: "Milestone"
+  },
+];
+
+const teamMembers = [
+  {
+    name: "Ana Silva",
+    role: "CEO & Co-fundadora",
+    initials: "AS",
+    bio: "Apaixonada por educação e tecnologia, lidera a visão estratégica da EstágioAI.",
+    bgColor: "bg-[#fef9e7]" // Yellow pastel
+  },
+  {
+    name: "Carlos Mendes",
+    role: "CTO",
+    initials: "CM",
+    bio: "Especialista em IA e machine learning, arquiteta as soluções tecnológicas da plataforma.",
+    bgColor: "bg-[#e8f8f5]" // Mint pastel
+  },
+  {
+    name: "Beatriz Costa",
+    role: "Head de Produto",
+    initials: "BC",
+    bio: "Garante que cada funcionalidade entregue valor real para estudantes e empresas.",
+    bgColor: "bg-[#f4ecf7]" // Lavender pastel
+  },
+  {
+    name: "Rafael Santos",
+    role: "Head de Parcerias",
+    initials: "RS",
+    bio: "Constrói relacionamentos estratégicos com universidades e empresas parceiras.",
+    bgColor: "bg-[#fef5e7]" // Peach pastel
+  },
+  {
+    name: "Juliana Oliveira",
+    role: "Head de Comunidade",
+    initials: "JO",
+    bio: "Cuida da experiência dos estudantes e promove engajamento na plataforma.",
+    bgColor: "bg-[#fef9e7]" // Yellow pastel
+  },
+  {
+    name: "Pedro Almeida",
+    role: "Head de Dados",
+    initials: "PA",
+    bio: "Transforma dados em insights acionáveis para melhorar o matching e a experiência.",
+    bgColor: "bg-[#e8f8f5]" // Mint pastel
+  },
+];
+
+const companyValues = [
+  {
+    icon: Heart,
+    title: "Empatia",
+    description: "Colocamos as pessoas no centro de tudo, entendendo suas necessidades e desafios."
+  },
+  {
+    icon: Users,
+    title: "Colaboração",
+    description: "Acreditamos no poder da conexão entre estudantes, empresas e universidades."
+  },
+  {
+    icon: Target,
+    title: "Propósito",
+    description: "Cada ação é guiada pela missão de transformar carreiras e construir futuros."
+  },
+  {
+    icon: Zap,
+    title: "Inovação",
+    description: "Usamos tecnologia para criar soluções que realmente fazem a diferença."
+  },
+];
+
 
 export default function Sobre() {
   return (
@@ -52,7 +152,7 @@ export default function Sobre() {
 
       <Navigation />
 
-      <main className="relative flex flex-col">
+      <main id="main-content" className="relative flex flex-col">
         <section className="relative overflow-hidden bg-[#020F1A] text-white">
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(118%_160%_at_92%_8%,rgba(1,226,151,0.24),rgba(2,15,26,0.94))]" />
@@ -141,9 +241,9 @@ export default function Sobre() {
                   className="flex h-full flex-col gap-5 rounded-[34px] border border-slate-200 bg-white/95 p-10 shadow-[0_34px_110px_-60px_rgba(15,23,42,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_42px_120px_-60px_rgba(15,23,42,0.42)]"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="inline-flex items-center gap-2 rounded-full border border-[#0E8F66]/20 bg-[#0E8F66]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#0E8F66]">
+                    <Badge variant="mint" size="sm" className="uppercase tracking-[0.3em]">
                       {badge}
-                    </div>
+                    </Badge>
                     <div className="rounded-2xl bg-[#0E8F66]/12 p-3">
                       <Icon className="h-5 w-5 text-[#0E8F66]" />
                     </div>
@@ -162,6 +262,131 @@ export default function Sobre() {
                   ) : null}
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Timeline Section */}
+        <section className="relative py-20 bg-[#faf9f5]">
+          <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-0">
+            <div className="text-center mb-16">
+              <Badge variant="peach" size="sm" className="uppercase tracking-[0.3em] mb-4">
+                Nossa jornada
+              </Badge>
+              <h2 className="text-3xl font-semibold leading-tight text-[#3d3d3a] sm:text-4xl">
+                Como chegamos até aqui
+              </h2>
+            </div>
+
+            <div className="relative">
+              {/* Coral Timeline Line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#d97757] via-[#e89b7d] to-[#f2c4b0]" />
+
+              <div className="space-y-12">
+                {timelineEvents.map((event, index) => (
+                  <div key={index} className="relative pl-20">
+                    {/* Coral Circle Marker */}
+                    <div className="absolute left-[1.375rem] top-2 h-5 w-5 rounded-full bg-[#d97757] border-4 border-[#faf9f5] shadow-lg" />
+                    
+                    <div className="rounded-2xl border border-[#d97757]/15 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <span className="text-sm font-semibold text-[#d97757]">{event.year}</span>
+                        {event.badge && (
+                          <Badge variant="yellow" size="sm">
+                            {event.badge}
+                          </Badge>
+                        )}
+                      </div>
+                      <h3 className="text-xl font-semibold text-[#3d3d3a] mb-2">
+                        {event.title}
+                      </h3>
+                      <p className="text-[#6b6b68] leading-relaxed">
+                        {event.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Team Section */}
+        <section className="relative py-20 bg-white">
+          <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <Badge variant="lavender" size="sm" className="uppercase tracking-[0.3em] mb-4">
+                Nosso time
+              </Badge>
+              <h2 className="text-3xl font-semibold leading-tight text-[#3d3d3a] sm:text-4xl">
+                Pessoas que fazem acontecer
+              </h2>
+              <p className="mt-4 text-lg text-[#6b6b68] max-w-2xl mx-auto">
+                Uma equipe diversa e apaixonada por conectar talentos com oportunidades
+              </p>
+            </div>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {teamMembers.map((member, index) => (
+                <div
+                  key={index}
+                  className={`rounded-2xl border border-[#d97757]/15 p-6 transition-all hover:-translate-y-1 hover:shadow-lg ${member.bgColor}`}
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#d97757] to-[#e89b7d] mb-4 flex items-center justify-center text-white text-2xl font-bold">
+                      {member.initials}
+                    </div>
+                    <h3 className="text-xl font-semibold text-[#3d3d3a] mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm font-medium text-[#d97757] mb-3">
+                      {member.role}
+                    </p>
+                    <p className="text-sm text-[#6b6b68] leading-relaxed">
+                      {member.bio}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Values Section */}
+        <section className="relative py-20 bg-[#f5f4ed]">
+          <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <Badge variant="peach" size="sm" className="uppercase tracking-[0.3em] mb-4">
+                Nossos valores
+              </Badge>
+              <h2 className="text-3xl font-semibold leading-tight text-[#3d3d3a] sm:text-4xl">
+                O que nos move todos os dias
+              </h2>
+              <p className="mt-4 text-lg text-[#6b6b68] max-w-2xl mx-auto">
+                Princípios que guiam cada decisão e ação na EstágioAI
+              </p>
+            </div>
+
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {companyValues.map((value, index) => {
+                const Icon = value.icon;
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div className="w-20 h-20 rounded-full bg-[#faf9f5] border-2 border-[#d97757]/20 flex items-center justify-center mb-4 transition-transform hover:scale-110">
+                      <Icon className="h-9 w-9 text-[#d97757]" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-[#3d3d3a] mb-2">
+                      {value.title}
+                    </h3>
+                    <p className="text-sm text-[#6b6b68] leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

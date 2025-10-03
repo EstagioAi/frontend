@@ -37,6 +37,10 @@ function App() {
 
   return (
     <BrowserRouter>
+      {/* Skip to main content link for accessibility */}
+      <a href="#main-content" className="skip-to-main">
+        Pular para o conteúdo principal
+      </a>
       {/* SEO dinâmico por rota */}
       <RouteSEO />
       <React.Suspense fallback={<div />}> 

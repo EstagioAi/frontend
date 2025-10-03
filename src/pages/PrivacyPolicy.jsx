@@ -7,10 +7,10 @@ const PrivacyPolicy = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       <div className="max-w-3xl mx-auto px-6 py-10">
-        <a href="#" onClick={(e) => { e.preventDefault(); window.history.back(); }} className="text-sm text-gray-600 hover:text-gray-800">&larr; Voltar</a>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-black mt-4">Política de Privacidade</h1>
-        <div className="h-2 w-44 rounded-full bg-[#01E297] my-6" />
-        <p className="text-sm text-gray-500">Última atualização: 07 set 2025</p>
+        <a href="#" onClick={(e) => { e.preventDefault(); window.history.back(); }} className="text-sm text-[#6b6b68] hover:text-[#d97757] transition-colors">&larr; Voltar</a>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-[#3d3d3a] mt-4">Política de Privacidade</h1>
+        <div className="h-2 w-44 rounded-full bg-[#d97757] my-6" />
+        <p className="text-sm text-[#6b6b68]">Última atualização: 07 set 2025</p>
 
         <div className="prose prose-gray max-w-none mt-6">
           <h2>1. Dados Coletados</h2>

@@ -28,7 +28,7 @@ const Register = () => {
               <br />
               no EstagioAI
             </h1>
-            <div className="h-2 w-44 rounded-full bg-[#01E297] mb-8" />
+            <div className="h-2 w-44 rounded-full bg-[var(--color-coral-primary)] mb-8" />
             <p className="text-gray-700">
               Acesse oportunidades mais compatíveis com seu perfil, com filtros
               inteligentes e feedback obrigatório.
@@ -37,7 +37,7 @@ const Register = () => {
               <span className="mr-2">Já tem conta?</span>
               <a
                 href="/login"
-                className="font-semibold text-[#092116] underline underline-offset-4"
+                className="font-semibold text-[var(--color-coral-primary)] underline underline-offset-4 hover:text-[var(--color-coral-light)]"
               >
                 Entrar
               </a>
@@ -82,7 +82,7 @@ const Register = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Seu nome completo"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
                   />
                 </div>
                 <div>
@@ -94,7 +94,7 @@ const Register = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Seu melhor email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
                   />
                 </div>
                 <div>
@@ -106,7 +106,7 @@ const Register = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Crie uma senha"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
                   />
                 </div>
 
@@ -116,13 +116,13 @@ const Register = () => {
                       type="checkbox"
                       checked={terms}
                       onChange={(e) => setTerms(e.target.checked)}
-                      className="mt-1 rounded-md text-[#01E297] focus:ring-[#01E297]"
+                      className="mt-1 rounded-md text-[var(--color-coral-primary)] focus:ring-[var(--color-coral-primary)]"
                     />
                     <span className="text-gray-700">
                       Aceito os
                       <a
                         href="/termos-de-uso"
-                        className="underline underline-offset-4 text-[#092116]"
+                        className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
                       >
                         {" "}
                         Termos de Uso
@@ -130,7 +130,7 @@ const Register = () => {
                       ,
                       <a
                         href="/termos-de-servico"
-                        className="underline underline-offset-4 text-[#092116]"
+                        className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
                       >
                         {" "}
                         Termos de Serviço
@@ -138,7 +138,7 @@ const Register = () => {
                       e
                       <a
                         href="/politica-de-privacidade"
-                        className="underline underline-offset-4 text-[#092116]"
+                        className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
                       >
                         {" "}
                         Política de Privacidade
@@ -150,7 +150,8 @@ const Register = () => {
 
                 <Button
                   type="submit"
-                  className="w-full h-12 rounded-[12px] bg-[#092116] text-white hover:brightness-110"
+                  variant="primary"
+                  className="w-full h-12 rounded-[12px]"
                 >
                   Cadastrar
                 </Button>

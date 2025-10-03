@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react"
 import Navigation from "@/components/global/Navigation"
 import Footer from "@/components/global/Footer"
 import { ChevronLeft, ChevronRight, Sparkles, Bell, Filter, Calendar, GraduationCap, Info, BookmarkPlus } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 // Conteúdo estático de exemplo (pode ser substituído por fetch futuramente)
 const processos = [
@@ -143,9 +144,9 @@ export default function RadarDeVagas() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-3 md:p-4">
                   <div className="flex items-center gap-2 text-[11px]">
-                    <span className="inline-flex items-center font-semibold text-black bg-[#01E297]/90 px-2.5 py-[3px] rounded-full">
+                    <Badge variant="mint" size="sm" className="text-black bg-[#01E297]/90 border-[#01E297]">
                       {processos[0].tag}
-                    </span>
+                    </Badge>
                     <span className="text-white/85">{processos[0].data}</span>
                   </div>
                   <h2 className="mt-1 text-base md:text-xl font-extrabold text-white leading-tight">{processos[0].titulo}</h2>
@@ -207,7 +208,11 @@ export default function RadarDeVagas() {
                 >
                   <div className="relative h-36 w-full overflow-hidden bg-gray-50">
                     <img src={p.img} alt="capa" className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
-                    <div className="absolute top-2 left-2 inline-flex items-center text-[10px] font-semibold text-emerald-800 bg-emerald-100/95 px-2 py-[2px] rounded-full border border-emerald-200/70 shadow-sm">{p.tag}</div>
+                    <div className="absolute top-2 left-2">
+                      <Badge variant="mint" size="sm" className="shadow-sm">
+                        {p.tag}
+                      </Badge>
+                    </div>
                   </div>
                   <div className="p-4">
                     <div className="flex items-center gap-2 text-[11px] text-gray-500">
@@ -224,7 +229,9 @@ export default function RadarDeVagas() {
                       <div className="inline-flex items-center gap-1.5 text-[11px] text-gray-700 bg-gray-50 border border-gray-200 rounded-lg px-2 py-1"><Calendar className="w-3.5 h-3.5" /> Prazo: {p.prazo}</div>
                       <div className="inline-flex items-center gap-1.5 text-[11px] text-gray-700 bg-gray-50 border border-gray-200 rounded-lg px-2 py-1"><GraduationCap className="w-3.5 h-3.5" /> Público: {p.publico}</div>
                       <div className="inline-flex items-center gap-1.5 text-[11px] text-gray-700 bg-gray-50 border border-gray-200 rounded-lg px-2 py-1"><Info className="w-3.5 h-3.5" /> Tipo: {p.tipo}</div>
-                      <div className="inline-flex items-center gap-1.5 text-[11px] text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg px-2 py-1"><Sparkles className="w-3.5 h-3.5" /> {p.tag}</div>
+                      <Badge variant="mint" size="sm" className="gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5" /> {p.tag}
+                      </Badge>
                     </div>
 
                     <div className="mt-3 flex items-center justify-between">

@@ -11,12 +11,26 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import rehypeExternalLinks from "rehype-external-links";
+import { Badge, EmptyState } from "@/components/ui";
+import { Button } from "@/components/ui/button";
 // CSS específico dos posts (tipografia markdown e detalhes visuais)
 import "./post.css";
 // Tema de syntax highlighting (clean e discreto)
 import "highlight.js/styles/github-dark-dimmed.css";
 
 const BASE_URL = "https://estagioai.com";
+
+// Helper: map category to badge variant (requirement 4.3)
+const getCategoryBadgeVariant = (category) => {
+  const categoryMap = {
+    'Currículo': 'yellow',
+    'Entrevista': 'mint',
+    'Carreira': 'lavender',
+    'Habilidades': 'peach',
+    'Blog': 'yellow',
+  };
+  return categoryMap[category] || 'yellow';
+};
 
 // Helper: convert legacy sections schema into Markdown so we can render everything via MD
 function sectionsToMarkdown(sections = []) {
@@ -161,15 +175,21 @@ export default function Post() {
     return (
       <div className="relative min-h-screen overflow-hidden bg-white text-[#02161F]">
         <Navigation />
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-          <h1 className="text-3xl font-semibold text-[#02161F]">Artigo não encontrado</h1>
-          <p className="mt-3 text-sm text-slate-600">O conteúdo que você procura pode ter sido movido ou ainda não foi publicado.</p>
-          <Link
-            to="/blog"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#0E8F66] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0b7453]"
-          >
-            Voltar ao blog
-          </Link>
+        <div className="mx-auto max-w-4xl px-6 py-16">
+          <EmptyState
+            title="Artigo não encontrado"
+            message="O conteúdo que você procura pode ter sido movido ou ainda não foi publicado."
+            icon="document"
+            variant="blog"
+            actions={
+              <Button
+                asChild
+                className="rounded-xl bg-[#0E8F66] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#0b7453] hover:shadow-lg"
+              >
+                <Link to="/blog">Voltar ao blog</Link>
+              </Button>
+            }
+          />
         </div>
         <Footer />
       </div>
@@ -186,50 +206,58 @@ export default function Post() {
 
       <Navigation />
 
-      <div className="fixed left-0 right-0 top-0 z-[70] h-[3px] bg-white/30 backdrop-blur">
+      <div 
+        className="fixed left-0 right-0 top-0 z-[70] h-[3px] bg-white/30 backdrop-blur"
+        role="progressbar"
+        aria-label="Progresso de leitura do artigo"
+        aria-valuenow={Math.round(progress)}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
         <div
-          style={{ width: `${progress}%` }}
+          style={{ width: `${progress}%`, transition: 'width 100ms linear' }}
           className="h-full bg-gradient-to-r from-[#0E8F66] via-[#6FFFC7] to-[#0E8F66]"
         />
       </div>
 
       <header className="relative overflow-hidden bg-[#020F1A] text-white">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_95%_0%,rgba(1,226,151,0.22),rgba(2,15,26,0.95))]" />
-          <div className="absolute -bottom-40 right-[-140px] h-[360px] w-[360px] rounded-full bg-[#0B3B2A]/70 blur-[200px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_140%_120%_at_50%_0%,rgba(14,143,102,0.15),rgba(2,15,26,0.98)_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_80%_at_80%_20%,rgba(111,255,199,0.12),transparent_60%)]" />
+          <div className="absolute -bottom-32 right-[-100px] h-[400px] w-[400px] rounded-full bg-[#0E8F66]/25 blur-[180px]" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-24 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
-            <div className="space-y-6">
-              <div className="flex flex-wrap items-center gap-3 text-xs text-white/70">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-semibold uppercase tracking-[0.3em]">Artigo</span>
-                <nav aria-label="breadcrumb" className="text-[11px] sm:text-xs">
+        <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-28 sm:px-6 lg:px-8 lg:pb-24 lg:pt-32">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center lg:gap-16">
+            <div className="space-y-7">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em]">Artigo</span>
+                <nav aria-label="breadcrumb" className="text-xs text-white/60">
                   <ol className="flex flex-wrap items-center gap-2">
                     <li>
                       <Link to="/" className="transition hover:text-[#6FFFC7]">Início</Link>
                     </li>
-                    <li aria-hidden="true">/</li>
+                    <li aria-hidden="true" className="opacity-40">/</li>
                     <li>
                       <Link to="/blog" className="transition hover:text-[#6FFFC7]">Blog</Link>
                     </li>
-                    <li aria-hidden="true">/</li>
-                    <li className="text-white/80" aria-current="page">{post.title}</li>
+                    <li aria-hidden="true" className="opacity-40">/</li>
+                    <li className="text-white/70" aria-current="page">{post.title}</li>
                   </ol>
                 </nav>
               </div>
 
-              <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-[52px] lg:leading-[1.05]">
+              <h1 className="text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl lg:text-[52px] lg:leading-[1.05]">
                 {post.title}
               </h1>
 
               <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-white/70 sm:text-sm">
                 <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
-                <span className="opacity-50">•</span>
+                <span className="opacity-40">•</span>
                 <span>{post.readingTimeMinutes} min de leitura</span>
                 {post.author?.name && (
                   <>
-                    <span className="opacity-50">•</span>
+                    <span className="opacity-40">•</span>
                     <span>{post.author.name}</span>
                   </>
                 )}
@@ -237,19 +265,24 @@ export default function Post() {
 
               {post.tags?.length ? (
                 <div className="flex flex-wrap gap-2">
-                  {post.tags.map((t) => (
-                    <span key={t} className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+                  {post.tags.map((t, idx) => (
+                    <Badge 
+                      key={t} 
+                      variant={idx === 0 ? getCategoryBadgeVariant(post.tag) : idx === 1 ? 'mint' : idx === 2 ? 'lavender' : 'peach'} 
+                      size="sm"
+                      className="text-xs uppercase tracking-[0.25em] border-white/20 shadow-sm"
+                    >
                       {t}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
               ) : null}
             </div>
 
             {post.cover && (
-              <div className="relative hidden overflow-hidden rounded-[32px] border border-white/15 bg-white/5 shadow-[0_40px_95px_-60px_rgba(24,255,176,0.45)] backdrop-blur lg:block">
-                <img src={post.cover} alt="capa do artigo" loading="lazy" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020F1A] via-transparent to-transparent" />
+              <div className="relative hidden overflow-hidden rounded-[32px] border border-white/15 bg-white/5 shadow-[0_40px_95px_-55px_rgba(111,255,199,0.45)] backdrop-blur lg:block">
+                <img src={post.cover} alt="capa do artigo" loading="lazy" className="h-full w-full object-cover aspect-[4/3]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020F1A]/40 via-transparent to-transparent" />
               </div>
             )}
           </div>
@@ -283,28 +316,31 @@ export default function Post() {
 
             <div className="rounded-2xl border border-slate-200 bg-[#F6FAFF]/80 p-6">
               <span className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Compartilhar</span>
-              <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">
+              <div className="mt-4 flex flex-wrap items-center gap-3 text-sm" role="group" aria-label="Compartilhar artigo nas redes sociais">
                 <a
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-2 font-semibold text-[#0E8F66] transition hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-3 font-semibold text-[#0E8F66] transition-all duration-300 ease-in-out hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
                   href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
+                  aria-label="Compartilhar no Twitter"
                 >
                   Twitter
                 </a>
                 <a
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-2 font-semibold text-[#0E8F66] transition hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-3 font-semibold text-[#0E8F66] transition-all duration-300 ease-in-out hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
                   href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}`}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
+                  aria-label="Compartilhar no LinkedIn"
                 >
                   LinkedIn
                 </a>
                 <a
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-2 font-semibold text-[#0E8F66] transition hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-3 font-semibold text-[#0E8F66] transition-all duration-300 ease-in-out hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}`}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
+                  aria-label="Compartilhar no Facebook"
                 >
                   Facebook
                 </a>
@@ -314,14 +350,19 @@ export default function Post() {
             <div className="rounded-[28px] border border-[#0E8F66]/25 bg-[#0E8F66]/5 p-6 sm:p-8">
               <h4 className="text-xl font-semibold text-[#02161F]">Inscreva-se na newsletter</h4>
               <p className="mt-2 text-sm text-slate-600">Receba conteúdos práticos sobre carreiras e estágios direto no seu e-mail.</p>
-              <form className="mt-5 flex flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
+              <form className="mt-5 flex flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()} aria-label="Formulário de inscrição na newsletter">
                 <input
                   type="email"
                   required
                   placeholder="seu@email.com"
+                  aria-label="Seu endereço de e-mail"
                   className="flex-1 rounded-xl border border-[#0E8F66]/30 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#0E8F66] focus:ring-2 focus:ring-[#6FFFC7]/30"
                 />
-                <button className="rounded-xl bg-[#0E8F66] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0b7453]">
+                <button 
+                  type="submit"
+                  aria-label="Assinar newsletter"
+                  className="rounded-xl bg-[#0E8F66] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0b7453]"
+                >
                   Assinar
                 </button>
               </form>
@@ -333,17 +374,22 @@ export default function Post() {
           <div ref={tocScrollRef} className="space-y-6">
             <div className="rounded-3xl border border-white/30 bg-white/85 p-6 shadow-[0_35px_80px_-55px_rgba(15,23,42,0.45)] backdrop-blur">
               <div className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Nesta página</div>
-              <nav className="mt-4 space-y-2">
+              <nav className="mt-4 space-y-1" aria-label="Índice do artigo">
                 {toc.map((i) => {
                   const isActive = activeId === i.id;
+                  const isSubheading = i.heading.startsWith('—');
                   return (
                     <a
                       key={i.id}
                       href={`#${i.id}`}
                       onClick={(e) => handleAnchorClick(e, i.id)}
-                      aria-current={isActive ? "true" : undefined}
-                      className={`block rounded-lg px-3 py-2 text-sm transition ${
-                        isActive ? "bg-[#0E8F66]/10 text-[#0E8F66]" : "text-slate-600 hover:text-[#0E8F66]"
+                      aria-current={isActive ? "location" : undefined}
+                      className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-300 ${
+                        isSubheading ? 'pl-6 text-xs' : ''
+                      } ${
+                        isActive 
+                          ? "bg-[#d97757]/10 text-[#d97757] font-semibold shadow-sm" 
+                          : "text-slate-600 hover:text-[#d97757] hover:bg-slate-50"
                       }`}
                     >
                       {i.heading}
@@ -356,7 +402,8 @@ export default function Post() {
                   e.preventDefault();
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-slate-500 transition hover:text-[#0E8F66]"
+                aria-label="Voltar ao topo da página"
+                className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-slate-500 transition-all duration-300 hover:text-[#d97757]"
               >
                 ↑ Topo
               </button>
@@ -366,10 +413,15 @@ export default function Post() {
               <div className="rounded-3xl border border-white/30 bg-white/85 p-6 shadow-[0_35px_80px_-55px_rgba(15,23,42,0.45)] backdrop-blur">
                 <div className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Tags</div>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {post.tags.map((t) => (
-                    <span key={t} className="rounded-full border border-[#0E8F66]/20 bg-[#0E8F66]/10 px-3 py-1 text-xs font-semibold text-[#0E8F66]">
+                  {post.tags.map((t, idx) => (
+                    <Badge 
+                      key={t} 
+                      variant={idx === 0 ? getCategoryBadgeVariant(post.tag) : idx === 1 ? 'mint' : idx === 2 ? 'lavender' : 'peach'} 
+                      size="sm"
+                      className="text-xs"
+                    >
                       {t}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
               </div>

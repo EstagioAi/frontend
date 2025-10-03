@@ -2,13 +2,10 @@ import React from 'react'
 import Navigation from '@/components/global/Navigation'
 import Footer from '@/components/global/Footer'
 import HeroSection from '@/components/home/sections/HeroSection'
-import ProblemsSection from '@/components/home/sections/ProblemsSection'
-import SolutionSection from '@/components/home/sections/SolutionSection'
-import FeedbackSection from '@/components/home/sections/FeedbackSection'
-import FormatoUnificadoSection from '@/components/home/features/FormatoUnificadoSection'
-import FeaturesSection from '@/components/home/features/FeaturesSection'
-import TalentBankSection from '@/components/home/sections/TalentBankSection'
-import TestimonialsSection from '@/components/home/sections/TestimonialsSection'
+import WhyChooseSection from '@/components/home/sections/WhyChooseSection'
+import StatsSection from '@/components/home/sections/StatsSection'
+import TestimonialsCarouselSection from '@/components/home/sections/TestimonialsCarouselSection'
+import TopCompaniesSection from '@/components/home/sections/TopCompaniesSection'
 import CTASection from '@/components/home/sections/CTASection'
 
 export default function Home() {
@@ -22,14 +19,12 @@ export default function Home() {
       </div>
 
       <Navigation />
-      <main className="relative flex flex-col gap-0">
+      <main id="main-content" className="relative flex flex-col gap-0">
         <HeroSection />
-        <ProblemsSection />
-        <SolutionSection />
-        <FeedbackSection />
-        <FormatoUnificadoSection />
-        <TalentBankSection />
-        <TestimonialsSection />
+        <WhyChooseSection />
+        <TestimonialsCarouselSection />
+        <TopCompaniesSection />
+        <StatsSection />
         <CTASection />
       </main>
       <Footer />

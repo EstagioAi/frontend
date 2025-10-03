@@ -1,156 +1,288 @@
-import React from 'react'
-import { Button } from '@/components/ui/button.jsx'
-import { Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { MapPin, Play, ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
-const highlightItems = [
-  'Indicamos vagas conforme seu perfil e curso',
-  'Linha do tempo com feedback obrigatório das empresas'
+// Lista de trabalhos
+const jobs = [
+  'Arquiteta de Interiores',
+  'Desenvolvedor Front-end',
+  'Designer de Produto',
+  'Marketing Digital',
+  'Marketing Manager',
+  'Product Manager',
+  'Devops Engineer',
+  'Data Scientist',
+  'Product Designer',
+  'UI/UX Designer',
+  'Full-stack Developer',
+  'Arquiteto de Software',
+  'Engenheiro de Dados',
+  'Designer Gráfico',
+  'Arquiteto de Edificações',
+  'Economista',
+  'Engenheiro de Produção',
+  'Engenheiro de Controle e Automação',
+  'Engenheiro de Segurança do Trabalho',
+  'Engenheiro de Qualidade',
+  'Engenheiro de Sistemas',
+  'Engenheiro de Telecomunicações',
+  'Engenheiro de Energia Solar',
+  'Engenheiro de Mecânica',
+  'Engenheiro de Controle de Qualidade',
+  'Engenheiro de Manufatura',
+  'Engenheiro de Sistemas de Informação',
+  'Engenheiro de Software',
+  'Engenheiro de Telecomunicações',
+  'Engenheiro de Sistemas de Controle',
+  'Engenheiro Civil',
+  'Arquiteto de Paisagismo',
+  'Arquiteto de Estruturas',
+  'Arquiteto de Projetos',
+  'Arquiteto de Projetos de Construção',
+
 ]
+
+// Lista de locais no Brasil
+const locations = [
+  'São Paulo, SP',
+  'Rio de Janeiro, RJ',
+  'Belo Horizonte, MG',
+  'Brasília, DF',
+  'Curitiba, PR',
+  'Porto Alegre, RS',
+  'Salvador, BA',
+  'Recife, PE',
+  'Fortaleza, CE',
+  'Goiânia, GO',
+  'Manaus, AM',
+  'Belém, PA',
+  'Porto Velho, RO',
+  'Boa Vista, RR',
+  'Macapá, AP',
+  'São Luís, MA',
+  'Teresina, PI',
+  'João Pessoa, PB',
+  'Natal, RN',
+  'Maceió, AL',
+  'Aracaju, SE',
+  'Campo Grande, MS',
+
+]
+
+// Componente de texto animado tipo roleta (slot machine)
+const SpinText = ({ items, delay = 0, isActive = false, showIcon = false, align = 'left' }) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isSpinning, setIsSpinning] = useState(false)
+  const [targetIndex, setTargetIndex] = useState(0)
+
+  useEffect(() => {
+    const startSpin = () => {
+      setIsSpinning(true)
+
+      // Escolhe um índice aleatório
+      const randomIndex = Math.floor(Math.random() * items.length)
+      setTargetIndex(randomIndex)
+
+      // Após a animação de spin, define o novo índice
+      setTimeout(() => {
+        setCurrentIndex(randomIndex)
+        setIsSpinning(false)
+      }, 1500) // Duração do spin
+    }
+
+    // Inicia o primeiro spin após o delay
+    const initialTimeout = setTimeout(startSpin, delay)
+
+    // Continua girando em intervalos
+    const interval = setInterval(startSpin, 5000)
+
+    return () => {
+      clearTimeout(initialTimeout)
+      clearInterval(interval)
+    }
+  }, [items.length, delay])
+
+  // Cria uma lista extendida para o efeito de rolagem suave
+  const extendedItems = [...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items]
+
+  return (
+    <div className={`overflow-hidden h-7 ${align === 'right' ? 'text-right' : 'text-left'}`}>
+      <div
+        className={`transition-all ${isSpinning ? 'slot-spinning' : ''}`}
+        style={{
+          transform: isSpinning
+            ? `translateY(-${(items.length * 2 + targetIndex) * 28}px)`
+            : `translateY(-${(items.length + currentIndex) * 28}px)`,
+          transitionDuration: isSpinning ? '1500ms' : '0ms',
+          transitionTimingFunction: isSpinning ? 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'linear'
+        }}
+      >
+        {extendedItems.map((item, idx) => {
+          const normalizedIdx = idx % items.length
+          const isCurrentItem = !isSpinning && normalizedIdx === currentIndex && idx >= items.length && idx < items.length * 2
+
+          return (
+            <div
+              key={idx}
+              className={`h-7 flex items-center transition-all duration-300 ${
+                isActive && isCurrentItem
+                  ? 'text-slate-900 font-semibold'
+                  : 'text-slate-300 font-normal'
+              }`}
+              style={{
+                fontSize: isActive && isCurrentItem ? '0.9rem' : '0.85rem',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              <div className={`flex items-center gap-2 w-full ${align === 'right' ? 'justify-end' : 'justify-start'}`}>
+                {showIcon && isActive && isCurrentItem && align === 'left' && (
+                  <Play className="h-3 w-3 fill-emerald-600 text-emerald-600 flex-shrink-0" />
+                )}
+                {showIcon && isActive && isCurrentItem && (
+                  <MapPin className="h-3.5 w-3.5 text-teal-500 flex-shrink-0" />
+                )}
+                <span className="truncate">{item}</span>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-[#020F1A] pt-28 pb-20 text-white sm:pb-24 lg:pb-28 lg:-mb-12">
+    <section className="relative overflow-hidden pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 min-h-[85vh] flex items-start no-overflow-x">
+      {/* Background com paleta personalizada */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_100%_0%,rgba(1,226,151,0.16),rgba(2,15,26,0.95))]" />
-        <div className="absolute -top-24 -left-32 h-72 w-72 rounded-full bg-[#01E297]/25 blur-3xl" />
-        <div className="absolute bottom-0 -right-28 h-80 w-80 rounded-full bg-[#0B3B2A]/80 blur-[160px]" />
-        <div className="absolute top-1/3 left-16 h-48 w-48 rounded-full border border-white/10 opacity-60 animate-rotate-slow" />
+        {/* Grid pattern de fundo */}
+        <div
+          className="absolute inset-0 opacity-40 z-10"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(61, 61, 58, 0.08) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(61, 61, 58, 0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: '64px 64px',
+          }}
+        />
+
+        {/* Gradiente base - usando var(--gradient-hero) */}
+        <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
+
+        {/* Blob coral/terracota - canto superior esquerdo */}
+        <div
+          className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full opacity-20"
+          style={{
+            background: 'radial-gradient(circle, rgba(217, 119, 87, 0.25) 0%, rgba(217, 119, 87, 0.12) 50%, transparent 70%)',
+            filter: 'blur(80px)',
+          }}
+        />
+
+        {/* Blob suave bege - canto superior direito */}
+        <div
+          className="absolute -top-20 -right-40 w-[600px] h-[600px] rounded-full opacity-25"
+          style={{
+            background: 'radial-gradient(circle, rgba(245, 244, 237, 0.8) 0%, rgba(250, 249, 245, 0.4) 50%, transparent 70%)',
+            filter: 'blur(90px)',
+          }}
+        />
+
+        {/* Elementos decorativos minimalistas */}
+        <div className="absolute top-32 left-16 z-10">
+          <div className="w-16 h-0.5" style={{ background: 'linear-gradient(to right, rgba(217, 119, 87, 0.4), transparent)' }} />
+          <div className="w-8 h-0.5 mt-2 ml-4" style={{ background: 'linear-gradient(to right, rgba(217, 119, 87, 0.25), transparent)' }} />
+        </div>
+
+        {/* Elemento decorativo - círculo sutil */}
+        <div className="absolute top-1/3 right-32 z-10">
+          <div className="w-20 h-20 rounded-full" style={{ border: '1px solid rgba(217, 119, 87, 0.2)' }} />
+        </div>
+
+        {/* Overlay para suavizar */}
+        <div className="absolute inset-0 bg-white/40" />
       </div>
 
-  <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-14 px-4 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-20 lg:px-8">
-        <div className="max-w-2xl space-y-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/80">
-            <Sparkles className="h-4 w-4 text-[#6FFFC7]" />
-            Plataforma completa para universitários
-          </div>
+      <div className="relative mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8 container-safe">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(240px,300px)_1fr_minmax(240px,300px)] gap-6 sm:gap-8 md:gap-12 items-start">
 
-          <div className="space-y-6">
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-[58px] lg:leading-[1.05]">
-              Encontre seu estágio ideal com{' '}
-              <span className="text-[#6FFFC7]">transparência e velocidade</span>
-            </h1>
-            <p className="text-lg text-white/70 sm:text-xl">
-              O EstágioAI centraliza vagas reais, feedback obrigatório e recomendações inteligentes para você focar no que importa: conquistar sua próxima oportunidade.
-            </p>
-          </div>
-
-          <div className="grid gap-4 text-sm text-white/75 sm:grid-cols-2">
-            {highlightItems.map(item => (
-              <div
-                key={item}
-                className="flex items-center gap-3 rounded-2xl border border-white/12 bg-white/5 px-4 py-4 backdrop-blur-sm"
-              >
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/20 bg-[#6FFFC7]/20 text-[#6FFFC7]">
-                  <CheckCircle2 className="h-4 w-4" />
-                </span>
-                <p className="text-sm text-white/75">{item}</p>
-              </div>
+          {/* Coluna Esquerda - Jobs com animação de roleta */}
+          <div className="hidden lg:flex flex-col space-y-5 pt-4">
+            {[0, 1, 2, 3, 4, 5,6,7,8].map((index) => (
+              <SpinText
+                key={index}
+                items={jobs}
+                delay={index * 400}
+                isActive={index === 4}
+                showIcon={index === 4}
+                align="left"
+              />
             ))}
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link to="/register">
-              <Button size="lg" className="h-12 rounded-xl bg-[#6FFFC7] px-8 text-base font-semibold text-[#033124] shadow-[0_22px_45px_-24px_rgba(111,255,199,0.7)] transition-transform hover:-translate-y-0.5 hover:bg-[#58E5B4]">
-                Criar minha conta
-                <ArrowRight className="ml-2 h-5 w-5" />
+          {/* Coluna Central - Conteúdo Principal */}
+          <div className="text-center space-y-6 sm:space-y-8 md:space-y-10 max-w-2xl mx-auto pt-4 sm:pt-6 md:pt-8 px-2 sm:px-0">
+            {/* Badge minimalista - border coral, background branco */}
+            <div className="flex justify-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-sm transition-all hover:shadow-md touch-target" style={{ border: '1px solid var(--color-coral-primary)', background: 'var(--color-bg-white)' }}>
+                <div className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ background: 'var(--color-coral-primary)' }} />
+                <span className="font-medium text-xs sm:text-sm responsive-text" style={{ color: 'var(--color-gray-dark)' }}>Plataforma completa para universitários</span>
+              </div>
+            </div>
+
+            {/* Título Principal - mais clean e profissional */}
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight responsive-text">
+                <span className="block" style={{ color: '#3d3d3a' }}>Sua Carreira dos</span>
+                <span className="block mt-1 sm:mt-2 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #d97757, #d97757)' }}>
+                  Sonhos
+                </span>
+                <span className="block mt-1 sm:mt-2" style={{ color: '#3d3d3a' }}>Começa Aqui</span>
+              </h1>
+
+              {/* Subtítulo */}
+              <p className="text-base sm:text-lg max-w-xl mx-auto leading-relaxed pt-1 sm:pt-2 px-4 sm:px-0 responsive-text" style={{ color: '#3d3d3a', opacity: 0.75 }}>
+                Conectamos universitários às melhores oportunidades de carreira
+              </p>
+            </div>
+
+            {/* Botão CTA - usando componente Button com variante cta */}
+            <div className="flex justify-center pt-1 sm:pt-2">
+              <Button variant="cta" size="lg" className="group w-full sm:w-auto max-w-xs sm:max-w-none">
+                Começar Agora
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
-            </Link>
-            <Link to="/vagas" className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white/80 transition hover:text-white">
-              Ver vagas abertas
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            </div>
+          </div>
+
+          {/* Coluna Direita - Locais com animação de roleta */}
+          <div className="hidden lg:flex flex-col space-y-5 pt-4">
+            {[0, 1, 2, 3, 4, 5,6,7,8].map((index) => (
+              <SpinText
+                key={index}
+                items={locations}
+                delay={index * 400 + 200}
+                isActive={index === 4}
+                showIcon={index === 4}
+                align="right"
+              />
+            ))}
           </div>
 
         </div>
 
-  <div className="relative w-full max-w-md lg:mt-4 lg:self-start xl:mt-6">
-          <div className="absolute inset-x-0 top-16 h-64 rounded-full bg-[#6FFFC7]/15 blur-3xl" />
-          <div className="relative">
-            <div className="absolute inset-0 hidden rounded-full border border-white/20 sm:block" />
-            <div className="aspect-square overflow-hidden rounded-full border border-white/15 bg-[#0B2A1D] shadow-[0_40px_80px_-50px_rgba(111,255,199,0.7)]">
-              <img
-                src="/images/misc/diverse-students-celebrating-internship-success.webp"
-                alt="Universitários celebrando estágio"
-                className="h-full w-full object-cover"
-                width="880"
-                height="880"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-              />
-            </div>
-
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative h-[132%] w-[132%]">
-                <div className="absolute top-10 left-1/2 -translate-x-1/2">
-                  <Link to="/empresas/google" aria-label="Google" className="block">
-                    <div className="float-y float-y-1 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
-                      <img src="/images/companies/google.webp" alt="Google" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                    </div>
-                  </Link>
-                </div>
-                <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                  <Link to="/empresas/microsoft" aria-label="Microsoft" className="block">
-                    <div className="float-y float-y-2 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
-                      <img src="/images/companies/microsft.webp" alt="Microsoft" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                    </div>
-                  </Link>
-                </div>
-                <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
-                  <Link to="/empresas/amazon" aria-label="Amazon" className="block">
-                    <div className="float-y float-y-3 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
-                      <img src="/images/companies/amazon.webp" alt="Amazon" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                    </div>
-                  </Link>
-                </div>
-                <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                  <Link to="/empresas/ibm" aria-label="IBM" className="block">
-                    <div className="float-y float-y-4 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
-                      <img src="/images/companies/ibm.webp" alt="IBM" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                    </div>
-                  </Link>
-                </div>
-                <div className="absolute top-[11%] left-[11%]">
-                  <Link to="/empresas/meta" aria-label="Meta" className="block">
-                    <div className="float-y float-y-5 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
-                      <img src="/images/companies/meta.webp" alt="Meta" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                    </div>
-                  </Link>
-                </div>
-                <div className="absolute bottom-[11%] right-[11%]">
-                  <Link to="/empresas/netflix" aria-label="Netflix" className="block">
-                    <div className="float-y float-y-6 grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white/95 ring-2 ring-white/50 shadow-lg transition hover:ring-white/70">
-                      <img src="/images/companies/netflix.webp" alt="Netflix" className="h-6 w-6 object-contain" width="24" height="24" loading="lazy" decoding="async" />
-                    </div>
-                  </Link>
-                </div>
+        {/* Jobs em grid para mobile - mais clean */}
+        <div className="lg:hidden mt-8 sm:mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 px-2 sm:px-0">
+          {jobs.slice(0, 6).map((job, index) => (
+            <div key={index} className="space-y-2 p-4 bg-white/80 backdrop-blur-sm rounded-xl transition-all hover:shadow-md min-h-[44px] touch-target" style={{ border: '1px solid rgba(217, 119, 87, 0.2)' }}>
+              <div className="font-semibold text-sm responsive-text text-clamp-2" style={{ color: '#3d3d3a' }}>{job}</div>
+              <div className="flex items-center gap-1.5 text-xs responsive-text" style={{ color: '#3d3d3a', opacity: 0.7 }}>
+                <MapPin className="h-3.5 w-3.5 flex-shrink-0" style={{ color: '#d97757' }} />
+                <span className="text-ellipsis overflow-hidden">{locations[index]}</span>
               </div>
             </div>
-
-            <div className="absolute -bottom-16 right-4 w-[86%] max-w-sm rounded-2xl border border-white/10 bg-white/10 p-4 text-white shadow-[0_32px_60px_-40px_rgba(24,255,176,0.55)] backdrop-blur-md sm:right-8 sm:w-[22rem]">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Histórias reais</p>
-              <div className="mt-3 flex items-center -space-x-3">
-                {[1, 23, 32, 41, 10, 30].map((i) => (
-                  <img
-                    key={i}
-                    src={`https://i.pravatar.cc/48?img=${i}`}
-                    alt="Universitário"
-                    className="h-9 w-9 rounded-full border border-white/70"
-                    width="36"
-                    height="36"
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                  />
-                ))}
-                <div className="grid h-9 w-9 place-items-center rounded-full border border-white/70 bg-white/10 text-sm font-semibold text-white/80">
-                  +
-                </div>
-              </div>
-              <p className="mt-3 text-sm text-white/70">Mais de 10k estudantes conquistaram estágio com o EstágioAI em 2024.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

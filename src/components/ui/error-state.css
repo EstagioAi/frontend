@@ -1,0 +1,132 @@
+/* ErrorState Component Styles */
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  min-height: 300px;
+}
+
+.error-state-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.error-state-icon svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-coral-primary, #d97757);
+}
+
+.error-state-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #3d3d3a);
+  margin-bottom: 0.5rem;
+}
+
+.error-state-message {
+  font-size: 1rem;
+  color: var(--color-text-secondary, #6b6b68);
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.error-state-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Compact variant */
+.error-state.compact {
+  min-height: 200px;
+  padding: 2rem 1rem;
+}
+
+.error-state.compact .error-state-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.error-state.compact .error-state-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.error-state.compact .error-state-title {
+  font-size: 1.25rem;
+}
+
+.error-state.compact .error-state-message {
+  font-size: 0.875rem;
+}
+
+/* Inline variant */
+.error-state.inline {
+  flex-direction: row;
+  text-align: left;
+  min-height: auto;
+  padding: 1rem;
+  background: rgba(239, 68, 68, 0.05);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.error-state.inline .error-state-icon {
+  margin-bottom: 0;
+  margin-right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.error-state.inline .error-state-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.error-state.inline .error-state-content {
+  flex: 1;
+}
+
+.error-state.inline .error-state-title {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.error-state.inline .error-state-message {
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .error-state {
+    padding: 2rem 1rem;
+  }
+  
+  .error-state-title {
+    font-size: 1.25rem;
+  }
+  
+  .error-state-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .error-state-actions button {
+    width: 100%;
+  }
+}

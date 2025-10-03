@@ -1,0 +1,39 @@
+/* Card Base Component */
+.card {
+  background: var(--color-white, #ffffff);
+  border: 1px solid rgba(217, 119, 87, 0.15);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect com elevação */
+.card--hoverable:hover {
+  border-color: rgba(217, 119, 87, 0.3);
+  box-shadow: 0 8px 24px rgba(61, 61, 58, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Clickable cards */
+.card--clickable {
+  cursor: pointer;
+}
+
+.card--clickable:active {
+  transform: translateY(-2px);
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+}

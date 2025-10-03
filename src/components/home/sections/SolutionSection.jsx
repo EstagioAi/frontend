@@ -33,40 +33,40 @@ const steps = [
 
 const SolutionSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
+    <section className="relative overflow-hidden py-24" style={{ background: '#ffffff' }}>
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-24 top-[-160px] h-[420px] w-[420px] rounded-full bg-[#e0fdf3] blur-3xl" />
-        <div className="absolute bottom-[-180px] right-[-120px] h-[360px] w-[360px] rounded-full bg-[#e0ecff] blur-3xl" />
+        <div className="absolute -left-24 top-[-160px] h-[420px] w-[420px] rounded-full blur-3xl" style={{ background: 'rgba(217, 119, 87, 0.08)' }} />
+        <div className="absolute bottom-[-180px] right-[-120px] h-[360px] w-[360px] rounded-full blur-3xl" style={{ background: 'rgba(245, 244, 237, 0.5)' }} />
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-sm font-semibold text-emerald-700">
+            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold" style={{ border: '1px solid rgba(217, 119, 87, 0.3)', background: 'rgba(217, 119, 87, 0.1)', color: '#d97757' }}>
               Sua jornada em 3 etapas
             </div>
-            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-[#02161F] sm:text-5xl">
+            <h2 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl" style={{ color: '#3d3d3a' }}>
               Do cadastro à contratação com{' '}
-              <span className="text-[#0E8F66]">cliques guiados</span>
+              <span style={{ color: '#d97757' }}>cliques guiados</span>
             </h2>
-            <p className="mt-5 max-w-2xl text-lg text-slate-600">
+            <p className="mt-5 max-w-2xl text-lg" style={{ color: '#3d3d3a', opacity: 0.7 }}>
               Cada insight da plataforma de empresas vira benefício direto para os estudantes. A experiência é limpa, objetiva e com recomendações em tempo real.
             </p>
 
             <div className="mt-12 space-y-8">
               {steps.map(({ title, description, items }, idx) => (
-                <div key={title} className="relative rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.45)]">
+                <div key={title} className="relative rounded-3xl bg-white/80 p-6" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 20px 60px -45px rgba(61, 61, 58, 0.25)' }}>
                   <div className="mb-4 flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#f0fdf4] text-[#059669]">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-2xl" style={{ background: 'rgba(217, 119, 87, 0.1)', color: '#d97757' }}>
                       {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <h3 className="text-xl font-semibold text-[#02161F]">{title}</h3>
+                    <h3 className="text-xl font-semibold" style={{ color: '#3d3d3a' }}>{title}</h3>
                   </div>
-                  <p className="text-base text-slate-600">{description}</p>
+                  <p className="text-base" style={{ color: '#3d3d3a', opacity: 0.7 }}>{description}</p>
                   <ul className="mt-5 space-y-3">
                     {items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-slate-600">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#0E8F66]" />
+                      <li key={item} className="flex items-start gap-3 text-sm" style={{ color: '#3d3d3a', opacity: 0.7 }}>
+                        <CheckCircle2 className="mt-0.5 h-4 w-4" style={{ color: '#d97757' }} />
                         <span>{item}</span>
                       </li>
                     ))}

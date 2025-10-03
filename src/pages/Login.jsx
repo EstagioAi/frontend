@@ -36,13 +36,13 @@ const Login = () => {
               <br />
               rapidez e transparência.
             </h1>
-            <div className="h-2 w-44 rounded-full bg-[#01E297] mb-8" />
+            <div className="h-2 w-44 rounded-full bg-[var(--color-coral-primary)] mb-8" />
 
             <div className="mt-10 text-gray-700">
               <span className="mr-2">Não tem conta ?</span>
               <a
                 href="/register"
-                className="font-semibold text-[#092116] underline underline-offset-4"
+                className="font-semibold text-[var(--color-coral-primary)] underline underline-offset-4 hover:text-[var(--color-coral-light)]"
               >
                 Crie uma conta
               </a>
@@ -91,7 +91,7 @@ const Login = () => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Digite seu email ou usuário"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
                   />
                 </div>
                 <div>
@@ -103,7 +103,7 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Digite sua senha"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[#01E297]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
                   />
                 </div>
 
@@ -113,18 +113,19 @@ const Login = () => {
                       type="checkbox"
                       checked={remember}
                       onChange={(e) => setRemember(e.target.checked)}
-                      className="rounded-md text-[#01E297] focus:ring-[#01E297]"
+                      className="rounded-md text-[var(--color-coral-primary)] focus:ring-[var(--color-coral-primary)]"
                     />
                     <span className="text-gray-700">Lembrar de mim</span>
                   </label>
-                  <a href="#" className="text-gray-500 hover:text-gray-700">
+                  <a href="#" className="text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]">
                     Esqueceu sua senha?
                   </a>
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full h-12 rounded-[12px] bg[#092116] bg-[#092116] text-white hover:brightness-110"
+                  variant="primary"
+                  className="w-full h-12 rounded-[12px]"
                 >
                   Entrar
                 </Button>
@@ -194,7 +195,7 @@ const Login = () => {
                   Ao entrar, você concorda com nossos
                   <a
                     href="/termos-de-uso"
-                    className="underline underline-offset-4 text-[#092116]"
+                    className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
                   >
                     {" "}
                     Termos de Uso
@@ -202,7 +203,7 @@ const Login = () => {
                   ,
                   <a
                     href="/termos-de-servico"
-                    className="underline underline-offset-4 text-[#092116]"
+                    className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
                   >
                     {" "}
                     Termos de Serviço
@@ -210,7 +211,7 @@ const Login = () => {
                   e
                   <a
                     href="/politica-de-privacidade"
-                    className="underline underline-offset-4 text-[#092116]"
+                    className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
                   >
                     {" "}
                     Política de Privacidade
