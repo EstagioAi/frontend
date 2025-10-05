@@ -68,7 +68,7 @@ export default function MuralDeVagas() {
   }, [isHovering])
 
   return (
-    <div className="min-h-screen bg-white text-[#092116]">
+    <div className="min-h-screen bg-white-ds text-[#092116]">
       <Navigation />
 
       {/* Hero */}
@@ -100,21 +100,21 @@ export default function MuralDeVagas() {
                     <span className="inline-flex items-center font-semibold text-black bg-[#01E297]/90 px-2.5 py-[3px] rounded-full">
                       {processos[0].tag}
                     </span>
-                    <span className="text-white/90">{processos[0].data}</span>
+                    <span className="text-white-ds/90">{processos[0].data}</span>
                   </div>
-                  <h2 className="mt-2 text-2xl md:text-4xl font-extrabold text-white leading-tight">{processos[0].titulo}</h2>
-                  <div className="mt-2 flex items-center gap-2 text-sm text-white/90">
-                    <span className="w-6 h-6 rounded-full bg-white/90 text-[#092116] grid place-items-center font-semibold">
+                  <h2 className="mt-2 text-2xl md:text-4xl font-extrabold text-white-ds leading-tight">{processos[0].titulo}</h2>
+                  <div className="mt-2 flex items-center gap-2 text-sm text-white-ds/90">
+                    <span className="w-6 h-6 rounded-full bg-white-ds/90 text-[#092116] grid place-items-center font-semibold">
                       {processos[0].empresa[0]}
                     </span>
                     <span className="font-medium">{processos[0].empresa}</span>
                   </div>
-                  <p className="mt-2 text-white/90 max-w-3xl">{processos[0].excerpt}</p>
+                  <p className="mt-2 text-white-ds/90 max-w-3xl">{processos[0].excerpt}</p>
                   <div className="mt-4 flex flex-wrap items-center gap-2">
                     <a href="#" className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-[#01E297] text-black text-sm font-semibold hover:brightness-95">Ver detalhes
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </a>
-                    <span className="inline-flex items-center h-10 px-3 rounded-xl bg-white/10 text-white text-xs border border-white/20 backdrop-blur">
+                    <span className="inline-flex items-center h-10 px-3 rounded-xl bg-white-ds/10 text-white-ds text-xs border border-white/20 backdrop-blur">
                       Em destaque
                     </span>
                   </div>
@@ -131,16 +131,16 @@ export default function MuralDeVagas() {
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl md:text-2xl font-extrabold">Processos em destaque</h2>
             <div className="hidden md:flex items-center gap-2">
-              <button onClick={() => scrollByCard("left")} className="p-2 rounded-xl border border-gray-200 bg-white shadow-sm hover:bg-gray-50"><ChevronLeft className="w-5 h-5" /></button>
-              <button onClick={() => scrollByCard("right")} className="p-2 rounded-xl border border-gray-200 bg-white shadow-sm hover:bg-gray-50"><ChevronRight className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("left")} className="p-2 rounded-xl border border-gray-200 bg-white-ds shadow-sm hover:bg-gray-50"><ChevronLeft className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("right")} className="p-2 rounded-xl border border-gray-200 bg-white-ds shadow-sm hover:bg-gray-50"><ChevronRight className="w-5 h-5" /></button>
             </div>
           </div>
 
           <div className="relative">
             {/* Buttons mobile overlay */}
             <div className="md:hidden absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none">
-              <button onClick={() => scrollByCard("left")} className="pointer-events-auto ml-1 p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm"><ChevronLeft className="w-5 h-5" /></button>
-              <button onClick={() => scrollByCard("right")} className="pointer-events-auto mr-1 p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm"><ChevronRight className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("left")} className="pointer-events-auto ml-1 p-2 rounded-lg bg-white-ds/90 border border-gray-200 shadow-sm"><ChevronLeft className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("right")} className="pointer-events-auto mr-1 p-2 rounded-lg bg-white-ds/90 border border-gray-200 shadow-sm"><ChevronRight className="w-5 h-5" /></button>
             </div>
 
             {/* Gradientes de borda para indicar rolagem */}
@@ -157,7 +157,7 @@ export default function MuralDeVagas() {
               {processos.map((p) => (
                 <article
                   key={p.titulo}
-                  className="group min-w-[78%] sm:min-w-[340px] lg:min-w-[360px] max-w-[400px] snap-center overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-card hover:shadow-card-lg hover:-translate-y-0.5 transition-all"
+                  className="group min-w-[78%] sm:min-w-[340px] lg:min-w-[360px] max-w-[400px] snap-center overflow-hidden rounded-2xl border border-gray-200 bg-white-ds shadow-card hover:shadow-card-lg hover:-translate-y-0.5 transition-all"
                 >
                   <div className="relative h-36 w-full overflow-hidden bg-gray-50">
                     <img src={p.img} alt="capa" className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />

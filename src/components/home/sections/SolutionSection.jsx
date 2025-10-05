@@ -55,7 +55,7 @@ const SolutionSection = () => {
 
             <div className="mt-12 space-y-8">
               {steps.map(({ title, description, items }, idx) => (
-                <div key={title} className="relative rounded-3xl bg-white/80 p-6" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 20px 60px -45px rgba(61, 61, 58, 0.25)' }}>
+                <div key={title} className="relative rounded-3xl bg-white-ds/80 p-6" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 20px 60px -45px rgba(61, 61, 58, 0.25)' }}>
                   <div className="mb-4 flex items-center gap-3">
                     <span className="flex h-10 w-10 items-center justify-center rounded-2xl" style={{ background: 'rgba(217, 119, 87, 0.1)', color: '#d97757' }}>
                       {String(idx + 1).padStart(2, '0')}
@@ -77,15 +77,15 @@ const SolutionSection = () => {
           </div>
 
           <div className="relative mx-auto w-full max-w-lg">
-            <div className="absolute -top-10 right-6 hidden rounded-3xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-600 shadow-lg backdrop-blur-sm md:flex md:items-center md:gap-3">
+            <div className="absolute -top-10 right-6 hidden rounded-3xl border border-slate-200 bg-white-ds/80 px-4 py-3 text-sm text-slate-600 shadow-lg backdrop-blur-sm md:flex md:items-center md:gap-3">
               <ArrowDownRight className="h-4 w-4 text-[#0E8F66]" />
               Vaga recomendada no topo da sua lista
             </div>
 
-            <div className="relative overflow-hidden rounded-[34px] border border-slate-200 bg-white p-6 shadow-[0_35px_80px_-50px_rgba(15,23,42,0.55)]">
+            <div className="relative overflow-hidden rounded-[34px] border border-slate-200 bg-white-ds p-6 shadow-[0_35px_80px_-50px_rgba(15,23,42,0.55)]">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#02161F] text-white text-lg font-semibold">Ad</div>
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#02161F] text-white-ds text-lg font-semibold">Ad</div>
                   <div>
                     <h3 className="text-lg font-semibold text-[#02161F]">Adobe · Trainee UI/UX Designer</h3>
                     <span className="text-xs uppercase tracking-[0.25em] text-slate-400">Postado há 2 horas</span>

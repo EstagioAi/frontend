@@ -1,24 +1,28 @@
 import React, { useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import BackgroundShapes from '@/components/ui/background-shapes.jsx'
 
 const testimonials = [
   {
     name: 'Layla Abbas',
     role: 'Gerente de Marketing',
-    avatar: '👩‍💼',
-    quote: 'Eu estava usando vários quadros de vagas e ficando sobrecarregada. No EstágioAI, economizei muito tempo e consegui meu emprego dos sonhos em uma ótima empresa!'
+    company: 'Growthify',
+    quote: 'Eu estava usando vários quadros de vagas e ficando sobrecarregada. No EstágioAI, economizei muito tempo e consegui meu emprego dos sonhos em uma ótima empresa!',
+    metrics: ['Contratada em 3 semanas', '+120% de match com vagas relevantes']
   },
   {
     name: 'Carlos Silva',
     role: 'Desenvolvedor Frontend',
-    avatar: '👨‍💻',
-    quote: 'A plataforma me ajudou a encontrar vagas que realmente combinavam com meu perfil. O processo foi rápido e eficiente, sem perder tempo com candidaturas irrelevantes.'
+    company: 'TechNova',
+    quote: 'A plataforma me ajudou a encontrar vagas que realmente combinavam com meu perfil. O processo foi rápido e eficiente, sem perder tempo com candidaturas irrelevantes.',
+    metrics: ['5 convites para entrevista', 'Currículo visto 4x mais']
   },
   {
     name: 'Ana Costa',
     role: 'Designer UX/UI',
-    avatar: '👩‍🎨',
-    quote: 'Adorei a experiência! O sistema de match me mostrou exatamente as vagas que faziam sentido para minha carreira. Consegui meu estágio em menos de 2 semanas!'
+    company: 'PixelLab',
+    quote: 'Adorei a experiência! O sistema de match me mostrou exatamente as vagas que faziam sentido para minha carreira. Consegui meu estágio em menos de 2 semanas!',
+    metrics: ['Portfólio avaliado por 7 empresas', 'Match instantâneo com vagas']
   }
 ]
 
@@ -40,161 +44,144 @@ const TestimonialsCarouselSection = () => {
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section 
-      className="relative overflow-hidden" 
-      style={{ 
-        paddingTop: 'var(--space-12)', 
-        paddingBottom: 'var(--space-12)', 
-        background: 'var(--color-bg-primary)' 
-      }}
-    >
-      {/* Background decorativo */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-100px] h-[400px] w-[400px] -translate-x-1/2 rounded-full blur-3xl" style={{ background: 'rgba(217, 119, 87, 0.1)' }} />
-      </div>
+    <section className="relative overflow-hidden bg-white-ds-ds py-24 lg:py-28">
+      {/* Formas decorativas de fundo */}
+      <BackgroundShapes
+        variant="section1"
+        opacity={0.18}
+        color="rgba(130, 247, 179, 0.75)"
+        accentColor="rgba(17, 94, 89, 0.2)"
+        accentOpacity={0.16}
+      />
+      <BackgroundShapes
+        variant="orbits"
+        opacity={0.18}
+        color="rgba(130, 247, 179, 0.95)"
+        accentColor="rgba(203, 213, 225, 0.5)"
+        accentOpacity={0.14}
+        blendMode="normal"
+      />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-16 text-center">
-          <p
-            className="mb-4 uppercase tracking-[0.2em]"
-            style={{
-              fontSize: 'var(--text-sm)',
-              fontWeight: 'var(--font-semibold)',
-              color: 'var(--text-primary)',
-              opacity: 0.6
-            }}
-          >
-            Usuários do EstágioAI
-          </p>
-          <h2
-            className="tracking-tight"
-            style={{
-              fontSize: 'clamp(2.25rem, 5vw, 3rem)',
-              fontWeight: 'var(--font-bold)',
-              lineHeight: 'var(--leading-tight)',
-              color: 'var(--text-primary)'
-            }}
-          >
-            O Que Nossos Usuários Dizem{' '}
-            <span style={{ color: 'var(--color-coral-primary)' }}>Sobre o EstágioAI</span>
-          </h2>
+  <div className="mb-10 flex flex-col gap-4 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.32em] text-green-ds">
+              Usuários do EstágioAI
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight text-primary-ds sm:text-4xl">
+              Histórias reais de quem contratou certo
+            </h2>
+          </div>
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={goToPrevious}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-black-15 bg-white-ds-ds text-black-80 shadow-sm transition-all duration-200 hover:border-green-ds hover:text-primary-ds"
+              aria-label="Anterior"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              onClick={goToNext}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-black-15 bg-white-ds-ds text-black-80 shadow-sm transition-all duration-200 hover:border-green-ds hover:text-primary-ds"
+              aria-label="Próximo"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
         </div>
 
         {/* Carousel Container */}
         <div className="relative" role="region" aria-label="Depoimentos de usuários" aria-live="polite">
-          <div className="grid items-center lg:grid-cols-[400px_1fr]" style={{ gap: 'var(--space-8)' }}>
-            {/* Avatar Card */}
-            <div className="mx-auto w-full max-w-[400px]">
-              <div 
-                className="relative overflow-hidden rounded-[3rem] p-12" 
-                style={{ 
-                  background: 'var(--color-bg-white)', 
-                  border: '1px solid var(--border-coral)',
-                  boxShadow: '0 30px 60px -30px var(--shadow-coral)' 
-                }}
-              >
-                <div className="flex items-center justify-center">
-                  <div className="text-[180px] leading-none">
-                    {currentTestimonial.avatar}
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-12">
+            {/* Card com dados do depoimento */}
+            <article className="relative overflow-hidden rounded-[24px] border border-black-08 bg-white-ds-ds px-8 py-10 shadow-lg transition-all duration-300">
+              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-green-18 blur-[80px]" aria-hidden="true" />
+              <div className="flex flex-col gap-6">
+                <header className="flex flex-col gap-2">
+                  <span className="inline-flex w-fit items-center gap-2 rounded-full border border-green-30 bg-green-10 px-3 py-1 text-xs font-semibold text-black-60">
+                    {currentTestimonial.company}
+                  </span>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-primary-ds">{currentTestimonial.name}</h3>
+                    <p className="text-sm font-medium text-black-60">{currentTestimonial.role}</p>
                   </div>
-                </div>
-              </div>
-            </div>
+                </header>
 
-            {/* Testimonial Content */}
-            <div className="relative">
-              {/* Navigation Arrows */}
-              <div className="flex items-center justify-between" style={{ marginBottom: 'var(--space-5)' }}>
-                <div className="flex" style={{ gap: 'var(--space-2)' }}>
+                <blockquote className="relative text-base leading-relaxed text-black-75 sm:text-lg">
+                  <span className="mb-3 block text-4xl text-green-70">“</span>
+                  <p className="pl-4 border-l-2 border-green-35">
+                    {currentTestimonial.quote}
+                  </p>
+                </blockquote>
+
+                <ul className="grid gap-3 text-sm text-black-70 sm:grid-cols-2">
+                  {currentTestimonial.metrics.map((metric) => (
+                    <li
+                      key={metric}
+                      className="flex items-center gap-2 rounded-xl border border-green-15 bg-green-ds/10 px-3 py-2"
+                    >
+                      <span className="inline-flex h-2.5 w-2.5 flex-shrink-0 rounded-full bg-green-ds" aria-hidden="true" />
+                      <span>{metric}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+
+            {/* Stack de depoimentos */}
+            <div className="relative flex h-full flex-col gap-8">
+              <div className="flex justify-center lg:hidden">
+                <div className="flex items-center gap-3">
                   <button
                     onClick={goToPrevious}
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white transition-all hover:scale-110"
-                    style={{ border: '1px solid var(--border-coral-strong)', color: 'var(--text-primary)' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--color-coral-primary)'; e.currentTarget.style.color = '#ffffff' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--color-bg-white)'; e.currentTarget.style.color = 'var(--text-primary)' }}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-black-15 bg-white-ds text-black-80 shadow-sm transition-all duration-200 hover:border-green-ds hover:text-primary-ds"
                     aria-label="Anterior"
                   >
-                    <ChevronLeft className="h-5 w-5" />
+                    <ChevronLeft className="h-4 w-4" />
                   </button>
                   <button
                     onClick={goToNext}
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white transition-all hover:scale-110"
-                    style={{ border: '1px solid var(--border-coral-strong)', color: 'var(--text-primary)' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--color-coral-primary)'; e.currentTarget.style.color = '#ffffff' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--color-bg-white)'; e.currentTarget.style.color = 'var(--text-primary)' }}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-black-15 bg-white-ds text-black-80 shadow-sm transition-all duration-200 hover:border-green-ds hover:text-primary-ds"
                     aria-label="Próximo"
                   >
-                    <ChevronRight className="h-5 w-5" />
+                    <ChevronRight className="h-4 w-4" />
                   </button>
-                </div>
-
-                {/* Dots Indicator - 2 circles and 1 line */}
-                <div className="flex items-center" style={{ gap: '8px' }}>
-                  {testimonials.map((_, index) => {
-                    const isActive = index === currentIndex
-                    const isLastDot = index === testimonials.length - 1
-
-                    return (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentIndex(index)}
-                        className="transition-all"
-                        style={{
-                          width: isLastDot ? '48px' : '24px',
-                          height: isLastDot ? '2px' : '24px',
-                          borderRadius: isLastDot ? '9999px' : '50%',
-                          background: isActive ? '#d97757' : '#e0e0e0'
-                        }}
-                        aria-label={`Ir para depoimento ${index + 1}`}
-                      />
-                    )
-                  })}
                 </div>
               </div>
 
-              {/* Testimonial Card */}
-              <div 
-                className="rounded-3xl bg-white" 
-                style={{ 
-                  padding: 'var(--space-6)',
-                  border: '1px solid var(--border-coral)', 
-                  boxShadow: '0 20px 50px -30px var(--shadow-coral)' 
-                }}
-              >
-                <div style={{ marginBottom: 'var(--space-4)' }}>
-                  <h3 
-                    style={{ 
-                      fontSize: 'var(--text-2xl)', 
-                      fontWeight: 'var(--font-semibold)', 
-                      lineHeight: 'var(--leading-tight)',
-                      color: 'var(--text-primary)' 
-                    }}
-                  >
-                    {currentTestimonial.name}
-                  </h3>
-                  <p 
-                    style={{ 
-                      marginTop: 'var(--space-1)',
-                      fontSize: 'var(--text-sm)', 
-                      fontWeight: 'var(--font-medium)', 
-                      color: 'var(--color-coral-primary)' 
-                    }}
-                  >
-                    {currentTestimonial.role}
+              <div className="relative flex flex-1 flex-col justify-between rounded-[24px] bg-primary-ds p-8 shadow-inner">
+                <div className="space-y-4">
+                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-black-40">
+                    Depoimentos selecionados
+                  </p>
+                  <p className="text-base text-black-70">
+                    A EstágioAI conecta talentos universitários às empresas certas com feedback real e processos transparentes.
                   </p>
                 </div>
 
-                <blockquote 
-                  style={{ 
-                    fontSize: 'var(--text-lg)', 
-                    lineHeight: 'var(--leading-relaxed)', 
-                    color: 'var(--text-primary)', 
-                    opacity: 0.75 
-                  }}
-                >
-                  "{currentTestimonial.quote}"
-                </blockquote>
+                {/* Indicators */}
+                <div className="mt-8 flex flex-col gap-5">
+                  <div className="flex items-center gap-2.5">
+                    {testimonials.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f0f0f]/30 ${
+                          index === currentIndex
+                            ? 'h-2 w-2 bg-green-ds shadow-sm'
+                            : 'h-1.5 w-1.5 bg-black-ds/15 hover:bg-black-ds/25'
+                        }`}
+                        aria-label={`Ir para depoimento ${index + 1}`}
+                        aria-current={index === currentIndex ? 'true' : 'false'}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="text-[11px] uppercase tracking-[0.28em] text-black-35">
+                    {currentIndex + 1} de {testimonials.length}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

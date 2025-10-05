@@ -11,9 +11,7 @@ import CompaniesCTASection from '@/components/companies/sections/CompaniesCTASec
 
 export default function CompaniesPage() {
   return (
-    <div className="relative min-h-screen bg-[#F7F9FC] text-foreground">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(15,23,42,0.06),_transparent_60%)]" />
-
+    <div className="relative min-h-screen bg-primary-ds text-primary-ds">
       <Navigation />
       <CompaniesHeroSection />
       <CompaniesFeaturesSection />

@@ -19,7 +19,7 @@ const EmailCaptureSection = () => {
         <div className="orb orb--teal orb-animate w-[260px] h-[260px] -bottom-12 right-[-30px]"></div>
       </div>
       <div className="max-w-4xl mx-auto">
-        <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 shadow-lg">
+        <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white-ds/80 backdrop-blur supports-[backdrop-filter]:bg-white-ds/70 shadow-lg">
           <div className="absolute -inset-1 bg-[radial-gradient(40%_40%_at_50%_0%,#01E2971a,transparent)]" aria-hidden="true" />
           <div className="relative p-8 sm:p-10 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold ring-1 ring-emerald-200 mb-4">Acesso antecipado</div>
@@ -34,7 +34,7 @@ const EmailCaptureSection = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Digite seu melhor email"
                   required
-                  className="flex-1 px-5 py-3.5 md:px-6 md:py-4 text-base md:text-lg border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#01E297] focus:border-transparent bg-white shadow-sm"
+                  className="flex-1 px-5 py-3.5 md:px-6 md:py-4 text-base md:text-lg border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#01E297] focus:border-transparent bg-white-ds shadow-sm"
                 />
                 <Button type="submit" size="lg" className="h-[52px] md:h-[56px] px-6 rounded-xl bg-[#01E297] text-black font-semibold hover:brightness-95 sm:w-auto w-full">Quero Acesso!</Button>
               </div>

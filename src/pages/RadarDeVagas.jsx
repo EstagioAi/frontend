@@ -101,7 +101,7 @@ export default function RadarDeVagas() {
   }, [isHovering])
 
   return (
-    <div className="min-h-screen bg-white text-[#092116]">
+    <div className="min-h-screen bg-white-ds text-[#092116]">
       <Navigation />
 
       {/* Hero clean e compacto */}
@@ -123,7 +123,7 @@ export default function RadarDeVagas() {
 
           {/* Filtros simples (não funcionais por enquanto) */}
           <div className="mt-6 flex flex-wrap items-center gap-2">
-            <button className="inline-flex items-center gap-2 h-9 px-3 rounded-xl border border-gray-200 bg-white text-sm hover:bg-gray-50"><Filter className="w-4 h-4"/> Filtros</button>
+            <button className="inline-flex items-center gap-2 h-9 px-3 rounded-xl border border-gray-200 bg-white-ds text-sm hover:bg-gray-50"><Filter className="w-4 h-4"/> Filtros</button>
             <span className="text-xs px-2 py-1 rounded-lg bg-gray-100 border border-gray-200">Remoto</span>
             <span className="text-xs px-2 py-1 rounded-lg bg-gray-100 border border-gray-200">Híbrido</span>
             <span className="text-xs px-2 py-1 rounded-lg bg-gray-100 border border-gray-200">Presencial</span>
@@ -147,21 +147,21 @@ export default function RadarDeVagas() {
                     <Badge variant="mint" size="sm" className="text-black bg-[#01E297]/90 border-[#01E297]">
                       {processos[0].tag}
                     </Badge>
-                    <span className="text-white/85">{processos[0].data}</span>
+                    <span className="text-white-ds/85">{processos[0].data}</span>
                   </div>
-                  <h2 className="mt-1 text-base md:text-xl font-extrabold text-white leading-tight">{processos[0].titulo}</h2>
-                  <div className="mt-1 flex items-center gap-2 text-[10px] md:text-[11px] text-white/90">
-                    <span className="w-4 h-4 rounded-full bg-white/90 text-[#092116] grid place-items-center font-semibold">
+                  <h2 className="mt-1 text-base md:text-xl font-extrabold text-white-ds leading-tight">{processos[0].titulo}</h2>
+                  <div className="mt-1 flex items-center gap-2 text-[10px] md:text-[11px] text-white-ds/90">
+                    <span className="w-4 h-4 rounded-full bg-white-ds/90 text-[#092116] grid place-items-center font-semibold">
                       {processos[0].empresa[0]}
                     </span>
                     <span className="font-medium">{processos[0].empresa}</span>
                   </div>
-                  <p className="mt-1 text-white/85 max-w-3xl text-[11px] md:text-xs">{processos[0].excerpt}</p>
+                  <p className="mt-1 text-white-ds/85 max-w-3xl text-[11px] md:text-xs">{processos[0].excerpt}</p>
                   <div className="mt-2 flex flex-wrap items-center gap-2">
                     <a href="#" className="inline-flex items-center gap-1.5 h-7 md:h-8 px-2.5 md:px-3 rounded-xl bg-[#01E297] text-black text-[11px] md:text-xs font-semibold hover:brightness-95">Ver detalhes
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </a>
-                    <span className="inline-flex items-center h-7 md:h-8 px-2.5 rounded-xl bg-white/10 text-white text-[10px] md:text-[11px] border border-white/20 backdrop-blur">
+                    <span className="inline-flex items-center h-7 md:h-8 px-2.5 rounded-xl bg-white-ds/10 text-white-ds text-[10px] md:text-[11px] border border-white/20 backdrop-blur">
                       Em destaque
                     </span>
                   </div>
@@ -178,16 +178,16 @@ export default function RadarDeVagas() {
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-[20px] md:text-2xl font-extrabold">Processos em destaque</h2>
             <div className="hidden md:flex items-center gap-2">
-              <button onClick={() => scrollByCard("left")} className="p-2 rounded-xl border border-gray-200 bg-white shadow-sm hover:bg-gray-50"><ChevronLeft className="w-5 h-5" /></button>
-              <button onClick={() => scrollByCard("right")} className="p-2 rounded-xl border border-gray-200 bg-white shadow-sm hover:bg-gray-50"><ChevronRight className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("left")} className="p-2 rounded-xl border border-gray-200 bg-white-ds shadow-sm hover:bg-gray-50"><ChevronLeft className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("right")} className="p-2 rounded-xl border border-gray-200 bg-white-ds shadow-sm hover:bg-gray-50"><ChevronRight className="w-5 h-5" /></button>
             </div>
           </div>
 
           <div className="relative">
             {/* Buttons mobile overlay */}
             <div className="md:hidden absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none">
-              <button onClick={() => scrollByCard("left")} className="pointer-events-auto ml-1 p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm"><ChevronLeft className="w-5 h-5" /></button>
-              <button onClick={() => scrollByCard("right")} className="pointer-events-auto mr-1 p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm"><ChevronRight className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("left")} className="pointer-events-auto ml-1 p-2 rounded-lg bg-white-ds/90 border border-gray-200 shadow-sm"><ChevronLeft className="w-5 h-5" /></button>
+              <button onClick={() => scrollByCard("right")} className="pointer-events-auto mr-1 p-2 rounded-lg bg-white-ds/90 border border-gray-200 shadow-sm"><ChevronRight className="w-5 h-5" /></button>
             </div>
 
             {/* Gradientes laterais */}
@@ -204,7 +204,7 @@ export default function RadarDeVagas() {
               {processos.map((p) => (
                 <article
                   key={p.titulo}
-                  className="group min-w-[78%] sm:min-w-[360px] lg:min-w-[380px] max-w-[420px] snap-center overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-card hover:shadow-card-lg hover:-translate-y-0.5 transition-all"
+                  className="group min-w-[78%] sm:min-w-[360px] lg:min-w-[380px] max-w-[420px] snap-center overflow-hidden rounded-2xl border border-gray-200 bg-white-ds shadow-card hover:shadow-card-lg hover:-translate-y-0.5 transition-all"
                 >
                   <div className="relative h-36 w-full overflow-hidden bg-gray-50">
                     <img src={p.img} alt="capa" className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
@@ -235,7 +235,7 @@ export default function RadarDeVagas() {
                     </div>
 
                     <div className="mt-3 flex items-center justify-between">
-                      <a href={p.link || "#"} className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg text-xs font-medium text-white bg-[#092116] hover:brightness-110">Detalhes <span aria-hidden>→</span></a>
+                      <a href={p.link || "#"} className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg text-xs font-medium text-white-ds bg-[#092116] hover:brightness-110">Detalhes <span aria-hidden>→</span></a>
                       <button className="inline-flex items-center gap-1.5 h-8 px-2.5 rounded-lg border border-gray-200 hover:bg-gray-50 text-[11px]"><BookmarkPlus className="w-3.5 h-3.5" /> Salvar</button>
                     </div>
                   </div>
@@ -249,7 +249,7 @@ export default function RadarDeVagas() {
       {/* Newsletter/Alertas */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="rounded-2xl border border-gray-200 bg-white shadow-card p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="rounded-2xl border border-gray-200 bg-white-ds shadow-card p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <div className="text-sm font-semibold text-gray-700 inline-flex items-center gap-2"><Bell className="w-4 h-4"/> Receba alertas de novos processos</div>
               <p className="text-sm text-gray-600 mt-1">Um e-mail curto quando abrirem inscrições de programas relevantes.</p>

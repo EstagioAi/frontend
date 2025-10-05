@@ -1,0 +1,91 @@
+/* Decorative Elements Styles */
+
+/* Ensure decorative elements don't interfere with interactions */
+.decorative-element {
+  pointer-events: none;
+}
+
+/* Custom opacity classes for decorative circles */
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-35 {
+  opacity: 0.35;
+}
+
+.opacity-40 {
+  opacity: 0.4;
+}
+
+/* Smooth transitions for decorative elements */
+.decorative-circle {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Blur effect optimizations */
+.blur-effect {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Ensure separators are properly aligned */
+.separator-vertical {
+  align-self: stretch;
+}
+
+.separator-horizontal {
+  width: 100%;
+}
+
+/* Decorative dots animation (optional) */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.decorative-dot-animated {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Responsive adjustments for decorative elements */
+@media (max-width: 640px) {
+  .decorative-circle-responsive {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .blur-effect-responsive {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .decorative-circle-responsive {
+    width: 6rem;
+    height: 6rem;
+  }
+  
+  .blur-effect-responsive {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+/* Ensure decorative elements don't cause layout shifts */
+.decorative-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.decorative-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}

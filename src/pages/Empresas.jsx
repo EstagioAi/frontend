@@ -14,7 +14,7 @@ const companies = [
 
 export default function Empresas() {
   return (
-    <div className="min-h-screen bg-white text-[#092116]">
+    <div className="min-h-screen bg-white-ds text-[#092116]">
       <Navigation />
 
       <section className="relative overflow-hidden">
@@ -40,7 +40,7 @@ export default function Empresas() {
       <section className="py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {companies.map((c) => (
-            <a key={c.slug} href={`/empresas/${c.slug}`} className="group rounded-2xl border border-gray-200 bg-white shadow-card hover:shadow-card-lg hover:-translate-y-0.5 transition p-4 flex flex-col items-center gap-3 text-center">
+            <a key={c.slug} href={`/empresas/${c.slug}`} className="group rounded-2xl border border-gray-200 bg-white-ds shadow-card hover:shadow-card-lg hover:-translate-y-0.5 transition p-4 flex flex-col items-center gap-3 text-center">
               <div className="w-16 h-16 bg-gray-50 rounded-xl overflow-hidden grid place-items-center">
                 <img src={c.logo} alt={c.name} className="max-w-[90%] max-h-[90%] object-contain" />
               </div>

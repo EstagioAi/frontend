@@ -1,0 +1,3862 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  /* ========================================
+     ESTAGIOAI DESIGN SYSTEM - PALETA VERDE E PRETA
+     ======================================== */
+
+  /* Shadcn/UI Base Variables */
+  --background: #ffffff;
+  --foreground: #0f0f0f;
+  --card: #ffffff;
+  --card-foreground: #0f0f0f;
+  --popover: #ffffff;
+  --popover-foreground: #0f0f0f;
+  --primary: #82f7b3;
+  --primary-foreground: #0f0f0f;
+  --secondary: #f8f8f8;
+  --secondary-foreground: #0f0f0f;
+  --muted: #f8f8f8;
+  --muted-foreground: rgba(15, 15, 15, 0.7);
+  --accent: #82f7b3;
+  --accent-foreground: #0f0f0f;
+  --destructive: #ef4444;
+  --border: rgba(15, 15, 15, 0.1);
+  --input: rgba(15, 15, 15, 0.1);
+  --ring: #82f7b3;
+  --radius: 1rem;
+
+  /* ========================================
+     CORES PRINCIPAIS - Verde e Preto
+     ======================================== */
+  --color-primary-green: #82f7b3;
+  --color-primary-green-hover: #6ee5a1;
+  --color-primary-black: #0f0f0f;
+  --color-primary-black-hover: #1a1a1a;
+
+  /* Backgrounds */
+  --color-bg-primary: #f8f8f8;
+  --color-bg-secondary: #f5f4ed;
+  --color-bg-white: #ffffff;
+
+  /* Accent Colors */
+  --color-accent-primary: #82f7b3;
+  --color-accent-hover: #6ee5a1;
+
+  /* Text Colors - Preto com opacidades (Hierarquia tipográfica)
+     Uso: Textos com diferentes níveis de importância visual
+     Hierarquia: 100% (títulos) > 70% (corpo) > 50% (secundário) > 40% (terciário) > 30% (auxiliar) > 10% (bordas) */
+  --color-text-primary: #0f0f0f;       /* Preto 100% - títulos, texto principal */
+  --color-text-secondary: rgba(15, 15, 15, 0.7);  /* Preto 70% - texto de corpo, descrições */
+  --color-text-tertiary: rgba(15, 15, 15, 0.5);   /* Preto 50% - texto auxiliar, labels */
+  --color-text-muted: rgba(15, 15, 15, 0.4);      /* Preto 40% - placeholders, texto desabilitado */
+  --color-text-subtle: rgba(15, 15, 15, 0.3);     /* Preto 30% - metadados, timestamps */
+
+  /* Border Colors - Preto com opacidades (Bordas sutis)
+     Uso: Bordas de cards, inputs, separadores
+     Padrão: 10% para bordas sutis, 20% para bordas mais visíveis */
+  --color-border-light: rgba(15, 15, 15, 0.1);    /* Preto 10% - bordas sutis, separadores */
+  --color-border-medium: rgba(15, 15, 15, 0.2);   /* Preto 20% - bordas visíveis, elementos ativos */
+
+  /* Green Accent Colors - Verde com opacidades (Destaques e interações)
+     Uso: Backgrounds de hover, focus rings, elementos interativos */
+  --color-green-bg-light: rgba(130, 247, 179, 0.1);  /* Verde 10% - backgrounds sutis */
+  --color-green-bg-medium: rgba(130, 247, 179, 0.2); /* Verde 20% - focus rings */
+  --color-green-bg-strong: rgba(130, 247, 179, 0.3); /* Verde 30% - elementos decorativos */
+
+  /* Sistema de Opacidades Padronizadas
+     Uso: Aplicar consistentemente sobre cores base
+     Escala: 70%, 50%, 40%, 30%, 10% */
+  --opacity-text-secondary: 0.7;       /* 70% - texto secundário */
+  --opacity-text-tertiary: 0.5;        /* 50% - texto auxiliar */
+  --opacity-text-muted: 0.4;           /* 40% - placeholders */
+  --opacity-text-subtle: 0.3;          /* 30% - metadados */
+  --opacity-border: 0.1;               /* 10% - bordas sutis */
+  --opacity-border-medium: 0.2;        /* 20% - bordas visíveis */
+
+  /* Legacy Colors - Mantidos para compatibilidade gradual */
+  --color-success: #01E297;            /* Verde menta - mantido para compatibilidade */
+  --color-info: #60a5fa;               /* Azul suave - mantido para compatibilidade */
+  --color-warning: #fbbf24;            /* Amarelo - mantido para compatibilidade */
+
+  /* Legacy Brand Colors - Mantidos para compatibilidade */
+  --brand-green: #01E297;
+  --brand-blue: #2563eb;
+  --brand-dark: #0f172a;
+
+  /* Legacy Background Colors - Mantidos para compatibilidade */
+  --bg-blue-light: #eff6ff;
+  --bg-pink-light: #fdf2f8;
+  --bg-green-light: #f0fdf4;
+  --bg-purple-light: #faf5ff;
+
+  /* Semantic Text Colors - Nova nomenclatura verde/preta
+     Uso: Aplicar cores de texto de forma consistente e semântica
+     Hierarquia visual: primary (títulos) > secondary (corpo) > muted (auxiliar) */
+  --text-primary: var(--color-text-primary);     /* Texto principal - títulos, headings, conteúdo importante */
+  --text-secondary: var(--color-text-secondary); /* Texto secundário - corpo, parágrafos, descrições */
+  --text-muted: var(--color-text-tertiary);      /* Texto auxiliar - labels, placeholders, metadados */
+  --text-green: var(--color-primary-green);      /* Texto verde - links, CTAs, elementos interativos */
+
+  /* Semantic UI Colors - Nova nomenclatura verde/preta
+     Uso: Cores pré-configuradas para elementos de UI comuns
+     Facilita consistência e manutenção do design system */
+  --border-light: var(--color-border-light);                    /* Borda neutra clara - dividers, separadores */
+  --border-green: var(--color-green-bg-light);                  /* Borda verde suave - cards, containers */
+  --border-green-strong: var(--color-green-bg-medium);          /* Borda verde visível - elementos ativos */
+  --shadow-sm: rgba(0, 0, 0, 0.05);                            /* Sombra mínima - hover states */
+  --shadow-md: rgba(0, 0, 0, 0.1);                             /* Sombra média - cards padrão */
+  --shadow-lg: rgba(0, 0, 0, 0.15);                            /* Sombra grande - cards destacados */
+  --shadow-green: rgba(130, 247, 179, 0.25);                   /* Sombra verde - botões, elementos verdes */
+  --shadow-green-strong: rgba(130, 247, 179, 0.35);            /* Sombra verde forte - elementos ativos */
+
+  /* Typography - Font Sizes
+     Uso: Escala tipográfica consistente baseada em rem (16px base)
+     Preferir clamp() para responsividade fluida em títulos
+     Hierarquia: xs (labels) < sm (corpo pequeno) < base (corpo) < lg-7xl (títulos) */
+  --text-xs: 0.75rem;      /* 12px - Labels pequenos, metadados, timestamps */
+  --text-sm: 0.875rem;     /* 14px - Texto secundário, captions, helper text */
+  --text-base: 1rem;       /* 16px - Texto de corpo padrão, parágrafos */
+  --text-lg: 1.125rem;     /* 18px - Texto destacado, leads, subtítulos pequenos */
+  --text-xl: 1.25rem;      /* 20px - Subtítulos, H4 */
+  --text-2xl: 1.5rem;      /* 24px - H3, títulos de seção */
+  --text-3xl: 1.875rem;    /* 30px - H2, títulos de página */
+  --text-4xl: 2.25rem;     /* 36px - H1 pequeno, títulos principais */
+  --text-5xl: 3rem;        /* 48px - H1 médio, hero titles */
+  --text-6xl: 3.75rem;     /* 60px - H1 grande, display titles */
+  --text-7xl: 4.5rem;      /* 72px - Display extra large, landing pages */
+
+  /* Font Weights
+     Uso: Hierarquia de peso para criar contraste visual
+     Space Grotesk suporta 400-800, usar bold+ para títulos */
+  --font-normal: 400;      /* Texto de corpo, parágrafos, descrições */
+  --font-medium: 500;      /* Ênfase leve, labels, botões secundários */
+  --font-semibold: 600;    /* Subtítulos, H3-H4, botões primários */
+  --font-bold: 700;        /* Títulos H2, elementos de destaque */
+  --font-extrabold: 800;   /* Títulos H1, hero titles, máximo impacto */
+
+  /* Line Heights
+     Uso: Legibilidade e espaçamento vertical
+     Regra: títulos (tight) < corpo (normal) < texto longo (relaxed) */
+  --leading-tight: 1.2;    /* Títulos, headlines - compacto para impacto */
+  --leading-normal: 1.5;   /* Texto de corpo padrão - legibilidade ideal */
+  --leading-relaxed: 1.75; /* Texto longo, artigos - conforto de leitura */
+
+  /* Spacing System (8px base)
+     Uso: Sistema de espaçamento consistente baseado em múltiplos de 8px
+     Aplicar em padding, margin, gap para manter ritmo vertical
+     Escala: 1 (4px) < 2 (8px) < 3 (12px) < 4 (16px) ... 16 (128px) */
+  --space-1: 0.5rem;       /* 8px - Espaçamento mínimo, padding interno pequeno */
+  --space-2: 1rem;         /* 16px - Espaçamento padrão entre elementos próximos */
+  --space-3: 1.5rem;       /* 24px - Espaçamento médio, gap entre componentes */
+  --space-4: 2rem;         /* 32px - Espaçamento entre seções pequenas */
+  --space-5: 2.5rem;       /* 40px - Espaçamento entre seções médias */
+  --space-6: 3rem;         /* 48px - Espaçamento entre seções grandes */
+  --space-8: 4rem;         /* 64px - Espaçamento entre seções principais */
+  --space-10: 5rem;        /* 80px - Padding vertical de seções */
+  --space-12: 6rem;        /* 96px - Padding vertical de seções grandes */
+  --space-16: 8rem;        /* 128px - Espaçamento máximo, hero sections */
+
+  /* Border Radius
+     Uso: Arredondamento de cantos para suavidade visual
+     Padrão: cards (lg/xl), botões (lg), badges (full), inputs (md) */
+  --radius-sm: 0.5rem;     /* 8px - Elementos pequenos, badges internos */
+  --radius-md: 0.75rem;    /* 12px - Inputs, selects, elementos de formulário */
+  --radius-lg: 1rem;       /* 16px - Botões, cards pequenos */
+  --radius-xl: 1.25rem;    /* 20px - Cards médios, containers */
+  --radius-2xl: 1.5rem;    /* 24px - Cards grandes, feature cards */
+  --radius-full: 9999px;   /* Circular - badges, avatares, pills */
+
+  /* Shadows
+     Uso: Elevação e profundidade de elementos
+     Hierarquia: sm (hover) < md (cards) < lg (modais) < xl (dropdowns) < 2xl (overlays) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);      /* Elevação mínima - hover states */
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);      /* Elevação padrão - cards, botões */
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);     /* Elevação média - cards destacados */
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);    /* Elevação alta - modais, dropdowns */
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);   /* Elevação máxima - overlays, popovers */
+
+  /* Animation Durations - Sistema de transições rápidas (200ms padrão)
+     Uso: Duração de transições e animações otimizadas
+     Foco em transições rápidas para responsividade */
+  --duration-fast: 200ms;    /* Transições padrão - hover, focus, micro-interações */
+  --duration-medium: 300ms;  /* Transições médias - transformações, scale */
+  --duration-slow: 500ms;    /* Transições complexas - modais, page transitions */
+
+  /* Animation Easings - Curvas otimizadas para o novo design
+     Uso: Curvas de aceleração para animações naturais e rápidas */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);  /* Aceleração suave - transições padrão */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);       /* Desaceleração - entrada de elementos */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);        /* Aceleração - saída de elementos */
+
+  /* Transition Properties - Propriedades de transição padrão
+     Uso: Aplicar transições consistentes em elementos interativos */
+  --transition-all: all var(--duration-fast) var(--ease-in-out);           /* Transição completa - elementos complexos */
+  --transition-colors: color var(--duration-fast) var(--ease-in-out),      /* Transição de cores */
+                       background-color var(--duration-fast) var(--ease-in-out),
+                       border-color var(--duration-fast) var(--ease-in-out);
+  --transition-transform: transform var(--duration-fast) var(--ease-in-out); /* Transição de transformações */
+  --transition-shadow: box-shadow var(--duration-fast) var(--ease-in-out);   /* Transição de sombras */
+
+  /* Hover Transform Values - Valores de transformação para hover
+     Uso: Elevação e escala consistentes em elementos interativos */
+  --hover-translate-y: -4px;     /* Elevação padrão para hover */
+  --hover-scale: 1.05;           /* Escala padrão para hover em imagens */
+  --hover-scale-button: 1.02;    /* Escala sutil para botões */
+
+  /* Breakpoints
+     Uso: Media queries responsivas
+     Mobile-first: estilos base para mobile, media queries para telas maiores */
+  --screen-sm: 640px;    /* Small - Tablets pequenos, phones landscape */
+  --screen-md: 768px;    /* Medium - Tablets */
+  --screen-lg: 1024px;   /* Large - Laptops, desktops pequenos */
+  --screen-xl: 1280px;   /* Extra Large - Desktops */
+  --screen-2xl: 1536px;  /* 2X Large - Desktops grandes, monitores wide */
+
+  /* ========================================
+     DESIGN SYSTEM - VERDE MINIMALISTA
+     Variáveis específicas para o novo design verde e preto
+     ======================================== */
+
+  /* Variáveis adicionais para opacidades específicas */
+  --color-text-80: rgba(15, 15, 15, 0.8);      /* Preto 80% - texto enfatizado */
+  --color-text-60: rgba(15, 15, 15, 0.6);      /* Preto 60% - texto médio */
+  --color-text-15: rgba(15, 15, 15, 0.15);     /* Preto 15% - bordas médias */
+  --color-text-08: rgba(15, 15, 15, 0.08);     /* Preto 8% - bordas muito sutis */
+  --color-text-05: rgba(15, 15, 15, 0.05);     /* Preto 5% - backgrounds sutis */
+  --color-text-25: rgba(15, 15, 15, 0.25);     /* Preto 25% - elementos auxiliares */
+  --color-text-35: rgba(15, 15, 15, 0.35);     /* Preto 35% - texto muito sutil */
+  --color-text-75: rgba(15, 15, 15, 0.75);     /* Preto 75% - texto de corpo */
+
+  /* Verde com opacidades específicas */
+  --color-green-05: rgba(130, 247, 179, 0.05); /* Verde 5% - backgrounds muito sutis */
+  --color-green-08: rgba(130, 247, 179, 0.08); /* Verde 8% - backgrounds sutis */
+  --color-green-15: rgba(130, 247, 179, 0.15); /* Verde 15% - bordas e backgrounds */
+  --color-green-18: rgba(130, 247, 179, 0.18); /* Verde 18% - decorações */
+  --color-green-25: rgba(130, 247, 179, 0.25); /* Verde 25% - elementos médios */
+  --color-green-30: rgba(130, 247, 179, 0.30); /* Verde 30% - bordas visíveis */
+  --color-green-35: rgba(130, 247, 179, 0.35); /* Verde 35% - bordas destacadas */
+  --color-green-40: rgba(130, 247, 179, 0.40); /* Verde 40% - elementos ativos */
+  --color-green-45: rgba(130, 247, 179, 0.45); /* Verde 45% - decorações médias */
+  --color-green-55: rgba(130, 247, 179, 0.55); /* Verde 55% - decorações fortes */
+  --color-green-70: rgba(130, 247, 179, 0.70); /* Verde 70% - elementos destacados */
+  --color-green-75: rgba(130, 247, 179, 0.75); /* Verde 75% - decorações principais */
+  --color-green-85: rgba(130, 247, 179, 0.85); /* Verde 85% - elementos muito visíveis */
+  --color-green-90: rgba(130, 247, 179, 0.90); /* Verde 90% - quase sólido */
+  --color-green-95: rgba(130, 247, 179, 0.95); /* Verde 95% - praticamente sólido */
+
+  /* Outras cores com opacidades */
+  --color-white-05: rgba(255, 255, 255, 0.05); /* Branco 5% - backgrounds sobre escuro */
+  --color-white-10: rgba(255, 255, 255, 0.10); /* Branco 10% - backgrounds sobre escuro */
+  --color-white-25: rgba(255, 255, 255, 0.25); /* Branco 25% - bordas sobre escuro */
+  --color-white-40: rgba(255, 255, 255, 0.40); /* Branco 40% - elementos sobre escuro */
+  --color-white-70: rgba(255, 255, 255, 0.70); /* Branco 70% - texto sobre escuro */
+  --color-white-80: rgba(255, 255, 255, 0.80); /* Branco 80% - texto sobre escuro */
+
+  /* Cores específicas para decorações */
+  --color-accent-dark: rgba(17, 94, 89, 0.2);  /* Verde escuro para acentos */
+  --color-accent-dark-30: rgba(17, 94, 89, 0.3); /* Verde escuro 30% */
+  --color-slate: rgba(203, 213, 225, 0.5);     /* Cinza azulado para decorações */
+  --color-slate-45: rgba(203, 213, 225, 0.45); /* Cinza azulado 45% */
+  --color-slate-55: rgba(203, 213, 225, 0.55); /* Cinza azulado 55% */
+
+  /* Card Border Radius - Bordas arredondadas modernas
+     Uso: Cards, containers de conteúdo, elementos principais */
+  --card-radius: 24px;           /* Cards padrão - bordas arredondadas (rounded-2xl) */
+  --card-radius-large: 32px;     /* Cards grandes e hero elements - máximo impacto */
+
+  /* Card Shadows - Sombras com verde sutil
+     Uso: Elevação de cards, estados hover, elementos flutuantes */
+  --card-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);                    /* Sombra padrão - cards em repouso */
+  --card-shadow-hover: 0 20px 25px rgba(0, 0, 0, 0.15);             /* Sombra hover - elevação aumentada */
+  --card-shadow-green: 0 10px 15px rgba(130, 247, 179, 0.2);        /* Sombra verde - cards com destaque */
+  --card-shadow-green-hover: 0 20px 25px rgba(130, 247, 179, 0.3);  /* Sombra verde hover - elementos ativos */
+
+  /* Dark Backgrounds - Fundos escuros minimalistas
+     Uso: Contraste, overlays, elementos de destaque */
+  --dark-bg: var(--color-primary-black);                    /* Background escuro principal */
+  --dark-overlay: rgba(15, 15, 15, 0.95);                   /* Overlay escuro sobre imagens */
+  --dark-overlay-medium: rgba(15, 15, 15, 0.7);             /* Overlay médio */
+
+  /* Green Glow Effects - Efeitos de brilho verde
+     Uso: Featured elements, elementos interativos, estados hover */
+  --green-glow: rgba(130, 247, 179, 0.4);                   /* Glow verde - featured */
+  --green-glow-strong: rgba(130, 247, 179, 0.6);            /* Glow verde forte - hover states */
+  --green-glow-subtle: rgba(130, 247, 179, 0.2);            /* Glow verde sutil - elementos decorativos */
+
+  /* Glass Effects - Efeitos de vidro com backdrop-blur
+     Uso: Navbar, badges sobre imagens, elementos flutuantes */
+  --glass-bg: rgba(255, 255, 255, 0.8);                     /* Background glass padrão */
+  --glass-bg-strong: rgba(255, 255, 255, 0.95);             /* Background glass forte */
+  --glass-border: rgba(15, 15, 15, 0.1);                    /* Border glass sutil */
+  --glass-border-strong: rgba(15, 15, 15, 0.2);             /* Border glass visível */
+
+  /* Card Backgrounds - Fundos de cards e containers
+     Uso: Cards, containers de conteúdo, elementos destacados */
+  --card-bg: var(--color-bg-white);                         /* Background card padrão */
+  --card-border: var(--color-border-light);                 /* Border card sutil */
+  --card-border-hover: var(--color-primary-green);          /* Border card hover - verde */
+
+  /* Spacing System - Espaçamentos do design system
+     Uso: Gaps entre elementos, seções, layout */
+  --section-gap: 80px;          /* Gap entre seções principais (5rem / py-20) */
+  --card-gap: 24px;             /* Gap entre cards no grid (1.5rem / gap-6) */
+  --content-gap: 32px;          /* Gap entre elementos de conteúdo (2rem / gap-8) */
+  --element-gap: 48px;          /* Gap entre elementos grandes (3rem / gap-12) */
+
+  /* Overlay Gradients - Gradientes para overlays
+     Uso: Overlays sobre imagens, backgrounds de contraste */
+  --overlay-gradient: linear-gradient(to top, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.7) 50%, transparent 100%);
+  --overlay-gradient-strong: linear-gradient(to top, rgba(15, 15, 15, 0.98) 0%, rgba(15, 15, 15, 0.85) 60%, transparent 100%);
+
+  /* Progress Bar - Barra de progresso verde
+     Uso: Barra de progresso, loading states */
+  --progress-bg: rgba(255, 255, 255, 0.3);                  /* Background da barra */
+  --progress-gradient: linear-gradient(to right, var(--color-primary-green), var(--color-primary-green-hover)); /* Gradiente verde */
+
+  /* Filter Pills - Pills de filtro modernos
+     Uso: Filtros, estados active/inactive, badges */
+  --pill-inactive-bg: rgba(255, 255, 255, 0.8);             /* Background pill inativo */
+  --pill-inactive-border: var(--color-border-light);        /* Border pill inativo */
+  --pill-active-bg: var(--color-primary-green);             /* Background pill ativo - verde */
+  --pill-active-color: var(--color-primary-black);          /* Cor texto pill ativo - preto */
+}
+
+/* ========================================
+   UTILITY CLASSES - VERDE MINIMALISTA
+   Classes utilitárias para uso consistente
+   ======================================== */
+
+/* ========================================
+   FORM ELEMENTS - PADRONIZAÇÃO
+   Classes padronizadas para inputs, selects e form elements
+   ======================================== */
+
+/* Input Base Classes - Padronização de inputs e selects */
+.input-base {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border-light);
+  background-color: var(--color-bg-white);
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  outline: none;
+  transition: var(--transition-colors);
+  min-height: 44px; /* Touch target accessibility */
+}
+
+.input-base::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input-base:focus {
+  border-color: var(--color-primary-green);
+  box-shadow: 0 0 0 4px rgba(130, 247, 179, 0.2);
+}
+
+.input-base:disabled {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* Select Specific Styles */
+.select-base {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border-light);
+  background-color: var(--color-bg-white);
+  padding: 0.75rem 1rem;
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  outline: none;
+  transition: var(--transition-colors);
+  min-height: 44px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25rem 1.25rem;
+  padding-right: 2.5rem;
+}
+
+.select-base:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2382f7b3' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+}
+
+/* Size Variants for Form Elements */
+.input-sm {
+  padding: 0.5rem 0.75rem; /* py-2 px-3 */
+  font-size: var(--text-sm);
+  min-height: 40px;
+}
+
+.input-md {
+  padding: 0.75rem 1rem; /* py-3 px-4 - default */
+  font-size: var(--text-base);
+  min-height: 44px;
+}
+
+.input-lg {
+  padding: 1rem 1.25rem; /* py-4 px-5 */
+  font-size: var(--text-lg);
+  min-height: 48px;
+}
+
+/* Form Group Utilities */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.form-error {
+  font-size: var(--text-sm);
+  color: #ef4444;
+  margin-top: 0.25rem;
+}
+
+.form-help {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+  margin-top: 0.25rem;
+}
+
+/* Filter Container - Para filtros de páginas */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-bg-white);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+}
+
+/* ========================================
+   TEXT UTILITIES - PADRONIZAÇÃO
+   Classes utilitárias para textos consistentes
+   ======================================== */
+
+/* Text Size Utilities - Usando variáveis do design system */
+.text-xs-ds { font-size: var(--text-xs); }
+.text-sm-ds { font-size: var(--text-sm); }
+.text-base-ds { font-size: var(--text-base); }
+.text-lg-ds { font-size: var(--text-lg); }
+.text-xl-ds { font-size: var(--text-xl); }
+.text-2xl-ds { font-size: var(--text-2xl); }
+.text-3xl-ds { font-size: var(--text-3xl); }
+.text-4xl-ds { font-size: var(--text-4xl); }
+.text-5xl-ds { font-size: var(--text-5xl); }
+.text-6xl-ds { font-size: var(--text-6xl); }
+.text-7xl-ds { font-size: var(--text-7xl); }
+
+/* Font Weight Utilities */
+.font-normal-ds { font-weight: var(--font-normal); }
+.font-medium-ds { font-weight: var(--font-medium); }
+.font-semibold-ds { font-weight: var(--font-semibold); }
+.font-bold-ds { font-weight: var(--font-bold); }
+.font-extrabold-ds { font-weight: var(--font-extrabold); }
+
+/* Line Height Utilities */
+.leading-tight-ds { line-height: var(--leading-tight); }
+.leading-normal-ds { line-height: var(--leading-normal); }
+.leading-relaxed-ds { line-height: var(--leading-relaxed); }
+
+/* Color Utilities - Usando variáveis do design system */
+.text-primary-ds { color: var(--color-text-primary); }
+.text-secondary-ds { color: var(--color-text-secondary); }
+.text-tertiary-ds { color: var(--color-text-tertiary); }
+.text-muted-ds { color: var(--color-text-muted); }
+.text-subtle-ds { color: var(--color-text-subtle); }
+.text-green-ds { color: var(--color-primary-green); }
+.text-green-hover-ds { color: var(--color-primary-green-hover); }
+.text-accent-ds { color: var(--color-accent-primary); }
+.text-accent-hover-ds { color: var(--color-accent-hover); }
+.text-white-ds { color: white; }
+
+/* Text Colors with Specific Opacities */
+.text-black-80 { color: var(--color-text-80); }
+.text-black-75 { color: var(--color-text-75); }
+.text-black-70 { color: var(--color-text-secondary); }
+.text-black-60 { color: var(--color-text-60); }
+.text-black-50 { color: var(--color-text-tertiary); }
+.text-black-40 { color: var(--color-text-muted); }
+.text-black-35 { color: var(--color-text-35); }
+.text-black-30 { color: var(--color-text-subtle); }
+.text-black-25 { color: var(--color-text-25); }
+
+/* Green Text Colors with Opacities */
+.text-green-70 { color: var(--color-green-70); }
+
+/* ========================================
+   SPACING UTILITIES - PADRONIZAÇÃO
+   Classes utilitárias para espaçamentos consistentes
+   ======================================== */
+
+/* Padding Utilities - Usando sistema de 8px */
+.p-1-ds { padding: var(--space-1); }
+.p-2-ds { padding: var(--space-2); }
+.p-3-ds { padding: var(--space-3); }
+.p-4-ds { padding: var(--space-4); }
+.p-5-ds { padding: var(--space-5); }
+.p-6-ds { padding: var(--space-6); }
+.p-8-ds { padding: var(--space-8); }
+.p-10-ds { padding: var(--space-10); }
+.p-12-ds { padding: var(--space-12); }
+.p-16-ds { padding: var(--space-16); }
+
+/* Margin Utilities */
+.m-1-ds { margin: var(--space-1); }
+.m-2-ds { margin: var(--space-2); }
+.m-3-ds { margin: var(--space-3); }
+.m-4-ds { margin: var(--space-4); }
+.m-5-ds { margin: var(--space-5); }
+.m-6-ds { margin: var(--space-6); }
+.m-8-ds { margin: var(--space-8); }
+.m-10-ds { margin: var(--space-10); }
+.m-12-ds { margin: var(--space-12); }
+.m-16-ds { margin: var(--space-16); }
+
+/* Gap Utilities */
+.gap-1-ds { gap: var(--space-1); }
+.gap-2-ds { gap: var(--space-2); }
+.gap-3-ds { gap: var(--space-3); }
+.gap-4-ds { gap: var(--space-4); }
+.gap-5-ds { gap: var(--space-5); }
+.gap-6-ds { gap: var(--space-6); }
+.gap-8-ds { gap: var(--space-8); }
+.gap-10-ds { gap: var(--space-10); }
+.gap-12-ds { gap: var(--space-12); }
+.gap-16-ds { gap: var(--space-16); }
+
+/* ========================================
+   BORDER UTILITIES - PADRONIZAÇÃO
+   Classes utilitárias para bordas consistentes
+   ======================================== */
+
+/* Border Radius Utilities */
+.rounded-sm-ds { border-radius: var(--radius-sm); }
+.rounded-md-ds { border-radius: var(--radius-md); }
+.rounded-lg-ds { border-radius: var(--radius-lg); }
+.rounded-xl-ds { border-radius: var(--radius-xl); }
+.rounded-2xl-ds { border-radius: var(--radius-2xl); }
+.rounded-full-ds { border-radius: var(--radius-full); }
+
+/* Border Color Utilities */
+.border-light-ds { border-color: var(--color-border-light); }
+.border-medium-ds { border-color: var(--color-border-medium); }
+.border-green-ds { border-color: var(--color-primary-green); }
+.border-green-hover-ds { border-color: var(--color-primary-green-hover); }
+.border-accent-ds { border-color: var(--color-accent-primary); }
+.border-accent-hover-ds { border-color: var(--color-accent-hover); }
+.border-green-light-ds { border-color: var(--border-green); }
+.border-green-strong-ds { border-color: var(--border-green-strong); }
+
+/* Border Colors with Specific Opacities */
+.border-black-05 { border-color: var(--color-text-05); }
+.border-black-08 { border-color: var(--color-text-08); }
+.border-black-10 { border-color: var(--color-border-light); }
+.border-black-15 { border-color: var(--color-text-15); }
+.border-black-20 { border-color: var(--color-border-medium); }
+.border-black-25 { border-color: var(--color-text-25); }
+
+.border-green-08 { border-color: var(--color-green-08); }
+.border-green-10 { border-color: var(--color-green-bg-light); }
+.border-green-15 { border-color: var(--color-green-15); }
+.border-green-20 { border-color: var(--color-green-bg-medium); }
+.border-green-25 { border-color: var(--color-green-25); }
+.border-green-30 { border-color: var(--color-green-bg-strong); }
+.border-green-35 { border-color: var(--color-green-35); }
+.border-green-40 { border-color: var(--color-green-40); }
+
+.border-white-25 { border-color: var(--color-white-25); }
+
+/* Border Width Utilities */
+.border-1-ds { border-width: 1px; }
+.border-2-ds { border-width: 2px; }
+
+/* ========================================
+   BACKGROUND UTILITIES - PADRONIZAÇÃO
+   Classes utilitárias para backgrounds consistentes
+   ======================================== */
+
+.bg-primary-ds { background-color: var(--color-bg-primary); }
+.bg-secondary-ds { background-color: var(--color-bg-secondary); }
+.bg-white-ds { background-color: var(--color-bg-white); }
+.bg-black-ds { background-color: var(--color-primary-black); }
+.bg-black-hover-ds { background-color: var(--color-primary-black-hover); }
+.bg-green-ds { background-color: var(--color-primary-green); }
+.bg-green-hover-ds { background-color: var(--color-primary-green-hover); }
+.bg-black-ds { background-color: var(--color-primary-black); }
+.bg-black-hover-ds { background-color: var(--color-primary-black-hover); }
+.bg-accent-ds { background-color: var(--color-accent-primary); }
+.bg-accent-hover-ds { background-color: var(--color-accent-hover); }
+
+/* Background with opacity */
+.bg-green-light-ds { background-color: var(--color-green-bg-light); }
+.bg-green-medium-ds { background-color: var(--color-green-bg-medium); }
+.bg-green-strong-ds { background-color: var(--color-green-bg-strong); }
+
+/* Green Backgrounds with Specific Opacities */
+.bg-green-05 { background-color: var(--color-green-05); }
+.bg-green-08 { background-color: var(--color-green-08); }
+.bg-green-10 { background-color: var(--color-green-bg-light); }
+.bg-green-15 { background-color: var(--color-green-15); }
+.bg-green-18 { background-color: var(--color-green-18); }
+.bg-green-20 { background-color: var(--color-green-bg-medium); }
+.bg-green-25 { background-color: var(--color-green-25); }
+.bg-green-30 { background-color: var(--color-green-bg-strong); }
+.bg-green-35 { background-color: var(--color-green-35); }
+.bg-green-40 { background-color: var(--color-green-40); }
+.bg-green-70 { background-color: var(--color-green-70); }
+.bg-green-90 { background-color: var(--color-green-90); }
+
+/* Black Backgrounds with Specific Opacities */
+.bg-black-05 { background-color: var(--color-text-05); }
+.bg-black-08 { background-color: var(--color-text-08); }
+.bg-black-10 { background-color: var(--color-border-light); }
+.bg-black-15 { background-color: var(--color-text-15); }
+.bg-black-20 { background-color: var(--color-border-medium); }
+
+/* White Backgrounds with Specific Opacities */
+.bg-white-05 { background-color: var(--color-white-05); }
+.bg-white-10 { background-color: var(--color-white-10); }
+.bg-white-25 { background-color: var(--color-white-25); }
+.bg-white-40 { background-color: var(--color-white-40); }
+.bg-white-70 { background-color: var(--color-white-70); }
+.bg-white-80 { background-color: var(--color-white-80); }
+
+/* ========================================
+   SHADOW UTILITIES - PADRONIZAÇÃO
+   Classes utilitárias para sombras consistentes
+   ======================================== */
+
+.shadow-sm-ds { box-shadow: var(--shadow-sm); }
+.shadow-md-ds { box-shadow: var(--shadow-md); }
+.shadow-lg-ds { box-shadow: var(--shadow-lg); }
+.shadow-xl-ds { box-shadow: var(--shadow-xl); }
+.shadow-2xl-ds { box-shadow: var(--shadow-2xl); }
+
+/* Card specific shadows */
+.shadow-card-ds { box-shadow: var(--card-shadow); }
+.shadow-card-hover-ds { box-shadow: var(--card-shadow-hover); }
+.shadow-card-green-ds { box-shadow: var(--card-shadow-green); }
+.shadow-card-green-hover-ds { box-shadow: var(--card-shadow-green-hover); }
+
+/* Green accent shadows */
+.shadow-green-ds { box-shadow: var(--shadow-green); }
+.shadow-green-strong-ds { box-shadow: var(--shadow-green-strong); }
+
+/* ========================================
+   BUTTON UTILITIES - PADRONIZAÇÃO
+   Classes utilitárias para botões consistentes
+   ======================================== */
+
+/* Button Base */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: var(--font-bold);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-all);
+  outline: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.btn-base:focus-visible {
+  box-shadow: 0 0 0 4px rgba(130, 247, 179, 0.2);
+}
+
+.btn-base:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: var(--text-sm);
+  min-height: 40px;
+}
+
+.btn-md {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--text-base);
+  min-height: 44px;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: var(--text-lg);
+  min-height: 48px;
+}
+
+/* Button Variants */
+.btn-primary {
+  background-color: var(--color-primary-black);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-black-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background-color: var(--color-primary-green);
+  color: var(--color-primary-black);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-green-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border-color: var(--color-border-light);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-green-bg-light);
+  border-color: var(--color-primary-green);
+  color: var(--color-text-primary);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-text-secondary);
+}
+
+.btn-ghost:hover {
+  background-color: var(--color-green-bg-light);
+  color: var(--color-text-primary);
+}
+
+/* ========================================
+   CARD UTILITIES - PADRONIZAÇÃO
+   Classes utilitárias para cards consistentes
+   ======================================== */
+
+.card-base {
+  background-color: var(--color-bg-white);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  transition: var(--transition-all);
+  box-shadow: var(--shadow-md);
+}
+
+.card-base:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary-green);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-compact {
+  padding: var(--space-4);
+}
+
+.card-spacious {
+  padding: var(--space-8);
+}
+
+/* ========================================
+   LAYOUT UTILITIES - PADRONIZAÇÃO
+   Classes utilitárias para layouts consistentes
+   ======================================== */
+
+/* Container Utilities */
+.container-sm { max-width: 640px; margin: 0 auto; padding: 0 1rem; }
+.container-md { max-width: 768px; margin: 0 auto; padding: 0 1rem; }
+.container-lg { max-width: 1024px; margin: 0 auto; padding: 0 1rem; }
+.container-xl { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+.container-2xl { max-width: 1536px; margin: 0 auto; padding: 0 1rem; }
+.container-full { max-width: 100%; margin: 0 auto; padding: 0 1rem; }
+
+/* Section Utilities */
+.section-padding { padding: var(--section-gap) 0; }
+.section-padding-sm { padding: calc(var(--section-gap) * 0.5) 0; }
+.section-padding-lg { padding: calc(var(--section-gap) * 1.5) 0; }
+
+/* Grid Utilities */
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.grid-responsive { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--card-gap); }
+
+/* ========================================
+   TYPOGRAPHY SYSTEM - VERDE MINIMALISTA
+   Sistema de tipografia hierárquica
+   ======================================== */
+
+/* Typography Hierarchy - H1, H2, H3, H4
+   Uso: Hierarquia de títulos consistente e responsiva
+   Baseado nos requirements 3.1, 3.2, 3.3, 3.4 */
+
+/* H1 - Hero Titles (text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight) */
+.typography-h1,
+.h1-hero {
+  font-size: 3rem; /* 48px - text-5xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.1; /* leading-[1.1] */
+  letter-spacing: -0.025em; /* tracking-tight */
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 640px) {
+  .typography-h1,
+  .h1-hero {
+    font-size: 3.75rem; /* 60px - sm:text-6xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .typography-h1,
+  .h1-hero {
+    font-size: 4.5rem; /* 72px - lg:text-7xl */
+  }
+}
+
+/* H2 - Section Titles (text-3xl sm:text-4xl font-bold tracking-tight) */
+.typography-h2,
+.h2-section {
+  font-size: 1.875rem; /* 30px - text-3xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.2; /* leading-tight */
+  letter-spacing: -0.025em; /* tracking-tight */
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 640px) {
+  .typography-h2,
+  .h2-section {
+    font-size: 2.25rem; /* 36px - sm:text-4xl */
+  }
+}
+
+/* H3 - Card Titles (text-2xl font-bold) */
+.typography-h3,
+.h3-card {
+  font-size: 1.5rem; /* 24px - text-2xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.3; /* leading-snug */
+  color: var(--color-text-primary);
+}
+
+/* H4 - Subtitles (text-lg sm:text-xl font-bold leading-tight) */
+.typography-h4,
+.h4-subtitle {
+  font-size: 1.125rem; /* 18px - text-lg */
+  font-weight: 700; /* font-bold */
+  line-height: 1.25; /* leading-tight */
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 640px) {
+  .typography-h4,
+  .h4-subtitle {
+    font-size: 1.25rem; /* 20px - sm:text-xl */
+  }
+}
+
+/* Text and Paragraph Styles
+   Uso: Estilos de texto e parágrafos consistentes
+   Baseado nos requirements 3.5, 3.6, 3.7 */
+
+/* Main Paragraph (text-lg leading-relaxed text-[#0f0f0f]/70) */
+.typography-body,
+.text-body-main {
+  font-size: 1.125rem; /* 18px - text-lg */
+  line-height: 1.75; /* leading-relaxed */
+  color: var(--color-text-secondary); /* text-[#0f0f0f]/70 */
+}
+
+/* Secondary Text (text-sm text-[#0f0f0f]/70) */
+.typography-secondary,
+.text-secondary {
+  font-size: 0.875rem; /* 14px - text-sm */
+  line-height: 1.5; /* leading-normal */
+  color: var(--color-text-secondary); /* text-[#0f0f0f]/70 */
+}
+
+/* Labels/Stats (text-xs font-semibold uppercase tracking-wider text-[#0f0f0f]/50) */
+.typography-label,
+.text-label,
+.text-stats {
+  font-size: 0.75rem; /* 12px - text-xs */
+  font-weight: 600; /* font-semibold */
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* tracking-wider */
+  color: var(--color-text-tertiary); /* text-[#0f0f0f]/50 */
+}
+
+/* Text Highlights with Green
+   Uso: Destaques de texto com cor verde */
+.text-highlight-green {
+  color: var(--color-primary-green);
+  font-weight: 600;
+}
+
+.text-highlight-green-bg {
+  background: linear-gradient(120deg, rgba(130, 247, 179, 0.2) 0%, rgba(130, 247, 179, 0.1) 100%);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* Utility Classes for Typography */
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary-color {
+  color: var(--color-text-secondary);
+}
+
+.text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+.text-muted-color {
+  color: var(--color-text-muted);
+}
+
+.text-green {
+  color: var(--color-primary-green);
+}
+
+.text-green-hover:hover {
+  color: var(--color-primary-green-hover);
+}
+
+/* Transition Utilities - Transições padronizadas (200ms)
+   Uso: Aplicar transições consistentes e rápidas */
+.transition-fast {
+  transition: var(--transition-all);
+}
+
+.transition-colors-fast {
+  transition: var(--transition-colors);
+}
+
+.transition-transform-fast {
+  transition: var(--transition-transform);
+}
+
+.transition-shadow-fast {
+  transition: var(--transition-shadow);
+}
+
+/* Hover Transform Utilities - Transformações de hover padronizadas
+   Uso: Elevação e escala consistentes */
+.hover-lift {
+  transition: var(--transition-transform);
+}
+
+.hover-lift:hover {
+  transform: translateY(var(--hover-translate-y));
+}
+
+.hover-scale {
+  transition: var(--transition-transform);
+}
+
+.hover-scale:hover {
+  transform: scale(var(--hover-scale));
+}
+
+.hover-scale-button {
+  transition: var(--transition-transform);
+}
+
+.hover-scale-button:hover {
+  transform: scale(var(--hover-scale-button));
+}
+
+/* Shadow Utilities - Sombras do novo design system
+   Uso: Aplicar sombras consistentes em cards e elementos */
+.shadow-card {
+  box-shadow: var(--card-shadow);
+}
+
+.shadow-card-hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.shadow-card-green {
+  box-shadow: var(--card-shadow-green);
+}
+
+.shadow-card-green-hover {
+  box-shadow: var(--card-shadow-green-hover);
+}
+
+/* Brand Color Utilities - Cores da marca
+   Uso: Aplicar cores brand de forma consistente */
+.text-brand-primary {
+  color: var(--brand-green);
+}
+
+.text-brand-secondary {
+  color: var(--brand-secondary);
+}
+
+.bg-brand-primary {
+  background-color: var(--brand-green);
+}
+
+.bg-brand-secondary {
+  background-color: var(--brand-secondary);
+}
+
+.border-brand-primary {
+  border-color: var(--brand-green);
+}
+
+.border-brand-secondary {
+  border-color: var(--brand-secondary);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  /* Prevent horizontal overflow globally */
+  html {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  body {
+    @apply bg-white text-foreground;  /* Fundo branco */
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+    max-width: 100vw;
+    position: relative;
+  }
+  
+  /* Ensure all images are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Prevent text overflow */
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY STYLES - VERDE MINIMALISTA
+   Focus indicators verdes, reduced motion, ARIA
+   ======================================== */
+
+/* Skip Link - Visível apenas quando focado */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary-green);
+  color: var(--color-primary-black);
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-to-main:focus {
+  top: 6px;
+}
+
+/* Focus Visible - Verde outline para navegação por teclado */
+*:focus-visible {
+  outline: 3px solid rgba(130, 247, 179, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Enhanced focus para elementos interativos com ring verde */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[role="link"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(130, 247, 179, 0.2);
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+
+/* Remove default focus para usuários de mouse */
+*:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Keyboard Navigation Enhancements */
+/* Ensure logical tab order and visible focus states */
+
+/* Interactive elements should have minimum touch target size */
+button,
+a,
+input,
+select,
+textarea,
+[role="button"],
+[role="link"],
+[tabindex]:not([tabindex="-1"]) {
+  min-height: 20px;
+  min-width: 20px;
+}
+
+/* Exception for inline text links */
+a:not([role="button"]):not(.btn):not(.button) {
+  min-height: auto;
+  min-width: auto;
+}
+
+/* Focus management for modal and overlay elements */
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus,
+.sr-only:active {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary-green: #00ff00;
+    --color-primary-black: #000000;
+    --color-bg-primary: #ffffff;
+    --color-text-primary: #000000;
+    --color-border-light: #000000;
+  }
+  
+  button,
+  input,
+  select,
+  textarea {
+    border: 2px solid #000000;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* Focus trap for modals and dropdowns */
+.focus-trap {
+  position: relative;
+}
+
+.focus-trap:before,
+.focus-trap:after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Keyboard navigation indicators */
+.keyboard-navigation-active *:focus-visible {
+  outline: 3px solid var(--color-primary-green);
+  outline-offset: 2px;
+}
+
+/* Ensure proper heading hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+/* ARIA live regions */
+.live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Focus management for single page applications */
+[data-focus-guard] {
+  width: 1px;
+  height: 0px;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 1px;
+  left: 1px;
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT - COMPREHENSIVE
+   Suporte completo para prefers-reduced-motion
+   Requirement 8.6: Configurar suporte a reduced motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Global animation and transition disabling */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable all CSS animations completely */
+  [class*="animate-"],
+  .animate-float,
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-scale-in,
+  .animate-bounce,
+  .animate-pulse,
+  .animate-spin,
+  .animate-ping,
+  .animate-morphing,
+  .animate-pulse-glow,
+  .animate-rotate-slow,
+  .animate-bounce-subtle,
+  .animate-float-delayed,
+  .animate-float-reverse,
+  .animate-slow-float,
+  .animate-slow-float-delayed,
+  .animate-marquee-left,
+  .blog-card-entrance,
+  .arrow-float-left,
+  .arrow-float-right,
+  .float-y,
+  .float-y-1,
+  .float-y-2,
+  .float-y-3,
+  .float-y-4,
+  .float-y-5,
+  .float-y-6 {
+    animation: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+  
+  /* Disable hover transforms that can cause motion sickness */
+  .hover\:scale-105:hover,
+  .hover\:scale-110:hover,
+  .hover\:scale-\[1\.02\]:hover,
+  .hover\:scale-\[1\.05\]:hover,
+  .hover\:-translate-y-1:hover,
+  .hover\:-translate-y-2:hover,
+  .hover\:-translate-y-4:hover,
+  .hover\:translate-x-1:hover,
+  .hover\:translate-x-2:hover,
+  .group-hover\:scale-105,
+  .group-hover\:scale-110,
+  .group-hover\:-translate-y-1,
+  .group-hover\:translate-x-1,
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .hover-scale-button:hover {
+    transform: none !important;
+  }
+  
+  /* Disable all transitions while maintaining functionality */
+  .transition-all,
+  .transition-colors,
+  .transition-transform,
+  .transition-shadow,
+  .transition-opacity,
+  .transition-fast,
+  .transition-colors-fast,
+  .transition-transform-fast,
+  .transition-shadow-fast {
+    transition: none !important;
+    transition-duration: 0s !important;
+  }
+  
+  /* Disable specific component animations */
+  .logo-hover-effect,
+  .logo-glow::before,
+  .logo-glow::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Disable carousel and slider animations */
+  .carousel-slide,
+  .slider-transition,
+  .testimonial-slide {
+    transition: none !important;
+  }
+  
+  /* Disable loading and progress animations */
+  .loading-spinner,
+  .progress-bar-animated,
+  .skeleton-loading {
+    animation: none !important;
+  }
+  
+  /* Disable parallax and scroll-based animations */
+  .parallax-element,
+  .scroll-reveal,
+  .fade-in-on-scroll {
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  /* Maintain focus states without animation */
+  *:focus-visible {
+    transition: none !important;
+  }
+  
+  /* Ensure buttons remain functional without hover animations */
+  button:hover,
+  .btn:hover,
+  [role="button"]:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  /* Disable modal and overlay entrance animations */
+  .modal-enter,
+  .modal-exit,
+  .overlay-fade,
+  .dropdown-enter {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Disable slot machine animations */
+  .slot-machine-container,
+  .slot-reel {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Show only first slot item when motion is reduced */
+  .slot-item:not(:first-child) {
+    display: none;
+  }
+}
+
+/* Skip to main content link for screen readers */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-accent-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+}
+
+.skip-to-main:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Custom Animations - Design System
+   Performance optimized: Using only transform and opacity (GPU-accelerated)
+   All animations respect prefers-reduced-motion */
+
+/* Float Animation - for floating cards */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) translateZ(0); 
+  }
+  50% { 
+    transform: translateY(-10px) translateZ(0); 
+  }
+}
+
+/* Fade In Up - for scroll animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+/* Blog Card Entrance Animation - Fade in up with stagger
+   Used for blog post cards on page load
+   Respects prefers-reduced-motion */
+@keyframes blog-card-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+/* Scale In - for entrance animations */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+}
+
+/* Additional Animations */
+@keyframes morphing {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-15px) translateZ(0); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(15px) translateZ(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.4; 
+    transform: scale(1) translateZ(0); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.1) translateZ(0); 
+  }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg) translateZ(0); }
+  to { transform: rotate(360deg) translateZ(0); }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-5px) translateZ(0); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg) translateZ(0); }
+  25% { transform: rotate(-3deg) translateZ(0); }
+  75% { transform: rotate(3deg) translateZ(0); }
+}
+
+@keyframes slow-float {
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-8px) translateZ(0); }
+}
+
+@keyframes slow-float-delayed {
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(10px) translateZ(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-10px) translateZ(0); }
+}
+
+/* Animation utility classes with performance optimizations */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-slow-float {
+  animation: slow-float 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-slow-float-delayed {
+  animation: slow-float-delayed 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+  will-change: transform, opacity;
+}
+
+/* Blog Card Entrance - Applied to blog post cards
+   Features: fade-in-up animation with stagger delay via inline style
+   Duration: 400ms for smooth entrance
+   Fill mode: both to maintain initial and final states
+   Respects prefers-reduced-motion via global media query */
+.blog-card-entrance {
+  animation: blog-card-entrance 400ms ease-out both;
+  will-change: transform, opacity;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out;
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation completes to free resources */
+.animate-float,
+.animate-float-delayed,
+.animate-float-reverse,
+.animate-slow-float,
+.animate-slow-float-delayed,
+.animate-pulse-glow,
+.animate-rotate-slow,
+.animate-bounce-subtle {
+  animation-fill-mode: both;
+}
+
+.animate-fade-in-up,
+.animate-scale-in,
+.animate-wiggle {
+  animation-fill-mode: forwards;
+}
+
+/* Performance: Use contain for animated elements */
+.animate-float,
+.animate-float-delayed,
+.animate-float-reverse,
+.animate-slow-float,
+.animate-slow-float-delayed {
+  contain: layout style paint;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Refined floating animations for company logos - subtle, elegant, and non-distracting */
+@keyframes float-y-1 {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.95;
+  }
+  33% { 
+    transform: translateY(-4px) rotate(0.3deg); 
+    opacity: 1;
+  }
+  66% { 
+    transform: translateY(-2px) rotate(-0.2deg); 
+    opacity: 0.98;
+  }
+}
+
+@keyframes float-y-2 {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.95;
+  }
+  33% { 
+    transform: translateY(-6px) rotate(-0.4deg); 
+    opacity: 1;
+  }
+  66% { 
+    transform: translateY(-3px) rotate(0.3deg); 
+    opacity: 0.98;
+  }
+}
+
+@keyframes float-y-3 {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.95;
+  }
+  33% { 
+    transform: translateY(-3px) rotate(0.2deg); 
+    opacity: 1;
+  }
+  66% { 
+    transform: translateY(-5px) rotate(-0.1deg); 
+    opacity: 0.98;
+  }
+}
+
+@keyframes float-y-4 {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.95;
+  }
+  33% { 
+    transform: translateY(-5px) rotate(-0.2deg); 
+    opacity: 1;
+  }
+  66% { 
+    transform: translateY(-2px) rotate(0.4deg); 
+    opacity: 0.98;
+  }
+}
+
+@keyframes float-y-5 {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.95;
+  }
+  33% { 
+    transform: translateY(-4px) rotate(0.5deg); 
+    opacity: 1;
+  }
+  66% { 
+    transform: translateY(-6px) rotate(-0.3deg); 
+    opacity: 0.98;
+  }
+}
+
+@keyframes float-y-6 {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.95;
+  }
+  33% { 
+    transform: translateY(-3px) rotate(-0.5deg); 
+    opacity: 1;
+  }
+  66% { 
+    transform: translateY(-4px) rotate(0.2deg); 
+    opacity: 0.98;
+  }
+}
+
+/* Enhanced hover animation for logo scaling */
+@keyframes logo-hover-pulse {
+  0% { 
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 4px 12px rgba(1, 226, 151, 0.15);
+  }
+  50% { 
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 8px 24px rgba(1, 226, 151, 0.25);
+  }
+  100% { 
+    transform: scale(1.15) rotate(0deg);
+    box-shadow: 0 12px 32px rgba(1, 226, 151, 0.35);
+  }
+}
+
+/* Subtle glow animation for logo containers */
+@keyframes logo-glow-pulse {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Smooth arrow animations - mais sutis e elegantes */
+@keyframes arrow-float-left {
+  0%, 100% { 
+    transform: translateY(0px); 
+    opacity: 0.65;
+  }
+  50% { 
+    transform: translateY(-8px); 
+    opacity: 0.8;
+  }
+}
+
+@keyframes arrow-float-right {
+  0%, 100% { 
+    transform: translateY(0px); 
+    opacity: 0.65;
+  }
+  50% { 
+    transform: translateY(-8px); 
+    opacity: 0.8;
+  }
+}
+
+/* Animation Utility Classes */
+
+/* Primary Animations */
+.animate-float {
+  animation: float 3s var(--ease-in-out) infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up var(--duration-normal) var(--ease-out);
+}
+
+.animate-scale-in {
+  animation: scale-in var(--duration-normal) var(--ease-out);
+}
+
+/* Additional Animation Classes */
+.animate-morphing {
+  animation: morphing 6s var(--ease-in-out) infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4s var(--ease-in-out) infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 5s var(--ease-in-out) infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s var(--ease-in-out) infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s var(--ease-in-out) infinite;
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 3s ease infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle var(--duration-slow) var(--ease-in-out);
+}
+
+.animate-slow-float {
+  animation: slow-float 12s var(--ease-in-out) infinite;
+}
+
+.animate-slow-float-delayed {
+  animation: slow-float-delayed 14s var(--ease-in-out) infinite;
+}
+
+/* Refined floating variations for company logos - subtle, elegant, and performance-optimized */
+/* will-change removed from static state - only applied during animation via @keyframes */
+.float-y-1 {
+  animation: float-y-1 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.float-y-2 {
+  animation: float-y-2 7s cubic-bezier(0.4, 0, 0.6, 1) infinite 0.5s;
+}
+
+.float-y-3 {
+  animation: float-y-3 5.5s cubic-bezier(0.4, 0, 0.6, 1) infinite 1s;
+}
+
+.float-y-4 {
+  animation: float-y-4 6.5s cubic-bezier(0.4, 0, 0.6, 1) infinite 1.5s;
+}
+
+.float-y-5 {
+  animation: float-y-5 6.8s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s;
+}
+
+.float-y-6 {
+  animation: float-y-6 6.2s cubic-bezier(0.4, 0, 0.6, 1) infinite 2.5s;
+}
+
+.arrow-float-left {
+  animation: arrow-float-left 3.5s var(--ease-in-out) infinite;
+}
+
+.arrow-float-right {
+  animation: arrow-float-right 3.5s var(--ease-in-out) infinite 1s;
+}
+
+/* Custom hover scale for logo animations */
+.hover\:scale-115:hover {
+  transform: scale(1.15);
+}
+
+/* Enhanced logo hover effects - smooth, engaging, and performance-optimized */
+.logo-hover-effect {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center;
+  position: relative;
+}
+
+.logo-hover-effect:hover {
+  animation-play-state: paused;
+  animation: logo-hover-pulse 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  will-change: transform, box-shadow;
+}
+
+.logo-hover-effect:active {
+  transition-duration: 0.15s;
+  transform: scale(0.92) !important;
+  animation: none;
+}
+
+/* Enhanced glow effect for logo containers with better performance */
+.logo-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.logo-glow::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, 
+    transparent 20%, 
+    rgba(1, 226, 151, 0.15) 40%, 
+    rgba(1, 226, 151, 0.25) 50%, 
+    rgba(1, 226, 151, 0.15) 60%, 
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.logo-glow::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, 
+    rgba(1, 226, 151, 0.1) 0%, 
+    rgba(1, 226, 151, 0.05) 50%, 
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -2;
+  animation: logo-glow-pulse 2s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.logo-glow:hover::before {
+  opacity: 1;
+}
+
+.logo-glow:hover::after {
+  opacity: 1;
+  animation-play-state: running;
+  will-change: opacity;
+}
+
+/* Enhanced scale effect for better visual feedback */
+.hover\:scale-115:hover {
+  transform: scale(1.15);
+}
+
+/* Custom sizing utilities for enhanced statistics */
+.h-18 {
+  height: 4.5rem;
+}
+
+.w-18 {
+  width: 4.5rem;
+}
+
+/* Improved focus states for accessibility */
+.logo-hover-effect:focus-visible {
+  outline: 2px solid rgba(1, 226, 151, 0.6);
+  outline-offset: 2px;
+  border-radius: inherit;
+}
+
+/* Smooth transition for logo images */
+.logo-hover-effect img {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-hover-effect:hover img {
+  transform: scale(1.1) rotate(2deg);
+  will-change: transform;
+}
+
+/* Duplicate reduced motion block removed - consolidated above */
+  .animate-bounce-subtle,
+  .animate-gradient-shift,
+  .animate-wiggle {
+    animation: none !important;
+  }
+  
+  /* Keep fade-in but make it instant */
+  .animate-fade-in-up,
+  .animate-scale-in {
+    animation-duration: 0.01s !important;
+  }
+/* Removed stray closing brace that had no matching @media/open block */
+
+/* Enhanced Responsive Design for Hero Section - Mobile, Tablet and Desktop Optimizations */
+
+/* Mobile-first approach with improved stacking and spacing */
+@media (max-width: 640px) {
+  .mobile-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .mobile-center {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mobile-spacing {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+  }
+  
+  .mobile-text-sm {
+    font-size: clamp(0.75rem, 3.5vw, 0.875rem);
+    line-height: 1.4;
+  }
+  
+  .mobile-text-base {
+    font-size: clamp(0.875rem, 4vw, 1rem);
+    line-height: 1.5;
+  }
+  
+  .mobile-text-lg {
+    font-size: clamp(1rem, 4.5vw, 1.125rem);
+    line-height: 1.4;
+  }
+  
+  .mobile-title {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  
+  .mobile-search-container {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+  
+  .mobile-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .mobile-stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .mobile-image {
+    max-width: 180px;
+    margin: 1rem auto 0;
+  }
+}
+
+/* Extra Small Mobile optimizations (320px - 480px) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .hero-xs-spacing {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .hero-xs-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  .hero-xs-content {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .hero-xs-title {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.015em;
+  }
+  
+  .hero-xs-description {
+    font-size: clamp(0.875rem, 4vw, 1rem);
+    line-height: 1.5;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .hero-xs-search {
+    max-width: 100%;
+    margin-top: 1.5rem;
+  }
+  
+  .hero-xs-stats {
+    margin-top: 2rem;
+    gap: 1.5rem;
+    flex-direction: column;
+  }
+  
+  .hero-xs-image {
+    max-width: 220px;
+    margin-top: 1.5rem;
+  }
+}
+
+/* Small Mobile optimizations (480px - 640px) */
+@media (min-width: 480px) and (max-width: 640px) {
+  .hero-sm-spacing {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  
+  .hero-sm-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .hero-sm-content {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .hero-sm-title {
+    font-size: clamp(2rem, 7vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  
+  .hero-sm-description {
+    font-size: clamp(0.95rem, 3.5vw, 1.125rem);
+    line-height: 1.55;
+    max-width: 95%;
+    margin: 0 auto;
+    margin-top: 1.25rem;
+  }
+  
+  .hero-sm-search {
+    max-width: 95%;
+    margin-top: 1.75rem;
+  }
+  
+  .hero-sm-stats {
+    margin-top: 2.25rem;
+    gap: 1.75rem;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .hero-sm-image {
+    max-width: 260px;
+    margin-top: 1.75rem;
+  }
+}
+
+/* Mobile-first responsive utilities */
+.xs\:text-xs {
+  font-size: 0.75rem;
+}
+
+.xs\:text-sm {
+  font-size: 0.875rem;
+}
+
+.xs\:text-base {
+  font-size: 1rem;
+}
+
+.xs\:text-lg {
+  font-size: 1.125rem;
+}
+
+.xs\:text-xl {
+  font-size: 1.25rem;
+}
+
+.xs\:text-2xl {
+  font-size: 1.5rem;
+}
+
+.xs\:text-3xl {
+  font-size: 1.875rem;
+}
+
+.xs\:px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.xs\:px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.xs\:py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.xs\:py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.xs\:gap-3 {
+  gap: 0.75rem;
+}
+
+.xs\:gap-4 {
+  gap: 1rem;
+}
+
+.xs\:gap-5 {
+  gap: 1.25rem;
+}
+
+.xs\:gap-7 {
+  gap: 1.75rem;
+}
+
+.xs\:space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem;
+}
+
+.xs\:space-y-5 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1.25rem;
+}
+
+.xs\:pt-18 {
+  padding-top: 4.5rem;
+}
+
+.xs\:pb-14 {
+  padding-bottom: 3.5rem;
+}
+
+.xs\:pt-5 {
+  padding-top: 1.25rem;
+}
+
+.xs\:max-w-xl {
+  max-width: 36rem;
+}
+
+.xs\:max-w-2xl {
+  max-width: 42rem;
+}
+
+.xs\:h-3 {
+  height: 0.75rem;
+}
+
+.xs\:w-3 {
+  width: 0.75rem;
+}
+
+.xs\:h-4 {
+  height: 1rem;
+}
+
+.xs\:w-4 {
+  width: 1rem;
+}
+
+.xs\:h-6 {
+  height: 1.5rem;
+}
+
+.xs\:w-6 {
+  width: 1.5rem;
+}
+
+.xs\:h-14 {
+  height: 3.5rem;
+}
+
+.xs\:w-14 {
+  width: 3.5rem;
+}
+
+.xs\:rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.xs\:rounded-2xl {
+  border-radius: 1rem;
+}
+
+.xs\:border-3 {
+  border-width: 3px;
+}
+
+.xs\:shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.xs\:blur-2xl {
+  filter: blur(40px);
+}
+
+.xs\:leading-relaxed {
+  line-height: 1.625;
+}
+
+.xs\:flex-row {
+  flex-direction: row;
+}
+
+.xs\:justify-start {
+  justify-content: flex-start;
+}
+
+.xs\:inset-2 {
+  top: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+
+.xs\:blur-lg {
+  filter: blur(16px);
+}
+
+.xs\:rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.xs\:pl-2 {
+  padding-left: 0.5rem;
+}
+
+.xs\:stroke-\[2\] {
+  stroke-width: 2;
+}
+
+.xs\:stroke-\[2\.5\] {
+  stroke-width: 2.5;
+}
+
+.xs\:stroke-\[3\] {
+  stroke-width: 3;
+}
+
+.xs\:stroke-\[3\.5\] {
+  stroke-width: 3.5;
+}
+
+.xs\:-bottom-1\.5 {
+  bottom: -0.375rem;
+}
+
+.xs\:h-2\.5 {
+  height: 0.625rem;
+}
+
+/* Tablet-specific optimizations (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-tablet-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .hero-tablet-grid {
+    gap: 3rem;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    min-height: 70vh;
+  }
+  
+  .hero-tablet-content {
+    max-width: 100%;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .hero-tablet-image {
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Tablet container optimizations */
+  .hero-tablet-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  /* Tablet typography scaling */
+  .hero-tablet-title {
+    font-size: clamp(3rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  
+  .hero-tablet-description {
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    line-height: 1.55;
+    max-width: 90%;
+  }
+  
+  /* Tablet search bar optimizations */
+  .hero-tablet-search {
+    max-width: 90%;
+    margin-top: 1.75rem;
+  }
+  
+  /* Tablet statistics layout */
+  .hero-tablet-stats {
+    margin-top: 2.25rem;
+    gap: 1.75rem;
+    justify-content: flex-start;
+  }
+  
+  /* Tablet badge optimizations */
+  .hero-tablet-badge {
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+  }
+  
+  /* Tablet floating logos optimizations */
+  .hero-tablet-logos {
+    transform: scale(1.05);
+    width: 155%;
+    height: 155%;
+  }
+}
+
+/* Desktop optimizations (1024px - 1280px) */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .hero-desktop-spacing {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+  
+  .hero-desktop-grid {
+    gap: 4rem;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    min-height: 75vh;
+  }
+  
+  .hero-desktop-content {
+    padding-right: 1.5rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .hero-desktop-image {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  /* Desktop container optimizations */
+  .hero-desktop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  /* Desktop typography scaling */
+  .hero-desktop-title {
+    font-size: clamp(3rem, 4.5vw, 4rem);
+    line-height: 1.05;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.025em;
+  }
+  
+  .hero-desktop-description {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    max-width: 95%;
+  }
+  
+  /* Desktop search bar optimizations */
+  .hero-desktop-search {
+    max-width: 95%;
+    margin-top: 2.25rem;
+  }
+  
+  /* Desktop statistics layout */
+  .hero-desktop-stats {
+    margin-top: 2.75rem;
+    gap: 2.25rem;
+    justify-content: flex-start;
+  }
+  
+  /* Desktop badge optimizations */
+  .hero-desktop-badge {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  /* Desktop floating logos optimizations */
+  .hero-desktop-logos {
+    transform: scale(1.2);
+    width: 170%;
+    height: 170%;
+  }
+}
+
+/* Large desktop optimizations (1280px - 1536px) */
+@media (min-width: 1280px) and (max-width: 1536px) {
+  .hero-xl-spacing {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+  
+  .hero-xl-grid {
+    gap: 5rem;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  .hero-xl-content {
+    padding-right: 2rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .hero-xl-image {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  /* XL container optimizations */
+  .hero-xl-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  
+  /* XL typography scaling */
+  .hero-xl-title {
+    font-size: clamp(3.5rem, 5vw, 4.75rem);
+    line-height: 1.02;
+    margin-bottom: 2.25rem;
+    letter-spacing: -0.03em;
+  }
+  
+  .hero-xl-description {
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+    line-height: 1.65;
+    max-width: 100%;
+  }
+  
+  /* XL search bar optimizations */
+  .hero-xl-search {
+    max-width: 100%;
+    margin-top: 2.75rem;
+  }
+  
+  /* XL statistics layout */
+  .hero-xl-stats {
+    margin-top: 3.25rem;
+    gap: 2.75rem;
+    justify-content: flex-start;
+  }
+  
+  /* XL badge optimizations */
+  .hero-xl-badge {
+    font-size: 1.125rem;
+    padding: 0.875rem 1.5rem;
+  }
+  
+  /* XL floating logos optimizations */
+  .hero-xl-logos {
+    transform: scale(1.3);
+    width: 180%;
+    height: 180%;
+  }
+}
+
+/* Ultra-wide desktop optimizations (1536px+) */
+@media (min-width: 1536px) {
+  .hero-2xl-spacing {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+  }
+  
+  .hero-2xl-grid {
+    gap: 6rem;
+    grid-template-columns: 1.4fr 0.6fr;
+    align-items: center;
+    min-height: 85vh;
+  }
+  
+  .hero-2xl-content {
+    padding-right: 3rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .hero-2xl-image {
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  /* 2XL container optimizations */
+  .hero-2xl-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  
+  /* 2XL typography scaling */
+  .hero-2xl-title {
+    font-size: clamp(4rem, 5.5vw, 6rem);
+    line-height: 1;
+    margin-bottom: 2.75rem;
+    letter-spacing: -0.035em;
+  }
+  
+  .hero-2xl-description {
+    font-size: clamp(1.375rem, 2.4vw, 2rem);
+    line-height: 1.7;
+    max-width: 100%;
+  }
+  
+  /* 2XL search bar optimizations */
+  .hero-2xl-search {
+    max-width: 100%;
+    margin-top: 3.25rem;
+  }
+  
+  /* 2XL statistics layout */
+  .hero-2xl-stats {
+    margin-top: 3.75rem;
+    gap: 3.25rem;
+    justify-content: flex-start;
+  }
+  
+  /* 2XL badge optimizations */
+  .hero-2xl-badge {
+    font-size: 1.25rem;
+    padding: 1rem 1.75rem;
+  }
+  
+  /* 2XL floating logos optimizations */
+  .hero-2xl-logos {
+    transform: scale(1.4);
+    width: 190%;
+    height: 190%;
+  }
+}
+
+/* Enhanced Responsive Typography with Fluid Scaling */
+@media (min-width: 768px) {
+  .responsive-title {
+    font-size: clamp(2.75rem, 4.5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-title {
+    font-size: clamp(3.25rem, 5vw, 4.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-title {
+    font-size: clamp(3.75rem, 5.5vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+}
+
+@media (min-width: 1536px) {
+  .responsive-title {
+    font-size: clamp(4.5rem, 6vw, 6.5rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+}
+
+/* Enhanced Responsive Search Bar with Better Proportions */
+@media (min-width: 768px) {
+  .search-bar-tablet {
+    max-width: 85%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-bar-desktop {
+    max-width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .search-bar-desktop {
+    max-width: 95%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .search-bar-desktop {
+    max-width: 100%;
+  }
+}
+
+/* Enhanced Responsive Floating Logos with Better Scaling and Positioning */
+@media (min-width: 768px) {
+  .floating-logos-tablet {
+    transform: scale(1.15);
+    width: 165%;
+    height: 165%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .floating-logos-desktop {
+    transform: scale(1.25);
+    width: 175%;
+    height: 175%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .floating-logos-xl {
+    transform: scale(1.35);
+    width: 185%;
+    height: 185%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .floating-logos-2xl {
+    transform: scale(1.45);
+    width: 195%;
+    height: 195%;
+  }
+}
+
+/* Slot Machine Animations */
+
+/* Keyframes for vertical slot spin animation */
+@keyframes slot-spin-up {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+    opacity: 0.5;
+  }
+}
+
+/* Slot Machine Container Styles */
+.slot-machine-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(217, 119, 87, 0.2);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.15);
+  backdrop-filter: blur(8px);
+  max-width: 220px;
+  height: 60px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.slot-machine-container:hover {
+  box-shadow: 0 8px 24px rgba(217, 119, 87, 0.25);
+  transform: scale(1.03);
+  border-color: rgba(217, 119, 87, 0.4);
+}
+
+.slot-machine-inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 0.75rem;
+}
+
+.slot-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #d97757;
+}
+
+.slot-reel-container {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slot-reel {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Apply GPU acceleration */
+.slot-reel {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Remove will-change when paused for performance */
+.slot-machine-container:hover .slot-reel {
+  will-change: auto;
+}
+
+.slot-item {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3d3d3a;
+  white-space: nowrap;
+  line-height: 60px;
+  height: 60px;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+/* Gradient overlays for fade effect */
+.slot-reel-container::before,
+.slot-reel-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 15px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.slot-reel-container::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), transparent);
+}
+
+.slot-reel-container::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+}
+
+/* Responsive adjustments for slot machine */
+@media (max-width: 767px) {
+  .slot-machine-container {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .slot-machine-container {
+    transform: scale(0.85);
+    max-width: 180px;
+  }
+  
+  .slot-machine-container:hover {
+    transform: scale(0.88);
+  }
+  
+  .slot-item {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slot-machine-container {
+    max-width: 220px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .slot-machine-container {
+    max-width: 240px;
+  }
+}
+
+/* Duplicate reduced motion block removed - consolidated above */
+/* Note: removed stray unmatched closing brace that caused Tailwind parse error */
+  .slot-machine-container:hover {
+    transform: scale(1.01);
+  }
+
+/* Enhanced Grid Layout Optimizations for Better Proportions */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-tablet-grid {
+    gap: 3rem;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    min-height: clamp(60vh, 70vh, 75vh);
+  }
+  
+  .hero-tablet-content {
+    max-width: 100%;
+    padding-right: clamp(0.5rem, 2vw, 1.5rem);
+  }
+  
+  .hero-tablet-image {
+    max-width: clamp(320px, 40vw, 420px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .hero-desktop-grid {
+    gap: clamp(3rem, 5vw, 4.5rem);
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    min-height: clamp(70vh, 75vh, 80vh);
+  }
+  
+  .hero-desktop-content {
+    padding-right: clamp(1rem, 2.5vw, 2rem);
+    max-width: 100%;
+  }
+  
+  .hero-desktop-image {
+    max-width: clamp(400px, 42vw, 480px);
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1536px) {
+  .hero-xl-grid {
+    gap: clamp(4rem, 6vw, 5.5rem);
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    min-height: clamp(75vh, 80vh, 85vh);
+  }
+  
+  .hero-xl-content {
+    padding-right: clamp(1.5rem, 3vw, 2.5rem);
+    max-width: 100%;
+  }
+  
+  .hero-xl-image {
+    max-width: clamp(450px, 38vw, 520px);
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-2xl-grid {
+    gap: clamp(5rem, 7vw, 6.5rem);
+    grid-template-columns: 1.4fr 0.6fr;
+    align-items: center;
+    min-height: clamp(80vh, 85vh, 90vh);
+  }
+  
+  .hero-2xl-content {
+    padding-right: clamp(2rem, 4vw, 3.5rem);
+    max-width: 100%;
+  }
+  
+  .hero-2xl-image {
+    max-width: clamp(500px, 35vw, 580px);
+    margin-left: auto;
+  }
+}
+
+/* Enhanced Window Resizing Flexibility */
+@media (min-width: 768px) {
+  .hero-flexible-container {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hero-flexible-grid {
+    transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                grid-template-columns 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                min-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hero-flexible-content {
+    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hero-flexible-image {
+    transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                margin 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Smooth typography transitions */
+  .hero-flexible-title {
+    transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                line-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hero-flexible-description {
+    transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Improved Space Utilization for Large Screens */
+@media (min-width: 1280px) {
+  .hero-space-efficient {
+    padding-left: clamp(2rem, 4vw, 3.5rem);
+    padding-right: clamp(2rem, 4vw, 3.5rem);
+  }
+  
+  .hero-content-optimized {
+    max-width: clamp(550px, 55vw, 750px);
+  }
+  
+  .hero-image-optimized {
+    max-width: clamp(380px, 32vw, 550px);
+  }
+  
+  /* Optimized grid proportions for better balance */
+  .hero-grid-optimized {
+    grid-template-columns: clamp(1.2fr, 1.3fr, 1.4fr) clamp(0.6fr, 0.7fr, 0.8fr);
+    gap: clamp(3rem, 5vw, 6rem);
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-space-efficient {
+    padding-left: clamp(2.5rem, 5vw, 4.5rem);
+    padding-right: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  
+  .hero-content-optimized {
+    max-width: clamp(650px, 60vw, 850px);
+  }
+  
+  .hero-image-optimized {
+    max-width: clamp(420px, 35vw, 600px);
+  }
+  
+  /* Ultra-wide optimizations */
+  .hero-grid-optimized {
+    grid-template-columns: clamp(1.3fr, 1.4fr, 1.5fr) clamp(0.5fr, 0.6fr, 0.7fr);
+    gap: clamp(4rem, 6vw, 7rem);
+  }
+}
+
+/* Dynamic viewport height adjustments */
+@media (min-width: 768px) {
+  .hero-viewport-optimized {
+    min-height: clamp(60vh, 70vh, 80vh);
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-viewport-optimized {
+    min-height: clamp(70vh, 75vh, 85vh);
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-viewport-optimized {
+    min-height: clamp(75vh, 80vh, 90vh);
+  }
+}
+
+/* Responsive Content Spacing and Layout Improvements */
+@media (min-width: 768px) {
+  .hero-content-spacing {
+    gap: 2rem;
+  }
+  
+  .hero-badge-tablet {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .hero-description-tablet {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    line-height: 1.6;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-content-spacing {
+    gap: 2.5rem;
+  }
+  
+  .hero-badge-desktop {
+    font-size: 1rem;
+    padding: 0.875rem 1.5rem;
+  }
+  
+  .hero-description-desktop {
+    font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+    line-height: 1.65;
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-content-spacing {
+    gap: 3rem;
+  }
+  
+  .hero-badge-xl {
+    font-size: 1.125rem;
+    padding: 1rem 1.75rem;
+  }
+  
+  .hero-description-xl {
+    font-size: clamp(1.375rem, 2.4vw, 1.875rem);
+    line-height: 1.7;
+    margin-top: 2.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-content-spacing {
+    gap: 3.5rem;
+  }
+  
+  .hero-badge-2xl {
+    font-size: 1.25rem;
+    padding: 1.125rem 2rem;
+  }
+  
+  .hero-description-2xl {
+    font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+    line-height: 1.75;
+    margin-top: 3rem;
+  }
+}
+
+/* Enhanced Statistics Component Responsive Design */
+@media (min-width: 768px) {
+  .stats-tablet {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+  
+  .stat-card-tablet {
+    gap: 1rem;
+  }
+  
+  .stat-icon-tablet {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .stat-number-tablet {
+    font-size: 2rem;
+  }
+  
+  .stat-label-tablet {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-desktop {
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+  
+  .stat-card-desktop {
+    gap: 1.25rem;
+  }
+  
+  .stat-icon-desktop {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .stat-number-desktop {
+    font-size: 2.25rem;
+  }
+  
+  .stat-label-desktop {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .stats-xl {
+    gap: 3rem;
+    margin-top: 3.5rem;
+  }
+  
+  .stat-card-xl {
+    gap: 1.5rem;
+  }
+  
+  .stat-icon-xl {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  
+  .stat-number-xl {
+    font-size: 2.5rem;
+  }
+  
+  .stat-label-xl {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .stats-2xl {
+    gap: 3.5rem;
+    margin-top: 4rem;
+  }
+  
+  .stat-card-2xl {
+    gap: 1.75rem;
+  }
+  
+  .stat-icon-2xl {
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .stat-number-2xl {
+    font-size: 2.75rem;
+  }
+  
+  .stat-label-2xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* Duplicate reduced motion block removed - consolidated above */
+
+/* Custom Utility Classes - Design System */
+
+/* Brand Colors */
+.bg-brand-green {
+  background-color: var(--brand-green);
+}
+
+.bg-brand-blue {
+  background-color: var(--brand-blue);
+}
+
+.bg-brand-dark {
+  background-color: var(--brand-dark);
+}
+
+.text-brand-green {
+  color: var(--brand-green);
+}
+
+.text-brand-blue {
+  color: var(--brand-blue);
+}
+
+.text-brand-dark {
+  color: var(--brand-dark);
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.border-brand-green {
+  border-color: var(--brand-green);
+}
+
+.border-brand-blue {
+  border-color: var(--brand-blue);
+}
+
+.border-light {
+  border-color: var(--border-light);
+}
+
+/* Background Light Colors */
+.bg-blue-light {
+  background-color: var(--bg-blue-light);
+}
+
+.bg-pink-light {
+  background-color: var(--bg-pink-light);
+}
+
+.bg-green-light {
+  background-color: var(--bg-green-light);
+}
+
+.bg-purple-light {
+  background-color: var(--bg-purple-light);
+}
+
+/* Hover Effects */
+.hover\:text-brand-green:hover {
+  color: var(--brand-green);
+}
+
+.hover\:text-brand-blue:hover {
+  color: var(--brand-blue);
+}
+
+.hover\:bg-brand-green:hover {
+  background-color: var(--brand-green);
+}
+
+.hover\:bg-brand-blue:hover {
+  background-color: var(--brand-blue);
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--brand-green), var(--brand-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism effects - mais sutis para o fundo branco */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.glassmorphism-strong {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.btn-primary {
+  background: #01E297; /* brand green */
+  border: none;
+  color:#0b0b0b;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background:  #2563eb;
+  color: #ffffff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Cyber grid background - mais sutil para fundo branco */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(130, 244, 114, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(130, 244, 114, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Text effects */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Modern hero / spotlight styles */
+.hero-bg {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(1200px 600px at 10% 20%, rgba(168,85,247,0.10), transparent 15%),
+              radial-gradient(1000px 500px at 90% 80%, rgba(130,244,114,0.08), transparent 15%),
+              linear-gradient(180deg, rgba(250,250,252,1) 0%, rgba(245,247,250,1) 100%);
+}
+
+.hero-container {
+  position: relative;
+  z-index: 10;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  transform-origin: center;
+}
+
+.blob--purple {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle at 30% 30%, rgba(168,85,247,0.9), rgba(168,85,247,0.35) 40%, transparent 60%);
+  right: -10%;
+  top: -10%;
+  animation: morphing 10s ease-in-out infinite;
+}
+
+.blob--green {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at 70% 70%, rgba(130,244,114,0.85), rgba(130,244,114,0.30) 45%, transparent 65%);
+  left: -8%;
+  bottom: -8%;
+  animation: morphing 12s ease-in-out infinite reverse;
+}
+
+/* Generic colorful orbs for empty backgrounds */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(28px);
+  opacity: 0.28;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background-size: 200% 200%;
+}
+.orb--emerald {
+  background-image: radial-gradient(circle at 30% 30%, rgba(16,185,129,0.65), rgba(16,185,129,0.15) 45%, transparent 65%);
+}
+.orb--teal {
+  background-image: radial-gradient(circle at 60% 60%, rgba(45,212,191,0.55), rgba(45,212,191,0.15) 50%, transparent 70%);
+}
+.orb--purple {
+  background-image: radial-gradient(circle at 50% 50%, rgba(168,85,247,0.50), rgba(168,85,247,0.12) 50%, transparent 70%);
+}
+/* subtle animated movement */
+.orb-animate {
+  animation: gradient-shift 12s ease-in-out infinite, slow-float 14s ease-in-out infinite;
+}
+
+.accent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(168,85,247,0.08);
+  font-weight: 700;
+}
+
+/* Glowing CTA button */
+.btn-glow {
+  background: #3d3d3a; /* brand green */
+  color: #0b0b0b;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 24px rgba(37,99,235,0.14), 0 2px 8px rgba(251,146,60,0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-glow:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 48px rgba(37,99,235,0.22), 0 6px 18px rgba(251,146,60,0.16);
+}
+
+.btn-outline-ghost {
+  background: transparent;
+  border: 1px solid rgba(26,26,26,0.06);
+  color: var(--brand-dark);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+/* Stronger glass card for email capture */
+.email-card {
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+  box-shadow: 0 12px 30px rgba(12,18,29,0.06);
+  border: 1px solid rgba(168,85,247,0.06);
+}
+
+.cta-subtext {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+/* Job card styles from original */
+.job-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.progress-bar-container {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 120px;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #34d399, #01E297);
+  transition: all 0.3s ease;
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.company-logo {
+  width: 48px;
+  height: 48px;
+  background: #82f472;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.company-logo:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.chances-section {
+  text-align: right;
+}
+
+.chances-label {
+  font-size: 14px;
+  color: var(--brand-gray);
+}
+
+.chances-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--brand-success);
+}
+
+.job-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+.company-name {
+  color: var(--brand-gray);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.company-description {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.job-salary {
+  background: #82f472;
+  color: var(--brand-dark);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+
+.job-salary:hover {
+  transform: scale(1.02);
+}
+
+.skills-container {
+  margin-bottom: 16px;
+}
+
+.skills-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand-gray);
+  margin-bottom: 6px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  background: #82f472;
+  color: var(--brand-dark);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  cursor: pointer;
+}
+
+
+
+/* Site background dots pattern and subtle float animations */
+.bg-dots {
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@keyframes slow-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes slow-float-delayed {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.animate-slow-float { animation: slow-float 12s ease-in-out infinite; }
+.animate-slow-float-delayed { animation: slow-float-delayed 14s ease-in-out infinite; }
+
+/* Slot Machine Animations - Hero Section */
+
+/* Keyframes for vertical slot spin animation */
+@keyframes slot-spin-up {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+    opacity: 0.5;
+  }
+}
+
+/* Slot Machine Container Styles */
+.slot-machine-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(217, 119, 87, 0.2);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  max-width: 220px;
+  height: 60px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  cursor: default;
+}
+
+/* Hover state for slot machine container */
+.slot-machine-container:hover {
+  box-shadow: 0 8px 24px rgba(217, 119, 87, 0.25);
+  transform: scale(1.03);
+  border-color: rgba(217, 119, 87, 0.4);
+}
+
+/* Inner container for icon and reel */
+.slot-machine-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  height: 100%;
+}
+
+/* Icon styling */
+.slot-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #d97757;
+}
+
+/* Slot reel container - creates the "window" effect */
+.slot-reel-container {
+  position: relative;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Slot reel - the animated element */
+.slot-reel {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Individual slot items */
+.slot-item {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3d3d3a;
+  white-space: nowrap;
+  line-height: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+/* Gradient overlays for fade effect (top and bottom) */
+.slot-machine-container::before,
+.slot-machine-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 15px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.slot-machine-container::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), transparent);
+}
+
+.slot-machine-container::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+}
+
+/* Remove will-change when paused for performance */
+.slot-machine-container:hover .slot-reel {
+  will-change: auto;
+}
+
+/* Duplicate reduced motion block removed - consolidated above */
+  .slot-item:not(:first-child) {
+    display: none;
+  }
+/* End of App.css */

@@ -25,7 +25,11 @@ export const SmartLink = ({ to, children, className, forceSubdomain, ...props })
   // Se a URL é externa (diferente subdomínio), usa href em vez de to
   if (href.startsWith('http')) {
     return (
-      <a href={href} className={className} {...props}>
+      <a 
+        href={href} 
+        className={`focus:outline-none focus:ring-4 focus:ring-green-20 rounded ${className || ''}`} 
+        {...props}
+      >
         {children}
       </a>
     );
@@ -33,7 +37,11 @@ export const SmartLink = ({ to, children, className, forceSubdomain, ...props })
   
   // Se é a mesma página/subdomínio, usa Link normal do React Router
   return (
-    <Link to={href} className={className} {...props}>
+    <Link 
+      to={href} 
+      className={`focus:outline-none focus:ring-4 focus:ring-green-20 rounded ${className || ''}`} 
+      {...props}
+    >
       {children}
     </Link>
   );

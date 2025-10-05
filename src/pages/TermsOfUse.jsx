@@ -4,7 +4,7 @@ import Footer from '@/components/global/Footer'
 
 const TermsOfUse = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white-ds">
       <Navigation />
       <div className="max-w-3xl mx-auto px-6 py-10">
         <a href="#" onClick={(e) => { e.preventDefault(); window.history.back(); }} className="text-sm text-gray-600 hover:text-gray-800">&larr; Voltar</a>

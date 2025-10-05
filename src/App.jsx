@@ -37,13 +37,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* Skip to main content link for accessibility */}
-      <a href="#main-content" className="skip-to-main">
-        Pular para o conteúdo principal
-      </a>
       {/* SEO dinâmico por rota */}
       <RouteSEO />
-      <React.Suspense fallback={<div />}> 
+      <React.Suspense fallback={
+        <div className="flex items-center justify-center min-h-screen bg-primary-ds" role="status" aria-label="Carregando página">
+          <div className="animate-spin rounded-full h-8 w-8 border-2 border-green-ds border-t-transparent" aria-hidden="true"></div>
+          <span className="sr-only">Carregando...</span>
+        </div>
+      }> 
         {isCompaniesSubdomain ? (
           // Rotas para o subdomínio empresas.estagioai.com
           <Routes>

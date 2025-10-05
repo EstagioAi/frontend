@@ -1,123 +1,104 @@
 import React from "react";
-import { Button } from "@/components/ui/button.jsx";
 import { SmartLink } from "@/components/ui/smart-link.jsx";
 import { Sparkles, Rocket, Users } from "lucide-react";
+import { TextHighlight } from "@/components/ui/text-highlight.jsx";
+import BackgroundShapes from "@/components/ui/background-shapes.jsx";
 
 const CTASection = () => {
   return (
-    <section className="relative overflow-hidden py-28" style={{ background: 'var(--bg-secondary)' }}>
-      {/* Background decorativo criativo */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(61, 61, 58, 0.1) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(61, 61, 58, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '64px 64px',
-          }}
-        />
+    <section className="relative overflow-hidden bg-primary-ds py-28">
+      {/* Formas decorativas de fundo */}
+      <BackgroundShapes
+        variant="section2"
+        opacity={0.22}
+        color="#82f7b3"
+        accentColor="rgba(17, 94, 89, 0.24)"
+        accentOpacity={0.16}
+        className="opacity-90"
+      />
+      <BackgroundShapes
+        variant="orbits"
+        opacity={0.2}
+        color="rgba(130, 247, 179, 0.95)"
+        accentColor="rgba(203, 213, 225, 0.5)"
+        accentOpacity={0.14}
+        blendMode="normal"
+        className="opacity-85"
+      />
 
-        {/* Gradientes e blobs sutis */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, rgba(250, 249, 245, 0.5), rgba(255, 255, 255, 0.3), rgba(245, 244, 237, 0.6))' }} />
-        <div className="absolute -bottom-28 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full blur-[160px]" style={{ background: 'radial-gradient(circle, rgba(217, 119, 87, 0.15), transparent)' }} />
-        <div className="absolute -top-20 right-[-100px] h-[300px] w-[300px] rounded-full blur-[120px]" style={{ background: 'radial-gradient(circle, rgba(250, 249, 245, 0.8), transparent)' }} />
-
-        {/* Elementos decorativos */}
-        <div className="absolute left-20 top-20 h-32 w-32 rounded-full" style={{ border: '1px solid rgba(217, 119, 87, 0.2)' }} />
-        <div className="absolute bottom-32 right-32 h-24 w-24 rounded-full" style={{ border: '1px solid rgba(217, 119, 87, 0.15)' }} />
-      </div>
-
-      <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
+  <div className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6">
         {/* Badge com ícone */}
-        <div className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold" style={{ border: '1px solid rgba(217, 119, 87, 0.3)', background: 'rgba(217, 119, 87, 0.1)', color: '#d97757' }}>
-          <Sparkles className="h-4 w-4" />
+        <div className="inline-flex items-center gap-2 rounded-full border-2 border-green-30 bg-green-ds/10 px-4 py-2 text-xs font-semibold text-primary-ds uppercase tracking-wider">
+          <Sparkles className="h-3.5 w-3.5 text-green-ds" />
           Liberamos convites a cada nova turma
         </div>
 
-        <h2 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl" style={{ color: '#3d3d3a' }}>
+        <h2 className="mt-6 text-3xl font-bold tracking-tight text-primary-ds sm:text-4xl lg:text-5xl">
           Prepare-se para a próxima leva de{' '}
-          <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #d97757, #d97757)' }}>
+          <TextHighlight variant="circle" className="text-primary-ds">
             oportunidades
-          </span>
+          </TextHighlight>
         </h2>
 
-        <p className="mt-5 text-lg" style={{ color: '#3d3d3a', opacity: 0.75 }}>
+        <p className="mt-5 text-base leading-relaxed text-black-70 sm:text-lg">
           Cadastre-se para receber prioridade na abertura de vagas e acesse materiais exclusivos para acelerar sua jornada.
         </p>
 
         <div className="mt-12 grid gap-6 text-left sm:grid-cols-2">
           {/* Card Estudantes */}
-          <div className="group relative overflow-hidden rounded-3xl bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 20px 50px -30px rgba(61, 61, 58, 0.15)' }}>
+          <div className="group relative overflow-hidden rounded-2xl border-2 border-black-10 bg-white-ds p-8 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-green-ds hover:shadow-xl">
             {/* Glow effect on hover */}
-            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'rgba(217, 119, 87, 0.15)' }} />
+            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-green-ds/20 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100" />
 
             <div className="relative">
               <div className="mb-4 flex items-center justify-between">
-                <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#d97757' }}>Para estudantes</p>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: 'rgba(217, 119, 87, 0.1)' }}>
-                  <Rocket className="h-6 w-6" style={{ color: '#d97757' }} />
+                <p className="text-xs font-semibold uppercase tracking-wider text-black-50">Para estudantes</p>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-ds/10">
+                  <Rocket className="h-5 w-5 text-green-ds" />
                 </div>
               </div>
 
-              <h3 className="text-2xl font-semibold" style={{ color: '#3d3d3a' }}>Garanta seu acesso antecipado</h3>
-              <p className="mt-4 text-sm leading-relaxed" style={{ color: '#3d3d3a', opacity: 0.7 }}>
+              <h3 className="text-xl font-semibold text-primary-ds">Garanta seu acesso antecipado</h3>
+              <p className="mt-3 text-sm leading-relaxed text-black-70">
                 Receba convites para mentorias, acesso ao radar semanal e vagas com alta afinidade assim que abrirem.
               </p>
 
               <SmartLink to="/register">
-                <Button
-                  variant="cta"
-                  size="lg"
-                  className="mt-6 h-12 w-full rounded-full text-white transition-all"
-                >
+                <button className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-green-ds px-6 py-3 text-sm font-bold text-primary-ds transition-all duration-200 hover:bg-green-hover-ds hover:shadow-lg focus:ring-4 focus:ring-green-20">
                   Criar minha conta
-                </Button>
+                </button>
               </SmartLink>
             </div>
           </div>
 
           {/* Card Empresas */}
-          <div className="group relative overflow-hidden rounded-3xl bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 20px 50px -30px rgba(61, 61, 58, 0.15)' }}>
+          <div className="group relative overflow-hidden rounded-2xl border-2 border-black-10 bg-white-ds p-8 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-green-ds hover:shadow-xl">
             {/* Glow effect on hover */}
-            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'rgba(217, 119, 87, 0.12)' }} />
+            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-green-ds/20 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100" />
 
             <div className="relative">
               <div className="mb-4 flex items-center justify-between">
-                <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#d97757' }}>Para empresas</p>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: 'rgba(217, 119, 87, 0.1)' }}>
-                  <Users className="h-6 w-6" style={{ color: '#d97757' }} />
+                <p className="text-xs font-semibold uppercase tracking-wider text-black-50">Para empresas</p>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-ds/10">
+                  <Users className="h-5 w-5 text-green-ds" />
                 </div>
               </div>
 
-              <h3 className="text-2xl font-semibold" style={{ color: '#3d3d3a' }}>Construa seu pipeline com IA</h3>
-              <p className="mt-4 text-sm leading-relaxed" style={{ color: '#3d3d3a', opacity: 0.7 }}>
+              <h3 className="text-xl font-semibold text-primary-ds">Construa seu pipeline com IA</h3>
+              <p className="mt-3 text-sm leading-relaxed text-black-70">
                 Acesse o portal de empresas, publique vagas padronizadas e tenha feedback obrigatório integrado.
               </p>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 <SmartLink to="/contato-comercial">
-                  <Button
-                    size="lg"
-                    className="h-12 w-full rounded-full text-white transition-all"
-                    style={{ background: '#3d3d3a', boxShadow: '0 8px 24px rgba(217, 119, 87, 0.3)' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 12px 32px rgba(217, 119, 87, 0.4)' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(217, 119, 87, 0.3)' }}
-                  >
+                  <button className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-black-ds px-6 py-3 text-sm font-bold text-white-ds transition-all duration-200 hover:bg-black-hover-ds hover:shadow-lg focus:ring-4 focus:ring-green-20">
                     Falar com time
-                  </Button>
+                  </button>
                 </SmartLink>
                 <SmartLink to="/" forceSubdomain="empresas">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="h-12 w-full rounded-full bg-transparent transition-all hover:bg-opacity-5"
-                    style={{ border: '2px solid #3d3d3a', color: '#3d3d3a' }}
-                  >
+                  <button className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border-2 border-black-10 bg-transparent px-6 py-3 text-sm font-bold text-primary-ds transition-all duration-200 hover:border-green-ds hover:bg-green-ds/10 focus:ring-4 focus:ring-green-20">
                     Acessar portal
-                  </Button>
+                  </button>
                 </SmartLink>
               </div>
             </div>

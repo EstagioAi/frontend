@@ -44,27 +44,27 @@ const getInitials = (text) =>
 
 const CompaniesTestimonialsSection = () => {
   return (
-    <section className="overflow-hidden bg-white py-24">
+    <section className="overflow-hidden bg-white-ds py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:gap-20">
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-emerald-600">
+            <div className="inline-flex items-center gap-2 rounded-full border-2 border-green-ds bg-green-ds/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-green-ds">
               <Star className="h-4 w-4" />
               Prova social
             </div>
-            <h2 className="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-3xl font-semibold leading-tight text-primary-ds sm:text-4xl">
               Operações de recrutamento modernas confiam no EstágioAI
             </h2>
-            <p className="max-w-xl text-base text-slate-600 sm:text-lg">
+            <p className="max-w-xl text-base text-black-70 sm:text-lg">
               Dos primeiros estágios a programas robustos de talentos, somos o parceiro para times que precisam escalar
               contratações sem perder qualidade.
             </p>
 
-            <div className="hidden flex-wrap items-center gap-3 text-xs uppercase tracking-[0.28em] text-slate-400 sm:flex">
+            <div className="hidden flex-wrap items-center gap-3 text-xs uppercase tracking-[0.28em] text-black-50 sm:flex">
               {supportingBrands.map(brand => (
                 <span
                   key={brand}
-                  className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-[11px] font-semibold tracking-[0.28em] text-slate-500"
+                  className="rounded-full border-2 border-black-10 bg-primary-ds px-4 py-2 text-[11px] font-semibold tracking-[0.28em] text-black-70"
                 >
                   {brand}
                 </span>
@@ -73,9 +73,9 @@ const CompaniesTestimonialsSection = () => {
 
             <div className="grid gap-4 sm:grid-cols-2">
               {stats.map(stat => (
-                <div key={stat.label} className="rounded-2xl border border-slate-200/70 bg-slate-50/70 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">{stat.label}</p>
-                  <p className="mt-3 text-2xl font-semibold text-slate-900">{stat.value}</p>
+                <div key={stat.label} className="rounded-2xl border-2 border-black-10 bg-primary-ds p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black-50">{stat.label}</p>
+                  <p className="mt-3 text-2xl font-semibold text-primary-ds">{stat.value}</p>
                 </div>
               ))}
             </div>
@@ -83,9 +83,9 @@ const CompaniesTestimonialsSection = () => {
 
           <div className="space-y-6">
             {testimonials.map(testimonial => (
-              <article key={testimonial.name} className="rounded-[32px] border border-slate-200/80 bg-white p-8 shadow-[0px_26px_60px_rgba(15,23,42,0.12)]">
+              <article key={testimonial.name} className="rounded-2xl border-2 border-black-10 bg-white-ds p-8 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-green-ds hover:shadow-xl">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-sm font-semibold text-slate-600">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-black-10 bg-primary-ds text-sm font-semibold text-black-70">
                     {getInitials(testimonial.company)}
                   </div>
                   <div>

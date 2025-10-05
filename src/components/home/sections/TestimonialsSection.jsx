@@ -13,7 +13,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
+    <section className="relative overflow-hidden bg-white-ds py-24">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-[-280px] mx-auto h-[520px] w-[520px] rounded-full bg-[#6FFFC7]/15 blur-3xl" />
       </div>
@@ -37,10 +37,10 @@ const TestimonialsSection = () => {
             {[...testimonials, ...testimonials].map((testimonial, idx) => (
               <div
                 key={`${testimonial.name}-${idx}`}
-                className="flex w-[280px] flex-shrink-0 flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_25px_60px_-50px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 sm:w-[320px] md:w-[360px]"
+                className="flex w-[280px] flex-shrink-0 flex-col rounded-3xl border border-slate-200 bg-white-ds p-6 shadow-[0_25px_60px_-50px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 sm:w-[320px] md:w-[360px]"
               >
                 <div className="mb-5 flex items-center gap-4">
-                  <div className="grid h-12 w-12 place-items-center rounded-full bg-[#02161F] text-lg font-semibold text-white">
+                  <div className="grid h-12 w-12 place-items-center rounded-full bg-[#02161F] text-lg font-semibold text-white-ds">
                     {testimonial.avatar}
                   </div>
                   <div>

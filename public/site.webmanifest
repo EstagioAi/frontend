@@ -13,12 +13,12 @@
   "categories": ["education", "business", "productivity", "career"],
   "icons": [
     {
-      "src": "/favicon.ico",
+      "src": "/images/logos/favicon.ico",
       "sizes": "16x16 32x32 48x48",
       "type": "image/x-icon"
     },
     {
-      "src": "/logo.svg",
+      "src": "/images/logos/logo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
@@ -53,7 +53,7 @@
       "url": "/vagas",
       "icons": [
         {
-          "src": "/logo.svg",
+          "src": "/images/logos/logo.svg",
           "sizes": "96x96",
           "type": "image/svg+xml"
         }
@@ -66,7 +66,7 @@
       "url": "/empresas",
       "icons": [
         {
-          "src": "/logo.svg",
+          "src": "/images/logos/logo.svg",
           "sizes": "96x96",
           "type": "image/svg+xml"
         }
@@ -79,7 +79,7 @@
       "url": "/contato",
       "icons": [
         {
-          "src": "/logo.svg",
+          "src": "/images/logos/logo.svg",
           "sizes": "96x96",
           "type": "image/svg+xml"
         }

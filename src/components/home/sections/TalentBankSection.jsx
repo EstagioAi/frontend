@@ -32,7 +32,7 @@ const TalentBankSection = () => {
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-semibold shadow-sm" style={{ border: '1px solid rgba(217, 119, 87, 0.3)', color: '#d97757' }}>
+          <div className="inline-flex items-center gap-2 rounded-full bg-white-ds px-4 py-1.5 text-sm font-semibold shadow-sm" style={{ border: '1px solid rgba(217, 119, 87, 0.3)', color: '#d97757' }}>
             <Database className="h-4 w-4" />
             Banco de talentos automático
           </div>
@@ -47,7 +47,7 @@ const TalentBankSection = () => {
 
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
           <div className="space-y-8">
-            <div className="rounded-3xl bg-white p-6" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 25px 60px -50px rgba(61, 61, 58, 0.25)' }}>
+            <div className="rounded-3xl bg-white-ds p-6" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 25px 60px -50px rgba(61, 61, 58, 0.25)' }}>
               <h3 className="text-lg font-semibold" style={{ color: '#3d3d3a' }}>Como acontece</h3>
               <p className="mt-3 text-sm leading-relaxed" style={{ color: '#3d3d3a', opacity: 0.7 }}>
                 Quando você aplica em uma vaga, a empresa pode te convidar para outras posições com base no match. Tudo com consentimento e controle do estudante.
@@ -59,7 +59,7 @@ const TalentBankSection = () => {
               </ul>
             </div>
 
-            <div className="rounded-3xl bg-white p-6" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 25px 60px -50px rgba(61, 61, 58, 0.25)' }}>
+            <div className="rounded-3xl bg-white-ds p-6" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 25px 60px -50px rgba(61, 61, 58, 0.25)' }}>
               <div className="flex items-center gap-3">
                 <Users className="h-10 w-10 rounded-2xl p-2" style={{ background: 'rgba(217, 119, 87, 0.1)', color: '#d97757' }} />
                 <div>
@@ -74,12 +74,12 @@ const TalentBankSection = () => {
           </div>
 
           <div className="relative mx-auto w-full max-w-xl">
-            <div className="absolute -top-6 -right-4 hidden rounded-3xl bg-white/80 px-4 py-3 text-sm shadow-lg backdrop-blur-sm sm:flex sm:flex-col" style={{ color: '#3d3d3a' }}>
+            <div className="absolute -top-6 -right-4 hidden rounded-3xl bg-white-ds/80 px-4 py-3 text-sm shadow-lg backdrop-blur-sm sm:flex sm:flex-col" style={{ color: '#3d3d3a' }}>
               <span className="font-semibold">+5 empresas</span>
               <span className="text-xs" style={{ color: '#3d3d3a', opacity: 0.6 }}>aguardando seu ok</span>
             </div>
 
-            <div className="overflow-hidden rounded-[32px] bg-white p-6" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 45px 90px -60px rgba(61, 61, 58, 0.3)' }}>
+            <div className="overflow-hidden rounded-[32px] bg-white-ds p-6" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 45px 90px -60px rgba(61, 61, 58, 0.3)' }}>
               <div className="mb-6 flex items-center justify-between">
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#3d3d3a', opacity: 0.4 }}>convites recentes</p>
@@ -105,19 +105,19 @@ const TalentBankSection = () => {
               </div>
             </div>
 
-            <div className="absolute -bottom-6 -left-4 hidden rounded-3xl px-4 py-3 text-sm text-white shadow-lg sm:flex sm:flex-col" style={{ background: '#d97757' }}>
+            <div className="absolute -bottom-6 -left-4 hidden rounded-3xl px-4 py-3 text-sm text-white-ds shadow-lg sm:flex sm:flex-col" style={{ background: '#d97757' }}>
               <span className="font-semibold">89% match</span>
-              <span className="text-xs text-white/70">Amazon Brasil</span>
+              <span className="text-xs text-white-ds/70">Amazon Brasil</span>
             </div>
           </div>
         </div>
 
-        <div className="mx-auto mt-16 max-w-4xl rounded-[32px] bg-white p-10 text-center" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 45px 95px -60px rgba(61, 61, 58, 0.2)' }}>
+        <div className="mx-auto mt-16 max-w-4xl rounded-[32px] bg-white-ds p-10 text-center" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 45px 95px -60px rgba(61, 61, 58, 0.2)' }}>
           <h3 className="text-2xl font-semibold" style={{ color: '#3d3d3a' }}>Comece agora e esteja disponível para as próximas turmas</h3>
           <p className="mt-4 text-sm" style={{ color: '#3d3d3a', opacity: 0.7 }}>
             Quanto mais você participa, maior sua presença nas recomendações. Ative o radar e receba convites sem precisar procurar.
           </p>
-          <button className="mt-6 rounded-xl px-8 py-3 text-sm font-semibold text-white transition hover:opacity-90" style={{ background: '#d97757' }}>
+          <button className="mt-6 rounded-xl px-8 py-3 text-sm font-semibold text-white-ds transition hover:opacity-90" style={{ background: '#d97757' }}>
             Encontrar vagas agora
           </button>
         </div>

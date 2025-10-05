@@ -1,357 +1,402 @@
-import React, { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button.jsx'
-import { Menu, X, Building2, HelpCircle, Tags, FileText, PhoneCall, GraduationCap, BookOpen, Shield, ShieldCheck } from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useState, useEffect, useRef } from 'react'
+import { Menu, X, ChevronDown, Building2, Phone, Tag, CreditCard, Shield, GraduationCap, HelpCircle, BookOpen, FileText } from 'lucide-react'
+import { useLocation } from 'react-router-dom'
 import { SmartLink } from '@/components/ui/smart-link.jsx'
-
-
-const TopBar = () => {
-  const [openEmp, setOpenEmp] = useState(false)
-  const [openUni, setOpenUni] = useState(false)
-
-  return (
-    <>
-      <a href="#main-content" className="skip-to-main">
-        Pular para o conteúdo principal
-      </a>
-      <div className="w-full" style={{  background: 'rgba(26, 26, 25, 1)' }}>
-      <div className="mx-auto flex h-7 max-w-7xl items-center justify-end gap-4 px-6 text-[13px] lg:px-8">
-        {/* Para empresas */}
-        <div className="relative" onMouseLeave={() => setOpenEmp(false)} onMouseEnter={() => setOpenEmp(true)}>
-          <button
-            onClick={() => { setOpenEmp(v => !v); setOpenUni(false) }}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 font-medium transition"
-            style={{ color: '#ffffffff' }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#d97757'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#ffffffff'}
-            aria-haspopup="menu"
-            aria-expanded={openEmp}
-          >
-            Para empresas
-            <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.084l3.71-3.854a.75.75 0 011.08 1.04l-4.24 4.4a.75.75 0 01-1.08 0l-4.24-4.4a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-            </svg>
-          </button>
-          {openEmp && (
-            <div className="absolute right-0 top-full z-50 pt-2" onMouseEnter={() => setOpenEmp(true)}>
-              <div className="w-72 overflow-hidden rounded-2xl bg-white/95 backdrop-blur-xl shadow-xl" style={{ border: '1px solid rgba(217, 119, 87, 0.2)', boxShadow: '0 20px 50px -30px rgba(217, 119, 87, 0.3)' }}>
-                <div className="px-4 py-2.5 text-xs font-semibold" style={{ background: 'linear-gradient(to right, rgba(217, 119, 87, 0.1), rgba(245, 244, 237, 0.3))', color: '#3d3d3a' }}>Para empresas</div>
-                <div className="p-2">
-                  <SmartLink to="/" forceSubdomain="empresas" className="group mb-1 flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" style={{ borderBottom: '1px solid rgba(217, 119, 87, 0.15)' }} onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg text-white shadow-sm" style={{ background: 'linear-gradient(to bottom right, #d97757, #e89b7d)' }}><Building2 className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-semibold" style={{ color: '#3d3d3a' }}>Portal de Empresas</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Acesse sua área exclusiva</div>
-                    </div>
-                  </SmartLink>
-                  <SmartLink to="/suporte-para-empresas" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><Building2 className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Suporte para empresas</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Atendimento e documentação</div>
-                    </div>
-                  </SmartLink>
-                  <SmartLink to="/como-publicar-vagas" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><Tags className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Como publicar vagas</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Passo a passo para anunciar</div>
-                    </div>
-                  </SmartLink>
-                  <SmartLink to="/planos-e-precos" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><FileText className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Planos e preços</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Escolha o melhor para você</div>
-                    </div>
-                  </SmartLink>
-                  <SmartLink to="/termos-de-servico" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><Shield className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Termos de serviço</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Condições de utilização</div>
-                    </div>
-                  </SmartLink>
-                  <SmartLink to="/contato-comercial" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><PhoneCall className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Contato comercial</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Fale com nosso time</div>
-                    </div>
-                  </SmartLink>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className="relative" onMouseLeave={() => setOpenUni(false)} onMouseEnter={() => setOpenUni(true)}>
-          <button
-            onClick={() => { setOpenUni(v => !v); setOpenEmp(false) }}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 font-medium transition"
-            style={{ color: '#ffffffff' }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#d97757'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#ffffffff'}
-            aria-haspopup="menu"
-            aria-expanded={openUni}
-          >
-            Para universitários
-            <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.084l3.71-3.854a.75.75 0 011.08 1.04l-4.24 4.4a.75.75 0 01-1.08 0l-4.24-4.4a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-            </svg>
-          </button>
-          {openUni && (
-            <div className="absolute right-0 top-full z-50 pt-2" onMouseEnter={() => setOpenUni(true)}>
-              <div className="w-72 overflow-hidden rounded-2xl bg-white/95 backdrop-blur-xl shadow-xl" style={{ border: '1px solid rgba(217, 119, 87, 0.2)', boxShadow: '0 20px 50px -30px rgba(217, 119, 87, 0.3)' }}>
-                <div className="px-4 py-2.5 text-xs font-semibold" style={{ background: 'linear-gradient(to right, rgba(217, 119, 87, 0.1), rgba(245, 244, 237, 0.3))', color: '#3d3d3a' }}>Para universitários</div>
-                <div className="p-2">
-                  <SmartLink to="/suporte-para-universitarios" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><GraduationCap className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Suporte para universitários</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Ajuda para sua jornada</div>
-                    </div>
-                  </SmartLink>
-                  <SmartLink to="/central-de-ajuda" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><HelpCircle className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Central de ajuda</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Perguntas frequentes</div>
-                    </div>
-                  </SmartLink>
-                  <SmartLink to="/como-melhorar-seu-perfil" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><BookOpen className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Como melhorar seu perfil</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Dicas práticas</div>
-                    </div>
-                  </SmartLink>
-                  <SmartLink to="/termos-de-uso" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><FileText className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Termos de uso</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Regras da plataforma</div>
-                    </div>
-                  </SmartLink>
-                  <SmartLink to="/politica-de-privacidade" className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all" onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                    <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ background: 'rgba(217, 119, 87, 0.15)', color: '#d97757' }}><Shield className="h-4 w-4" /></span>
-                    <div>
-                      <div className="text-sm font-medium" style={{ color: '#3d3d3a' }}>Política de Privacidade</div>
-                      <div className="text-xs" style={{ color: '#6b6b68' }}>Seus dados e direitos</div>
-                    </div>
-                  </SmartLink>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-    </>
-  )
-}
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [empresasDropdownOpen, setEmpresasDropdownOpen] = useState(false)
+  const [universitariosDropdownOpen, setUniversitariosDropdownOpen] = useState(false)
   const location = useLocation()
+  const empresasDropdownRef = useRef(null)
+  const universitariosDropdownRef = useRef(null)
 
-  // Close mobile menu on route change
   useEffect(() => {
-    if (mobileOpen) setMobileOpen(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname])
+    setMobileOpen(false)
+    setEmpresasDropdownOpen(false)
+    setUniversitariosDropdownOpen(false)
+  }, [location])
 
-  // Handle scroll effect
+  // Close dropdowns when clicking outside
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+    const handleClickOutside = (event) => {
+      if (empresasDropdownRef.current && !empresasDropdownRef.current.contains(event.target)) {
+        setEmpresasDropdownOpen(false)
+      }
+      if (universitariosDropdownRef.current && !universitariosDropdownRef.current.contains(event.target)) {
+        setUniversitariosDropdownOpen(false)
+      }
     }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
   return (
-    <div className="sticky top-0 z-40 w-full">
-      {/* Top support bar with right-aligned dropdowns */}
-      <TopBar />
-
-      {/* Main navbar - Estilo Koala */}
-      <nav 
-        className="w-full transition-all duration-300"
-        style={{
-          background: 'rgba(255, 255, 255, 0)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-        }}
+    <>
+      <a 
+        href="#main-content" 
+        className="skip-to-main sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-green-ds focus:text-primary-ds focus:rounded-lg focus:font-bold focus:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-20"
       >
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex items-center justify-between py-5">
-            {/* Logo */}
-            <SmartLink to="/" className="flex items-center shrink-0">
-              <img src="/images/logos/logo.svg" alt="estagioAI" className="h-1  w-[150px]" width="20" height="32" loading="eager" fetchPriority="high" decoding="async" />
-            </SmartLink>
+        Pular para o conteúdo principal
+      </a>
 
-            {/* Center menu - Estilo Koala (simples e clean) */}
-            <div className="hidden lg:flex items-center gap-1">
-              <SmartLink 
-                className="px-4 py-2 text-[15px] font-medium transition-colors" 
-                style={{ color: '#6b6b68' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#d97757'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#6b6b68'}
-                to="/"
-              >
-                Home
-              </SmartLink>
-              <SmartLink 
-                className="px-4 py-2 text-[15px] font-medium transition-colors" 
-                style={{ color: '#6b6b68' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#d97757'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#6b6b68'}
-                to="/sobre"
-              >
-                Sobre
-              </SmartLink>
-              <SmartLink 
-                className="px-4 py-2 text-[15px] font-medium transition-colors" 
-                style={{ color: '#6b6b68' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#d97757'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#6b6b68'}
-                to="/radar-de-vagas"
-              >
-                Vagas
-              </SmartLink>
-              <SmartLink 
-                className="px-4 py-2 text-[15px] font-medium transition-colors" 
-                style={{ color: '#6b6b68' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#d97757'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#6b6b68'}
-                to="/blog"
-              >
-                Blog
-              </SmartLink>
-              <SmartLink 
-                className="px-4 py-2 text-[15px] font-medium transition-colors" 
-                style={{ color: '#6b6b68' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#d97757'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#6b6b68'}
-                to="/planos-e-precos"
-              >
-                Preços
-              </SmartLink>
-            </div>
+      {/* Wrapper to include slim top bar + main navbar */}
+      <nav className="sticky top-0 z-50 w-full transition-all duration-200" role="navigation" aria-label="Navegação principal">
+        {/* Top utility bar (dark) */}
+        <div className="hidden md:block bg-[#171717] text-white-ds text-sm border-b border-black/40" role="banner" aria-label="Barra de utilitários">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-end gap-8 h-8">
+            <nav className="flex items-center gap-6 font-medium" role="navigation" aria-label="Links de acesso rápido">
+              {/* Dropdown Para Empresas */}
+              <div className="relative" ref={empresasDropdownRef}>
+                <button
+                  onClick={() => {
+                    setEmpresasDropdownOpen(!empresasDropdownOpen)
+                    setUniversitariosDropdownOpen(false)
+                  }}
+                  className="inline-flex items-center gap-1 hover:text-green-ds transition-colors"
+                  aria-label="Acesso para empresas"
+                  aria-expanded={empresasDropdownOpen}
+                >
+                  Para empresas <ChevronDown className={`w-3.5 h-3.5 opacity-70 transition-transform ${empresasDropdownOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
+                </button>
 
-            {/* Right actions - Estilo Koala */}
-            <div className="hidden items-center gap-3 lg:flex">
-              <SmartLink to="/login">
-                <Button variant="secondary" size="sm">
-                  Entrar
-                </Button>
-              </SmartLink>
-              <SmartLink to="/register">
-                <Button variant="primary" size="sm">
-                  Criar conta
-                </Button>
-              </SmartLink>
-            </div>
+                {/* Dropdown Menu - Empresas */}
+                {empresasDropdownOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-80 rounded-2xl border border-black-05 bg-white-ds/95 backdrop-blur-sm p-6 shadow-xl z-[100]">
+                    <h3 className="mb-5 text-sm font-semibold text-black-70">Para empresas</h3>
+                    <div className="space-y-0.5">
+                      <SmartLink to="/" forceSubdomain="empresas" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <Building2 className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Portal de Empresas</div>
+                          <div className="text-xs text-black-60">Acesse sua área exclusiva</div>
+                        </div>
+                      </SmartLink>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden ml-auto">
-            <button
-              aria-controls="mobile-menu"
-              aria-expanded={mobileOpen}
-              aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-              onClick={() => setMobileOpen(v => !v)}
-              className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2 rounded-lg text-slate-700 hover:bg-[rgba(217,119,87,0.05)] transition-colors touch-target"
-            >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+                      <SmartLink to="/suporte-empresas" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <HelpCircle className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Suporte para empresas</div>
+                          <div className="text-xs text-black-60">Atendimento e documentação</div>
+                        </div>
+                      </SmartLink>
+
+                      <SmartLink to="/publicar-vagas" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <Tag className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Como publicar vagas</div>
+                          <div className="text-xs text-black-60">Passo a passo para anunciar</div>
+                        </div>
+                      </SmartLink>
+
+                      <SmartLink to="/planos-e-precos" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <CreditCard className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Planos e preços</div>
+                          <div className="text-xs text-black-60">Escolha o melhor para você</div>
+                        </div>
+                      </SmartLink>
+
+                      <SmartLink to="/termos-de-servico" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <Shield className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Termos de serviço</div>
+                          <div className="text-xs text-black-60">Condições de utilização</div>
+                        </div>
+                      </SmartLink>
+
+                      <SmartLink to="/contato-comercial" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <Phone className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Contato comercial</div>
+                          <div className="text-xs text-black-60">Fale com nosso time</div>
+                        </div>
+                      </SmartLink>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Dropdown Para Universitários */}
+              <div className="relative" ref={universitariosDropdownRef}>
+                <button
+                  onClick={() => {
+                    setUniversitariosDropdownOpen(!universitariosDropdownOpen)
+                    setEmpresasDropdownOpen(false)
+                  }}
+                  className="inline-flex items-center gap-1 hover:text-green-ds transition-colors"
+                  aria-label="Acesso para universitários"
+                  aria-expanded={universitariosDropdownOpen}
+                >
+                  Para universitários <ChevronDown className={`w-3.5 h-3.5 opacity-70 transition-transform ${universitariosDropdownOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
+                </button>
+
+                {/* Dropdown Menu - Universitários */}
+                {universitariosDropdownOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-80 rounded-2xl border border-black-05 bg-white-ds/95 backdrop-blur-sm p-6 shadow-xl z-[100]">
+                    <h3 className="mb-5 text-sm font-semibold text-black-70">Para universitários</h3>
+                    <div className="space-y-0.5">
+                      <SmartLink to="/suporte-estudantes" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <GraduationCap className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Suporte para universitários</div>
+                          <div className="text-xs text-black-60">Ajuda para sua jornada</div>
+                        </div>
+                      </SmartLink>
+
+                      <SmartLink to="/central-de-ajuda" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <HelpCircle className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Central de ajuda</div>
+                          <div className="text-xs text-black-60">Perguntas frequentes</div>
+                        </div>
+                      </SmartLink>
+
+                      <SmartLink to="/melhorar-perfil" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <BookOpen className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Como melhorar seu perfil</div>
+                          <div className="text-xs text-black-60">Dicas práticas</div>
+                        </div>
+                      </SmartLink>
+
+                      <SmartLink to="/termos-de-uso" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <FileText className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Termos de uso</div>
+                          <div className="text-xs text-black-60">Regras da plataforma</div>
+                        </div>
+                      </SmartLink>
+
+                      <SmartLink to="/politica-de-privacidade" className="group flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-[#fff5f2]">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#ffe8e0]">
+                          <Shield className="h-4 w-4 text-[#d97757]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-primary-ds">Política de Privacidade</div>
+                          <div className="text-xs text-black-60">Seus dados e direitos</div>
+                        </div>
+                      </SmartLink>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </nav>
           </div>
         </div>
 
-        {/* Mobile collapsible menu - Estilo Koala */}
+        {/* Main navbar - translucent over white */}
+        <div className="bg-white-ds/80 backdrop-blur-md border-b border-black-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between py-3">
+            {/* Logo - Left */}
+            <SmartLink to="/" className="flex items-center shrink-0" aria-label="EstágioAI - Página inicial">
+              <img
+                src="/images/logos/logo.svg"
+                alt="EstágioAI - Logotipo"
+                className="h-12 w-auto"
+                width="128"
+                height="32"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </SmartLink>
+
+            {/* Center menu - Desktop */}
+            <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2" role="navigation" aria-label="Menu principal">
+              <SmartLink
+                className="px-4 py-2 text-sm font-medium text-primary-ds transition-colors duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
+                to="/"
+                aria-label="Ir para página inicial"
+              >
+                Home
+              </SmartLink>
+              <SmartLink
+                className="px-4 py-2 text-sm font-medium text-primary-ds transition-colors duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
+                to="/sobre"
+                aria-label="Saiba mais sobre nós"
+              >
+                Sobre
+              </SmartLink>
+              <SmartLink
+                className="px-4 py-2 text-sm font-medium text-primary-ds transition-colors duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
+                to="/vagas"
+                aria-label="Ver vagas disponíveis"
+              >
+                Vagas
+              </SmartLink>
+              <SmartLink
+                className="px-4 py-2 text-sm font-medium text-primary-ds transition-colors duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
+                to="/blog"
+                aria-label="Ler nosso blog"
+              >
+                Blog
+              </SmartLink>
+              <SmartLink
+                className="px-4 py-2 text-sm font-medium text-primary-ds transition-colors duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
+                to="/precos"
+                aria-label="Ver preços"
+              >
+                Preços
+              </SmartLink>
+            </nav>
+
+            {/* Right actions - Desktop */}
+            <div className="hidden items-center gap-3 lg:flex" role="group" aria-label="Ações de autenticação">
+              <SmartLink to="/login" className="inline-flex">
+                <button
+                  className="relative inline-flex items-center justify-center rounded-lg px-5 h-9 text-sm font-medium tracking-wide text-primary-ds border-2 border-black-20 bg-white-ds hover:border-green-ds hover:bg-green-ds/5 transition-all"
+                  aria-label="Fazer login na sua conta"
+                >
+                  Entrar
+                </button>
+              </SmartLink>
+              <SmartLink to="/register" className="inline-flex">
+                <button
+                  className="relative inline-flex items-center justify-center rounded-lg px-5 h-9 text-sm font-medium tracking-wide text-primary-ds bg-green-ds border-2 border-green-ds hover:bg-[#6ee09d] hover:border-[#6ee09d] transition-all shadow-sm"
+                  aria-label="Criar uma nova conta"
+                >
+                  Criar conta
+                </button>
+              </SmartLink>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="lg:hidden ml-auto">
+              <button
+                aria-controls="mobile-menu"
+                aria-expanded={mobileOpen}
+                aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+                onClick={() => setMobileOpen(v => !v)}
+                className="inline-flex items-center justify-center min-w-[44px] min-h-[44px] p-2 rounded-lg text-primary-ds hover:bg-green-ds/10 transition-all duration-200"
+              >
+                {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile collapsible menu */}
         <div
           id="mobile-menu"
-          className={`lg:hidden overflow-hidden border-t border-slate-200 bg-white transition-[max-height] duration-300 ease-in-out ${mobileOpen ? 'max-h-[500px]' : 'max-h-0'}`}
+          className={`lg:hidden overflow-hidden border-t-2 border-black-10 bg-white-ds transition-[max-height] duration-300 ease-in-out ${mobileOpen ? 'max-h-[700px]' : 'max-h-0'}`}
+          role="region"
+          aria-label="Menu de navegação móvel"
+          aria-hidden={!mobileOpen}
         >
+          {/* Top utility links inside mobile menu */}
+          <div className="px-4 pt-4 pb-2 border-b border-black-10 flex flex-col gap-2 text-sm font-medium">
+            <SmartLink
+              to="/empresas"
+              className="inline-flex items-center gap-1 text-primary-ds hover:text-green-ds transition-colors"
+              aria-label="Acesso para empresas"
+            >
+              Para empresas <ChevronDown className="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
+            </SmartLink>
+            <SmartLink
+              to="/universidades"
+              className="inline-flex items-center gap-1 text-primary-ds hover:text-green-ds transition-colors"
+              aria-label="Acesso para universitários"
+            >
+              Para universitários <ChevronDown className="w-3.5 h-3.5 opacity-70" aria-hidden="true" />
+            </SmartLink>
+          </div>
           <div className="px-4 py-4 space-y-1">
-            <nav>
-              <ul className="flex flex-col gap-0.5">
-                <li>
-                  <SmartLink 
-                    className="block px-4 py-2.5 text-[15px] font-medium transition-colors rounded-lg" 
-                    style={{ color: '#6b6b68' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#d97757'; e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = '#6b6b68'; e.currentTarget.style.background = 'transparent' }}
+            <nav role="navigation" aria-label="Menu principal móvel">
+              <ul className="flex flex-col gap-0.5" role="list">
+                <li role="listitem">
+                  <SmartLink
+                    className="block px-4 py-2.5 text-sm font-medium text-primary-ds transition-all duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
                     to="/"
+                    aria-label="Ir para página inicial"
                   >
                     Home
                   </SmartLink>
                 </li>
-                <li>
-                  <SmartLink 
-                    className="block px-4 py-2.5 text-[15px] font-medium transition-colors rounded-lg" 
-                    style={{ color: '#6b6b68' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#d97757'; e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = '#6b6b68'; e.currentTarget.style.background = 'transparent' }}
+                <li role="listitem">
+                  <SmartLink
+                    className="block px-4 py-2.5 text-sm font-medium text-primary-ds transition-all duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
                     to="/sobre"
+                    aria-label="Saiba mais sobre nós"
                   >
                     Sobre
                   </SmartLink>
                 </li>
-                <li>
-                  <SmartLink 
-                    className="block px-4 py-2.5 text-[15px] font-medium transition-colors rounded-lg" 
-                    style={{ color: '#6b6b68' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#d97757'; e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = '#6b6b68'; e.currentTarget.style.background = 'transparent' }}
-                    to="/radar-de-vagas"
+                <li role="listitem">
+                  <SmartLink
+                    className="block px-4 py-2.5 text-sm font-medium text-primary-ds transition-all duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
+                    to="/vagas"
+                    aria-label="Ver vagas disponíveis"
                   >
                     Vagas
                   </SmartLink>
                 </li>
-                <li>
-                  <SmartLink 
-                    className="block px-4 py-2.5 text-[15px] font-medium transition-colors rounded-lg" 
-                    style={{ color: '#6b6b68' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#d97757'; e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = '#6b6b68'; e.currentTarget.style.background = 'transparent' }}
+                <li role="listitem">
+                  <SmartLink
+                    className="block px-4 py-2.5 text-sm font-medium text-primary-ds transition-all duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
                     to="/blog"
+                    aria-label="Ler nosso blog"
                   >
                     Blog
                   </SmartLink>
                 </li>
-                <li>
-                  <SmartLink 
-                    className="block px-4 py-2.5 text-[15px] font-medium transition-colors rounded-lg" 
-                    style={{ color: '#6b6b68' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#d97757'; e.currentTarget.style.background = 'rgba(217, 119, 87, 0.05)' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = '#6b6b68'; e.currentTarget.style.background = 'transparent' }}
-                    to="/planos-e-precos"
+                <li role="listitem">
+                  <SmartLink
+                    className="block px-4 py-2.5 text-sm font-medium text-primary-ds transition-all duration-200 hover:text-primary-ds rounded-lg hover:bg-green-ds/10"
+                    to="/precos"
+                    aria-label="Ver preços"
                   >
                     Preços
                   </SmartLink>
                 </li>
               </ul>
             </nav>
-            <div className="pt-3 flex flex-col gap-2 mt-3" style={{ borderTop: '1px solid rgba(217, 119, 87, 0.15)' }}>
-              <SmartLink to="/login" className="w-full">
-                <Button variant="secondary" size="md" fullWidth>
+            <div className="pt-4 flex flex-col gap-3 mt-4 border-t-2 border-black-10" role="group" aria-label="Ações de autenticação móvel">
+              <SmartLink to="/login" className="w-full inline-flex">
+                <button
+                  className="w-full relative inline-flex items-center justify-center rounded-lg px-5 h-11 text-sm font-medium tracking-wide text-primary-ds border-2 border-black-20 bg-white-ds hover:border-green-ds hover:bg-green-ds/5 transition-all"
+                  aria-label="Fazer login na sua conta"
+                >
                   Entrar
-                </Button>
+                </button>
               </SmartLink>
-              <SmartLink to="/register" className="w-full">
-                <Button variant="primary" size="md" fullWidth>
+              <SmartLink to="/register" className="w-full inline-flex">
+                <button
+                  className="w-full relative inline-flex items-center justify-center rounded-lg px-5 h-11 text-sm font-medium tracking-wide text-primary-ds bg-green-ds border-2 border-green-ds hover:bg-[#6ee09d] hover:border-[#6ee09d] transition-all shadow-sm"
+                  aria-label="Criar uma nova conta"
+                >
                   Criar conta
-                </Button>
+                </button>
               </SmartLink>
             </div>
           </div>
         </div>
+        </div>
       </nav>
-    </div>
+    </>
   )
 }
 
 export default Navigation
-

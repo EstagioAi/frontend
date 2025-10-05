@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button.jsx";
 
-// Página de Login inspirada na imagem enviada, adaptada à paleta do site
-// Verde-principal: #01E297 | Verde-escuro: #092116 | Amarelo: #FACC15 | Cinza-escuro: #212121
+// Página de Login com novo design system verde minimalista
+// Verde-principal: #82f7b3 | Preto: #0f0f0f | Background: #f8f8f8
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -17,32 +17,34 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
+    <div className="min-h-screen bg-primary-ds">
+      <main id="main-content">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
         {/* Coluna esquerda: texto forte */}
         <div className="relative flex items-center px-6 md:px-10 py-10 overflow-hidden">
+          {/* Elementos decorativos minimalistas */}
           <div className="pointer-events-none absolute inset-0 -z-10">
-            <div className="orb orb--emerald orb-animate w-[300px] h-[300px] -top-8 -left-24"></div>
-            <div className="orb orb--purple orb-animate w-[220px] h-[220px] bottom-0 -right-10"></div>
+            <div className="absolute w-[300px] h-[300px] -top-8 -left-24 rounded-full border-[3px] border-green-ds opacity-30"></div>
+            <div className="absolute w-[220px] h-[220px] bottom-0 -right-10 bg-green-ds/10 blur-3xl rounded-full"></div>
           </div>
-          <div className="w-full max-w-xl animate-fade-in-up">
-            <p className="text-sm tracking-wider text-gray-500 font-medium mb-6">
+          <div className="w-full max-w-xl">
+            <p className="text-xs font-semibold uppercase tracking-wider text-black-50 mb-6">
               OPORTUNIDADES DE ESTÁGIO
             </p>
-            <h1 className="text-[40px] md:text-[56px] leading-[1.05] font-extrabold text-black mb-6">
+            <h1 className="text-5xl md:text-6xl leading-[1.1] font-bold tracking-tight text-primary-ds mb-6">
               Encontre seu próximo
               <br />
               estágio com mais
               <br />
               rapidez e transparência.
             </h1>
-            <div className="h-2 w-44 rounded-full bg-[var(--color-coral-primary)] mb-8" />
+            <div className="h-2 w-44 rounded-full bg-green-ds mb-8" />
 
-            <div className="mt-10 text-gray-700">
-              <span className="mr-2">Não tem conta ?</span>
+            <div className="mt-10 text-black-70">
+              <span className="mr-2">Não tem conta?</span>
               <a
                 href="/register"
-                className="font-semibold text-[var(--color-coral-primary)] underline underline-offset-4 hover:text-[var(--color-coral-light)]"
+                className="font-semibold text-green-ds underline underline-offset-4 hover:text-green-hover-ds transition-colors duration-200"
               >
                 Crie uma conta
               </a>
@@ -59,10 +61,9 @@ const Login = () => {
           />
           <div className="absolute inset-0 bg-black/35" />
 
-          {/* Cartão de login semelhante ao mock */}
-
+          {/* Cartão de login com novo design */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] md:w-[440px]">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 p-6 md:p-7 animate-scale-in">
+            <div className="rounded-2xl border-2 border-black-10 bg-white-ds shadow-lg p-6 md:p-7 transition-all duration-200">
               <div className="mb-2">
                 <a
                   href="#"
@@ -70,20 +71,20 @@ const Login = () => {
                     e.preventDefault();
                     window.history.back();
                   }}
-                  className="text-sm text-gray-600 hover:text-gray-800"
+                  className="text-sm text-black-70 hover:text-green-ds transition-colors duration-200"
                 >
                   &larr; Voltar
                 </a>
               </div>
               <div className="text-center mb-4">
-                <h2 className="text-base font-bold text-gray-900">
+                <h2 className="text-lg font-bold text-primary-ds">
                   Entrar na sua conta
                 </h2>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-primary-ds mb-1">
                     Email ou usuário
                   </label>
                   <input
@@ -91,11 +92,11 @@ const Login = () => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Digite seu email ou usuário"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
+                    className="w-full rounded-lg border-2 border-black-10 bg-white-ds px-4 py-3 text-base text-primary-ds placeholder:text-black-40 outline-none transition-all duration-200 focus:border-green-ds focus:ring-4 focus:ring-green-20"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-primary-ds mb-1">
                     Senha
                   </label>
                   <input
@@ -103,7 +104,7 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Digite sua senha"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
+                    className="w-full rounded-lg border-2 border-black-10 bg-white-ds px-4 py-3 text-base text-primary-ds placeholder:text-black-40 outline-none transition-all duration-200 focus:border-green-ds focus:ring-4 focus:ring-green-20"
                   />
                 </div>
 
@@ -113,11 +114,11 @@ const Login = () => {
                       type="checkbox"
                       checked={remember}
                       onChange={(e) => setRemember(e.target.checked)}
-                      className="rounded-md text-[var(--color-coral-primary)] focus:ring-[var(--color-coral-primary)]"
+                      className="rounded-md text-green-ds focus:ring-green-20 border-black-10"
                     />
-                    <span className="text-gray-700">Lembrar de mim</span>
+                    <span className="text-black-70">Lembrar de mim</span>
                   </label>
-                  <a href="#" className="text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]">
+                  <a href="#" className="text-green-ds hover:text-green-hover-ds transition-colors duration-200">
                     Esqueceu sua senha?
                   </a>
                 </div>
@@ -125,22 +126,24 @@ const Login = () => {
                 <Button
                   type="submit"
                   variant="primary"
-                  className="w-full h-12 rounded-[12px]"
+                  fullWidth={true}
+                  size="lg"
                 >
                   Entrar
                 </Button>
 
                 <div className="flex items-center gap-3 my-3">
-                  <div className="h-px bg-gray-200 flex-1" />
-                  <span className="text-xs text-gray-500">ou entre com</span>
-                  <div className="h-px bg-gray-200 flex-1" />
+                  <div className="h-px bg-black-ds/10 flex-1" />
+                  <span className="text-xs text-black-50">ou entre com</span>
+                  <div className="h-px bg-black-ds/10 flex-1" />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full h-11 rounded-[12px]"
+                    size="md"
+                    fullWidth={true}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +173,8 @@ const Login = () => {
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full h-11 rounded-[12px]"
+                    size="md"
+                    fullWidth={true}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -191,11 +195,11 @@ const Login = () => {
                     LinkedIn
                   </Button>
                 </div>
-                <div className="text-xs text-gray-500 text-center mt-4">
+                <div className="text-xs text-black-50 text-center mt-4">
                   Ao entrar, você concorda com nossos
                   <a
                     href="/termos-de-uso"
-                    className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
+                    className="underline underline-offset-4 text-green-ds hover:text-green-hover-ds transition-colors duration-200"
                   >
                     {" "}
                     Termos de Uso
@@ -203,7 +207,7 @@ const Login = () => {
                   ,
                   <a
                     href="/termos-de-servico"
-                    className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
+                    className="underline underline-offset-4 text-green-ds hover:text-green-hover-ds transition-colors duration-200"
                   >
                     {" "}
                     Termos de Serviço
@@ -211,7 +215,7 @@ const Login = () => {
                   e
                   <a
                     href="/politica-de-privacidade"
-                    className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
+                    className="underline underline-offset-4 text-green-ds hover:text-green-hover-ds transition-colors duration-200"
                   >
                     {" "}
                     Política de Privacidade
@@ -223,6 +227,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      </main>
     </div>
   );
 };

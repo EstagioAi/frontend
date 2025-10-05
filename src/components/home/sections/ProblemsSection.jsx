@@ -36,7 +36,7 @@ const ProblemsSection = () => {
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-semibold shadow-sm" style={{ border: '1px solid rgba(217, 119, 87, 0.3)', color: '#d97757' }}>
+          <div className="inline-flex items-center gap-2 rounded-full bg-white-ds px-4 py-1.5 text-sm font-semibold shadow-sm" style={{ border: '1px solid rgba(217, 119, 87, 0.3)', color: '#d97757' }}>
             Por que estudantes escolhem o EstágioAI
           </div>
           <h2 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl" style={{ color: '#3d3d3a' }}>
@@ -51,7 +51,7 @@ const ProblemsSection = () => {
 
         <div className="grid gap-6 md:grid-cols-2">
           {highlights.map(({ icon: Icon, title, description }) => (
-            <div key={title} className="group relative overflow-hidden rounded-3xl bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 25px 55px -40px rgba(61, 61, 58, 0.25)' }}>
+            <div key={title} className="group relative overflow-hidden rounded-3xl bg-white-ds p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" style={{ border: '1px solid rgba(217, 119, 87, 0.15)', boxShadow: '0 25px 55px -40px rgba(61, 61, 58, 0.25)' }}>
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full blur-2xl transition-opacity duration-300 group-hover:opacity-80" style={{ background: 'rgba(217, 119, 87, 0.12)' }} />
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: 'rgba(217, 119, 87, 0.1)', color: '#d97757' }}>
@@ -64,7 +64,7 @@ const ProblemsSection = () => {
           ))}
         </div>
 
-        <div className="mt-20 grid gap-6 rounded-3xl bg-white/90 p-8 sm:grid-cols-3" style={{ border: '1px solid rgba(217, 119, 87, 0.15)' }}>
+        <div className="mt-20 grid gap-6 rounded-3xl bg-white-ds/90 p-8 sm:grid-cols-3" style={{ border: '1px solid rgba(217, 119, 87, 0.15)' }}>
           <div className="text-center sm:pr-6" style={{ borderRight: '1px solid rgba(217, 119, 87, 0.15)' }}>
             <div className="text-3xl font-semibold" style={{ color: '#3d3d3a' }}>92%</div>
             <p className="mt-2 text-sm" style={{ color: '#3d3d3a', opacity: 0.6 }}>dos estudantes disseram que o EstágioAI é a plataforma mais clara de uso diário</p>

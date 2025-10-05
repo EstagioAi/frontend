@@ -1,6 +1,8 @@
 import React from 'react'
 import { Clock, Target, Gem, Crosshair, Zap, Search } from 'lucide-react'
 import FeatureCard from '../../ui/feature-card'
+import { TextHighlight } from '@/components/ui/text-highlight.jsx'
+import BackgroundShapes from '@/components/ui/background-shapes.jsx'
 
 const benefits = [
   {
@@ -49,51 +51,57 @@ const benefits = [
 
 const WhyChooseSection = () => {
   return (
-    <section className="relative overflow-hidden py-24" style={{ background: 'var(--color-bg-secondary, #f5f4ed)' }}>
-      {/* Background decorativo */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-24 top-[-160px] h-[420px] w-[420px] rounded-full blur-3xl" style={{ background: 'rgba(217, 119, 87, 0.08)' }} />
-        <div className="absolute bottom-[-180px] right-[-120px] h-[360px] w-[360px] rounded-full blur-3xl" style={{ background: 'rgba(245, 244, 237, 0.5)' }} />
-      </div>
+    <section className="relative overflow-hidden py-24" style={{ background: 'var(--color-bg-white-ds)' }}>
+      {/* Formas decorativas de fundo */}
+      <BackgroundShapes
+        variant="section2"
+        opacity={0.46}
+        color="rgba(130, 247, 179, 0.85)"
+        accentColor="rgba(17, 94, 89, 0.3)"
+        accentOpacity={0.22}
+        blendMode="multiply"
+        className="opacity-100"
+      />
+      <BackgroundShapes
+        variant="orbits"
+        opacity={0.26}
+        color="rgba(130, 247, 179, 0.95)"
+        accentColor="rgba(46, 196, 182, 0.28)"
+        accentOpacity={0.18}
+        blendMode="normal"
+        className="opacity-95"
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-[28%] mx-auto h-[380px] w-[76%] rounded-full blur-[140px]"
+        style={{
+          background: 'radial-gradient(circle at center, rgba(17, 94, 89, 0.16) 0%, transparent 75%)'
+        }}
+        aria-hidden="true"
+      />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-16 text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em]" style={{ color: '#d97757' }}>
-            Escolha-me
+        <div className="mb-14 text-center">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-black-50">
+            Por que escolher
           </p>
-          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl" style={{ color: '#3d3d3a' }}>
+          <h2 className="text-2xl font-bold tracking-tight text-primary-ds sm:text-3xl lg:text-4xl">
             Por que o EstágioAI é a{' '}
-            <span style={{ color: '#d97757' }}>escolha certa</span>
+            <TextHighlight variant="marker" className="text-primary-ds">
+              escolha certa
+            </TextHighlight>
             {' '}para você?
           </h2>
         </div>
 
-        {/* Animated word tags */}
-        <div className="mb-16 flex flex-wrap items-center justify-center gap-3">
-          <span className="rounded-full px-6 py-2.5 text-sm font-medium" style={{ background: '#fef9e7', color: '#3d3d3a' }}>
-            Torne
-          </span>
-          <span className="rounded-full px-6 py-2.5 text-sm font-medium" style={{ background: '#e8f8f5', color: '#3d3d3a' }}>
-            mais
-          </span>
-          <span className="rounded-full px-6 py-2.5 text-sm font-medium" style={{ background: '#f4ecf7', color: '#3d3d3a' }}>
-            fácil
-          </span>
-          <span className="rounded-full px-6 py-2.5 text-sm font-medium" style={{ background: '#fef5e7', color: '#3d3d3a' }}>
-            com
-          </span>
-          <span className="rounded-full px-6 py-2.5 text-sm font-medium text-white shadow-lg" style={{ background: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)' }}>
-            EstágioAI
-          </span>
-        </div>
+        {/* Animated word tags - removido para manter minimalismo */}
 
         {/* Benefits Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {benefits.map(({ number, icon: Icon, iconBg, title, description }) => (
             <FeatureCard
               key={number}
-              icon={<Icon className="h-8 w-8" />}
+              icon={<Icon className="h-6 w-6" />}
               iconBg={iconBg}
               title={title}
               description={description}

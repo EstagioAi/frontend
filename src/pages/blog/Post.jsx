@@ -173,7 +173,7 @@ export default function Post() {
 
   if (!post) {
     return (
-      <div className="relative min-h-screen overflow-hidden bg-white text-[#02161F]">
+      <div className="relative min-h-screen overflow-hidden bg-white-ds text-[#02161F]">
         <Navigation />
         <div className="mx-auto max-w-4xl px-6 py-16">
           <EmptyState
@@ -184,7 +184,7 @@ export default function Post() {
             actions={
               <Button
                 asChild
-                className="rounded-xl bg-[#0E8F66] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#0b7453] hover:shadow-lg"
+                className="rounded-xl bg-[#0E8F66] px-6 py-2.5 text-sm font-semibold text-white-ds transition-all duration-300 hover:bg-[#0b7453] hover:shadow-lg"
               >
                 <Link to="/blog">Voltar ao blog</Link>
               </Button>
@@ -197,7 +197,7 @@ export default function Post() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-white text-[#02161F]">
+    <div className="relative min-h-screen overflow-hidden bg-white-ds text-[#02161F]">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F6FAFF] to-white" />
         <div className="absolute -top-52 left-[-160px] h-[500px] w-[500px] rounded-full bg-[#6FFFC7]/20 blur-3xl" />
@@ -207,7 +207,7 @@ export default function Post() {
       <Navigation />
 
       <div 
-        className="fixed left-0 right-0 top-0 z-[70] h-[3px] bg-white/30 backdrop-blur"
+        className="fixed left-0 right-0 top-0 z-[70] h-[3px] bg-white-ds/30 backdrop-blur"
         role="progressbar"
         aria-label="Progresso de leitura do artigo"
         aria-valuenow={Math.round(progress)}
@@ -220,7 +220,7 @@ export default function Post() {
         />
       </div>
 
-      <header className="relative overflow-hidden bg-[#020F1A] text-white">
+      <header className="relative overflow-hidden bg-[#020F1A] text-white-ds">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_140%_120%_at_50%_0%,rgba(14,143,102,0.15),rgba(2,15,26,0.98)_50%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_80%_at_80%_20%,rgba(111,255,199,0.12),transparent_60%)]" />
@@ -231,8 +231,8 @@ export default function Post() {
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center lg:gap-16">
             <div className="space-y-7">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em]">Artigo</span>
-                <nav aria-label="breadcrumb" className="text-xs text-white/60">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white-ds/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em]">Artigo</span>
+                <nav aria-label="breadcrumb" className="text-xs text-white-ds/60">
                   <ol className="flex flex-wrap items-center gap-2">
                     <li>
                       <Link to="/" className="transition hover:text-[#6FFFC7]">Início</Link>
@@ -242,7 +242,7 @@ export default function Post() {
                       <Link to="/blog" className="transition hover:text-[#6FFFC7]">Blog</Link>
                     </li>
                     <li aria-hidden="true" className="opacity-40">/</li>
-                    <li className="text-white/70" aria-current="page">{post.title}</li>
+                    <li className="text-white-ds/70" aria-current="page">{post.title}</li>
                   </ol>
                 </nav>
               </div>
@@ -251,7 +251,7 @@ export default function Post() {
                 {post.title}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-white/70 sm:text-sm">
+              <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-white-ds/70 sm:text-sm">
                 <span>{new Date(post.date).toLocaleDateString("pt-BR")}</span>
                 <span className="opacity-40">•</span>
                 <span>{post.readingTimeMinutes} min de leitura</span>
@@ -280,7 +280,7 @@ export default function Post() {
             </div>
 
             {post.cover && (
-              <div className="relative hidden overflow-hidden rounded-[32px] border border-white/15 bg-white/5 shadow-[0_40px_95px_-55px_rgba(111,255,199,0.45)] backdrop-blur lg:block">
+              <div className="relative hidden overflow-hidden rounded-[32px] border border-white/15 bg-white-ds/5 shadow-[0_40px_95px_-55px_rgba(111,255,199,0.45)] backdrop-blur lg:block">
                 <img src={post.cover} alt="capa do artigo" loading="lazy" className="h-full w-full object-cover aspect-[4/3]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020F1A]/40 via-transparent to-transparent" />
               </div>
@@ -290,7 +290,7 @@ export default function Post() {
       </header>
 
       <main className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-20 pt-16 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:pt-20">
-        <article className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white/95 p-8 shadow-[0_45px_95px_-60px_rgba(15,23,42,0.45)] sm:p-12">
+        <article className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white-ds/95 p-8 shadow-[0_45px_95px_-60px_rgba(15,23,42,0.45)] sm:p-12">
           <div className="pointer-events-none absolute right-[-80px] top-[-120px] hidden h-[320px] w-[320px] rounded-full bg-[#6FFFC7]/20 blur-3xl sm:block" />
           <div className="relative space-y-8">
             {post.cover && (
@@ -318,7 +318,7 @@ export default function Post() {
               <span className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Compartilhar</span>
               <div className="mt-4 flex flex-wrap items-center gap-3 text-sm" role="group" aria-label="Compartilhar artigo nas redes sociais">
                 <a
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-3 font-semibold text-[#0E8F66] transition-all duration-300 ease-in-out hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white-ds/90 px-4 py-3 font-semibold text-[#0E8F66] transition-all duration-300 ease-in-out hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
                   href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -327,7 +327,7 @@ export default function Post() {
                   Twitter
                 </a>
                 <a
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-3 font-semibold text-[#0E8F66] transition-all duration-300 ease-in-out hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white-ds/90 px-4 py-3 font-semibold text-[#0E8F66] transition-all duration-300 ease-in-out hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
                   href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -336,7 +336,7 @@ export default function Post() {
                   LinkedIn
                 </a>
                 <a
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-4 py-3 font-semibold text-[#0E8F66] transition-all duration-300 ease-in-out hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white-ds/90 px-4 py-3 font-semibold text-[#0E8F66] transition-all duration-300 ease-in-out hover:border-[#0E8F66]/40 hover:text-[#0b7453]"
                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${BASE_URL}/blog/${post.slug}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -356,12 +356,12 @@ export default function Post() {
                   required
                   placeholder="seu@email.com"
                   aria-label="Seu endereço de e-mail"
-                  className="flex-1 rounded-xl border border-[#0E8F66]/30 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#0E8F66] focus:ring-2 focus:ring-[#6FFFC7]/30"
+                  className="flex-1 rounded-xl border border-[#0E8F66]/30 bg-white-ds px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#0E8F66] focus:ring-2 focus:ring-[#6FFFC7]/30"
                 />
                 <button 
                   type="submit"
                   aria-label="Assinar newsletter"
-                  className="rounded-xl bg-[#0E8F66] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0b7453]"
+                  className="rounded-xl bg-[#0E8F66] px-5 py-3 text-sm font-semibold text-white-ds transition hover:bg-[#0b7453]"
                 >
                   Assinar
                 </button>
@@ -372,7 +372,7 @@ export default function Post() {
 
         <aside className="hidden self-start lg:block" style={{ position: "sticky", top: "108px" }}>
           <div ref={tocScrollRef} className="space-y-6">
-            <div className="rounded-3xl border border-white/30 bg-white/85 p-6 shadow-[0_35px_80px_-55px_rgba(15,23,42,0.45)] backdrop-blur">
+            <div className="rounded-3xl border border-white/30 bg-white-ds/85 p-6 shadow-[0_35px_80px_-55px_rgba(15,23,42,0.45)] backdrop-blur">
               <div className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Nesta página</div>
               <nav className="mt-4 space-y-1" aria-label="Índice do artigo">
                 {toc.map((i) => {
@@ -410,7 +410,7 @@ export default function Post() {
             </div>
 
             {post.tags?.length ? (
-              <div className="rounded-3xl border border-white/30 bg-white/85 p-6 shadow-[0_35px_80px_-55px_rgba(15,23,42,0.45)] backdrop-blur">
+              <div className="rounded-3xl border border-white/30 bg-white-ds/85 p-6 shadow-[0_35px_80px_-55px_rgba(15,23,42,0.45)] backdrop-blur">
                 <div className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Tags</div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {post.tags.map((t, idx) => (

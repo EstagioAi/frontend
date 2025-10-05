@@ -28,7 +28,7 @@ const FormatoUnificadoSection = () => {
 
       <div className="mx-auto grid w-full max-w-6xl gap-16 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:px-8">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-1.5 text-sm font-semibold text-emerald-700 shadow-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white-ds px-4 py-1.5 text-sm font-semibold text-emerald-700 shadow-sm">
             Formato unificado das vagas
           </div>
           <h2 className="mt-6 text-4xl font-semibold tracking-tight text-[#02161F] sm:text-5xl">
@@ -41,9 +41,9 @@ const FormatoUnificadoSection = () => {
 
           <div className="mt-10 space-y-6">
             {items.map(({ title, description, accent }) => (
-              <div key={title} className="flex items-start gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_18px_60px_-50px_rgba(15,23,42,0.45)]">
+              <div key={title} className="flex items-start gap-4 rounded-3xl border border-slate-200 bg-white-ds p-5 shadow-[0_18px_60px_-50px_rgba(15,23,42,0.45)]">
                 <div
-                  className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/60 text-white shadow-[0_18px_28px_-18px_rgba(14,143,102,0.45)]"
+                  className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/60 text-white-ds shadow-[0_18px_28px_-18px_rgba(14,143,102,0.45)]"
                   style={{ backgroundColor: accent }}
                 >
                   <CheckCircle2 className="h-5 w-5" />
@@ -57,7 +57,7 @@ const FormatoUnificadoSection = () => {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_45px_95px_-60px_rgba(15,23,42,0.55)]">
+        <div className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white-ds p-8 shadow-[0_45px_95px_-60px_rgba(15,23,42,0.55)]">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
             <div className="flex items-center justify-between">
               <div>
@@ -68,15 +68,15 @@ const FormatoUnificadoSection = () => {
             </div>
 
             <div className="mt-6 space-y-4">
-              <div className="rounded-2xl border border-white/60 bg-white p-4">
+              <div className="rounded-2xl border border-white/60 bg-white-ds p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Sobre a empresa</p>
                 <p className="mt-2 text-sm text-slate-600">Scale-up de EdTech com squads multidisciplinares, cultura de feedback e trilhas de crescimento estruturadas.</p>
               </div>
-              <div className="rounded-2xl border border-white/60 bg-white p-4">
+              <div className="rounded-2xl border border-white/60 bg-white-ds p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">O que você vai aprender</p>
                 <p className="mt-2 text-sm text-slate-600">React, TypeScript, Product Discovery, métricas de produto e OKRs aplicados.</p>
               </div>
-              <div className="rounded-2xl border border-white/60 bg-white p-4">
+              <div className="rounded-2xl border border-white/60 bg-white-ds p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Processo seletivo</p>
                 <p className="mt-2 text-sm text-slate-600">Inscrição • Case assíncrono • Entrevista com squad • Feedback final em até 48h.</p>
               </div>

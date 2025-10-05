@@ -5,7 +5,7 @@ import { GraduationCap, HelpCircle, BookOpen, Mail, MessageCircle } from 'lucide
 
 const SupportStudents = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white-ds">
       <Navigation />
 
       {/* Hero */}
@@ -23,7 +23,7 @@ const SupportStudents = () => {
       {/* Cards de suporte */}
       <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="/central-de-ajuda" className="group border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 hover:shadow-lg hover:border-[rgba(217,119,87,0.3)] transition-all bg-white">
+          <a href="/central-de-ajuda" className="group border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 hover:shadow-lg hover:border-[rgba(217,119,87,0.3)] transition-all bg-white-ds">
             <div className="w-10 h-10 rounded-lg bg-[#fef5e7] text-[#d97757] grid place-items-center">
               <HelpCircle className="w-5 h-5" />
             </div>
@@ -31,7 +31,7 @@ const SupportStudents = () => {
             <p className="text-[#6b6b68] text-sm">Perguntas frequentes e tutoriais rápidos.</p>
           </a>
 
-          <a href="/como-melhorar-seu-perfil" className="group border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 hover:shadow-lg hover:border-[rgba(217,119,87,0.3)] transition-all bg-white">
+          <a href="/como-melhorar-seu-perfil" className="group border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 hover:shadow-lg hover:border-[rgba(217,119,87,0.3)] transition-all bg-white-ds">
             <div className="w-10 h-10 rounded-lg bg-[#fef5e7] text-[#d97757] grid place-items-center">
               <BookOpen className="w-5 h-5" />
             </div>
@@ -39,7 +39,7 @@ const SupportStudents = () => {
             <p className="text-[#6b6b68] text-sm">Boas práticas para se destacar nas vagas.</p>
           </a>
 
-          <div className="border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 bg-white">
+          <div className="border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 bg-white-ds">
             <div className="w-10 h-10 rounded-lg bg-[#fef5e7] text-[#d97757] grid place-items-center">
               <GraduationCap className="w-5 h-5" />
             </div>

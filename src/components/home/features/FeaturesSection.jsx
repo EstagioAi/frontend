@@ -36,7 +36,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
+    <section className="relative overflow-hidden bg-white-ds py-24">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute right-[-140px] top-[-220px] h-[420px] w-[420px] rounded-full bg-[#e0fdf3] blur-3xl" />
         <div className="absolute bottom-[-240px] left-[-120px] h-[360px] w-[360px] rounded-full bg-[#e0ecff] blur-3xl" />
@@ -55,7 +55,7 @@ const FeaturesSection = () => {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map(({ icon: Icon, title, description }) => (
-            <div key={title} className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_25px_65px_-50px_rgba(15,23,42,0.45)] transition-transform duration-300 hover:-translate-y-1">
+            <div key={title} className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white-ds p-6 shadow-[0_25px_65px_-50px_rgba(15,23,42,0.45)] transition-transform duration-300 hover:-translate-y-1">
               <div className="absolute -right-6 -top-10 h-24 w-24 rounded-full bg-[#6FFFC7]/20 blur-xl transition-all duration-300 group-hover:opacity-80" />
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f0fdf4] text-[#059669]">
                 <Icon className="h-6 w-6" />

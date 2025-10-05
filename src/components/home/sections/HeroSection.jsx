@@ -1,288 +1,124 @@
-import React, { useState, useEffect } from 'react'
-import { MapPin, Play, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-
-// Lista de trabalhos
-const jobs = [
-  'Arquiteta de Interiores',
-  'Desenvolvedor Front-end',
-  'Designer de Produto',
-  'Marketing Digital',
-  'Marketing Manager',
-  'Product Manager',
-  'Devops Engineer',
-  'Data Scientist',
-  'Product Designer',
-  'UI/UX Designer',
-  'Full-stack Developer',
-  'Arquiteto de Software',
-  'Engenheiro de Dados',
-  'Designer Gráfico',
-  'Arquiteto de Edificações',
-  'Economista',
-  'Engenheiro de Produção',
-  'Engenheiro de Controle e Automação',
-  'Engenheiro de Segurança do Trabalho',
-  'Engenheiro de Qualidade',
-  'Engenheiro de Sistemas',
-  'Engenheiro de Telecomunicações',
-  'Engenheiro de Energia Solar',
-  'Engenheiro de Mecânica',
-  'Engenheiro de Controle de Qualidade',
-  'Engenheiro de Manufatura',
-  'Engenheiro de Sistemas de Informação',
-  'Engenheiro de Software',
-  'Engenheiro de Telecomunicações',
-  'Engenheiro de Sistemas de Controle',
-  'Engenheiro Civil',
-  'Arquiteto de Paisagismo',
-  'Arquiteto de Estruturas',
-  'Arquiteto de Projetos',
-  'Arquiteto de Projetos de Construção',
-
-]
-
-// Lista de locais no Brasil
-const locations = [
-  'São Paulo, SP',
-  'Rio de Janeiro, RJ',
-  'Belo Horizonte, MG',
-  'Brasília, DF',
-  'Curitiba, PR',
-  'Porto Alegre, RS',
-  'Salvador, BA',
-  'Recife, PE',
-  'Fortaleza, CE',
-  'Goiânia, GO',
-  'Manaus, AM',
-  'Belém, PA',
-  'Porto Velho, RO',
-  'Boa Vista, RR',
-  'Macapá, AP',
-  'São Luís, MA',
-  'Teresina, PI',
-  'João Pessoa, PB',
-  'Natal, RN',
-  'Maceió, AL',
-  'Aracaju, SE',
-  'Campo Grande, MS',
-
-]
-
-// Componente de texto animado tipo roleta (slot machine)
-const SpinText = ({ items, delay = 0, isActive = false, showIcon = false, align = 'left' }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isSpinning, setIsSpinning] = useState(false)
-  const [targetIndex, setTargetIndex] = useState(0)
-
-  useEffect(() => {
-    const startSpin = () => {
-      setIsSpinning(true)
-
-      // Escolhe um índice aleatório
-      const randomIndex = Math.floor(Math.random() * items.length)
-      setTargetIndex(randomIndex)
-
-      // Após a animação de spin, define o novo índice
-      setTimeout(() => {
-        setCurrentIndex(randomIndex)
-        setIsSpinning(false)
-      }, 1500) // Duração do spin
-    }
-
-    // Inicia o primeiro spin após o delay
-    const initialTimeout = setTimeout(startSpin, delay)
-
-    // Continua girando em intervalos
-    const interval = setInterval(startSpin, 5000)
-
-    return () => {
-      clearTimeout(initialTimeout)
-      clearInterval(interval)
-    }
-  }, [items.length, delay])
-
-  // Cria uma lista extendida para o efeito de rolagem suave
-  const extendedItems = [...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items]
-
-  return (
-    <div className={`overflow-hidden h-7 ${align === 'right' ? 'text-right' : 'text-left'}`}>
-      <div
-        className={`transition-all ${isSpinning ? 'slot-spinning' : ''}`}
-        style={{
-          transform: isSpinning
-            ? `translateY(-${(items.length * 2 + targetIndex) * 28}px)`
-            : `translateY(-${(items.length + currentIndex) * 28}px)`,
-          transitionDuration: isSpinning ? '1500ms' : '0ms',
-          transitionTimingFunction: isSpinning ? 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'linear'
-        }}
-      >
-        {extendedItems.map((item, idx) => {
-          const normalizedIdx = idx % items.length
-          const isCurrentItem = !isSpinning && normalizedIdx === currentIndex && idx >= items.length && idx < items.length * 2
-
-          return (
-            <div
-              key={idx}
-              className={`h-7 flex items-center transition-all duration-300 ${
-                isActive && isCurrentItem
-                  ? 'text-slate-900 font-semibold'
-                  : 'text-slate-300 font-normal'
-              }`}
-              style={{
-                fontSize: isActive && isCurrentItem ? '0.9rem' : '0.85rem',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              <div className={`flex items-center gap-2 w-full ${align === 'right' ? 'justify-end' : 'justify-start'}`}>
-                {showIcon && isActive && isCurrentItem && align === 'left' && (
-                  <Play className="h-3 w-3 fill-emerald-600 text-emerald-600 flex-shrink-0" />
-                )}
-                {showIcon && isActive && isCurrentItem && (
-                  <MapPin className="h-3.5 w-3.5 text-teal-500 flex-shrink-0" />
-                )}
-                <span className="truncate">{item}</span>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
+import React from 'react'
+import { Play } from 'lucide-react'
+import { TextHighlight } from '@/components/ui/text-highlight.jsx'
+import BackgroundShapes from '@/components/ui/background-shapes.jsx'
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 min-h-[85vh] flex items-start no-overflow-x">
-      {/* Background com paleta personalizada */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* Grid pattern de fundo */}
-        <div
-          className="absolute inset-0 opacity-40 z-10"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(61, 61, 58, 0.08) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(61, 61, 58, 0.08) 1px, transparent 1px)
-            `,
-            backgroundSize: '64px 64px',
-          }}
-        />
+    <section className="relative overflow-visible bg-primary-ds pt-20 pb-16 sm:pt-24 lg:pt-28">
+      {/* Formas decorativas de fundo */}
+      <BackgroundShapes
+        variant="hero"
+        opacity={0.22}
+        color="#82f7b3"
+        accentColor="rgba(17, 94, 89, 0.3)"
+        accentOpacity={0.2}
+        className="opacity-90"
+      />
+      <BackgroundShapes
+        variant="orbits"
+        opacity={0.2}
+        color="rgba(130, 247, 179, 0.9)"
+        accentColor="rgba(46, 196, 182, 0.2)"
+        accentOpacity={0.16}
+        blendMode="normal"
+        className="opacity-90"
+      />
 
-        {/* Gradiente base - usando var(--gradient-hero) */}
-        <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
+      <div className="relative mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-0 lg:px-8 lg:min-h-[500px]">
 
-        {/* Blob coral/terracota - canto superior esquerdo */}
-        <div
-          className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full opacity-20"
-          style={{
-            background: 'radial-gradient(circle, rgba(217, 119, 87, 0.25) 0%, rgba(217, 119, 87, 0.12) 50%, transparent 70%)',
-            filter: 'blur(80px)',
-          }}
-        />
+        {/* Coluna Esquerda - Conteúdo */}
+        <div className="relative z-10 flex flex-col justify-center space-y-6 lg:pr-8 py-8 lg:py-12">
+          {/* Título Principal */}
+          <h1 className="text-4xl font-bold leading-[1.15] tracking-tight text-primary-ds sm:text-5xl lg:text-6xl">
+            A forma mais fácil de contratar qualquer pessoa, em qualquer lugar.
+          </h1>
 
-        {/* Blob suave bege - canto superior direito */}
-        <div
-          className="absolute -top-20 -right-40 w-[600px] h-[600px] rounded-full opacity-25"
-          style={{
-            background: 'radial-gradient(circle, rgba(245, 244, 237, 0.8) 0%, rgba(250, 249, 245, 0.4) 50%, transparent 70%)',
-            filter: 'blur(90px)',
-          }}
-        />
+          {/* Subtítulo com destaque verde */}
+          <p className="max-w-xl text-base leading-relaxed text-black-70 sm:text-lg">
+            Folha de pagamento sem fronteiras, conformidade e benefícios para equipes remotas. Feito com amor de todo o{' '}
+            <TextHighlight variant="wave" className="font-semibold text-primary-ds">
+              mundo
+            </TextHighlight>
+            .
+          </p>
 
-        {/* Elementos decorativos minimalistas */}
-        <div className="absolute top-32 left-16 z-10">
-          <div className="w-16 h-0.5" style={{ background: 'linear-gradient(to right, rgba(217, 119, 87, 0.4), transparent)' }} />
-          <div className="w-8 h-0.5 mt-2 ml-4" style={{ background: 'linear-gradient(to right, rgba(217, 119, 87, 0.25), transparent)' }} />
-        </div>
-
-        {/* Elemento decorativo - círculo sutil */}
-        <div className="absolute top-1/3 right-32 z-10">
-          <div className="w-20 h-20 rounded-full" style={{ border: '1px solid rgba(217, 119, 87, 0.2)' }} />
-        </div>
-
-        {/* Overlay para suavizar */}
-        <div className="absolute inset-0 bg-white/40" />
-      </div>
-
-      <div className="relative mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8 container-safe">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(240px,300px)_1fr_minmax(240px,300px)] gap-6 sm:gap-8 md:gap-12 items-start">
-
-          {/* Coluna Esquerda - Jobs com animação de roleta */}
-          <div className="hidden lg:flex flex-col space-y-5 pt-4">
-            {[0, 1, 2, 3, 4, 5,6,7,8].map((index) => (
-              <SpinText
-                key={index}
-                items={jobs}
-                delay={index * 400}
-                isActive={index === 4}
-                showIcon={index === 4}
-                align="left"
-              />
-            ))}
+          {/* Botões CTA */}
+          <div className="flex flex-wrap items-center gap-4">
+            <button 
+              className="inline-flex items-center gap-2 rounded-lg bg-black-ds px-6 py-3 text-sm font-bold text-white-ds transition-all duration-200 hover:bg-black-hover-ds hover:shadow-lg focus:ring-4 focus:ring-green-20"
+              aria-label="Agendar uma demonstração do produto"
+            >
+              Agendar demonstração
+            </button>
+            <button 
+              className="inline-flex items-center gap-2 rounded-lg bg-green-ds px-6 py-3 text-sm font-bold text-primary-ds transition-all duration-200 hover:bg-green-hover-ds hover:shadow-lg focus:ring-4 focus:ring-green-20"
+              aria-label="Assistir demonstração em vídeo do produto"
+            >
+              <Play className="h-4 w-4" aria-hidden="true" />
+              Assistir demonstração
+            </button>
           </div>
 
-          {/* Coluna Central - Conteúdo Principal */}
-          <div className="text-center space-y-6 sm:space-y-8 md:space-y-10 max-w-2xl mx-auto pt-4 sm:pt-6 md:pt-8 px-2 sm:px-0">
-            {/* Badge minimalista - border coral, background branco */}
-            <div className="flex justify-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-sm transition-all hover:shadow-md touch-target" style={{ border: '1px solid var(--color-coral-primary)', background: 'var(--color-bg-white)' }}>
-                <div className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ background: 'var(--color-coral-primary)' }} />
-                <span className="font-medium text-xs sm:text-sm responsive-text" style={{ color: 'var(--color-gray-dark)' }}>Plataforma completa para universitários</span>
+          {/* Logos de Empresas */}
+          <div className="pt-6">
+            <div className="text-xs font-semibold uppercase tracking-wider text-black-50 mb-4">Empresas que confiam</div>
+            <div className="flex flex-wrap items-center gap-6">
+              {/* Mobbin */}
+              <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-all duration-200 hover:text-green-ds">
+                <div className="h-5 w-5 rounded bg-black-ds transition-colors duration-200 group-hover:bg-green-ds" />
+                <span className="text-sm font-semibold text-primary-ds">Mobbin</span>
+              </div>
+
+              {/* Welcome */}
+              <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-all duration-200 hover:text-green-ds">
+                <div className="h-5 w-5 rounded-full bg-black-ds transition-colors duration-200 group-hover:bg-green-ds" />
+                <span className="text-sm font-semibold text-primary-ds">welcome</span>
+              </div>
+
+              {/* Sendinblue */}
+              <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-all duration-200 hover:text-green-ds">
+                <div className="h-5 w-5 rounded bg-black-ds transition-colors duration-200 group-hover:bg-green-ds" />
+                <span className="text-sm font-semibold text-primary-ds">sendinblue</span>
+              </div>
+
+              {/* SENTRY */}
+              <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-all duration-200 hover:text-green-ds">
+                <div className="h-5 w-5 rounded bg-black-ds transition-colors duration-200 group-hover:bg-green-ds" />
+                <span className="text-sm font-semibold text-primary-ds">SENTRY</span>
               </div>
             </div>
-
-            {/* Título Principal - mais clean e profissional */}
-            <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight responsive-text">
-                <span className="block" style={{ color: '#3d3d3a' }}>Sua Carreira dos</span>
-                <span className="block mt-1 sm:mt-2 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #d97757, #d97757)' }}>
-                  Sonhos
-                </span>
-                <span className="block mt-1 sm:mt-2" style={{ color: '#3d3d3a' }}>Começa Aqui</span>
-              </h1>
-
-              {/* Subtítulo */}
-              <p className="text-base sm:text-lg max-w-xl mx-auto leading-relaxed pt-1 sm:pt-2 px-4 sm:px-0 responsive-text" style={{ color: '#3d3d3a', opacity: 0.75 }}>
-                Conectamos universitários às melhores oportunidades de carreira
-              </p>
-            </div>
-
-            {/* Botão CTA - usando componente Button com variante cta */}
-            <div className="flex justify-center pt-1 sm:pt-2">
-              <Button variant="cta" size="lg" className="group w-full sm:w-auto max-w-xs sm:max-w-none">
-                Começar Agora
-                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-            </div>
           </div>
-
-          {/* Coluna Direita - Locais com animação de roleta */}
-          <div className="hidden lg:flex flex-col space-y-5 pt-4">
-            {[0, 1, 2, 3, 4, 5,6,7,8].map((index) => (
-              <SpinText
-                key={index}
-                items={locations}
-                delay={index * 400 + 200}
-                isActive={index === 4}
-                showIcon={index === 4}
-                align="right"
-              />
-            ))}
-          </div>
-
         </div>
 
-        {/* Jobs em grid para mobile - mais clean */}
-        <div className="lg:hidden mt-8 sm:mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 px-2 sm:px-0">
-          {jobs.slice(0, 6).map((job, index) => (
-            <div key={index} className="space-y-2 p-4 bg-white/80 backdrop-blur-sm rounded-xl transition-all hover:shadow-md min-h-[44px] touch-target" style={{ border: '1px solid rgba(217, 119, 87, 0.2)' }}>
-              <div className="font-semibold text-sm responsive-text text-clamp-2" style={{ color: '#3d3d3a' }}>{job}</div>
-              <div className="flex items-center gap-1.5 text-xs responsive-text" style={{ color: '#3d3d3a', opacity: 0.7 }}>
-                <MapPin className="h-3.5 w-3.5 flex-shrink-0" style={{ color: '#d97757' }} />
-                <span className="text-ellipsis overflow-hidden">{locations[index]}</span>
-              </div>
+        {/* Coluna Direita - Visual com fundo preto */}
+        <div className="relative hidden lg:flex lg:items-stretch lg:self-stretch">
+          {/* Container com fundo preto - altura total da hero section */}
+          <div className="relative w-full rounded-l-3xl bg-black-ds overflow-hidden shadow-2xl flex items-end lg:-mr-8">
+
+            {/* Círculo verde grande (inferior esquerdo) */}
+            <div className="absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-green-ds opacity-90" />
+
+            {/* Círculo verde médio (superior direito) */}
+            <div className="absolute -top-10 -right-10 h-[250px] w-[250px] rounded-full bg-green-ds opacity-80" />
+
+            {/* Anel verde superior (halo) */}
+            <div className="absolute top-8 left-1/2 -translate-x-1/2 h-[180px] w-[450px] rounded-full border-[6px] border-green-ds opacity-70" />
+
+            {/* Anel verde inferior */}
+            <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 h-[200px] w-[500px] rounded-full border-[6px] border-green-ds opacity-60" />
+
+            {/* Imagem da pessoa - alinhada na parte inferior */}
+            <div className="relative z-10 w-full flex items-end justify-center pb-0">
+              <img
+                src="/images/sections/hero-section/mulher-comemorando-aprovacao.png"
+                alt="Mulher profissional comemorando aprovação em processo seletivo"
+                className="w-full h-auto max-h-[75%] object-contain object-bottom filter grayscale"
+                loading="eager"
+                fetchPriority="high"
+              />
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
@@ -290,4 +126,3 @@ const HeroSection = () => {
 }
 
 export default HeroSection
-

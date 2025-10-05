@@ -5,42 +5,38 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-3 whitespace-nowrap text-sm font-semibold transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-[#d97757]/60 focus-visible:ring-offset-2 touch-target",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-bold transition-all duration-200 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-white-ds-40 disabled:text-black-30 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus:ring-4 focus:ring-green-20 rounded-lg",
   {
     variants: {
       variant: {
-        // Primary Button - Coral solid background
+        // Primary Button - Black solid background
         primary:
-          "bg-[#d97757] text-white shadow-[0_4px_6px_rgba(217,119,87,0.25)] hover:bg-[#e89b7d] hover:shadow-[0_10px_15px_rgba(217,119,87,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[0_4px_6px_rgba(217,119,87,0.25)] rounded-[1rem]",
-        
-        // Secondary Button - Coral outline
+          "bg-black-ds text-white-ds hover:bg-black-hover-ds hover:shadow-lg",
+
+        // Secondary Button - Green solid background
         secondary:
-          "border-2 border-[#d97757] bg-transparent text-[#d97757] hover:bg-[rgba(217,119,87,0.05)] hover:border-[#e89b7d] active:bg-[rgba(217,119,87,0.1)] rounded-[1rem]",
-        
-        // CTA Button - Purple gradient for main actions
-        cta:
-          "bg-gradient-to-r from-[#a78bfa] to-[#8b5cf6] text-white shadow-[0_10px_15px_rgba(139,92,246,0.3)] hover:shadow-[0_20px_25px_rgba(139,92,246,0.4)] hover:-translate-y-1 active:translate-y-0 active:shadow-[0_10px_15px_rgba(139,92,246,0.3)] rounded-[1rem]",
-        
+          "bg-green-ds text-primary-ds hover:bg-green-hover-ds hover:shadow-lg",
+
+        // Outline Button - Transparent with border
+        outline:
+          "border-2 border-black-10 bg-white-ds-ds text-black-70 hover:border-green-ds hover:bg-green-05 hover:text-primary-ds",
+
+        // Active Button - For filters and selected states
+        active:
+          "bg-green-ds text-primary-ds shadow-lg",
+
         // Ghost Button - Transparent with subtle hover
         ghost:
-          "bg-transparent text-[#6b6b68] hover:bg-[#f5f4ed] hover:text-[#3d3d3a] rounded-[1rem]",
-        
-        // Link variant - Coral text with underline
-        link: 
-          "text-[#d97757] underline-offset-4 hover:underline hover:text-[#e89b7d]",
-        
-        // Legacy variants for backward compatibility
-        default:
-          "bg-gradient-to-r from-[#01E297] to-[#6FFFC7] text-white shadow-lg shadow-[#01E297]/30 hover:shadow-xl hover:shadow-[#01E297]/40 hover:-translate-y-0.5 active:translate-y-0 rounded-xl",
-        destructive:
-          "bg-red-500 text-white shadow-lg shadow-red-500/30 hover:bg-red-600 hover:shadow-xl hover:shadow-red-500/40 rounded-xl",
-        outline:
-          "border-2 border-[#01E297]/20 bg-white text-gray-700 shadow-sm hover:bg-[#01E297]/5 hover:border-[#01E297]/40 rounded-xl",
+          "bg-transparent text-black-70 hover:bg-green-10 hover:text-primary-ds",
+
+        // Link variant - Green text with underline
+        link:
+          "text-green-ds underline-offset-4 hover:underline hover:text-green-hover-ds",
       },
       size: {
         sm: "h-10 px-4 text-sm gap-2 has-[>svg]:px-3",
-        md: "h-12 px-6 text-base gap-3 has-[>svg]:px-4",
-        lg: "h-14 px-8 text-lg gap-3 has-[>svg]:px-6",
+        md: "h-12 px-6 text-sm gap-2 has-[>svg]:px-4",
+        lg: "h-14 px-8 text-base gap-3 has-[>svg]:px-6",
         icon: "size-10",
       },
       fullWidth: {
@@ -56,22 +52,46 @@ const buttonVariants = cva(
   }
 )
 
-function Button({
+const Button = React.forwardRef(({
   className,
   variant,
   size,
   fullWidth,
   asChild = false,
+  disabled = false,
+  loading = false,
+  children,
   ...props
-}) {
+}, ref) => {
   const Comp = asChild ? Slot : "button"
 
   return (
     <Comp
+      ref={ref}
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, fullWidth, className }))}
-      {...props} />
+      disabled={disabled || loading}
+      aria-disabled={disabled || loading}
+      aria-busy={loading}
+      className={cn(buttonVariants({ variant, size, fullWidth }), className)}
+      style={{
+        minHeight: '44px', // Ensure touch targets ≥ 44px
+        minWidth: size === 'icon' ? '44px' : 'auto'
+      }}
+      {...props}
+    >
+      {loading ? (
+        <>
+          <span className="sr-only">Carregando...</span>
+          <div className="animate-spin rounded-full h-4 w-4 border-2 border-current border-t-transparent" aria-hidden="true" />
+          {children}
+        </>
+      ) : (
+        children
+      )}
+    </Comp>
   );
-}
+})
+
+Button.displayName = "Button"
 
 export { Button, buttonVariants }

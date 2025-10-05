@@ -13,7 +13,7 @@ const steps = [
 
 const PostJobsGuide = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white-ds">
       <Navigation />
 
       <section className="bg-gradient-to-b from-white to-emerald-50/40">
@@ -30,7 +30,7 @@ const PostJobsGuide = () => {
       <section className="py-10 md:py-14">
         <div className="max-w-5xl mx-auto px-6 grid gap-4">
           {steps.map((s, i) => (
-            <div key={i} className="border border-gray-200 rounded-2xl p-5 bg-white flex items-start gap-3">
+            <div key={i} className="border border-gray-200 rounded-2xl p-5 bg-white-ds flex items-start gap-3">
               <div className="mt-0.5 w-8 h-8 rounded-md bg-emerald-100 text-emerald-600 grid place-items-center"><Tags className="w-4 h-4" /></div>
               <div>
                 <h3 className="text-base font-semibold text-gray-900">{i+1}. {s.title}</h3>
@@ -39,7 +39,7 @@ const PostJobsGuide = () => {
             </div>
           ))}
 
-          <div className="rounded-2xl border border-gray-200 p-5 bg-white">
+          <div className="rounded-2xl border border-gray-200 p-5 bg-white-ds">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <h3 className="text-sm font-semibold text-gray-900">Dicas rápidas</h3>

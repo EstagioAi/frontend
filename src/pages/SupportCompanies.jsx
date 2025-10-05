@@ -6,7 +6,7 @@ import { SmartLink } from '@/components/ui/smart-link.jsx'
 
 const SupportCompanies = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white-ds">
       <Navigation />
 
       <section className="bg-gradient-to-b from-white to-[#fae8e0]/40">
@@ -22,19 +22,19 @@ const SupportCompanies = () => {
 
       <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="/como-publicar-vagas" className="group border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 hover:shadow-lg hover:border-[rgba(217,119,87,0.3)] transition-all bg-white">
+          <a href="/como-publicar-vagas" className="group border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 hover:shadow-lg hover:border-[rgba(217,119,87,0.3)] transition-all bg-white-ds">
             <div className="w-10 h-10 rounded-lg bg-[#fef5e7] text-[#d97757] grid place-items-center"><FileText className="w-5 h-5" /></div>
             <h3 className="mt-4 text-lg font-semibold text-[#3d3d3a]">Documentação</h3>
             <p className="text-[#6b6b68] text-sm">Guia passo a passo para anunciar vagas.</p>
           </a>
 
-          <SmartLink to="/planos-e-precos" className="group border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 hover:shadow-lg hover:border-[rgba(217,119,87,0.3)] transition-all bg-white">
+          <SmartLink to="/planos-e-precos" className="group border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 hover:shadow-lg hover:border-[rgba(217,119,87,0.3)] transition-all bg-white-ds">
             <div className="w-10 h-10 rounded-lg bg-[#fef5e7] text-[#d97757] grid place-items-center"><Building2 className="w-5 h-5" /></div>
             <h3 className="mt-4 text-lg font-semibold text-[#3d3d3a]">Planos e preços</h3>
             <p className="text-[#6b6b68] text-sm">Escolha a melhor opção para seu time.</p>
           </SmartLink>
 
-          <div className="border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 bg-white">
+          <div className="border border-[rgba(217,119,87,0.15)] rounded-2xl p-6 bg-white-ds">
             <div className="w-10 h-10 rounded-lg bg-[#fef5e7] text-[#d97757] grid place-items-center"><PhoneCall className="w-5 h-5" /></div>
             <h3 className="mt-4 text-lg font-semibold text-[#3d3d3a]">Canais de suporte</h3>
             <ul className="mt-3 space-y-2 text-sm text-[#6b6b68]">

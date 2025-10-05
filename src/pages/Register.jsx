@@ -1,43 +1,117 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button.jsx";
 
-// Página de Registro seguindo a mesma paleta do site
+// Página de Registro com novo design system verde minimalista
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [terms, setTerms] = useState(true);
+  const [terms, setTerms] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  // Validação em tempo real
+  const validateField = (field, value) => {
+    const newErrors = { ...errors };
+    
+    switch (field) {
+      case 'name':
+        if (!value.trim()) {
+          newErrors.name = 'Nome é obrigatório';
+        } else if (value.trim().length < 2) {
+          newErrors.name = 'Nome deve ter pelo menos 2 caracteres';
+        } else {
+          delete newErrors.name;
+        }
+        break;
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value) {
+          newErrors.email = 'Email é obrigatório';
+        } else if (!emailRegex.test(value)) {
+          newErrors.email = 'Email inválido';
+        } else {
+          delete newErrors.email;
+        }
+        break;
+      case 'password':
+        if (!value) {
+          newErrors.password = 'Senha é obrigatória';
+        } else if (value.length < 6) {
+          newErrors.password = 'Senha deve ter pelo menos 6 caracteres';
+        } else {
+          delete newErrors.password;
+        }
+        break;
+      case 'terms':
+        if (!value) {
+          newErrors.terms = 'Você deve aceitar os termos';
+        } else {
+          delete newErrors.terms;
+        }
+        break;
+    }
+    
+    setErrors(newErrors);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: integrar backend real
-    alert("Cadastro simulado com sucesso!");
+    setIsSubmitting(true);
+    
+    // Validar todos os campos
+    validateField('name', name);
+    validateField('email', email);
+    validateField('password', password);
+    validateField('terms', terms);
+    
+    // Se há erros, não submeter
+    if (Object.keys(errors).length > 0 || !name || !email || !password || !terms) {
+      setIsSubmitting(false);
+      return;
+    }
+    
+    try {
+      // TODO: integrar backend real
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simular delay
+      alert("Cadastro realizado com sucesso!");
+    } catch (error) {
+      console.error('Erro no cadastro:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2">
+    <div className="min-h-screen bg-primary-ds">
+      <main id="main-content">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2">
         {/* Lado esquerdo com mensagem/branding */}
         <div className="flex items-center px-6 md:px-10 py-10">
-          <div className="max-w-xl animate-fade-in-up">
-            <p className="text-sm tracking-wider text-gray-500 font-medium mb-6">
+          {/* Elementos decorativos minimalistas */}
+          <div className="pointer-events-none absolute inset-0 -z-10">
+            <div className="absolute w-[280px] h-[280px] -top-8 -left-20 rounded-full border-[3px] border-green-ds opacity-30"></div>
+            <div className="absolute w-[200px] h-[200px] bottom-10 -right-8 bg-green-ds/10 blur-3xl rounded-full"></div>
+          </div>
+          <div className="max-w-xl relative">
+            <p className="text-xs font-semibold uppercase tracking-wider text-black-50 mb-6">
               BEM-VINDO
             </p>
-            <h1 className="text[40px] md:text-[48px] leading-[1.1] font-extrabold text-black mb-6">
+            <h1 className="text-5xl md:text-6xl leading-[1.1] font-bold tracking-tight text-primary-ds mb-6">
               Crie sua conta
               <br />
-              no EstagioAI
+              no EstágioAI
             </h1>
-            <div className="h-2 w-44 rounded-full bg-[var(--color-coral-primary)] mb-8" />
-            <p className="text-gray-700">
+            <div className="h-2 w-44 rounded-full bg-green-ds mb-8" />
+            <p className="text-lg leading-relaxed text-black-70">
               Acesse oportunidades mais compatíveis com seu perfil, com filtros
               inteligentes e feedback obrigatório.
             </p>
-            <div className="mt-10 text-gray-700">
+            <div className="mt-10 text-black-70">
               <span className="mr-2">Já tem conta?</span>
               <a
                 href="/login"
-                className="font-semibold text-[var(--color-coral-primary)] underline underline-offset-4 hover:text-[var(--color-coral-light)]"
+                className="font-semibold text-green-ds underline underline-offset-4 hover:text-green-hover-ds transition-colors duration-200"
               >
                 Entrar
               </a>
@@ -45,7 +119,7 @@ const Register = () => {
           </div>
         </div>
 
-        {/* Lado direito com imagem + cartão (igual ao login) */}
+        {/* Lado direito com imagem + cartão */}
         <div className="relative min-h-[70vh] md:min-h-screen">
           {/* Imagem de fundo */}
           <div
@@ -54,9 +128,9 @@ const Register = () => {
           />
           <div className="absolute inset-0 bg-black/35" />
 
-          {/* Cartão de registro */}
+          {/* Cartão de registro com novo design */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] md:w-[440px]">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 p-6 md:p-7 animate-scale-in">
+            <div className="rounded-2xl border-2 border-black-10 bg-white-ds shadow-lg p-6 md:p-7 transition-all duration-200">
               <div className="mb-2">
                 <a
                   href="#"
@@ -64,65 +138,127 @@ const Register = () => {
                     e.preventDefault();
                     window.history.back();
                   }}
-                  className="text-sm text-gray-600 hover:text-gray-800"
+                  className="text-sm text-black-70 hover:text-green-ds transition-colors duration-200"
                 >
                   &larr; Voltar
                 </a>
               </div>
-              <h2 className="text-center text-base font-bold text-gray-900 mb-4">
+              <h2 className="text-center text-lg font-bold text-primary-ds mb-4">
                 Criar conta
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-primary-ds mb-1">
                     Nome
                   </label>
                   <input
+                    id="name"
                     type="text"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                      validateField('name', e.target.value);
+                    }}
+                    onBlur={(e) => validateField('name', e.target.value)}
                     placeholder="Seu nome completo"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
+                    className={`w-full rounded-lg border-2 bg-white-ds px-4 py-3 text-base text-primary-ds placeholder:text-black-40 outline-none transition-all duration-200 ${
+                      errors.name 
+                        ? 'border-red-500 focus:ring-4 focus:ring-red-500/20' 
+                        : name && !errors.name
+                        ? 'border-green-500 focus:ring-4 focus:ring-green-500/20'
+                        : 'border-black-10 focus:border-green-ds focus:ring-4 focus:ring-green-20'
+                    }`}
+                    aria-invalid={errors.name ? 'true' : 'false'}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
                   />
+                  {errors.name && (
+                    <p id="name-error" className="mt-1 text-xs text-red-500" role="alert">
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-primary-ds mb-1">
                     Email
                   </label>
                   <input
+                    id="email"
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      validateField('email', e.target.value);
+                    }}
+                    onBlur={(e) => validateField('email', e.target.value)}
                     placeholder="Seu melhor email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
+                    className={`w-full rounded-lg border-2 bg-white-ds px-4 py-3 text-base text-primary-ds placeholder:text-black-40 outline-none transition-all duration-200 ${
+                      errors.email 
+                        ? 'border-red-500 focus:ring-4 focus:ring-red-500/20' 
+                        : email && !errors.email
+                        ? 'border-green-500 focus:ring-4 focus:ring-green-500/20'
+                        : 'border-black-10 focus:border-green-ds focus:ring-4 focus:ring-green-20'
+                    }`}
+                    aria-invalid={errors.email ? 'true' : 'false'}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
                   />
+                  {errors.email && (
+                    <p id="email-error" className="mt-1 text-xs text-red-500" role="alert">
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="password" className="block text-sm font-medium text-primary-ds mb-1">
                     Senha
                   </label>
                   <input
+                    id="password"
                     type="password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      validateField('password', e.target.value);
+                    }}
+                    onBlur={(e) => validateField('password', e.target.value)}
                     placeholder="Crie uma senha"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-[12px] focus:outline-none focus:ring-2 focus:ring-[var(--color-coral-primary)]"
+                    className={`w-full rounded-lg border-2 bg-white-ds px-4 py-3 text-base text-primary-ds placeholder:text-black-40 outline-none transition-all duration-200 ${
+                      errors.password 
+                        ? 'border-red-500 focus:ring-4 focus:ring-red-500/20' 
+                        : password && !errors.password
+                        ? 'border-green-500 focus:ring-4 focus:ring-green-500/20'
+                        : 'border-black-10 focus:border-green-ds focus:ring-4 focus:ring-green-20'
+                    }`}
+                    aria-invalid={errors.password ? 'true' : 'false'}
+                    aria-describedby={errors.password ? 'password-error' : undefined}
                   />
+                  {errors.password && (
+                    <p id="password-error" className="mt-1 text-xs text-red-500" role="alert">
+                      {errors.password}
+                    </p>
+                  )}
                 </div>
 
                 <div className="text-xs md:text-sm">
                   <label className="flex items-start gap-2 select-none">
                     <input
+                      id="terms"
                       type="checkbox"
                       checked={terms}
-                      onChange={(e) => setTerms(e.target.checked)}
-                      className="mt-1 rounded-md text-[var(--color-coral-primary)] focus:ring-[var(--color-coral-primary)]"
+                      onChange={(e) => {
+                        setTerms(e.target.checked);
+                        validateField('terms', e.target.checked);
+                      }}
+                      className="mt-1 rounded-md text-green-ds focus:ring-green-20 border-black-10"
+                      aria-invalid={errors.terms ? 'true' : 'false'}
+                      aria-describedby={errors.terms ? 'terms-error' : undefined}
                     />
-                    <span className="text-gray-700">
+                    <span className="text-black-70">
                       Aceito os
                       <a
                         href="/termos-de-uso"
-                        className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
+                        className="underline underline-offset-4 text-green-ds hover:text-green-hover-ds transition-colors duration-200"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {" "}
                         Termos de Uso
@@ -130,7 +266,9 @@ const Register = () => {
                       ,
                       <a
                         href="/termos-de-servico"
-                        className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
+                        className="underline underline-offset-4 text-green-ds hover:text-green-hover-ds transition-colors duration-200"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {" "}
                         Termos de Serviço
@@ -138,7 +276,9 @@ const Register = () => {
                       e
                       <a
                         href="/politica-de-privacidade"
-                        className="underline underline-offset-4 text-[var(--color-coral-primary)] hover:text-[var(--color-coral-light)]"
+                        className="underline underline-offset-4 text-green-ds hover:text-green-hover-ds transition-colors duration-200"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {" "}
                         Política de Privacidade
@@ -146,29 +286,38 @@ const Register = () => {
                       .
                     </span>
                   </label>
+                  {errors.terms && (
+                    <p id="terms-error" className="mt-1 text-xs text-red-500" role="alert">
+                      {errors.terms}
+                    </p>
+                  )}
                 </div>
 
                 <Button
                   type="submit"
                   variant="primary"
-                  className="w-full h-12 rounded-[12px]"
+                  fullWidth={true}
+                  size="lg"
+                  disabled={isSubmitting || Object.keys(errors).length > 0}
                 >
-                  Cadastrar
+                  {isSubmitting ? 'Cadastrando...' : 'Cadastrar'}
                 </Button>
 
                 <div className="flex items-center gap-3 my-3">
-                  <div className="h-px bg-gray-200 flex-1" />
-                  <span className="text-xs text-gray-500">
+                  <div className="h-px bg-black-ds/10 flex-1" />
+                  <span className="text-xs text-black-50">
                     ou cadastre-se com
                   </span>
-                  <div className="h-px bg-gray-200 flex-1" />
+                  <div className="h-px bg-black-ds/10 flex-1" />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full h-11 rounded-[12px]"
+                    size="md"
+                    fullWidth={true}
+                    disabled={isSubmitting}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +347,9 @@ const Register = () => {
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full h-11 rounded-[12px]"
+                    size="md"
+                    fullWidth={true}
+                    disabled={isSubmitting}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -224,6 +375,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      </main>
     </div>
   );
 };

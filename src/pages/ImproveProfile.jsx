@@ -37,7 +37,7 @@ const resources = [
 
 const ImproveProfile = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white-ds">
       <Navigation />
 
       {/* Hero */}
@@ -56,7 +56,7 @@ const ImproveProfile = () => {
       <section className="py-10 md:py-14">
         <div className="max-w-5xl mx-auto px-6 grid gap-4">
           {tips.map((t, idx) => (
-            <div key={idx} className="border border-gray-200 rounded-2xl p-5 bg-white flex items-start gap-3">
+            <div key={idx} className="border border-gray-200 rounded-2xl p-5 bg-white-ds flex items-start gap-3">
               <div className="mt-0.5 w-8 h-8 rounded-md bg-emerald-100 text-emerald-600 grid place-items-center">
                 <BookOpen className="w-4 h-4" />
               </div>
@@ -69,7 +69,7 @@ const ImproveProfile = () => {
       {/* Resumo: bom currículo */}
       <section className="py-2 md:py-4">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6">
+          <div className="rounded-2xl border border-gray-200 bg-white-ds p-6">
             <div className="flex items-start gap-3">
               <div className="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-600 grid place-items-center">
                 <FileText className="w-5 h-5" />
