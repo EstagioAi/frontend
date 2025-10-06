@@ -60,7 +60,7 @@ export const TextHighlight = ({ variant = 'underline', children, className = '' 
       <span className={`relative inline-block ${className}`}>
         <span className="relative z-10">{children}</span>
         <svg
-          className="absolute bottom-0 left-0 w-full h-2 -z-0"
+          className="absolute bottom-[-5px] left-0 w-full h-2 "
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >

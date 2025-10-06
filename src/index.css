@@ -1,7 +1,109 @@
 /* ========================================
    ESTAGIOAI - INDEX.CSS
-   Animações e estilos específicos
+   Redesign 2025 - Design System & Styles
    ======================================== */
+
+/* ========================================
+   DESIGN SYSTEM - CSS VARIABLES
+   ======================================== */
+:root {
+  /* === Cores Primárias === */
+  --color-primary-green: #00FF7F;
+  --color-primary-green-dark: #00D563;
+  --color-primary-green-light: #33FF99;
+  
+  /* === Cores de Fundo === */
+  --color-navy-dark: #0A0A1F;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-gray-light: #F5F5F5;
+  --color-gray-lighter: #FAFAFA;
+  --color-gray-medium: #E0E0E0;
+  
+  /* === Gradientes === */
+  --gradient-green: linear-gradient(135deg, #00FF7F 0%, #00D563 100%);
+  --gradient-green-soft: linear-gradient(135deg, rgba(0, 255, 127, 0.1) 0%, rgba(0, 213, 99, 0.05) 100%);
+  --gradient-dark: linear-gradient(135deg, #0A0A1F 0%, #1a1a2e 100%);
+  
+  /* === Sombras === */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --shadow-green: 0 8px 24px rgba(0, 255, 127, 0.15);
+  --shadow-green-glow: 0 0 20px rgba(0, 255, 127, 0.3);
+  
+  /* === Border Radius === */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  
+  /* === Espaçamento === */
+  --section-padding-y: 100px;
+  --section-padding-y-mobile: 60px;
+  --container-max-width: 1200px;
+  --card-padding: 32px;
+  --card-gap: 24px;
+  
+  /* === Tipografia === */
+  --font-size-h1: 56px;
+  --font-size-h2: 40px;
+  --font-size-h3: 24px;
+  --font-size-body-lg: 18px;
+  --font-size-body: 16px;
+  --font-size-sm: 14px;
+  --line-height-base: 1.6;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-h1: 40px;
+    --font-size-h2: 32px;
+    --font-size-h3: 20px;
+    --section-padding-y: 60px;
+    --card-padding: 24px;
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES - REDESIGN 2025
+   ======================================== */
+
+.container-redesign {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section-spacing {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding-top: var(--section-padding-y-mobile);
+    padding-bottom: var(--section-padding-y-mobile);
+  }
+}
+
+.bg-navy-dark {
+  background-color: var(--color-navy-dark);
+}
+
+.bg-gradient-green {
+  background: var(--gradient-green);
+}
+
+.text-gradient-green {
+  background: var(--gradient-green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 /* ========================================
    ANIMAÇÕES
@@ -137,6 +239,110 @@
 .card-hover-effect:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ========================================
+   REDESIGN 2025 - CARD STYLES
+   ======================================== */
+
+/* Modern Card - Light Background */
+.modern-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.modern-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-green);
+  border-color: var(--color-primary-green);
+}
+
+/* Category Card - Dark Background */
+.category-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.category-card:hover {
+  background: rgba(0, 255, 127, 0.1);
+  border-color: var(--color-primary-green);
+  box-shadow: var(--shadow-green-glow);
+  transform: translateY(-4px);
+}
+
+/* Job Card */
+.job-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--color-gray-medium);
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-green);
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+/* ========================================
+   REDESIGN 2025 - BUTTON STYLES
+   ======================================== */
+
+.btn-primary-redesign {
+  background: var(--gradient-green);
+  color: var(--color-white);
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-body);
+}
+
+.btn-primary-redesign:hover {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-green);
+}
+
+.btn-secondary-redesign {
+  background: transparent;
+  color: var(--color-white);
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid var(--color-white);
+  cursor: pointer;
+  font-size: var(--font-size-body);
+}
+
+.btn-secondary-redesign:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0.98);
 }
 
 /* ========================================
@@ -529,5 +735,346 @@ nav[role="navigation"] {
   }
   100% {
     width: 100%;
+  }
+}
+
+/* ========================================
+   MICRO-INTERAÇÕES E ANIMAÇÕES AVANÇADAS
+   ======================================== */
+
+/* Slide In Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+/* Slide In Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* Scale In */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Bounce In */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Shake */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Glow Effect */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(130, 247, 179, 0.5),
+                0 0 10px rgba(130, 247, 179, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(130, 247, 179, 0.8),
+                0 0 20px rgba(130, 247, 179, 0.5),
+                0 0 30px rgba(130, 247, 179, 0.3);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.animate-typing {
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+}
+
+/* Parallax Scroll */
+.parallax-slow {
+  transform: translateY(calc(var(--scroll-y, 0) * 0.3px));
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-fast {
+  transform: translateY(calc(var(--scroll-y, 0) * 0.6px));
+  transition: transform 0.1s ease-out;
+}
+
+/* Stagger Animation Delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Scroll Reveal Utility Classes */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Loading Skeleton */
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   REDESIGN 2025 - RESPONSIVE UTILITIES
+   ======================================== */
+
+/* Mobile: Hide on small screens */
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  /* Stack cards vertically on mobile */
+  .mobile-stack {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Reduce padding on mobile */
+  .mobile-compact {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-two-cols {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Desktop: Show only on large screens */
+@media (min-width: 1024px) {
+  .desktop-only {
+    display: block !important;
+  }
+}
+
+/* Touch devices: Larger tap targets */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
   }
 }

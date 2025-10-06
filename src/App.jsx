@@ -1,36 +1,37 @@
 import React from "react";
-const Home = React.lazy(() => import("./pages/Home"));
-const CompaniesPage = React.lazy(() => import("./pages/CompaniesPage"));
+const Home = React.lazy(() => import("./pages/home"));
+const CompaniesPage = React.lazy(() => import("./pages/companies"));
 import "./App.css";
-const Login = React.lazy(() => import("./pages/Login.jsx"));
-const Register = React.lazy(() => import("./pages/Register.jsx"));
-const TermsOfUse = React.lazy(() => import("./pages/TermsOfUse.jsx"));
-const TermsOfService = React.lazy(() => import("./pages/TermsOfService.jsx"));
-const PrivacyPolicy = React.lazy(() => import("./pages/PrivacyPolicy.jsx"));
-const SupportStudents = React.lazy(() => import("./pages/SupportStudents.jsx"));
-const HelpCenter = React.lazy(() => import("./pages/HelpCenter.jsx"));
-const ImproveProfile = React.lazy(() => import("./pages/ImproveProfile.jsx"));
-const SupportCompanies = React.lazy(() => import("./pages/SupportCompanies.jsx"));
-const PostJobsGuide = React.lazy(() => import("./pages/PostJobsGuide.jsx"));
-const PricingPlans = React.lazy(() => import("./pages/PricingPlans.jsx"));
-const CommercialContact = React.lazy(() => import("./pages/CommercialContact.jsx"));
+const Login = React.lazy(() => import("./pages/login"));
+const Register = React.lazy(() => import("./pages/register"));
+const TermsOfUse = React.lazy(() => import("./pages/terms-of-use"));
+const TermsOfService = React.lazy(() => import("./pages/terms-of-service"));
+const PrivacyPolicy = React.lazy(() => import("./pages/privacy-policy"));
+const SupportStudents = React.lazy(() => import("./pages/support-students"));
+const HelpCenter = React.lazy(() => import("./pages/help-center"));
+const ImproveProfile = React.lazy(() => import("./pages/improve-profile"));
+const SupportCompanies = React.lazy(() => import("./pages/support-companies"));
+const PostJobsGuide = React.lazy(() => import("./pages/post-jobs-guide"));
+const PricingPlans = React.lazy(() => import("./pages/pricing-plans"));
+const CommercialContact = React.lazy(() => import("./pages/commercial-contact"));
 const CompanyJobs = React.lazy(() => import("./pages/companies/CompanyJobs.jsx"));
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-const EmConstrucao = React.lazy(() => import("./pages/EmConstrucao"));
+const EmConstrucao = React.lazy(() => import("./pages/em-construcao"));
 import RouteSEO from "./components/RouteSEO.jsx";
-const Sobre = React.lazy(() => import("./pages/Sobre.jsx"));
-const Blog = React.lazy(() => import("./pages/Blog.jsx"));
+const Sobre = React.lazy(() => import("./pages/sobre"));
+const Blog = React.lazy(() => import("./pages/blog"));
 const BlogPost = React.lazy(() => import("./pages/blog/Post.jsx"));
-const MuralDeVagas = React.lazy(() => import("./pages/MuralDeVagas.jsx"));
-const RadarDeVagas = React.lazy(() => import("./pages/RadarDeVagas.jsx"));
-const Contato = React.lazy(() => import("./pages/Contato.jsx"));
-const ResumeTemplates = React.lazy(() => import("./pages/ResumeTemplates.jsx"));
-const ResumeChecker = React.lazy(() => import("./pages/ResumeChecker.jsx"));
-const Vagas = React.lazy(() => import("./pages/Vagas.jsx"));
-const Empresas = React.lazy(() => import("./pages/Empresas.jsx"));
-const Universidades = React.lazy(() => import("./pages/Universidades.jsx"));
+const MuralDeVagas = React.lazy(() => import("./pages/mural-de-vagas"));
+const RadarDeVagas = React.lazy(() => import("./pages/radar-de-vagas"));
+const Contato = React.lazy(() => import("./pages/contato"));
+const ResumeTemplates = React.lazy(() => import("./pages/resume-templates"));
+const ResumeChecker = React.lazy(() => import("./pages/resume-checker"));
+const Vagas = React.lazy(() => import("./pages/vagas"));
+const Empresas = React.lazy(() => import("./pages/empresas"));
+const Universidades = React.lazy(() => import("./pages/universidades"));
+const NotFound = React.lazy(() => import("./pages/not-found"));
 import { useSubdomain } from "./hooks/use-subdomain.js";
-
+const LoadingSpinner = React.lazy(() => import("./components/ui/LoadingSpinner.jsx"));
 
 function App() {
   const { isCompaniesSubdomain } = useSubdomain();
@@ -40,9 +41,12 @@ function App() {
       {/* SEO dinâmico por rota */}
       <RouteSEO />
       <React.Suspense fallback={
-        <div className="flex items-center justify-center min-h-screen bg-primary-ds" role="status" aria-label="Carregando página">
-          <div className="animate-spin rounded-full h-8 w-8 border-2 border-green-ds border-t-transparent" aria-hidden="true"></div>
-          <span className="sr-only">Carregando...</span>
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-white via-[#F8FFFE] to-[#F0FFF7]" role="status" aria-label="Carregando página">
+          <div className="flex flex-col items-center gap-4">
+            <div className="animate-spin rounded-full h-12 w-12 border-3 border-green-ds border-t-transparent" aria-hidden="true"></div>
+            <p className="text-sm font-medium text-gray-600 animate-pulse">Carregando...</p>
+            <span className="sr-only">Carregando...</span>
+          </div>
         </div>
       }> 
         {isCompaniesSubdomain ? (
@@ -58,8 +62,8 @@ function App() {
             <Route path="/termos-de-uso" element={<TermsOfUse />} />
             <Route path="/termos-de-servico" element={<TermsOfService />} />
             <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
-            {/* Redireciona outras rotas para a página principal de empresas */}
-            <Route path="*" element={<Navigate to="/" replace />} />
+            {/* Página 404 para rotas não encontradas */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         ) : (
           // Rotas padrão para o domínio principal
@@ -90,6 +94,8 @@ function App() {
             <Route path="/universidades" element={<Universidades />} />
             <Route path="/empresas/:slug" element={<CompanyJobs />} />
             <Route path="/em-construcao" element={<EmConstrucao />} />
+            {/* Página 404 para rotas não encontradas */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         )}
       </React.Suspense>
