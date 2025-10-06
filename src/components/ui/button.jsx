@@ -5,38 +5,38 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-bold transition-all duration-200 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-white-ds-40 disabled:text-black-30 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus:ring-4 focus:ring-green-20 rounded-lg",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-300 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-green-ds focus-visible:ring-offset-2 rounded-lg",
   {
     variants: {
       variant: {
-        // Primary Button - Black solid background
+        // Primary Button - Green with hover effect (REDESIGN 2025)
         primary:
-          "bg-black-ds text-white-ds hover:bg-black-hover-ds hover:shadow-lg",
+          "bg-green-ds text-black hover:bg-[#4AC77D] hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(130,247,179,0.3)]",
 
-        // Secondary Button - Green solid background
+        // Secondary Button - Black solid background
         secondary:
-          "bg-green-ds text-primary-ds hover:bg-green-hover-ds hover:shadow-lg",
+          "bg-black text-white hover:bg-[#1a1a1a] hover:-translate-y-0.5 hover:shadow-xl",
 
         // Outline Button - Transparent with border
         outline:
-          "border-2 border-black-10 bg-white-ds-ds text-black-70 hover:border-green-ds hover:bg-green-05 hover:text-primary-ds",
+          "border-2 border-black/10 bg-white text-black/70 hover:border-green-ds hover:bg-green-ds/5 hover:text-black",
 
         // Active Button - For filters and selected states
         active:
-          "bg-green-ds text-primary-ds shadow-lg",
+          "bg-green-ds text-black shadow-lg",
 
         // Ghost Button - Transparent with subtle hover
         ghost:
-          "bg-transparent text-black-70 hover:bg-green-10 hover:text-primary-ds",
+          "bg-transparent text-black/70 hover:bg-green-ds/10 hover:text-black",
 
         // Link variant - Green text with underline
         link:
-          "text-green-ds underline-offset-4 hover:underline hover:text-green-hover-ds",
+          "text-green-ds underline-offset-4 hover:underline hover:text-[#4AC77D]",
       },
       size: {
         sm: "h-10 px-4 text-sm gap-2 has-[>svg]:px-3",
-        md: "h-12 px-6 text-sm gap-2 has-[>svg]:px-4",
-        lg: "h-14 px-8 text-base gap-3 has-[>svg]:px-6",
+        md: "h-12 px-8 text-base gap-2 has-[>svg]:px-6",
+        lg: "h-14 px-12 text-lg gap-3 has-[>svg]:px-8",
         icon: "size-10",
       },
       fullWidth: {

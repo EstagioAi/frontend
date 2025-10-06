@@ -22,21 +22,21 @@ const Card = ({
   style,
   ...props 
 }) => {
-  // Base classes para o novo design system
-  const baseClasses = 'rounded-2xl border-2 border-black-10 bg-white-ds shadow-lg transition-all duration-200';
+  // Base classes para o REDESIGN 2025
+  const baseClasses = 'rounded-2xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300';
   
-  // Hover classes
-  const hoverClasses = hoverable ? 'hover:-translate-y-1 hover:border-green-ds hover:shadow-xl' : '';
+  // Hover classes - REDESIGN 2025
+  const hoverClasses = hoverable ? 'hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]' : '';
   
   // Clickable classes
-  const clickableClasses = onClick ? 'cursor-pointer focus:outline-none focus:ring-4 focus:ring-green-20' : '';
+  const clickableClasses = onClick ? 'cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-green-ds focus-visible:ring-offset-2' : '';
   
   // Variant-specific classes
   const variantClasses = {
-    default: 'p-6',
+    default: 'p-8',
     article: 'group relative flex h-full flex-col overflow-hidden',
     cta: 'px-8 py-12 text-center',
-    feature: 'p-6'
+    feature: 'p-8'
   };
   
   const cardClasses = [

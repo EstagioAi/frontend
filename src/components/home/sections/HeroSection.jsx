@@ -5,7 +5,7 @@ import BackgroundShapes from '@/components/ui/background-shapes.jsx'
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-visible bg-primary-ds pt-20 pb-16 sm:pt-24 lg:pt-28">
+    <section className="relative overflow-visible bg-primary-ds pt-32 pb-16 sm:pt-36 lg:pt-40">
       {/* Formas decorativas de fundo */}
       <BackgroundShapes
         variant="hero"
@@ -25,10 +25,10 @@ const HeroSection = () => {
         className="opacity-90"
       />
 
-      <div className="relative mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-0 lg:px-8 lg:min-h-[500px]">
+      <div className="relative mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-start lg:gap-0 lg:px-8 lg:min-h-[500px]">
 
         {/* Coluna Esquerda - Conteúdo */}
-        <div className="relative z-10 flex flex-col justify-center space-y-6 lg:pr-8 py-8 lg:py-12">
+        <div className="relative z-10 flex flex-col justify-start space-y-6 lg:pr-8 py-8 lg:py-12 lg:pt-16">
           {/* Título Principal */}
           <h1 className="text-4xl font-bold leading-[1.15] tracking-tight text-primary-ds sm:text-5xl lg:text-6xl">
             A forma mais fácil de contratar qualquer pessoa, em qualquer lugar.
@@ -92,9 +92,9 @@ const HeroSection = () => {
         </div>
 
         {/* Coluna Direita - Visual com fundo preto */}
-        <div className="relative hidden lg:flex lg:items-stretch lg:self-stretch">
+        <div className="relative hidden lg:flex lg:items-start lg:self-start lg:pt-8">
           {/* Container com fundo preto - altura total da hero section */}
-          <div className="relative w-full rounded-l-3xl bg-black-ds overflow-hidden shadow-2xl flex items-end lg:-mr-8">
+          <div className="relative w-full rounded-l-3xl bg-black-ds overflow-hidden shadow-2xl flex items-end lg:-mr-8 min-h-[500px]">
 
             {/* Círculo verde grande (inferior esquerdo) */}
             <div className="absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-green-ds opacity-90" />

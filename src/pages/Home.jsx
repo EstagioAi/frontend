@@ -3,6 +3,7 @@ import Navigation from '@/components/global/Navigation'
 import Footer from '@/components/global/Footer'
 import HeroSection from '@/components/home/sections/HeroSection'
 import WhyChooseSection from '@/components/home/sections/WhyChooseSection'
+import HowItWorksSection from '@/components/home/sections/HowItWorksSection'
 import StatsSection from '@/components/home/sections/StatsSection'
 import TestimonialsCarouselSection from '@/components/home/sections/TestimonialsCarouselSection'
 import TopCompaniesSection from '@/components/home/sections/TopCompaniesSection'
@@ -37,6 +38,9 @@ export default function Home() {
         <HeroSection />
         <section aria-label="Por que escolher EstágioAI">
           <WhyChooseSection />
+        </section>
+        <section aria-label="Como funciona">
+          <HowItWorksSection />
         </section>
         <section aria-label="Depoimentos de clientes">
           <TestimonialsCarouselSection />
