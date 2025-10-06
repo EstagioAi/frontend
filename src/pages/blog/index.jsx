@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Navigation from "@/components/global/Navigation";
 import Footer from "@/components/global/Footer";
-import { posts as blogPosts } from "./blog/posts";
+import { posts as blogPosts } from "./posts";
 import { Link } from "react-router-dom";
 import { Search, Sparkles, ArrowRight, ArrowLeft } from "lucide-react";
 import { Badge, EmptyState } from "@/components/ui";
