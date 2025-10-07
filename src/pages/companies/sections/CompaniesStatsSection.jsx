@@ -5,30 +5,22 @@ const stats = [
   {
     value: '10k+',
     label: 'Talentos universitários qualificados no banco de dados',
-    color: '#d97757',
-    icon: Users,
-    bgColor: '#fef9e7' // pastel yellow
+    icon: Users
   },
   {
     value: '500+',
     label: 'Empresas parceiras contratando através da plataforma',
-    color: '#d97757',
-    icon: Building2,
-    bgColor: '#e8f8f5' // pastel mint
+    icon: Building2
   },
   {
     value: '62%',
     label: 'Redução no tempo médio de contratação para empresas',
-    color: '#d97757',
-    icon: TrendingUp,
-    bgColor: '#fef5e7' // pastel peach
+    icon: TrendingUp
   },
   {
     value: '97%',
     label: 'Taxa de satisfação dos recrutadores com a plataforma',
-    color: '#d97757',
-    icon: Award,
-    bgColor: '#f4ecf7' // pastel lavender
+    icon: Award
   }
 ]
 
@@ -55,7 +47,7 @@ const CompaniesStatsSection = () => {
 
         {/* Stats Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {stats.map(({ value, label, color, icon: Icon, bgColor }, index) => (
+          {stats.map(({ value, label, icon }, index) => (
             <div
               key={index}
               className="group relative overflow-hidden rounded-2xl border-2 border-black-10 bg-white-ds p-8 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-green-ds hover:shadow-xl"
@@ -64,11 +56,11 @@ const CompaniesStatsSection = () => {
               <div className="relative">
                 {/* Icon in circular background */}
                 <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-green-ds/10 transition-transform duration-200 group-hover:scale-110">
-                  <Icon 
-                    size={28} 
-                    className="text-green-ds"
-                    strokeWidth={2}
-                  />
+                  {React.createElement(icon, {
+                    size: 28,
+                    className: 'text-green-ds',
+                    strokeWidth: 2
+                  })}
                 </div>
 
                 <div className="mb-4 text-5xl font-extrabold text-green-ds transition-transform duration-200 group-hover:scale-110">

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Navigation from "@/components/global/Navigation";
 import Footer from "@/components/global/Footer";
 import { Button } from "@/components/ui/button.jsx";
-import { Input } from "@/components/ui/input.jsx";
 import {
   Search,
   ShieldCheck,
@@ -171,7 +170,7 @@ const faqs = [
   },
 ];
 
-function TemplateCard({ template }) {
+const TemplateCard = React.memo(function TemplateCard({ template }) {
   return (
     <div className="group flex h-full flex-col gap-6 rounded-2xl border-2 border-black-10 bg-white-ds p-6 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-green-ds hover:shadow-xl">
       <div className={`h-1 w-full rounded-full bg-gradient-to-r ${template.gradient} opacity-90`} />
@@ -228,7 +227,9 @@ function TemplateCard({ template }) {
       </div>
     </div>
   );
-}
+});
+
+TemplateCard.displayName = "TemplateCard";
 
 export default function ResumeTemplates() {
   const topTemplates = templates.slice(0, 3);
@@ -275,10 +276,10 @@ export default function ResumeTemplates() {
                 </div>
 
                 <ul className="grid gap-3 text-sm text-white-ds/75 sm:grid-cols-2">
-                  {heroHighlights.map(({ title, description, icon: Icon }) => (
+                  {heroHighlights.map(({ title, description, icon }) => (
                     <li key={title} className="flex items-start gap-3">
                       <span className="mt-1 grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/15 bg-white-ds/10 text-green-ds">
-                        <Icon className="h-4 w-4" />
+                        {React.createElement(icon, { className: 'h-4 w-4' })}
                       </span>
                       <div className="space-y-1">
                         <p className="text-sm font-semibold text-white-ds">{title}</p>
@@ -327,7 +328,7 @@ export default function ResumeTemplates() {
                   </ul>
 
                   <div className="mt-6 space-y-3 rounded-2xl border border-white/12 bg-white-ds/5 p-5">
-                    {topTemplates.map((template, index) => (
+                    {topTemplates.map((template) => (
                       <div key={template.id} className="flex items-center justify-between text-sm text-white-ds/70">
                         <div>
                           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white-ds/45">{template.badge}</p>
@@ -419,13 +420,13 @@ export default function ResumeTemplates() {
               </p>
             </div>
             <div className="grid gap-6 sm:grid-cols-3 md:grid-cols-3">
-              {workflow.map(({ title, description, icon: Icon }) => (
+              {workflow.map(({ title, description, icon }) => (
                 <div
                   key={title}
                   className="flex h-full flex-col gap-4 rounded-2xl border-2 border-black-10 bg-white-ds p-6 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-green-ds hover:shadow-xl"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-ds/10 text-green-ds">
-                    <Icon className="h-6 w-6" />
+                    {React.createElement(icon, { className: 'h-6 w-6' })}
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-lg font-bold leading-tight text-primary-ds">{title}</h3>

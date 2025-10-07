@@ -70,7 +70,7 @@ function toUrlset(urls, { xmlnsExtras = "" } = {}) {
 
 async function writePublicAndDist(fileName, content) {
   // Always write to public/
-  const publicPath = resolve(__dirname, "../public/" + fileName);
+  const publicPath = resolve(__dirname, "../public/sitemaps/" + fileName);
   await writeFile(publicPath, content, "utf8");
 
   // Also write to dist/ if it exists (after vite build)

@@ -11,7 +11,7 @@ import Card from './card';
  * @param {string} props.description - Descrição da feature
  * @param {string} props.className - Classes CSS adicionais
  */
-const FeatureCard = ({
+const FeatureCardBase = ({
   icon,
   title,
   description,
@@ -28,5 +28,9 @@ const FeatureCard = ({
     </Card>
   );
 };
+
+const FeatureCard = React.memo(FeatureCardBase);
+
+FeatureCard.displayName = 'FeatureCard';
 
 export default FeatureCard;

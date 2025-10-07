@@ -14,25 +14,9 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="relative overflow-visible bg-primary-ds pt-32 pb-16 sm:pt-36 lg:pt-40">
+    <section className="relative overflow-visible bg-primary-ds pt-32 pb-16 sm:pt-36 lg:pt-40 bg-cover bg-no-repeat bg-center bg-blue" style={{ backgroundImage: `url(/images/backgrounds/background-hero.png)` }}>
       {/* Formas decorativas de fundo */}
-      <BackgroundShapes
-        variant="hero"
-        opacity={0.22}
-        color="#82f7b3"
-        accentColor="rgba(17, 94, 89, 0.3)"
-        accentOpacity={0.2}
-        className="opacity-90"
-      />
-      <BackgroundShapes
-        variant="orbits"
-        opacity={0.2}
-        color="rgba(130, 247, 179, 0.9)"
-        accentColor="rgba(46, 196, 182, 0.2)"
-        accentOpacity={0.16}
-        blendMode="normal"
-        className="opacity-90"
-      />
+
 
       <div className="relative mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-start lg:gap-12 lg:px-8 lg:min-h-[500px]">
 

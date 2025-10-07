@@ -51,32 +51,25 @@ const benefits = [
 
 const WhyChooseSection = () => {
   return (
-    <section className="relative overflow-hidden py-24" style={{ background: 'var(--color-bg-white-ds)' }}>
+    <section className="relative overflow-hidden py-24"  style={{ background: 'var(--color-bg-white-ds)' }}>
       {/* Formas decorativas de fundo */}
+
       <BackgroundShapes
-        variant="section2"
-        opacity={0.46}
-        color="rgba(130, 247, 179, 0.85)"
+        variant="hero"
+        opacity={0.22}
+        color="#82f7b3"
         accentColor="rgba(17, 94, 89, 0.3)"
-        accentOpacity={0.22}
-        blendMode="multiply"
-        className="opacity-100"
+        accentOpacity={0.2}
+        className="opacity-90"
       />
       <BackgroundShapes
         variant="orbits"
-        opacity={0.26}
-        color="rgba(130, 247, 179, 0.95)"
-        accentColor="rgba(46, 196, 182, 0.28)"
-        accentOpacity={0.18}
+        opacity={0.2}
+        color="rgba(130, 247, 179, 0.9)"
+        accentColor="rgba(46, 196, 182, 0.2)"
+        accentOpacity={0.16}
         blendMode="normal"
-        className="opacity-95"
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 top-[28%] mx-auto h-[380px] w-[76%] rounded-full blur-[140px]"
-        style={{
-          background: 'radial-gradient(circle at center, rgba(17, 94, 89, 0.16) 0%, transparent 75%)'
-        }}
-        aria-hidden="true"
+        className="opacity-90"
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -98,10 +91,10 @@ const WhyChooseSection = () => {
 
         {/* Benefits Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {benefits.map(({ number, icon: Icon, iconBg, title, description }) => (
+          {benefits.map(({ number, icon, iconBg, title, description }) => (
             <FeatureCard
               key={number}
-              icon={<Icon className="h-6 w-6" />}
+              icon={React.createElement(icon, { className: "h-6 w-6" })}
               iconBg={iconBg}
               title={title}
               description={description}

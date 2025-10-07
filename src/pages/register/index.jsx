@@ -24,7 +24,7 @@ const Register = () => {
           delete newErrors.name;
         }
         break;
-      case 'email':
+      case 'email': {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!value) {
           newErrors.email = 'Email é obrigatório';
@@ -34,6 +34,7 @@ const Register = () => {
           delete newErrors.email;
         }
         break;
+      }
       case 'password':
         if (!value) {
           newErrors.password = 'Senha é obrigatória';

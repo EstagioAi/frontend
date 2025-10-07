@@ -70,6 +70,11 @@ export default function StudentProfileCard({
               <MapPin className="w-3.5 h-3.5" />
               <span>{location}</span>
             </div>
+            {bio && (
+              <p className="mt-3 text-sm text-gray-600 leading-relaxed line-clamp-3">
+                {bio}
+              </p>
+            )}
           </div>
 
           {/* Stats - Compacto */}

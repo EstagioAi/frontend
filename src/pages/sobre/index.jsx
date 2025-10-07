@@ -235,7 +235,7 @@ export default function Sobre() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              {capabilities.map(({ title, description, icon: Icon, badge, highlights }) => (
+              {capabilities.map(({ title, description, icon, badge, highlights }) => (
                 <div
                   key={title}
                   className="flex h-full flex-col gap-5 rounded-2xl border-2 border-black-10 bg-white-ds p-10 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-green-ds hover:shadow-xl"
@@ -245,7 +245,7 @@ export default function Sobre() {
                       {badge}
                     </div>
                     <div className="rounded-2xl bg-green-ds/10 p-3">
-                      <Icon className="h-5 w-5 text-green-ds" />
+                      {React.createElement(icon, { className: 'h-5 w-5 text-green-ds' })}
                     </div>
                   </div>
                   <h3 className="text-2xl font-semibold text-primary-ds">{title}</h3>
@@ -283,8 +283,8 @@ export default function Sobre() {
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#82f7b3] via-[#6ee5a1] to-[#82f7b3]/50" />
 
               <div className="space-y-12">
-                {timelineEvents.map((event, index) => (
-                  <div key={index} className="relative pl-20">
+                {timelineEvents.map((event) => (
+                  <div key={`${event.year}-${event.title}`} className="relative pl-20">
                     {/* Verde Circle Marker */}
                     <div className="absolute left-[1.375rem] top-2 h-5 w-5 rounded-full bg-green-ds border-4 border-[#f8f8f8] shadow-lg" />
                     
@@ -399,12 +399,14 @@ export default function Sobre() {
   );
 }
 
-function ImpactHighlight({ title, subtitle }) {
+const ImpactHighlight = React.memo(function ImpactHighlight({ title, subtitle }) {
   return (
     <div className="rounded-2xl border border-white/15 bg-white-ds/12 px-4 py-5 text-white-ds backdrop-blur">
       <div className="text-xs font-semibold uppercase tracking-[0.3em] text-white-ds/60">{title}</div>
       <div className="mt-2 text-base font-semibold text-white-ds">{subtitle}</div>
     </div>
   );
-}
+});
+
+ImpactHighlight.displayName = 'ImpactHighlight';
 

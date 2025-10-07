@@ -1,6 +1,7 @@
 // UI Components exports
 export { Badge } from './badge';
-export { Button, buttonVariants } from './button';
+export { Button } from './button';
+export { buttonVariants } from './button-variants';
 export { default as Card } from './card';
 export { default as FeatureCard } from './feature-card';
 export { default as JobCard } from './job-card';
