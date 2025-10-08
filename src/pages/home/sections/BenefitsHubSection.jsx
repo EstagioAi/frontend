@@ -2,7 +2,6 @@ import React from 'react'
 import { CheckCircle, Shield, BarChart3, Headphones } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 import BackgroundShapes from '@/components/ui/background-shapes.jsx'
-import { TextHighlight } from '@/components/ui/text-highlight.jsx'
 
 export default function BenefitsHubSection() {
   const { ref: ref1, isVisible: isVisible1 } = useScrollReveal({ threshold: 0.1 })
@@ -46,60 +45,74 @@ export default function BenefitsHubSection() {
   ]
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-green-50/30 via-white to-green-50/20 overflow-hidden">
+    <section
+      className="relative overflow-hidden bg-black-ds bg-cover bg-center bg-no-repeat py-24"
+      style={{ backgroundImage: "url('/images/backgrounds/background-hero.png')" }}
+    >
+      <div className="absolute inset-0 -z-20 bg-black/85" aria-hidden="true" />
 
-      <BackgroundShapes
-        variant="orbits"
-        opacity={0.4}
-        color="rgba(130, 247, 179, 0.5)"
-        accentColor="rgba(200, 200, 200, 0.25)"
-        accentOpacity={1}
-        blendMode="normal"
-      />
+      <div className="absolute inset-0 -z-10 opacity-90" aria-hidden="true">
+        <BackgroundShapes
+          variant="minimal"
+          opacity={0.4}
+          color="rgba(130, 247, 179, 0.28)"
+          accentColor="rgba(130, 247, 179, 0.2)"
+          accentOpacity={0.28}
+          blendMode="screen"
+        />
+        <BackgroundShapes
+          variant="orbits"
+          opacity={0.26}
+          color="rgba(130, 247, 179, 0.5)"
+          accentColor="rgba(130, 247, 179, 0.25)"
+          accentOpacity={0.26}
+          blendMode="screen"
+        />
+      </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-navy-dark mb-6">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <h2 className="mb-6 text-4xl font-bold text-white-ds lg:text-5xl">
             Um hub projetado para{' '}
-                       <TextHighlight variant="wave" className="font-semibold text-primary-ds mr-10">
-                         eliminar
-                       </TextHighlight> 
-                       as frustrações da busca por estágio
+            <span className="relative inline-block font-semibold text-white-ds">
+              <span className="relative z-10">eliminar</span>
+              <span className="absolute -bottom-1 left-0 h-[3px] w-full bg-white/40" aria-hidden="true" />
+            </span>{' '}
+            as frustrações da busca por estágio
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-white/70">
             Criamos uma plataforma completa pensando em cada detalhe da sua experiência
           </p>
         </div>
 
         {/* Grid de Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
           {benefits.map((benefit, index) => (
             <div
               key={index}
               ref={benefit.ref}
               className={`
-                modern-card group
-                transition-all duration-700
+                group relative overflow-hidden rounded-3xl border border-white/15 bg-black-ds p-8 shadow-[0_24px_48px_rgba(0,0,0,0.45)] transition-all duration-700
                 ${benefit.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
               `}
               style={{ transitionDelay: `${benefit.delay}ms` }}
             >
               {/* Ícone */}
-              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-green-ds to-green-hover-ds mb-6 group-hover:scale-110 transition-transform duration-300">
-                <benefit.icon className="w-7 h-7 text-navy-dark" strokeWidth={2.5} />
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-green-ds to-green-hover-ds transition-transform duration-300 group-hover:scale-110">
+             <benefit.icon className="h-7 w-7 text-green-ds drop-shadow-[0_0_10px_rgba(0,0,0,0.45)]" strokeWidth={2.5} />
               </div>
 
               {/* Conteúdo */}
-              <h3 className="text-xl font-bold text-navy-dark mb-3 group-hover:text-green-ds transition-colors duration-300">
+              <h3 className="mb-3 text-xl font-bold text-white-ds transition-colors duration-300 group-hover:text-green-ds">
                 {benefit.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="leading-relaxed text-white/80">
                 {benefit.description}
               </p>
 
               {/* Decoração */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-ds/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-green-ds/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </div>
           ))}
         </div>

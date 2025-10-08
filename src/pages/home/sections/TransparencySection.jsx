@@ -43,23 +43,23 @@ export default function TransparencySection() {
   ]
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative overflow-hidden bg-white py-24">
       {/* Background Shapes */}
       <BackgroundShapes
         variant="mesh"
-        opacity={0.08}
-        color="rgba(130, 247, 179, 0.4)"
-        accentColor="rgba(200, 200, 200, 0.15)"
-        accentOpacity={0.1}
+        opacity={0.7}
+        color="rgba(130, 247, 179, 0.53)"
+        accentColor="rgba(15, 15, 15, 0.05)"
+        accentOpacity={0.7}
         blendMode="multiply"
       />
       <BackgroundShapes
         variant="orbits"
-        opacity={0.12}
-        color="rgba(130, 247, 179, 0.6)"
-        accentColor="rgba(200, 200, 200, 0.3)"
-        accentOpacity={0.1}
-        blendMode="normal"
+        opacity={0.9}
+        color="rgba(130, 247, 179, 0.2)"
+        accentColor="rgba(15, 15, 15, 0.09)"
+        accentOpacity={0.8}
+        blendMode="multiply"
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -107,8 +107,8 @@ export default function TransparencySection() {
 
               <div className="relative z-10">
                 {/* Ícone */}
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-green-ds to-green-hover-ds mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <feature.icon className="w-7 h-7 text-white" strokeWidth={2.5} />
+                        <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl border border-green-ds/40 bg-green-10 mb-6 shadow-[0_10px_25px_rgba(130,247,179,0.18)] transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                          <feature.icon className="w-7 h-7 text-green-ds" strokeWidth={2.5} />
                 </div>
 
                 {/* Conteúdo */}

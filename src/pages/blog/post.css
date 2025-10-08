@@ -65,18 +65,18 @@
   font-weight: 700; 
 }
 
-/* Links coral com underline (requirement 2.5) */
+/* Links em verde com sublinhado suave */
 .prose-markdown a {
-  color: #d97757; /* Coral principal */
+  color: var(--brand-primary);
   text-decoration: underline;
-  text-decoration-color: rgba(217, 119, 87, 0.3);
+  text-decoration-color: rgba(14, 143, 102, 0.25);
   text-underline-offset: 3px;
   font-weight: 500;
   transition: all 200ms ease;
 }
 .prose-markdown a:hover {
-  color: #e89b7d; /* Coral claro no hover */
-  text-decoration-color: #d97757;
+  color: #0c7553;
+  text-decoration-color: var(--brand-primary);
 }
 
 /* Lists - Melhor legibilidade com espaçamento adequado (requirement 2.5) */
@@ -92,13 +92,13 @@
   color: #6b6b68; /* Cinza Médio */
 }
 
-/* Blockquote com border-left coral (requirement 2.5) */
+/* Blockquote com destaque verde (requirement 2.5) */
 .prose-markdown blockquote {
   margin: 2rem 0;
   padding: 1.5rem;
   padding-left: 1.5rem;
-  border-left: 4px solid #d97757; /* Coral principal */
-  background: rgba(217, 119, 87, 0.05);
+  border-left: 4px solid var(--brand-primary);
+  background: rgba(14, 143, 102, 0.08);
   border-radius: 0.5rem;
   color: #6b6b68; /* Cinza Médio */
   font-size: clamp(1rem, 0.95rem + 0.15vw, 1.125rem);
