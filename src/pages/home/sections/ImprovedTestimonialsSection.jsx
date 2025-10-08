@@ -117,7 +117,7 @@ const ImprovedTestimonialsSection = () => {
           </p>
           <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[42px] text-gray-900 mb-4" style={{ lineHeight: '1.2' }}>
             O que Dizem Nossos{' '}
-            <span className="text-gradient-green">Estagiários</span>
+            <span className="text-green-ds">Estagiários</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Histórias reais de estudantes que transformaram suas carreiras através do EstágioAI

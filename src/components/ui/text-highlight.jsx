@@ -120,7 +120,7 @@ export const TextHighlight = ({ variant = 'underline', children, className = '' 
       <span className={`relative inline-block ${className}`}>
         <span className="relative z-10">{children}</span>
         <svg
-          className="absolute bottom-0 left-0 w-full h-2 -z-0"
+          className="absolute -bottom-1 left-0 w-full h-2 -z-0"
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >
@@ -175,7 +175,7 @@ export const TextHighlight = ({ variant = 'underline', children, className = '' 
       <span className={`relative inline-block ${className}`}>
         <span className="relative z-10">{children}</span>
         <svg
-          className="absolute bottom-0 left-0 w-full h-2 -z-0"
+          className="absolute -bottom-1 left-0 w-full h-2 -z-0"
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >
@@ -239,7 +239,7 @@ export const TextHighlight = ({ variant = 'underline', children, className = '' 
     box: (
       <span className={`relative inline-block ${className}`}>
         <span className="relative z-10 px-2 py-0.5">{children}</span>
-        <span className="absolute inset-0 border-2 border-green-ds -z-0 opacity-60 rounded" />
+        <span className="absolute -bottom-2 inset-0 border-2 border-green-ds -z-0 opacity-60 rounded" />
       </span>
     ),
 

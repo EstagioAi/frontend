@@ -97,7 +97,7 @@ const Navigation = () => {
   const resourcesDropdownRef = useRef(null)
 
   const desktopNavLinkClass =
-    'relative inline-flex items-center text-sm font-semibold tracking-tight text-gray-200 transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-ds'
+    'nav-link-underline relative inline-flex items-center text-sm font-semibold tracking-tight text-gray-200 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-ds'
   const desktopActionButtonClass =
     'inline-flex items-center justify-center h-9 px-4 text-sm font-semibold tracking-wide transition-all duration-300 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-ds'
   const desktopPillClass = [
@@ -206,7 +206,7 @@ const Navigation = () => {
               <img
                 src="/images/logos/logo-white.svg"
                 alt="EstágioAI - Logotipo"
-                className="h-auto w-auto"
+                className="h-8 w-auto"
                 width="128"
                 height="128"
                 loading="eager"

@@ -39,7 +39,7 @@ const PartnerCompaniesSection = () => {
           </p>
           <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[42px] text-gray-900 mb-4" style={{ lineHeight: '1.2' }}>
             Empresas que{' '}
-            <span className="text-gradient-green">Confiam</span>{' '}
+            <span className="text-green-ds">Confiam</span>{' '}
             no EstágioAI
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -85,7 +85,7 @@ const PartnerCompaniesSection = () => {
               key={index} 
               className={`text-center scroll-reveal stagger-${index + 1} ${logoVisible ? 'revealed' : ''}`}
             >
-              <div className="text-3xl md:text-4xl font-bold text-gradient-green mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-green-ds mb-2">
                 {stat.number}
               </div>
               <div className="text-sm md:text-base text-gray-600 font-medium">

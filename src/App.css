@@ -1559,29 +1559,41 @@
 
 .nav-link-underline {
   position: relative;
-  padding: 0.5rem 1rem;
-  color: var(--color-text-primary);
+  z-index: 0;
+  padding: 0.45rem 0.9rem;
+  color: inherit;
   text-decoration: none;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    text-shadow var(--duration-fast) var(--ease-out);
 }
 
-.nav-link-underline::after {
+.nav-link-underline::before {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background-color: var(--color-primary-green);
-  transition: width var(--duration-fast) var(--ease-out);
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(120% 160% at 50% 100%, rgba(130, 247, 179, 0.2) 0%, rgba(130, 247, 179, 0) 70%);
+  opacity: 0;
+  transform: translateY(10px) scale(0.92);
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+  z-index: -1;
 }
 
-.nav-link-underline:hover::after {
-  width: 80%;
-}
-
-.nav-link-underline:hover {
+.nav-link-underline:hover,
+.nav-link-underline:focus-visible {
   color: var(--color-primary-green);
+  transform: translateY(-1px);
+  text-shadow: 0 0 12px rgba(130, 247, 179, 0.45);
+}
+
+.nav-link-underline:hover::before,
+.nav-link-underline:focus-visible::before {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* ========================================

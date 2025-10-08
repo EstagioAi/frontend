@@ -2,6 +2,7 @@ import React from 'react'
 import { MousePointerClick, Zap, PartyPopper } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 import BackgroundShapes from '@/components/ui/background-shapes.jsx'
+import TextHighlight from '@/components/ui/text-highlight'
 
 export default function OpportunityStepsSection() {
   const { ref: refTitle, isVisible: isTitleVisible } = useScrollReveal({ threshold: 0.1 })
@@ -74,9 +75,10 @@ export default function OpportunityStepsSection() {
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-navy-dark mb-6">
             Cada oportunidade com{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-ds to-green-hover-ds">
-              clareza absoluta
+            <span className="text-green-ds">
+              clareza 
             </span>
+            {' '}absoluta
           </h2>
           <p className="text-lg text-gray-600">
             Três passos simples para transformar sua busca em conquista

@@ -2,6 +2,7 @@ import React from 'react'
 import { CheckCircle2, Users, Target, Clock, BarChart, Shield } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 import BackgroundShapes from '@/components/ui/background-shapes.jsx'
+import TextHighlight from '@/components/ui/text-highlight'
 
 export default function CompanyBenefitsSection() {
   const { ref: refTitle, isVisible: isTitleVisible } = useScrollReveal({ threshold: 0.1 })
@@ -82,9 +83,9 @@ export default function CompanyBenefitsSection() {
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-navy-dark mb-6">
             Você no radar das empresas{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-ds to-green-hover-ds">
+            <TextHighlight>
               sem esforço extra
-            </span>
+            </TextHighlight>
           </h2>
           <p className="text-lg text-gray-600">
             Empresas parceiras encontram você automaticamente quando seu perfil corresponde às necessidades delas

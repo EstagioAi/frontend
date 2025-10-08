@@ -1,72 +1,84 @@
 import React from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { ArrowRight, ShieldCheck, Headset, Rocket } from 'lucide-react'
+import BackgroundShapes from '@/components/ui/background-shapes.jsx'
 
 const highlights = [
   {
     icon: ShieldCheck,
-    title: 'Segurança e compliance',
-    description: 'LGPD e políticas internas atendidas desde o primeiro dia.'
+    label: 'Compliance',
+    text: 'LGPD e trilhas de auditoria prontas desde o primeiro dia.'
   },
   {
     icon: Headset,
-    title: 'Onboarding acompanhado',
-    description: 'Time dedicado para configurar fluxos, integrações e indicadores.'
+    label: 'Squad dedicado',
+    text: 'Onboarding guiado, integrações e rotinas acompanhadas por especialistas.'
   },
   {
     icon: Rocket,
-    title: 'Resultado em semanas',
-    description: 'Primeiras posições preenchidas já no primeiro mês de uso.'
+    label: 'Go-live rápido',
+    text: 'Resultados nas primeiras semanas com playbook testado.'
   }
 ]
 
 const CompaniesCTASection = () => {
   return (
-    <section className="relative isolate overflow-hidden bg-black-ds py-24">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(130,247,179,0.18),_transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(15,15,15,0.8),_transparent_65%)]" />
-      </div>
+    <section
+      className="relative overflow-hidden py-24"
+      style={{ backgroundImage: 'url(/images/backgrounds/background-hero.png)' }}
+    >
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/95 to-white" />
+      <BackgroundShapes
+        variant="section4"
+        opacity={0.05}
+        color="rgba(130, 247, 179, 0.24)"
+        accentColor="rgba(15, 15, 15, 0.08)"
+        accentOpacity={0.06}
+        blendMode="screen"
+      />
 
-      <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-        <div className="space-y-6">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white-ds/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-white-ds/80">
-            Vamos começar
-          </span>
-          <h2 className="text-3xl font-semibold leading-tight text-white-ds sm:text-4xl">
-            Transforme a operação de recrutamento com apoio dedicado do EstágioAI
-          </h2>
-          <p className="mx-auto max-w-2xl text-base text-white-ds/70 sm:text-lg">
-            Uma plataforma moderna, com equipe de especialistas ao lado do seu time para reduzir o tempo de contratação
-            e entregar experiências consistentes.
-          </p>
-        </div>
+      <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+        <span className="inline-flex items-center gap-2 rounded-full border border-green-ds/25 bg-green-ds/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-green-ds/90">
+          Pronto para avançar
+        </span>
+        <h2 className="mt-6 text-3xl font-semibold leading-tight text-primary-ds sm:text-4xl">
+          Acelere seu recrutamento com o ecossistema EstágioAI
+        </h2>
+        <p className="mt-4 text-base text-black-70 sm:text-lg">
+          Plataforma, especialistas e métricas alinhados para que sua empresa atraia e contrate talentos com a mesma
+          qualidade da página principal.
+        </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button
             size="lg"
-            className="h-12 rounded-lg bg-green-ds px-8 text-base font-semibold text-primary-ds transition-all duration-200 hover:bg-green-hover-ds hover:shadow-lg"
+            className="h-12 rounded-xl bg-green-ds px-8 text-base font-semibold text-black transition-all duration-200 hover:bg-green-hover-ds hover:shadow-lg"
           >
             Solicitar demonstração
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           <Button
-            variant="outline"
+            variant="secondary"
             size="lg"
-            className="h-12 rounded-lg border-2 border-white-25 bg-white-ds/5 px-8 text-base font-semibold text-white-ds transition-all duration-200 hover:bg-white-ds/10 hover:border-green-ds"
+            className="h-12 rounded-xl border border-black-10 bg-white px-8 text-base font-semibold text-primary-ds transition-all duration-200 hover:border-green-ds"
           >
             Falar com especialista
           </Button>
         </div>
 
-        <div className="mt-14 grid gap-6 text-left text-white-ds/80 sm:grid-cols-3">
-          {highlights.map(highlight => {
-            const Icon = highlight.icon
+        <div className="mt-12 grid gap-5 sm:grid-cols-3">
+          {highlights.map(item => {
+            const Icon = item.icon
             return (
-              <div key={highlight.title} className="rounded-2xl border border-white/10 bg-white-ds/5 p-6">
-                <Icon className="h-6 w-6 text-green-ds" />
-                <p className="mt-4 text-sm font-semibold text-white-ds">{highlight.title}</p>
-                <p className="mt-2 text-sm text-white-ds/70">{highlight.description}</p>
+              <div
+                key={item.label}
+                className="flex flex-col items-center gap-3 rounded-3xl border border-black-5 bg-white/95 p-6 text-sm text-black-70 shadow-[0_12px_28px_rgba(12,17,35,0.08)]"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-green-ds/30 bg-green-ds/10 text-green-ds">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <p className="text-base font-semibold text-primary-ds">{item.label}</p>
+                <p className="text-center leading-relaxed">{item.text}</p>
               </div>
             )
           })}

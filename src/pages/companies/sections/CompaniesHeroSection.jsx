@@ -1,158 +1,126 @@
 import React from 'react'
 import { Button } from '@/components/ui/button.jsx'
-import { Building2, ArrowRight, ShieldCheck, Sparkles, CheckCircle2, Clock4 } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Sparkles } from 'lucide-react'
+import BackgroundShapes from '@/components/ui/background-shapes.jsx'
 
-const highlightMetrics = [
-  { label: 'Tempo médio de contratação', value: '-62%', accent: true },
-  { label: 'Candidatos qualificados', value: '+3.4x' },
-  { label: 'Satisfação dos recrutadores', value: '97%' }
+const heroMetrics = [
+  {
+    label: 'Tempo médio de contratação',
+    value: '18 dias'
+  },
+  {
+    label: 'Gestores satisfeitos',
+    value: '97%'
+  }
 ]
 
-const trustLogos = ['Amazon', 'Google', 'Microsoft', 'Meta', 'Nubank', 'Stone']
+const trustedBrands = [
+  { name: 'Amazon', logo: '/images/companies/amazon.webp' },
+  { name: 'Google', logo: '/images/companies/google.webp' },
+  { name: 'IBM', logo: '/images/companies/ibm.webp' },
+  { name: 'Meta', logo: '/images/companies/meta.webp' }
+]
 
 const CompaniesHeroSection = () => {
   return (
-    <section className="relative overflow-hidden pt-20 pb-20 min-h-[85vh] flex items-start bg-primary-ds">
-      {/* Background com paleta verde/preto */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* Blob verde - canto superior esquerdo */}
-        <div
-          className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full opacity-10"
-          style={{
-            background: 'radial-gradient(circle, rgba(130, 247, 179, 0.3) 0%, rgba(130, 247, 179, 0.15) 50%, transparent 70%)',
-            filter: 'blur(80px)',
-          }}
-        />
+    <section
+      className="relative overflow-hidden bg-primary-ds pt-28 pb-24"
+      style={{ backgroundImage: 'url(/images/backgrounds/background-hero.png)' }}
+    >
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/80 via-white/85 to-white" />
+      <BackgroundShapes
+        variant="mesh"
+        opacity={0.08}
+        color="rgba(130, 247, 179, 0.35)"
+        accentColor="rgba(15, 15, 15, 0.12)"
+        accentOpacity={0.1}
+        blendMode="screen"
+      />
 
-        {/* Elementos decorativos minimalistas */}
-        <div className="absolute top-32 left-16 z-10">
-          <div className="w-16 h-0.5 bg-gradient-to-r from-[#82f7b3]/40 to-transparent" />
-          <div className="w-8 h-0.5 mt-2 ml-4 bg-gradient-to-r from-[#82f7b3]/25 to-transparent" />
+      <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] lg:items-center lg:gap-20 lg:px-8">
+        <div className="max-w-xl space-y-8">
+          <div className="inline-flex items-center gap-2 rounded-full border border-black-10 bg-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-black-60 shadow-sm">
+            <ShieldCheck className="h-4 w-4 text-green-ds" />
+            Plataforma para empresas
+          </div>
+
+          <header className="space-y-5">
+            <h1 className="text-4xl font-semibold leading-[1.05] text-primary-ds sm:text-5xl">
+              A forma mais fácil de transformar recrutamento em experiência premium.
+            </h1>
+            <p className="text-lg leading-relaxed text-black-70">
+              Operação inteira centralizada, métricas atualizadas e talentos prontos em uma jornada fluida para gestores e
+              candidatos.
+            </p>
+          </header>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Button
+              variant="primary"
+              size="lg"
+              className="group inline-flex items-center gap-2 rounded-xl bg-black-ds px-6 py-3 text-sm font-semibold text-white-ds transition-all duration-200 hover:bg-black-hover-ds hover:shadow-lg"
+            >
+              Solicitar demonstração
+              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              className="inline-flex items-center gap-2 rounded-xl border border-green-ds/40 bg-white px-6 py-3 text-sm font-semibold text-primary-ds transition-all duration-200 hover:border-green-ds"
+            >
+              Conhecer funcionalidades
+            </Button>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-6 pt-2">
+            {heroMetrics.map(metric => (
+              <div key={metric.label} className="rounded-2xl border border-black-5 bg-white px-5 py-4 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black-40">{metric.label}</p>
+                <p className="mt-2 text-2xl font-semibold text-primary-ds">{metric.value}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Elemento decorativo - círculo sutil */}
-        <div className="absolute top-1/3 right-32 z-10">
-          <div className="w-20 h-20 rounded-full border-[3px] border-green-ds opacity-30" />
-        </div>
+        <aside className="relative hidden w-full lg:flex lg:justify-end">
+          <div className="relative w-full max-w-sm rounded-[32px] border border-black-8 bg-black-ds p-8 shadow-[0_32px_64px_rgba(6,10,30,0.24)]">
+            <div className="absolute -top-10 -left-10 h-44 w-44 rounded-full bg-green-ds/60 blur-2xl" aria-hidden="true" />
+            <div className="absolute -bottom-16 -right-8 h-48 w-48 rounded-full bg-green-ds/40 blur-3xl" aria-hidden="true" />
+            <div className="relative flex flex-col gap-6 text-white/90">
+              <div className="text-left">
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-white/60">Painel executivo</p>
+                <p className="mt-3 text-2xl font-semibold text-white">Contratações em tempo real</p>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">Vagas ativas</p>
+                  <div className="mt-2 flex items-baseline justify-between text-white">
+                    <span className="text-3xl font-semibold">32</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-ds/15 px-3 py-1 text-[11px] font-semibold text-green-ds">
+                      <Sparkles className="h-4 w-4" /> SLA 24h
+                    </span>
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">Talentos shortlistados</p>
+                  <p className="mt-2 text-3xl font-semibold text-white">146</p>
+                  <p className="mt-1 text-xs text-white/70">Score médio 82</p>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/8 p-4 text-sm text-white/80">
+                Experiência para gestores com aprovações em um clique e histórico completo de feedbacks.
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-2xl space-y-10 lg:pt-8">
-            {/* Badge minimalista - border verde, background branco */}
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-green-ds bg-green-ds/10 shadow-sm transition-all hover:shadow-md">
-              <div className="w-2 h-2 rounded-full bg-green-ds animate-pulse" />
-              <span className="font-medium text-sm text-primary-ds">Plataforma para empresas</span>
-            </div>
-
-            <div className="space-y-6">
-              <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl leading-[1.1]">
-                <span className="block text-primary-ds">Contrate os</span>
-                <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#82f7b3] to-[#6ee5a1]">
-                  Melhores Talentos
-                </span>
-                <span className="block mt-2 text-primary-ds">Universitários</span>
-              </h1>
-              <p className="text-lg leading-relaxed text-black-70">
-                Centralize a operação completa de recrutamento em um hub inteligente, reduza o tempo de contratação e entregue experiência premium para candidatos e gestores.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-6 text-sm text-black-50">
-              <span className="inline-flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-green-ds" />
-                Compliance e LGPD by design
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <Clock4 className="h-4 w-4 text-green-ds" />
-                Onboarding em menos de 10 dias
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-green-ds" />
-                Suporte dedicado enterprise
-              </span>
-            </div>
-
-            <div className="flex flex-col gap-4 sm:flex-row pt-2">
-              <Button variant="primary" size="lg" className="group inline-flex items-center gap-2 rounded-lg bg-black-ds px-6 py-3 text-sm font-bold text-white-ds transition-all duration-200 hover:bg-black-hover-ds hover:shadow-lg">
-                Solicitar demonstração
-                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                className="inline-flex items-center gap-2 rounded-lg bg-green-ds px-6 py-3 text-sm font-bold text-primary-ds transition-all duration-200 hover:bg-green-hover-ds hover:shadow-lg"
-              >
-                Conversar com especialista
-              </Button>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-3 pt-4">
-              {highlightMetrics.map(({ label, value, accent }) => (
-                <div
-                  key={label}
-                  className="rounded-2xl border-2 border-black-10 bg-white-ds p-5 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-green-ds hover:shadow-xl"
-                >
-                  <div className="text-xs uppercase tracking-[0.2em] text-black-50">{label}</div>
-                  <div className="mt-2 text-2xl font-bold" style={{ color: accent ? '#82f7b3' : '#0f0f0f' }}>{value}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="w-full max-w-md lg:self-stretch lg:pt-8">
-            <div className="rounded-2xl border-2 border-black-10 bg-white-ds p-6 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-green-ds hover:shadow-xl">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-ds/10">
-                  <Building2 className="h-5 w-5 text-green-ds" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-black-50">Hub Corporativo</p>
-                  <p className="text-lg font-semibold text-primary-ds">Operação integrada EstágioAI</p>
-                </div>
-              </div>
-
-              <ul className="space-y-4 text-sm">
-                <li className="flex items-start gap-3 rounded-2xl border-2 border-black-10 bg-primary-ds p-4">
-                  <div className="mt-0.5 h-2.5 w-2.5 rounded-full bg-green-ds"></div>
-                  <div>
-                    <p className="font-semibold text-primary-ds">Pipeline centralizado</p>
-                    <p className="text-black-70">Gestão de vagas, etapas e stakeholders em uma visão única</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 rounded-2xl border-2 border-black-10 bg-primary-ds p-4">
-                  <div className="mt-0.5 h-2.5 w-2.5 rounded-full bg-green-ds"></div>
-                  <div>
-                    <p className="font-semibold text-primary-ds">Match inteligente</p>
-                    <p className="text-black-70">Recomendações automáticas alimentadas por feedback real</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 rounded-2xl border-2 border-black-10 bg-primary-ds p-4">
-                  <div className="mt-0.5 h-2.5 w-2.5 rounded-full bg-green-ds"></div>
-                  <div>
-                    <p className="font-semibold text-primary-ds">Experiência premium</p>
-                    <p className="text-black-70">Comunicação contínua com candidatos via um único canal</p>
-                  </div>
-                </li>
-              </ul>
-
-              <div className="mt-6 rounded-2xl border-2 border-green-ds bg-green-ds/10 p-4 text-sm">
-                <p className="font-semibold text-green-ds">Deploy rápido</p>
-                <p className="mt-1 text-black-70">Integração com ATS, SSO e governança de acessos em dias, não meses.</p>
-              </div>
-            </div>
-
-            <div className="mt-10 flex flex-wrap items-center gap-4 text-sm">
-              <span className="text-xs uppercase tracking-[0.2em] text-black-50">Empresas que aceleram com EstágioAI</span>
-              <div className="flex w-full flex-wrap gap-3 sm:w-auto">
-                {trustLogos.map((logo) => (
-                  <div key={logo} className="flex items-center justify-center rounded-xl border-2 border-black-10 bg-white-ds px-4 py-2 text-xs font-semibold shadow-sm text-black-50">
-                    {logo}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      <div className="relative mx-auto mt-16 flex w-full max-w-7xl flex-col gap-6 px-4 sm:px-6 lg:px-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.32em] text-black-40">Times que confiam na EstágioAI</p>
+        <div className="flex flex-wrap items-center gap-8 opacity-80">
+          {trustedBrands.map(brand => (
+            <img key={brand.name} src={brand.logo} alt={brand.name} className="h-9 w-auto object-contain" loading="lazy" />
+          ))}
         </div>
       </div>
     </section>

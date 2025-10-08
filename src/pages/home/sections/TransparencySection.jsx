@@ -2,6 +2,7 @@ import React from 'react'
 import { Eye, Bell, TrendingUp, Shield } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 import BackgroundShapes from '@/components/ui/background-shapes.jsx'
+import TextHighlight from '@/components/ui/text-highlight'
 
 export default function TransparencySection() {
   const { ref: refTitle, isVisible: isTitleVisible } = useScrollReveal({ threshold: 0.1 })
@@ -73,9 +74,10 @@ export default function TransparencySection() {
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-navy-dark mb-6">
             Transparência em{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-ds to-green-hover-ds">
+            <TextHighlight variant='box'>
               cada etapa
-            </span>{' '}
+            </TextHighlight>{' '}
+            {' '}
             do processo
           </h2>
           <p className="text-lg text-gray-700">
